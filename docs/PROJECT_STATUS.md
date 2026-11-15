@@ -6,11 +6,11 @@
 
 | Area | Status |
 |---|---|
-| Stage | **Stage 4 started: Hole 2 flyover prototype v0.1 built and under owner review** (private page). Renderer, distance module, green view port and tests exist. Process documented |
+| Stage | **Stage 4: Hole 2 visual prototype V2 (v0.2) built, awaiting owner review** (new private page; v0.1 page kept). Real lidar terrain, illustrative woods from 2023 imagery, 3D camera, Green tee default. Renderer, terrain tool, distance module, green view port and tests exist. Process documented |
 | Production app | **V2.3.1 is the protected production baseline** (owner, 15 Nov). Exact V2.2.1 is archived at …/pocasset_caddie/v2.2.1/. V3 never modifies production. The only authorized production change is the established daily pin-sheet update |
 | V3 location | Claude's workspace, local git repository (no remote). **Not yet on the Mac:** `Documents/Pocasset_Caddie_V3` does not exist, and Claude can only reach `Documents/Pocasset AI Caddie` (see decision 6) |
 | GitHub / website | None created (needs approval) |
-| Hole 2 | In development: A in progress (no trees/elevation), B pending (outline check), C awaiting owner review, D/E automated parts pass, F pending |
+| Hole 2 | In development: A done for terrain and woods (illustrative); Green tee is a **candidate**; B preliminary (2023 imagery + 2021 lidar agree, not verification); C awaiting review of V2; D/E automated parts pass (vs V2.3.1 and V2.2.1); F pending |
 | Holes 1, 3–18 | Awaiting data (not started, by design) |
 
 ## Done (15 Nov 2026)
@@ -43,23 +43,31 @@
   - the renderer, the overlay-alignment test
   - the V3 app (GPS, flyover view, green view port, scoring port, storage isolation test)
 
-## Hole 2 prototype (15 Nov)
+## Hole 2 visual prototype V2 (15 Nov, later)
+- **Review page:** new private claude.ai page "Pocasset V3 Hole 2 · V2"; v0.1 page unchanged for comparison.
+- **Elevation:** 2021 USGS 3DEP QL1 lidar for Hole 2's area, locked in `data/sources/elevation/` (DATA_SOURCES.md §2b). Ground drawn at 1.5× height (stated); distances stay flat GPS distances.
+- **Woods:** canopy from NAIP imagery of 22 Aug 2023, locked in `data/sources/canopy/` (§2c). Drawn only where canopy was seen, never on playing surfaces; trees themselves are illustrative.
+- **Green tee:** H02-TE-03 re-assigned from the source's Hole 4 (`source_corrections.json`): 367 yd vs card 368, on a built platform in the 2021 lidar. **Candidate** until confirmed (imagery after the rebuild or on-course). Bronze candidate likewise. Silver still unmapped.
+- **Views:** Tee view from behind the Green tee; Approach view ~110 yd out with pond, bunkers and green. Overlays projected in 3D on the terrain.
+- **Tests:** alignment (material IDs + colours) and prototype tests (F/C/B vs V2.3.1 and V2.2.1, projection vs renderer, tap round trip). See CHANGELOG.
+
+## Hole 2 prototype v0.1 (15 Nov)
 - **Review page:** private claude.ai page "Pocasset V3 Hole 2".
 - **Views:** Tee view and Approach view with live labels; GREEN tab shows the approved green unchanged.
 - **Simulated positions:** Gold and Blue tees, plus 250/200/150/100/60 yd on the line. Tap the picture to measure a spot.
 - **Process doc:** rendering process in docs/RENDERING_STANDARD.md (draft until the owner approves Hole 2).
 
 ## Waiting on the owner
-- Visual review of the Hole 2 prototype (checkpoint C): what to change in the look.
-- Approval to use the 2021 QL1 lidar for ground shape (DATA_SOURCES.md §2a). Download into the V3 folder only.
+- Visual review of Hole 2 V2 (checkpoint C): what to change in the look (trees, colours, camera height, exaggeration 1.5×).
+- Confirm the Green tee position on the course (or point to post-rebuild imagery), and whether the woods near Hole 2 still look like 2023.
+- ~~Approval to use the 2021 QL1 lidar~~ (approved and done 15 Nov).
 - Folder access to `Documents/Pocasset_Caddie_V3`. Then Claude transfers the project, verifies every file, and checks all 112 approved green checksums on the Mac.
 - Hole 2 outline check (checkpoint B) with `checks/hole02_check.kml`.
 
 ## Next steps (in order)
-1. Owner decisions below (especially 1, 2, 3, 6).
-2. Hole 2 imagery check with `data/holes/hole02/checks/hole02_check.kml` → `verification.json` (checkpoint B).
-3. Lidar download for Hole 2 (owner, guided) → terrain + tree tools → checkpoint A complete.
-4. Shared style file + renderer → Hole 2 Tee and Approach views + alignment test → owner review (C).
+1. Owner review of Hole 2 V2 (C) → style/camera changes → re-render (no data changes needed).
+2. Hole 2 verification (B) with post-rebuild imagery or an on-course walk → `verification.json`; Green tee candidate → confirmed.
+3. ~~Lidar for Hole 2~~ (done) · ~~terrain + woods~~ (done; woods illustrative) · ~~renderer + alignment test~~ (v0.2 done).
 5. V3 app shell: storage isolation, GPS (V2.3.1 logic), green view port, simulated GPS → tests (D, E).
 6. With approval: create the `pocasset-caddie-v3` repository + Pages → iPhone test (F) → promote Hole 2 v1.
 7. Freeze HOLE_BUILD_STANDARD v1.0 from what Hole 2 taught us → then other holes.

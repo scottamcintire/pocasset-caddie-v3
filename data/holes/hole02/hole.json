@@ -66,10 +66,11 @@
  },
  "missing": {
   "not_in_source": [],
-  "not_yet_sourced": [
-   "trees",
-   "terrain"
-  ]
+  "not_yet_sourced": []
+ },
+ "layers": {
+  "terrain": "lidar (flown 20 Mar - 24 Apr 2021 (leaf-off))",
+  "trees": "illustrative woods from imagery canopy (not surveyed trees)"
  },
  "unverified_features": 15,
  "green_asset": {

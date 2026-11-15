@@ -178,8 +178,51 @@
     return [[A / det, -(b * i - c * h) / det, (b * f - c * e) / det], [B / det, (a * i - c * g) / det, -(a * f - c * d) / det], [C / det, -(a * h - b * g) / det, (a * e - b * d) / det]];
   }
 
+  /* Terrain (renderer v0.2+): bilinear heights from terrain.json (row i = v0 + i*cell, column j = u0 + j*cell, decimetres).
+     Same formula as tools/render_flyover.py TerrainLookup. Used only to place overlays on the picture, never for distances. */
+  function Terrain(t) {
+    this.t = t; this.z = t.z_dm;
+  }
+  Terrain.prototype.h = function (u, v) {
+    var t = this.t, x = (u - t.u0) / t.cell_m, y = (v - t.v0) / t.cell_m;
+    x = Math.max(0, Math.min(t.cols - 1.0001, x)); y = Math.max(0, Math.min(t.rows - 1.0001, y));
+    var i = Math.floor(y), j = Math.floor(x), fx = x - j, fy = y - i, Z = this.z;
+    return ((Z[i][j] * (1 - fx) + Z[i][j + 1] * fx) * (1 - fy) + (Z[i + 1][j] * (1 - fx) + Z[i + 1][j + 1] * fx) * fy) / 10;
+  };
+  /* One rendered view: projection with the stored 3x4 camera matrix + height model, and the inverse (tap -> ground)
+     by marching the camera ray over the terrain. */
+  function View(pj, terrain) {
+    this.pj = pj; this.M = pj.camera_matrix; this.T = terrain;
+    this.zref = pj.height_model.z_ref_m; this.ex = pj.height_model.vertical_exaggeration;
+    var M = this.M, A = [[M[0][0], M[0][1], M[0][2]], [M[1][0], M[1][1], M[1][2]], [M[2][0], M[2][1], M[2][2]]];
+    this.Ai = invert3(A);
+    var p4 = [M[0][3], M[1][3], M[2][3]], Ai = this.Ai;
+    this.C = [0, 1, 2].map(function (r) { return -(Ai[r][0] * p4[0] + Ai[r][1] * p4[1] + Ai[r][2] * p4[2]); });
+  }
+  View.prototype.z = function (u, v) { return (this.T.h(u, v) - this.zref) * this.ex; };
+  View.prototype.project = function (u, v) {
+    var M = this.M, z = this.z(u, v);
+    var w = M[2][0] * u + M[2][1] * v + M[2][2] * z + M[2][3];
+    if (w <= 1e-9) return null;
+    return [(M[0][0] * u + M[0][1] * v + M[0][2] * z + M[0][3]) / w, (M[1][0] * u + M[1][1] * v + M[1][2] * z + M[1][3]) / w];
+  };
+  View.prototype.unproject = function (x, y) {       // image pixel -> ground (u, v) on the terrain, or null (sky)
+    var Ai = this.Ai, C = this.C;
+    var d = [0, 1, 2].map(function (r) { return Ai[r][0] * x + Ai[r][1] * y + Ai[r][2]; });
+    var n = Math.hypot(d[0], d[1], d[2]); d = d.map(function (q) { return q / n; });
+    if (d[2] >= -1e-6) return null;
+    var self = this, step = 1.0, t = 0, prev = 0, hit = null;
+    function below(tt) { var u = C[0] + d[0] * tt, v = C[1] + d[1] * tt; return C[2] + d[2] * tt <= self.z(u, v); }
+    for (var k = 0; k < 4000; k++) { t += step; if (below(t)) { hit = t; break; } prev = t; }
+    if (hit == null) return null;
+    var lo = prev, hi = hit;
+    for (var b = 0; b < 30; b++) { var mid = (lo + hi) / 2; if (below(mid)) hi = mid; else lo = mid; }
+    t = (lo + hi) / 2;
+    return [C[0] + d[0] * t, C[1] + d[1] * t];
+  };
+
   var api = { R: R, YD: YD, Frame: Frame, Hole: Hole, prodGreenExtents: prodGreenExtents, rayExtents: rayExtents, lineCrossings: lineCrossings, centroid: centroid,
-              alongLine: alongLine, pointAlong: pointAlong, project: project, invert3: invert3, dist: dist,
+              alongLine: alongLine, pointAlong: pointAlong, project: project, invert3: invert3, dist: dist, Terrain: Terrain, View: View,
               yd: function (m) { return m == null ? null : Math.round(m / YD); } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.PGeo = api;
 })(this);

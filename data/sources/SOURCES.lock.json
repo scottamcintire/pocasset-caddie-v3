@@ -9,6 +9,84 @@
    "copied_from": "Pocasset_AI_Master/02_course_sources/geojson/pocaset-GEO.json (same SHA-256 as the master checksum list)",
    "licence": "ODbL-1.0 \u00a9 OpenStreetMap contributors",
    "added": "2026-11-15"
+  },
+  {
+   "file": "elevation/usgs3dep_2021_pocasset_hole02_2m.dm16.gz",
+   "role": "elevation",
+   "sha256": "d357299c592729dd42ba5c5344fbabb924cc916fbae00be2941d3315dbe1c35c",
+   "origin": "USGS 3D Elevation Program (3DEP) 1 m bare-earth DEM, project MA_CentralEastern_2021_B21, tile USGS_1M_19_x36y462, served by the 3DEPElevation ImageServer (raster OBJECTID 70295, locked mosaic rule). Exported at native 1 m on EPSG:6348, then block-averaged to 2 m and encoded in the browser for transfer (docs/DATA_SOURCES.md \u00a72b).",
+   "request": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/exportImage?f=image&bbox=365455,4616274,366071,4617118&bboxSR=6348&imageSR=6348&size=616,844&format=tiff&pixelType=F32&noData=-9999&interpolation=RSP_NearestNeighbor&compression=None&mosaicRule={\"mosaicMethod\":\"esriMosaicLockRaster\",\"lockRasterIds\":[70295]}",
+   "native_export": {
+    "format": "TIFF float32, 616x844 at 1 m",
+    "bytes": 2295241,
+    "sha256": "54d790254524342ccaf09f5982890256113a078e59bf03f53f315af67b392d95",
+    "z_min_m": 1.5,
+    "z_max_m": 21.43,
+    "nodata_cells": 0
+   },
+   "transfer": {
+    "encoding": "2x2 block mean -> decimetres -> int16 row-delta -> gzip -> base64",
+    "base64_sha256": "4209e07d70038ffbfa74ac9157946cbfed2744fa674d5dfff24ca2ca2085958c",
+    "base64_chars": 69068,
+    "quantisation": "0.1 m (half the lidar's own 10 cm RMSE spec)"
+   },
+   "grid": {
+    "crs": "EPSG:6348 NAD83(2011) / UTM zone 19N",
+    "vertical": "NAVD88 (GEOID18), metres",
+    "ul_easting": 365455.0,
+    "ul_northing": 4617118.0,
+    "cell_m": 2.0,
+    "cols": 308,
+    "rows": 422,
+    "row_order": "north to south",
+    "sample": "cell centre = mean of the 4 native 1 m cells"
+   },
+   "survey": {
+    "dates": "flown 20 Mar - 24 Apr 2021 (leaf-off)",
+    "quality_level": "QL1 (USGS Lidar Base Specification: vertical RMSEz <= 10 cm in non-vegetated ground; >= 8 points/m2)",
+    "vendor": "NV5 Geospatial"
+   },
+   "licence": "US Government work (USGS), public domain; no restrictions on reuse. Credit: U.S. Geological Survey, 3D Elevation Program.",
+   "limitations": "2021 ground, before the course's bunker and tee rebuild: use for general landform only, never for bunker/tee shapes. Hydro-flattened water. Bare earth (no trees/buildings). NAD83(2011) vs WGS84 course outlines ~1-1.5 m apart (not corrected, below grid size).",
+   "added": "2026-11-15",
+   "coverage_lonlat_inner_box": {
+    "west": -70.61666717,
+    "east": -70.6094577,
+    "south": 41.6869803,
+    "north": 41.6944754,
+    "note": "largest lon/lat box fully inside the UTM grid (conservative); used by pcv3.py to decide whether a hole is covered"
+   }
+  },
+  {
+   "file": "canopy/naip2023_canopy_pocasset_hole02_2m.u8.gz",
+   "role": "tree_canopy",
+   "sha256": "791f5d612d369e63a89609197eca2e2dcfaac7375354672c5a89775f41e79f86",
+   "origin": "DERIVED: tree-canopy mask classified from USDA NAIP 4-band orthoimagery (tiles m_4107020_nw_19_030_20230822 and m_4107020_sw_19_030_20230822, flown 22 Aug 2023, 0.3 m, leaf-on) via the USGS NAIPPlus ImageServer (lockRasterIds 72824, 72826), resampled to 1 m on the same EPSG:6348 grid as the elevation source. Classifier: tools/canopy_browser.js (5x5 m mean NDVI > 0.19, brightness texture sd > 14, mean brightness < 140; 7x7 m majority), then 2 m cells = count of canopy 1 m cells (0-4).",
+   "grid": {
+    "crs": "EPSG:6348 NAD83(2011) / UTM zone 19N",
+    "ul_easting": 365455.0,
+    "ul_northing": 4617118.0,
+    "cell_m": 2.0,
+    "cols": 308,
+    "rows": 422,
+    "row_order": "north to south",
+    "values": "0-4 = number of the cell's four 1 m sub-cells classified as canopy"
+   },
+   "transfer": {
+    "encoding": "uint8 -> gzip -> base64",
+    "base64_sha256": "89d02bc0b6f123447199ae2e286a1ef44823bd57ee2e68c3b708834200eae967"
+   },
+   "status": "ILLUSTRATIVE (approximate wooded areas). Not individual trees; not field-verified. 2023 imagery predates the course restoration, so tree removal since 2023 is not reflected. Automated classification also catches some dense shrubs and lawns with tree shadows.",
+   "cross_check": "OpenStreetMap natural=wood polygons in the same area (ways 1241472152, 1241472153, 1241472154; relation 19103516; Overpass data as of 2026-07-28) were found and agree in general location; not copied.",
+   "licence": "NAIP imagery: USDA Farm Service Agency, public domain. Derived mask: project data.",
+   "added": "2026-11-15",
+   "coverage_lonlat_inner_box": {
+    "west": -70.61666717,
+    "east": -70.6094577,
+    "south": 41.6869803,
+    "north": 41.6944754,
+    "note": "largest lon/lat box fully inside the UTM grid (conservative); used by pcv3.py to decide whether a hole is covered"
+   }
   }
  ]
 }

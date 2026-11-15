@@ -53,7 +53,7 @@
 |---|---|
 | Green front / center / back | Production's `intersectionExtents`, ported line for line, using production's own green-centre point per hole (`course.json → production_green_center`). Tested identical to the production page at 60 positions on Hole 2 |
 | Flag | Today's pin (EZLocator numbers) → approved pin model → hole frame → distance. Same as V2.3.1 |
-| Hazard reach / carry | **Side hazard:** along the line from the player through the hazard's centre, where it enters (reach) and leaves (carry). **Hazard that crosses the playing line** (`position: across`, e.g. Hole 2 pond): along the playing line ahead of the player, first and last crossing |
+| Hazard reach / carry | **Side hazard:** along the line from the player through the hazard's centre, where it enters (reach) and leaves (carry). **Hazard that crosses the playing line** (`position: across`, e.g. Hole 2 pond): along the golfer's line of play from where they stand (player → remaining dogleg points → green centre), first and last crossing. Same rule in `app/geo.js` `Hole.route` and `pcv3.py` `play_route` (aligned 15 Nov: the build check had projected the tee onto the mapped line, 2 yd different for tees 23 m off the line) |
 | Which hazards are shown | **[DECISION]** proposed: ahead of the player (along the playing line), within ±40 yd of the line to the current target (green, or the dogleg point while short of it), nearest 4 |
 | Left / right | `position` from the data (front-left of green, L/R of line, across) |
 | Uncertainty | The phone's accuracy figure is shown. Numbers are dimmed when accuracy is worse than ±10 yd. **[DECISION]** optional carry safety margin (e.g. "+5 for GPS"). Map error for verified features about ±1–2 yd; unverified features are labelled as such |

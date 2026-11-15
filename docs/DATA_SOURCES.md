@@ -57,7 +57,59 @@ See GREEN_ASSET_PROTECTION.md. Project assets derived from GolfLogix heat maps; 
 2. Clip them to the hole.
 3. Use them for the render's height grid, replacing the cosmetic flat ground. The positions of features do not change: outlines stay where the coordinates put them.
 
-**Status:** reported for approval. Nothing downloaded.
+**Status (updated 15 Nov 2026):** approved by the owner and obtained. See §2b. The research above is kept as written.
+
+## 2b. Elevation: 2021 USGS lidar (in use)
+
+| | |
+|---|---|
+| Dataset | USGS 3D Elevation Program (3DEP) 1 m bare-earth DEM, project **MA_CentralEastern_2021_B21** (same lidar collection as MassGIS "Latest and Best"). Tile `USGS_1M_19_x36y462` |
+| Survey date | Flown **20 Mar – 24 Apr 2021** (leaf-off spring) |
+| Quality / accuracy | **QL1** under the USGS Lidar Base Specification: vertical RMSEz ≤ 10 cm on open ground (non-vegetated vertical accuracy ≤ 19.6 cm at 95%), ≥ 8 points/m². Horizontal accuracy is reported per project in its metadata (not retrieved here; for QL1 projects it is typically under 1 m). Our own check: every Hole 2 tee is flat to ≤ 0.15 m and the pond outline sits on the flat water surface (sd 0.07 m), so registration with the course map is within the 2 m grid |
+| Coordinate system | Horizontal **EPSG:6348**, NAD83(2011) / UTM zone 19N, metres. Vertical **NAVD88 (GEOID18)**, metres |
+| Resolution | Native 1 m. Stored in V3 at **2 m** (mean of 2×2 native cells), heights to 0.1 m. Good for landform; not for small features |
+| Coverage in V3 | 616 × 844 m around Hole 2 and its neighbours (UTM E 365455–366071, N 4616274–4617118). Elevations 1.5–21.4 m. **Other holes need their own extract** (HOLE_BUILD_STANDARD.md §5a) |
+| How obtained | The Mac's built-in browser (the cloud workspace cannot reach USGS): `exportImage` on the USGS 3DEPElevation ImageServer, locked to raster 70295, 616 × 844 px at 1 m, float32 TIFF (2,295,241 bytes, SHA-256 54d79025…). Encoded in the browser (2 m mean → decimetres → row-differences → gzip → base64), carried over in two parts, SHA-256 of the transfer text checked (4209e07d…) and decoded. Exact request in `SOURCES.lock.json` |
+| File | `data/sources/elevation/usgs3dep_2021_pocasset_hole02_2m.dm16.gz` (51,799 bytes; format in `tools/terrain.py`), checksum-locked |
+| Licence | US Government work (USGS), public domain. Credit: U.S. Geological Survey, 3D Elevation Program |
+| Limitations | **Before the restoration:** shows 2021 ground; the rebuilt bunkers and tees may differ. Used for the general shape of the land only; bunker and tee shapes come from the outlines. Water is hydro-flattened. Bare earth (no trees or buildings). Course outlines are WGS84 (OSM) and the lidar NAD83(2011); about 1–1.5 m apart here, not corrected (below the grid size). **Never used for distances or for the approved greens** |
+| Derived | `data/holes/hole02/terrain.json`: 2 m grid in the hole frame (`tools/terrain.py grid`). `checks/terrain_check.md` and `terrain_registration.png`: QA |
+
+## 2c. Woods: tree canopy from 2023 aerial imagery (in use, ILLUSTRATIVE)
+
+**Sources investigated:**
+
+| Source | Result |
+|---|---|
+| OpenStreetMap (`natural=wood`, `natural=tree`, `landuse=forest`) via Overpass | 3 wood polygons + 1 wood multipolygon near the course (ways 1241472152/53/54, relation 19103516; same mapper as the course). No individual trees. Useful cross-check, not complete |
+| Lidar canopy (first-return surface minus ground) | Best in principle, but 3DEP serves only bare earth as an image service; the point cloud is LAZ (cannot be decoded in the browser bridge). Also 2021, before any tree work. Not used |
+| MassGIS 2016 Land Cover (1 m) | Older than the imagery below. Not used |
+| **USDA NAIP aerial imagery, 22 Aug 2023, 0.3 m, colour + infrared** (USGS NAIPPlus ImageServer, tiles m_4107020_nw/sw_19_030_20230822) | **Used.** Newest public imagery over the course; leaf-on with an infrared band |
+
+**Method** (`tools/canopy_browser.js`, run in the Mac's browser): imagery resampled to 1 m on the lidar grid; a pixel is canopy if, averaged over 5 × 5 m, vegetation index NDVI > 0.19, brightness texture > 14 and brightness < 140 (tree crowns are vegetated, textured and darker; mown grass is smooth); 7 × 7 m majority filter; stored as 2 m cells counting canopy 1 m cells (0–4). File `data/sources/canopy/naip2023_canopy_pocasset_hole02_2m.u8.gz`, checksum-locked.
+
+**Visual check:** the mask covers the woods along the railway, the wooded strips between holes and the clumps right of Hole 2's fairway, and leaves fairways, greens and rough clear (owner can re-check in the 2023 imagery).
+
+**Rules for use:**
+1. Woods are drawn only where this grid shows canopy, and **never on a mapped playing surface + 2 m**.
+2. Individual crowns, tree height (13 m nominal), shapes and colours are **illustrative**, and the app says so.
+3. The imagery is from 2023, before the restoration; trees removed since then may still be drawn. If the owner reports a cleared area, remove it with a documented correction (never by editing the grid).
+4. It is not a hazard and is never used for distances or yardage advice.
+
+## 2d. Preliminary imagery and lidar check of Hole 2 (15 Nov 2026), NOT verification
+
+Outlines drawn over the 2023 NAIP image (0.3 m) and compared with the 2021 lidar:
+
+| Feature | 2023 imagery | 2021 lidar | Note |
+|---|---|---|---|
+| Green H02-GR-01 | Matches the mown green | flat (sd 0.08 m) | |
+| Bunkers H02-BK-01, BK-02 | Match sand areas in 2023 | — | Pre-restoration image; rebuilt shapes may differ |
+| Pond H02-WA-01 | Matches the water | flat water surface (sd 0.07 m) | |
+| Tees TE-01 (Gold), TE-02 (Blue) | Match visible tee boxes | flat platforms | |
+| **TE-03 Green/White candidate** | Image too soft to see the box edges | **flat platform (sd 0.06 m), 0.35 m above surrounding ground** | Distance 367 yd vs card 368. Still a **candidate**: needs on-course or current-imagery confirmation |
+| TE-04 Bronze candidate | Image too soft | flat platform (sd 0.06 m), 0.32 m raised | 344 yd vs card 349 |
+
+These checks raise confidence but do not satisfy HOLE_VALIDATION.md: imagery predates the rebuild. `verification.json` is unchanged (owner's record).
 
 ## 3. Checked and not used
 - **OpenYardage:** builds yardage books from OSM, so it holds the same data (no new data).
@@ -87,7 +139,7 @@ A source is never edited after it is locked; a corrected source is a new file.
 |---|---|---|---|---|
 | Course features (greens, fairways, tees, bunkers, water, cart paths, playing lines) | `data/sources/pocaset-GEO.json` (copied unchanged from Mac master `02_course_sources/geojson/`) | zommagolf course GeoJSON, built from OpenStreetMap; traced 2026-08-17 | ODbL-1.0, © OpenStreetMap contributors (share-alike) | All features `verified: false`. Pocasset rebuilt every bunker and tee recently (Mass Golf, Aug 2026), so bunkers/tees must be checked |
 | Hole 2 extract | `data/holes/hole02/features.geojson`, `hole02_check.kml` | `tools/extract_hole.py` from the file above; coordinates unchanged | ODbL-1.0 | Awaiting aerial/field check |
-| Elevation | — (to download) | USGS 3DEP lidar / 1 m DEM (Barnstable County 2010 ARRA lidar; newer QL1 statewide) | Public domain (USGS) | Not yet downloaded |
-| Trees | — (to derive) | Lidar canopy height (DSM − DTM); fallback MassGIS 2016 Land Cover (1 m, tree class) | Public | Not yet downloaded |
+| Elevation | — (to download) | USGS 3DEP lidar / 1 m DEM (Barnstable County 2010 ARRA lidar; newer QL1 statewide) | Public domain (USGS) | Not yet downloaded *(superseded: in use, §2b)* |
+| Trees | — (to derive) | Lidar canopy height (DSM − DTM); fallback MassGIS 2016 Land Cover (1 m, tree class) | Public | Not yet downloaded *(superseded: 2023 NAIP canopy in use, §2c)* |
 | Approved greens | — (to copy) | Mac master `03_greens/hole_NN/approved/` | Project asset (GolfLogix-derived imagery, already public on GitHub Pages by owner decision 26 Oct) | Copy byte-for-byte, checksum-locked |
 | Scorecard (pars, tee yardages) | — (to port) | V2.2.1 `index.html` | Project data | |

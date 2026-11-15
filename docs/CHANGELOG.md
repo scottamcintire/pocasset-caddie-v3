@@ -1,0 +1,57 @@
+# Changelog: Pocasset AI Caddie V3
+
+All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
+
+## v3.0.2-hole02-proto-v2: Hole 2 visual prototype V2 (15 Nov 2026)
+
+**Owner approvals this round:** download 2021 lidar into V3; investigate tree sources (approximate woods allowed if labelled illustrative).
+
+### Data
+- **Elevation added:** 2021 USGS 3DEP QL1 lidar, 1 m bare earth, stored at 2 m (`data/sources/elevation/`), checksum-locked with full provenance (DATA_SOURCES.md §2b). Fetched through the Mac's browser; transfer verified by SHA-256.
+- **Woods added (illustrative):** canopy mask classified from USDA NAIP imagery of 22 Aug 2023 (0.3 m, infrared), stored at 2 m (`data/sources/canopy/`), locked; method in `tools/canopy_browser.js` (DATA_SOURCES.md §2c). OSM wood polygons found and used as a cross-check only.
+- **Green tee candidate found:** two tees the source filed under Hole 4 are re-assigned to Hole 2 through the new `source_corrections.json`: H02-TE-03 Green/White (367 yd; card 368) and H02-TE-04 Bronze (344 yd; card 349). Both stay `unverified` and are labelled **candidate**. Supporting evidence: they sit on flat platforms raised about 0.35 m in the 2021 lidar. Only Silver remains unmapped.
+- **Preliminary imagery/lidar check** of all Hole 2 outlines (DATA_SOURCES.md §2d). Recorded as evidence, not verification.
+- `terrain.json` (2 m height grid in the hole frame) generated for Hole 2.
+
+### Tools
+- `tools/terrain.py` (new): transverse Mercator (Krüger series) for UTM 19N, locked-grid loading and sampling, hole-frame rasters, `check` (registration QA) and `grid` commands.
+- `tools/pcv3.py`: `standardize` merges `source_corrections.json` (geometry from the locked source, unchanged).
+- `tools/render_flyover.py` **v0.2** (rewritten): real terrain (1.5× exaggeration, stated), ray-marched 3D camera, illustrative woods from the canopy grid, sun shadows and ambient occlusion, mowing patterns, sand, water with sky reflection, sky and haze, detail + distance canvases, material-ID output, projection schema `flyover-projection@2` (3×4 camera matrix + height model). v0.1 kept in `tools/archive/`.
+- `style/flyover_style.json` **v0.2** (v0.1 in `style/archive/`).
+- `tools/build_prototype.py`: adds the terrain grid to the prototype data.
+
+### App prototype (`prototype/hole02/`)
+- Overlays projected in 3D on the terrain (`app/geo.js` `Terrain`, `View.project`); taps converted to ground points by ray-march (`View.unproject`).
+- **Default tee = Green (candidate)**; tee chips ordered Green, Blue, Gold, then others.
+- Lighter, smaller labels with anchor dots; same collision-free layout.
+- Footer states the candidate tee, exaggeration, illustrative woods and data credits.
+- v0.1 preserved in `prototype/hole02_v0.1/` and `prototype/screenshots_v0.1/`; its artifact stays published.
+
+### Views (`camera.json`)
+- **Tee:** from behind the Green tee, 95 m back and 105 m up, 1170 × 1440 (fits an iPhone screen); whole hole, pond and green visible.
+- **Approach:** 100 m short of the green, 25 m back, 60 m up, 1170 × 1400; green, both greenside bunkers, pond and fairway end. v0.1 settings kept in `render/v0.1/camera_v0.1.json`.
+
+### Tests
+- `tests/test_alignment.py`: now projects with matrix + terrain and checks material IDs as well as colours; reports points hidden by woods.
+- `tests/test_prototype.js`: green F/C/B compared with **V2.3.1 production** (baseline) and V2.2.1; browser projection vs Python renderer; tap round trip.
+
+### Docs
+RENDERING_STANDARD (draft 0.2), DATA_SOURCES (§2b–2d), HOLE_BUILD_STANDARD (terrain step, source corrections, §5a repeatable browser extraction), PROJECT_STATUS, DECISIONS, HOLE_PROGRESS, FILE_INVENTORY, this changelog.
+
+## Preserve v0.1 (15 Nov 2026), commit 314e862
+- Hole 2 renders, camera, style and prototype v0.1 copied to `render/v0.1/`, `style/archive/`, `prototype/hole02_v0.1/` before any v0.2 work.
+
+## Elevation research (15 Nov 2026), commit 0fc6f4e
+- DATA_SOURCES.md §2a: lidar options researched and reported for approval (nothing downloaded).
+
+## v3.0.1-hole02-proto: Hole 2 prototype v0.1 (15 Nov 2026), commit 7aecf17
+- First renderer (2.5D: painted outlines, flat ground, cosmetic bevels, homography projection) and the Tee/Approach/Green prototype with simulated GPS.
+- Green F/C/B ported line-for-line from production (identical at 60 positions vs V2.2.1); hazard reach/carry; approved green shown unchanged (checksum-verified).
+- Published as a private artifact (v0.1).
+
+## v3.0.0-process-draft: documentation and tools (15 Nov 2026), commit 22d9ba0
+- Docs: PROJECT_STATUS, ARCHITECTURE, HOLE_BUILD_STANDARD, DATA_SOURCES, HOLE_VALIDATION, GREEN_ASSET_PROTECTION, RENDERING_STANDARD (draft), DECISIONS, HOLE_PROGRESS, FILE_INVENTORY, V3 plan.
+- `tools/pcv3.py` (standardize, check, inventory, verify-greens, promote, files); locked course source; 112-file approved-green manifest; Hole 2 standardized and checked.
+
+## Scaffold (15 Nov 2026), commit 44affb8
+- Separate V3 project created (local git, no remote). Storage isolation rules (`pocasset_v3:` keys, `pcv3-` caches).

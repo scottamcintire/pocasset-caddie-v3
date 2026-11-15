@@ -8,9 +8,9 @@ Checkpoints: ✔ pass · … in progress · · pending · ✖ failed. Stages: aw
 | Hole | Par | Gold yd | Tees | Fairways | Bunkers | Water | Paths | Line | Green | Missing / not sourced | Green asset | Checkpoints A–F | Stage |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | 5 | 477 | 4 | 1 | 6 | 0 | 4 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
-| 2 | 4 | 463 | 2 | 2 | 2 | 1 | 4 | 1 | 1 | trees, terrain | approved | A:… B:· C:… D:… E:… F:· | in development |
-| 3 | 3 | 170 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
-| 4 | 4 | 366 | 3 | 1 | 5 | 0 | 1 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
+| 2 | 4 | 463 | 2 | 2 | 2 | 1 | 4 | 1 | 1 | trees (illustrative) | approved | A:… B:· C:… D:… E:… F:· | in development |
+| 3 | 3 | 170 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | trees (illustrative) | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
+| 4 | 4 | 366 | 3 | 1 | 5 | 0 | 1 | 1 | 1 | trees (illustrative) | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
 | 5 | 4 | 345 | 2 | 1 | 5 | 0 | 0 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
 | 6 | 3 | 208 | 2 | 1 | 4 | 0 | 0 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
 | 7 | 4 | 388 | 2 | 2 | 7 | 0 | 3 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
@@ -22,8 +22,8 @@ Checkpoints: ✔ pass · … in progress · · pending · ✖ failed. Stages: aw
 | 13 | 4 | 325 | 1 | 2 | 11 | 0 | 0 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
 | 14 | 4 | 390 | 5 | 1 | 3 | 0 | 6 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
 | 15 | 3 | 184 | 4 | 1 | 2 | 0 | 0 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
-| 16 | 5 | 495 | 2 | 2 | 2 | 0 | 0 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
-| 17 | 5 | 527 | 3 | 1 | 3 | 0 | 2 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
+| 16 | 5 | 495 | 2 | 2 | 2 | 0 | 0 | 1 | 1 | trees (illustrative) | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
+| 17 | 5 | 527 | 3 | 1 | 3 | 0 | 2 | 1 | 1 | trees (illustrative) | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
 | 18 | 4 | 412 | 4 | 1 | 6 | 0 | 3 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
 
 Course totals: 83 bunkers, 53 tees, 25 fairways, 2 water, 33 path segments mapped.

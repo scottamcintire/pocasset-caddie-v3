@@ -27,7 +27,30 @@ YD = 0.9144
 CLASS_CODES = {'tee': 'TE', 'fairway': 'FW', 'green': 'GR', 'bunker': 'BK', 'water': 'WA', 'path': 'CP',
                'trees': 'TR', 'hole': 'CL', 'pin': 'PN'}
 REQUIRED = ['hole', 'green', 'tee']          # fairway also required unless par 3
-NOT_YET_SOURCED = ['trees', 'terrain']       # classes no current source provides
+NOT_YET_SOURCED = ['trees', 'terrain']       # classes that need a separate source (lidar / canopy)
+
+
+def layer_sources(hole=None):
+    """Which of NOT_YET_SOURCED have a locked source that covers this hole's mapped features (all of them, by lon/lat).
+    {'terrain': 'lidar …', 'trees': 'illustrative …'}"""
+    lock = load(p('data', 'sources', 'SOURCES.lock.json'), {'sources': []})
+    pts = []
+    if hole is not None:
+        D = load(p('data', 'sources', [s for s in lock['sources'] if s['role'] == 'course_features'][0]['file']))
+        for f in D['features']:
+            if hole in (f['properties'].get('holes') or []):
+                g = f['geometry']; cs = g['coordinates'][0] if g['type'] == 'Polygon' else g['coordinates'] if g['type'] == 'LineString' else [g['coordinates']]
+                pts += cs
+    def covers(s):
+        b = s.get('coverage_lonlat_inner_box')
+        return bool(b and pts) and all(b['west'] <= c[0] <= b['east'] and b['south'] <= c[1] <= b['north'] for c in pts)
+    roles = {s['role']: s for s in lock['sources'] if covers(s)}
+    out = {}
+    if 'elevation' in roles:
+        out['terrain'] = 'lidar (%s)' % roles['elevation'].get('survey', {}).get('dates', '')
+    if 'tree_canopy' in roles:
+        out['trees'] = 'illustrative woods from imagery canopy (not surveyed trees)'
+    return out
 
 
 def p(*a):
@@ -167,6 +190,18 @@ def position(F, q_en, P_en, CLm, layer):
         names = ['back', 'back-right', 'right', 'front-right', 'front', 'front-left', 'left', 'back-left']
         return 'green-' + names[int(((a + 22.5) % 360) // 45)]
     return along_line(q_en, CLm)[2]
+
+
+def play_route(p, L, green_center):
+    """The golfer's line of play from position p: p -> remaining dogleg points of the centerline (those more than 5 m
+    ahead of p's projection) -> green centre. Mirrors app/geo.js Hole.route exactly (same rule, same 5 m)."""
+    al = along_line(p, L)[0]; pts = [p]; acc = 0.0
+    for i in range(1, len(L) - 1):
+        acc += math.dist(L[i - 1], L[i])
+        if al < acc - 5:
+            pts.append(L[i])
+    pts.append(green_center)
+    return pts
 
 
 def point_in(q, P):
@@ -340,7 +375,8 @@ def standardize(hole):
         'tees': [{'feature_id': t[0], 'measured_yards': t[1], 'tee_sets': t[2]} for t in tees],
         'tee_sets_not_mapped': missing_sets,
         'counts': {c: sum(1 for o in out if o['properties']['class'] == c) for c in classes},
-        'missing': {'not_in_source': missing, 'not_yet_sourced': NOT_YET_SOURCED},
+        'missing': {'not_in_source': missing, 'not_yet_sourced': [c for c in NOT_YET_SOURCED if c not in layer_sources(hole)]},
+        'layers': layer_sources(hole),
         'unverified_features': sum(1 for o in out if o['properties']['geometry_status'] == 'unverified'),
         'green_asset': course['holes'][hole - 1].get('green_asset'),
         'production_green_center': course['holes'][hole - 1].get('production_green_center'),
@@ -377,6 +413,9 @@ def check(hole):
         add('FLAG', 'not mapped in source: ' + c, 'confirm on imagery/course whether it truly does not exist')
     for c in hj['missing']['not_yet_sourced']:
         add('FLAG', 'no data source yet: ' + c, 'needs lidar / land-cover download (DATA_SOURCES.md)')
+    for c, how in sorted(hj.get('layers', {}).items()):
+        add('PASS' if c == 'terrain' else 'FLAG', 'layer source: ' + c, how + ('' if c == 'terrain' else '; label as illustrative')
+            + ('; hole area must lie inside the locked grid (tools/terrain.py grid stops if not)'))
     if hj['tee_sets_not_mapped']:
         add('FLAG', 'tee sets without a mapped tee', ', '.join(hj['tee_sets_not_mapped']))
     # geometry sanity
@@ -422,8 +461,8 @@ def check(hole):
                 P = [F.en(c) for c in f['geometry']['coordinates'][0]]
                 pos = f['properties']['position']
                 if pos == 'across':
-                    tal = along_line(T, CLm)[0]; xs = [x - tal for x in line_crossings(P, CLm) if x > tal]
-                    e = (min(xs), max(xs)) if xs else None; how = 'along playing line'
+                    xs = line_crossings(P, play_route(T, CLm, F.en(pc) if pc else gc))
+                    e = (min(xs), max(xs)) if xs else None; how = 'along playing line from the tee'
                 else:
                     e = ray_extents(T, centroid(P), P); how = 'line through hazard'
                 if e:
@@ -516,7 +555,7 @@ def inventory():
         cps = st.get('checkpoints', {})
         missing = [c for c in (['fairway'] if H['par'] > 3 else []) + ['bunker'] if cnt(c) == 0]
         rows.append([h, H['par'], H['card_yards']['Gold'], cnt('tee'), cnt('fairway'), cnt('bunker'), cnt('water'), cnt('path'),
-                     cnt('hole'), cnt('green'), ', '.join(missing + ['trees', 'terrain']),
+                     cnt('hole'), cnt('green'), ', '.join(missing + [c for c in NOT_YET_SOURCED if c not in layer_sources(h)] + [c + ' (illustrative)' for c in layer_sources(h) if c == 'trees']) or '—',
                      'approved' if (H.get('green_asset') or {}).get('approved') else '—',
                      ' '.join('%s:%s' % (k[0], {'pass': '✔', 'fail': '✖', 'pending': '·', 'in_progress': '…'}.get(cps.get(k, {}).get('state', 'pending'), '·')) for k in CHECKPOINTS),
                      st.get('stage', 'awaiting data')])
@@ -561,15 +600,17 @@ def promote(hole, label):
     if os.path.exists(dest):
         sys.exit('STOP: %s exists' % dest)
     os.makedirs(dest)
-    files = ['features.geojson', 'hole.json', 'ids.json', 'verification.json', 'camera.json']
+    files = ['features.geojson', 'hole.json', 'ids.json', 'verification.json', 'camera.json', 'terrain.json', 'source_corrections.json']
     rend = os.path.join(d, 'render')
     man = []
     for f in files:
         if os.path.exists(os.path.join(d, f)):
             shutil.copy2(os.path.join(d, f), os.path.join(dest, f)); man.append(f)
-    if os.path.isdir(rend):
-        shutil.copytree(rend, os.path.join(dest, 'render'))
-        man += ['render/' + x for x in sorted(os.listdir(rend))]
+    if os.path.isdir(rend):      # current renders only (sub-folders such as render/v0.1 are history, not part of this version)
+        os.makedirs(os.path.join(dest, 'render'))
+        for x in sorted(os.listdir(rend)):
+            if os.path.isfile(os.path.join(rend, x)):
+                shutil.copy2(os.path.join(rend, x), os.path.join(dest, 'render', x)); man.append('render/' + x)
     save(os.path.join(dest, 'MANIFEST.json'), {'hole': hole, 'version': n, 'label': label, 'promoted': today(),
                                                 'files': {m: sha256(os.path.join(dest, m)) for m in man}})
     print('promoted to', dest)

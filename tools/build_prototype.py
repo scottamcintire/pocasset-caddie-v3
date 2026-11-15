@@ -25,6 +25,6 @@ if h != man['03_greens/hole_%02d/approved/%s' % (n, pm['image'])] or h != pm['im
     sys.exit('STOP: approved green copy does not match the master checksum')
 shutil.copy2(src_img, os.path.join(out, 'img', pm['image']))
 data = {'hole': json.load(open(os.path.join(hd, 'hole.json'))), 'features': json.load(open(os.path.join(hd, 'features.geojson'))),
-        'views': views, 'pin_model': pm, 'pin': pm['sample'], 'green_image': 'img/' + pm['image']}
+        'views': views, 'terrain': json.load(open(os.path.join(hd, 'terrain.json'))), 'pin_model': pm, 'pin': pm['sample'], 'green_image': 'img/' + pm['image']}
 open(os.path.join(out, 'data.js'), 'w').write('window.HOLEDATA=' + json.dumps(data, separators=(',', ':')) + ';\n')
 print('prototype built:', out, sorted(os.listdir(out)), sorted(os.listdir(os.path.join(out, 'img'))))

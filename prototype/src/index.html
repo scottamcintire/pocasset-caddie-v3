@@ -28,9 +28,9 @@ main{position:relative}
 .stage{position:relative;margin:0 auto;line-height:0;user-select:none;-webkit-user-select:none;width:min(100vw,640px);aspect-ratio:var(--ar,1170/1800)}
 .stage img{width:100%;height:100%;display:block;-webkit-touch-callout:none;pointer-events:none}
 .stage svg{position:absolute;inset:0;width:100%;height:100%}
-.lbl text{font-weight:800;paint-order:stroke;stroke:rgba(0,0,0,.65);stroke-width:7px;fill:#fff;font-family:inherit}
+.lbl text{font-weight:800;paint-order:stroke;stroke:rgba(0,0,0,.55);stroke-width:5px;fill:#fff;font-family:inherit}
 .lbl .sub{font-weight:600}
-.pill{fill:rgba(8,20,38,.62)}
+.pill{fill:rgba(8,20,38,.55)}
 .greenwrap{padding:14px 10px;background:#13241a;min-height:calc(100svh - 222px)}
 .gnote{font-size:12px;line-height:1.45;color:#cfe3d4;max-width:560px;margin:10px auto 0;text-align:center}
 .tabs{position:sticky;bottom:0;display:grid;grid-template-columns:repeat(3,1fr);background:var(--navy);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom);z-index:5}
@@ -53,7 +53,7 @@ main{position:relative}
 </head>
 <body>
 <div class="top">
-  <div class="brand"><div><b>Pocasset <i>AI</i> Caddie</b><small>V3 prototype · Hole 2 flyover</small></div><span class="proto" id="srcTag">Simulated GPS</span></div>
+  <div class="brand"><div><b>Pocasset <i>AI</i> Caddie</b><small>V3 prototype v0.2 · Hole 2 flyover</small></div><span class="proto" id="srcTag">Simulated GPS</span></div>
   <div class="yard">
     <div class="hole">2</div>
     <div class="yc f"><strong id="yF">—</strong><span>FRONT</span></div>
@@ -84,24 +84,28 @@ main{position:relative}
 (function(){
 'use strict';
 var D=window.HOLEDATA, G=PGeo, hole=new G.Hole(D.hole,D.features), YD=G.YD;
+var TER=new G.Terrain(D.terrain);
 var views={tee:D.views.tee, approach:D.views.approach};
-views.tee.Hi=G.invert3(views.tee.ground_to_image_homography); views.approach.Hi=G.invert3(views.approach.ground_to_image_homography);
+views.tee.V=new G.View(views.tee,TER); views.approach.V=new G.View(views.approach,TER);
 var pinRes=PGreen.placePin(D.pin_model,D.pin);
 var S={view:'tee', me:null, target:null, tapMode:'target', source:'sim', acc:null, watch:null};
 var $=function(id){return document.getElementById(id)};
 var RULE={corridor_m:40*YD, max:4};
 
-// presets: mapped tees (by tee set) and points on the playing line
-var presets=[];
-D.hole.tees.forEach(function(t){var f=hole.feats.filter(function(x){return x.id===t.feature_id})[0];
-  presets.push({label:(t.tee_sets.join('/')||t.feature_id)+' tee',uv:G.centroid(f.uv),tee:t.tee_sets.join('/')});});
+// presets: mapped tees (by tee set; tees whose hole assignment was corrected are marked 'candidate') and points on the playing line
+var presets=[], ASSIGN={};
+D.features.features.forEach(function(f){ASSIGN[f.properties.id]=f.properties.assignment||'source'});
+var TEE_ORDER=['Green','Blue','Gold','White','Bronze','Silver'];
+D.hole.tees.slice().sort(function(a,b){return TEE_ORDER.indexOf(a.tee_sets[0])-TEE_ORDER.indexOf(b.tee_sets[0])}).forEach(function(t){var f=hole.feats.filter(function(x){return x.id===t.feature_id})[0];
+  var cand=ASSIGN[t.feature_id]!=='source';
+  presets.push({label:(t.tee_sets.join('/')||t.feature_id)+' tee'+(cand?' ·\u00a0candidate':''),uv:G.centroid(f.uv),tee:t.tee_sets.join('/'),cand:cand});});
 [250,200,150,100,60].forEach(function(y){presets.push({label:y+' yd',uv:hole.alongFromGreen(y)})});
 presets.forEach(function(p,i){var b=document.createElement('button');b.textContent=p.label;b.onclick=function(){setMe(p.uv,'sim');mark(i)};$('presets').appendChild(b)});
 function mark(i){[].forEach.call($('presets').children,function(b,j){b.classList.toggle('on',j===i)})}
 
 function setMe(uv,src){S.me=uv;S.source=src;S.target=null;update()}
 function yd(m){return m==null?'—':String(Math.round(m/YD))}
-function P(uv){return G.project(views[S.view].ground_to_image_homography,uv[0],uv[1])}
+function P(uv){return views[S.view].V.project(uv[0],uv[1])}
 
 // ---- labels: placed with collision avoidance so numbers never overlap
 var LB=[];
@@ -110,7 +114,7 @@ function layout(W,H){
   var placed=[],out='';
   LB.sort(function(a,b){return a.prio-b.prio});
   LB.forEach(function(L){
-    var w=Math.max.apply(null,L.lines.map(function(t,i){return t.length*(i?15:27)}))+26, h=L.lines.length>1?92:58;
+    var w=Math.max.apply(null,L.lines.map(function(t,i){return t.length*(i?12.5:23)}))+24, h=L.lines.length>1?78:50;
     var cands=[L.pref,[L.pref[0],L.pref[1]-80],[L.pref[0],L.pref[1]+80],[-L.pref[0],L.pref[1]],[L.pref[0]*2,L.pref[1]],[L.pref[0],L.pref[1]-160],[L.pref[0],L.pref[1]+160],[-L.pref[0]*2,L.pref[1]],[0,-150],[0,150],[L.pref[0],L.pref[1]-240],[L.pref[0],L.pref[1]+240]];
     var best=null;
     for(var k=0;k<cands.length&&!best;k++){
@@ -122,9 +126,9 @@ function layout(W,H){
     if(!best)return;
     placed.push(best);
     var cx=(best[0]+best[2])/2, cy=(best[1]+best[3])/2;
-    if(Math.hypot(cx-L.ax,cy-L.ay)>50) out+='<line x1="'+L.ax.toFixed(1)+'" y1="'+L.ay.toFixed(1)+'" x2="'+cx.toFixed(1)+'" y2="'+(cy+(cy<L.ay?h/2:-h/2)).toFixed(1)+'" stroke="#fff" stroke-width="3" stroke-opacity=".9"/>';
+    if(Math.hypot(cx-L.ax,cy-L.ay)>50) out+='<line x1="'+L.ax.toFixed(1)+'" y1="'+L.ay.toFixed(1)+'" x2="'+cx.toFixed(1)+'" y2="'+(cy+(cy<L.ay?h/2:-h/2)).toFixed(1)+'" stroke="#fff" stroke-width="2.5" stroke-opacity=".85"/><circle cx="'+L.ax.toFixed(1)+'" cy="'+L.ay.toFixed(1)+'" r="5" fill="#fff"/>';
     out+='<g class="lbl"><rect class="pill" x="'+best[0]+'" y="'+best[1]+'" width="'+w+'" height="'+h+'" rx="14"/>';
-    L.lines.forEach(function(t,i){out+='<text x="'+cx.toFixed(1)+'" y="'+(best[1]+(i?78:43)).toFixed(1)+'" text-anchor="middle" font-size="'+(i?24:44)+'"'+(i?' class="sub"':'')+'>'+t+'</text>'});
+    L.lines.forEach(function(t,i){out+='<text x="'+cx.toFixed(1)+'" y="'+(best[1]+(i?66:37)).toFixed(1)+'" text-anchor="middle" font-size="'+(i?20:38)+'"'+(i?' class="sub"':'')+'>'+t+'</text>'});
     out+='</g>';
   });
   LB=[];return out;
@@ -193,7 +197,7 @@ function update(){
 // tap to measure / move me
 $('stage').addEventListener('click',function(e){
   var vv=views[S.view],r=$('stage').getBoundingClientRect(), x=(e.clientX-r.left)/r.width*vv.width, y=(e.clientY-r.top)/r.height*vv.height;
-  var q=views[S.view].Hi, w=q[2][0]*x+q[2][1]*y+q[2][2], uv=[(q[0][0]*x+q[0][1]*y+q[0][2])/w,(q[1][0]*x+q[1][1]*y+q[1][2])/w];
+  var uv=vv.V.unproject(x,y); if(!uv)return;
   if(S.tapMode==='me'){mark(-1);setMe(uv,'sim')}else{S.target=uv;draw()}
 });
 $('mTarget').onclick=function(){S.tapMode='target';this.classList.add('on');$('mMe').classList.remove('on')};
@@ -217,10 +221,14 @@ function setView(v){
   else draw();
 }
 $('tTee').onclick=function(){setView('tee')};$('tApp').onclick=function(){setView('approach')};$('tGreen').onclick=function(){setView('green')};
-var blue=presets.filter(function(p){return /Blue/.test(p.tee||'')})[0]||presets[0];
-$('teeTxt').textContent='Blue '+D.hole.card_yards.Blue+' · Green '+D.hole.card_yards.Green+' yd';
-$('fine').innerHTML='Prototype. Yardages use the mapped course data, which is <b>not yet verified</b> against the rebuilt bunkers and tees. Green and White tees are not mapped yet, so they are not offered. No trees are drawn until real tree positions are available. Ground is drawn flat (no elevation data yet). Map data © OpenStreetMap contributors.';
-setMe(blue.uv,'sim');mark(presets.indexOf(blue));
+var start=presets.filter(function(p){return /Green/.test(p.tee||'')})[0]||presets.filter(function(p){return /Blue/.test(p.tee||'')})[0]||presets[0];
+$('teeTxt').textContent='Green '+D.hole.card_yards.Green+' · Blue '+D.hole.card_yards.Blue+' yd';
+$('fine').innerHTML='Prototype v0.2. Yardages use the mapped course data, which is <b>not yet verified</b> against the rebuilt bunkers and tees. '+
+ 'The <b>Green tee is a candidate</b>: the map filed it under hole 4, but it measures '+D.hole.tees.filter(function(t){return t.tee_sets.indexOf('Green')>=0}).map(function(t){return t.measured_yards})[0]+' yd vs the card’s '+D.hole.card_yards.Green+' and sits on a built tee platform in the 2021 lidar — confirm on the course. '+
+ 'Ground shape: 2021 USGS lidar, heights drawn '+views.tee.height_model.vertical_exaggeration+'× for readability (distances are flat GPS distances). '+
+ 'Woods are <b>illustrative</b>: placed only where 2023 aerial imagery shows tree canopy; individual trees, heights and colours are not surveyed. '+
+ 'Map data © OpenStreetMap contributors; imagery-derived canopy from USDA NAIP; elevation USGS 3DEP.';
+setMe(start.uv,'sim');mark(presets.indexOf(start));
 window.__proto={S:S,hole:hole,views:views,setMe:setMe,setView:setView,pinRes:pinRes};
 })();
 </script>

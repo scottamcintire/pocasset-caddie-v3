@@ -22,3 +22,8 @@
 | 2026-11-15 | Mac location = Documents/Pocasset_Caddie_V3 (owner grants access to that folder only) | Owner |
 | 2026-11-15 | Claude may research public elevation data via the browser; nothing downloaded outside the V3 project; source and accuracy reported before use | Owner |
 | 2026-11-15 | Appearance must be improvable without rebuilding geographic data or GPS (renderer is a separate stage with its own style file) | Owner |
+| 2026-11-15 | **Lidar approved and used:** 2021 USGS/MassGIS QL1 lidar for general ground shape only; never replaces the green heat maps; never assumed to show rebuilt bunkers or tees | Owner |
+| 2026-11-15 | **Trees:** approximate wooded areas allowed if clearly labelled illustrative; positions only from a documented source (chosen: 2023 NAIP canopy classification; OSM woods as cross-check) | Owner (approach); source choice by Claude, documented |
+| 2026-11-15 | Vertical exaggeration 1.5× for ground shape in renders (style setting, stated in every projection file and in the app); distances unaffected | Claude (proposed; owner may change) |
+| 2026-11-15 | Source tees filed under the wrong hole are re-assigned via `source_corrections.json` (never hand-edited); shown as **candidate** until verified | Claude (proposed) |
+| 2026-11-15 | V3 defaults to the Green tee; other mapped tees selectable; distances from live GPS | Owner |
