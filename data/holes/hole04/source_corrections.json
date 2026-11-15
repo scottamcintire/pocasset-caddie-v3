@@ -1,0 +1,19 @@
+{
+ "schema": "pocasset-v3/source-corrections@1",
+ "hole": 4,
+ "note": "Manual record. Counterpart of data/holes/hole02/source_corrections.json: these two source tees are filed under hole 4 but belong to hole 2. Geometry is never edited.",
+ "remove_from_this_hole": [
+  {
+   "ref": "osm:way/1241448276",
+   "source_said": "hole 4",
+   "now": "hole 2 (H02-TE-04 Bronze candidate)",
+   "evidence": "52 m off hole 4's playing line; 344 yd to the hole 2 green (card Bronze 349)"
+  },
+  {
+   "ref": "osm:way/1241448277",
+   "source_said": "hole 4",
+   "now": "hole 2 (H02-TE-03 Green/White candidate)",
+   "evidence": "52 m off hole 4's playing line; 367 yd to the hole 2 green (card Green/White 368)"
+  }
+ ]
+}

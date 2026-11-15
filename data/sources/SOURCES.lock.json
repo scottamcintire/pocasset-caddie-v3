@@ -7,14 +7,14 @@
    "sha256": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304",
    "origin": "zommagolf course GeoJSON (course_ref ma/pocasset-golf-club), built from OpenStreetMap, traced 2026-08-17",
    "copied_from": "Pocasset_AI_Master/02_course_sources/geojson/pocaset-GEO.json (same SHA-256 as the master checksum list)",
-   "licence": "ODbL-1.0 \u00a9 OpenStreetMap contributors",
+   "licence": "ODbL-1.0 © OpenStreetMap contributors",
    "added": "2026-11-15"
   },
   {
    "file": "elevation/usgs3dep_2021_pocasset_hole02_2m.dm16.gz",
    "role": "elevation",
    "sha256": "d357299c592729dd42ba5c5344fbabb924cc916fbae00be2941d3315dbe1c35c",
-   "origin": "USGS 3D Elevation Program (3DEP) 1 m bare-earth DEM, project MA_CentralEastern_2021_B21, tile USGS_1M_19_x36y462, served by the 3DEPElevation ImageServer (raster OBJECTID 70295, locked mosaic rule). Exported at native 1 m on EPSG:6348, then block-averaged to 2 m and encoded in the browser for transfer (docs/DATA_SOURCES.md \u00a72b).",
+   "origin": "USGS 3D Elevation Program (3DEP) 1 m bare-earth DEM, project MA_CentralEastern_2021_B21, tile USGS_1M_19_x36y462, served by the 3DEPElevation ImageServer (raster OBJECTID 70295, locked mosaic rule). Exported at native 1 m on EPSG:6348, then block-averaged to 2 m and encoded in the browser for transfer (docs/DATA_SOURCES.md §2b).",
    "request": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/exportImage?f=image&bbox=365455,4616274,366071,4617118&bboxSR=6348&imageSR=6348&size=616,844&format=tiff&pixelType=F32&noData=-9999&interpolation=RSP_NearestNeighbor&compression=None&mosaicRule={\"mosaicMethod\":\"esriMosaicLockRaster\",\"lockRasterIds\":[70295]}",
    "native_export": {
     "format": "TIFF float32, 616x844 at 1 m",
@@ -58,6 +58,55 @@
    }
   },
   {
+   "file": "elevation/usgs3dep_2021_pocasset_course_2m.dm16.gz",
+   "role": "elevation",
+   "sha256": "8e7a63b5adcacfd1388c3eccb8e5499e390f75aa77669deea41aa4ee7b0be231",
+   "origin": "USGS 3D Elevation Program (3DEP) 1 m bare-earth DEM, project MA_CentralEastern_2021_B21, tile USGS_1M_19_x36y462, served by the 3DEPElevation ImageServer (raster OBJECTID 70295, locked mosaic rule). Exported at native 1 m on EPSG:6348 for the area of Holes 1 and 5-9, block-averaged to 2 m and encoded in the browser for transfer (plane predictor), then losslessly re-encoded here to the same int16 row-delta format as the Hole 2 grid (docs/DATA_SOURCES.md §2b).",
+   "request": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/exportImage?f=image&bbox=365620,4615710,366398,4616592&bboxSR=6348&imageSR=6348&size=778,882&format=tiff&pixelType=F32&noData=-9999&interpolation=RSP_NearestNeighbor&compression=None&mosaicRule={\"mosaicMethod\":\"esriMosaicLockRaster\",\"lockRasterIds\":[70295]}",
+   "native_export": {
+    "format": "TIFF float32, 778x882 at 1 m",
+    "bytes": 3212857,
+    "sha256": "5a7d9e4d27e76b9b1551bf74251d4defa43b1eeefbbeaf199b9eaa09df0965c4",
+    "z_min_m": 4.49,
+    "z_max_m": 22.45,
+    "nodata_cells": 0
+   },
+   "transfer": {
+    "encoding": "2x2 block mean -> decimetres -> int16 plane predictor (z - (left + up - upleft)) -> gzip -> base64",
+    "base64_sha256": "adf72d74fabb1da95a4509b322530aafcdbd3de08d6765b8c5f41b8d0c473b52",
+    "base64_chars": 78480,
+    "quantisation": "0.1 m",
+    "stored_as": "decoded and re-encoded losslessly to int16 row-delta (identical decimetre values; round trip asserted)"
+   },
+   "grid": {
+    "crs": "EPSG:6348 NAD83(2011) / UTM zone 19N",
+    "vertical": "NAVD88 (GEOID18), metres",
+    "ul_easting": 365620.0,
+    "ul_northing": 4616592.0,
+    "cell_m": 2.0,
+    "cols": 389,
+    "rows": 441,
+    "row_order": "north to south",
+    "sample": "cell centre = mean of the 4 native 1 m cells"
+   },
+   "survey": {
+    "dates": "flown 20 Mar - 24 Apr 2021 (leaf-off)",
+    "quality_level": "QL1 (USGS Lidar Base Specification: vertical RMSEz <= 10 cm in non-vegetated ground; >= 8 points/m2)",
+    "vendor": "NV5 Geospatial"
+   },
+   "licence": "US Government work (USGS), public domain; no restrictions on reuse. Credit: U.S. Geological Survey, 3D Elevation Program.",
+   "limitations": "2021 ground, before the course's bunker and tee rebuild: use for general landform only, never for bunker/tee shapes. Hydro-flattened water. Bare earth (no trees/buildings). NAD83(2011) vs WGS84 course outlines ~1-1.5 m apart (not corrected, below grid size).",
+   "added": "2026-11-15",
+   "coverage_lonlat_inner_box": {
+    "west": -70.61453834,
+    "east": -70.60543176,
+    "south": 41.6819772,
+    "north": 41.68974743,
+    "note": "largest lon/lat box fully inside the UTM grid (conservative, 2e-5 deg inset); used to decide whether a hole is covered"
+   },
+   "selection": "per hole: tools/terrain.py uses the first locked elevation grid (lock order) whose coverage box holds all of the hole's mapped points; Hole 2 keeps the hole02 grid"
+  },
+  {
    "file": "canopy/naip2023_canopy_pocasset_hole02_2m.u8.gz",
    "role": "tree_canopy",
    "sha256": "791f5d612d369e63a89609197eca2e2dcfaac7375354672c5a89775f41e79f86",
@@ -87,6 +136,14 @@
     "north": 41.6944754,
     "note": "largest lon/lat box fully inside the UTM grid (conservative); used by pcv3.py to decide whether a hole is covered"
    }
+  },
+  {
+   "file": "production/v231_greens_data.json",
+   "role": "production_green_models",
+   "sha256": "f548cadab9605ac12c945096015d9cd5c857d6ec86998dbd7c8a6782649f7a78",
+   "origin": "Build data of production V2.3 / V2.3.1 (the 18 approved greens' EZLocator transforms, outlines and Oct 21 sample pins), copied read-only. Values verified present in the live V2.3.1 index.html.",
+   "licence": "project data",
+   "added": "2026-11-15"
   }
  ]
 }

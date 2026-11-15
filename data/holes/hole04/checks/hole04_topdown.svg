@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="292" height="790" viewBox="0 0 292 790" font-family="sans-serif">
+<rect width="100%" height="100%" fill="#3e6b3a"/>
+<circle cx="165.8" cy="103.7" r="91.4" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="192.1" fill="#fff" fill-opacity=".7" font-size="11">50</text>
+<circle cx="165.8" cy="103.7" r="182.9" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="283.6" fill="#fff" fill-opacity=".7" font-size="11">100</text>
+<circle cx="165.8" cy="103.7" r="274.3" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="375.0" fill="#fff" fill-opacity=".7" font-size="11">150</text>
+<circle cx="165.8" cy="103.7" r="365.8" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="466.5" fill="#fff" fill-opacity=".7" font-size="11">200</text>
+<circle cx="165.8" cy="103.7" r="457.2" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="557.9" fill="#fff" fill-opacity=".7" font-size="11">250</text>
+<circle cx="165.8" cy="103.7" r="548.6" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="649.3" fill="#fff" fill-opacity=".7" font-size="11">300</text>
+<circle cx="165.8" cy="103.7" r="640.1" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="740.8" fill="#fff" fill-opacity=".7" font-size="11">350</text>
+<circle cx="165.8" cy="103.7" r="731.5" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="832.2" fill="#fff" fill-opacity=".7" font-size="11">400</text>
+<circle cx="165.8" cy="103.7" r="823.0" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="923.7" fill="#fff" fill-opacity=".7" font-size="11">450</text>
+<circle cx="165.8" cy="103.7" r="914.4" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="1015.1" fill="#fff" fill-opacity=".7" font-size="11">500</text>
+<circle cx="165.8" cy="103.7" r="1005.8" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="1106.5" fill="#fff" fill-opacity=".7" font-size="11">550</text>
+<circle cx="165.8" cy="103.7" r="1097.3" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="1198.0" fill="#fff" fill-opacity=".7" font-size="11">600</text>
+<circle cx="165.8" cy="103.7" r="1188.7" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="169.8" y="1289.4" fill="#fff" fill-opacity=".7" font-size="11">650</text>
+<polygon points="168.3,466.7 161.0,423.5 159.8,414.1 159.0,405.1 159.2,397.7 160.9,389.0 164.1,379.2 167.1,366.6 168.5,359.2 168.6,354.0 167.2,347.2 163.3,338.6 151.5,318.1 143.7,305.5 139.8,295.8 137.2,286.3 134.4,274.8 131.2,256.4 128.6,243.1 127.6,229.4 127.2,218.9 127.4,208.8 127.9,201.7 132.3,181.9 139.7,153.6 142.5,136.1 144.6,126.3 145.1,118.9 146.6,121.2 153.1,125.5 160.4,128.3 168.8,128.6 173.8,127.7 178.8,125.3 183.0,121.1 190.6,112.0 186.9,122.9 183.9,134.8 182.6,144.1 182.9,149.5 184.1,154.0 188.7,164.5 193.4,173.4 197.5,183.4 199.0,188.2 200.0,194.0 201.8,206.0 204.1,216.3 204.9,227.3 205.3,239.1 202.3,260.3 200.4,267.4 199.2,274.6 198.6,279.9 198.7,285.4 200.1,289.7 201.4,292.8 204.3,297.8 211.6,311.0 215.2,320.5 217.6,327.6 220.0,335.3 221.4,342.5 223.4,359.5 225.7,385.4 228.1,404.8 230.8,430.1 232.3,448.4 232.1,456.9 230.6,462.8 228.7,466.9 225.2,472.0 221.3,476.0 216.0,479.2 212.2,481.0 205.9,483.3 197.9,484.9 188.7,485.4 181.6,484.1 178.3,481.8 174.2,478.6 171.7,475.4 170.0,472.4 168.3,466.7" fill="#7cc46a" stroke="#000" stroke-width="1"><title>H04-FW-01</title></polygon>
+<polygon points="202.3,730.5 196.4,643.9 208.2,643.0 213.9,729.7 202.3,730.5" fill="#a7d99a" stroke="#000" stroke-width="1"><title>H04-TE-01</title></polygon>
+<text x="217.2" y="686.7" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">TE-01</text>
+<polyline points="70.1,120.1 64.1,142.5 60.7,150.5 60.0,154.6 60.3,158.8 62.3,177.6 62.6,193.4 63.0,202.3 63.0,207.7 63.1,212.5 63.4,218.2 64.7,222.5 66.0,226.5 69.3,233.2 72.0,239.0 73.6,246.3 75.4,253.6 78.7,269.8 81.3,279.2 81.9,285.4 82.3,296.1 82.6,317.6 83.7,329.7 84.4,338.9 85.2,359.3 84.7,365.3 84.1,367.9 73.6,399.1" fill="none" stroke="#cccccc" stroke-width="1.5"/>
+<polygon points="146.5,372.5 146.9,368.3 146.9,366.3 146.8,364.2 146.6,361.9 146.7,361.3 147.6,360.5 148.4,360.4 149.8,360.5 151.5,361.2 153.0,361.0 154.5,360.1 155.3,359.4 156.7,359.2 159.6,359.9 160.3,360.9 159.5,363.5 159.9,365.3 160.7,368.2 160.6,371.8 156.8,380.2 155.2,382.6 154.3,383.1 151.8,382.7 151.2,380.8 150.7,377.5 149.8,376.0 148.6,375.1 147.1,374.0 146.5,372.5" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H04-BK-01</title></polygon>
+<text x="165.7" y="369.8" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-01</text>
+<polygon points="147.1,355.0 150.3,354.2 152.2,354.3 153.9,354.2 155.9,353.4 156.8,351.7 156.4,350.1 156.1,347.8 156.3,344.9 155.8,341.0 154.4,337.3 152.2,335.4 150.2,334.4 146.8,334.2 144.5,335.0 142.7,336.9 141.4,337.6 141.1,338.9 141.8,340.1 142.6,342.3 142.9,346.4 143.5,350.8 144.5,353.0 145.1,354.0 146.0,354.8 147.1,355.0" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H04-BK-02</title></polygon>
+<text x="161.2" y="344.6" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-02</text>
+<polygon points="226.9,307.8 229.5,305.3 230.7,302.1 230.4,299.1 229.4,294.9 229.6,291.8 230.6,288.8 231.0,286.4 230.0,282.6 229.7,279.4 229.0,276.6 227.3,275.8 225.2,276.1 223.2,277.1 222.7,278.6 223.0,281.9 223.0,285.2 221.6,289.5 219.5,292.5 218.6,294.2 218.9,296.3 218.7,298.5 218.0,300.6 218.5,303.4 219.9,305.9 221.6,307.1 223.3,308.1 224.9,308.3 226.9,307.8" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H04-BK-03</title></polygon>
+<text x="237.1" y="293.5" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-03</text>
+<polygon points="209.4,280.7 213.3,273.6 214.1,272.2 214.0,270.8 213.1,269.1 210.1,265.9 209.4,265.1 208.5,264.3 207.7,265.0 206.2,267.2 204.7,270.6 205.2,273.6 204.6,275.5 204.1,277.3 204.3,280.0 204.4,282.3 205.4,284.7 206.5,285.8 208.1,286.3 209.5,285.9 210.4,284.9 210.0,283.4 209.4,280.7" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H04-BK-04</title></polygon>
+<text x="220.4" y="275.1" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-04</text>
+<polygon points="176.2,241.6 179.6,240.1 181.7,239.1 182.8,237.3 182.9,235.9 182.2,234.2 181.2,232.7 180.7,230.8 181.0,229.3 181.5,228.5 182.3,227.5 182.4,226.2 181.2,226.0 178.8,226.4 175.7,227.0 173.7,227.6 173.0,229.5 172.7,232.4 172.4,234.4 172.6,237.1 172.8,238.9 173.2,240.6 173.7,241.4 174.4,241.5 176.2,241.6" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H04-BK-05</title></polygon>
+<text x="189.3" y="233.9" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-05</text>
+<polygon points="171.3,124.7 175.4,123.4 178.0,121.6 181.1,119.4 183.6,116.9 185.3,114.7 186.8,112.1 187.8,109.1 188.1,107.1 188.3,104.0 188.1,101.0 187.2,97.9 186.1,94.6 183.8,91.7 181.7,89.5 177.4,85.0 174.0,82.3 170.6,80.6 167.1,80.0 164.3,80.0 161.1,80.8 158.4,81.7 155.7,82.6 153.2,84.4 151.0,86.5 148.6,89.0 146.4,91.8 145.5,93.3 144.6,95.6 143.8,97.5 142.7,102.0 142.4,105.6 143.2,109.8 144.9,112.8 148.3,117.4 151.2,120.0 154.8,122.4 158.0,123.8 160.7,124.7 163.2,125.4 166.0,125.9 168.1,125.6 171.3,124.7" fill="#3fa34d" stroke="#000" stroke-width="1"><title>H04-GR-01</title></polygon>
+<polyline points="207.0,712.8 162.9,261.0 162.9,101.7" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="10" y="20" fill="#fff" font-size="15" font-weight="bold">Hole 4 · mapped data (unverified) · rings = yd to green</text></svg>

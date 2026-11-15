@@ -177,7 +177,18 @@ def load_scene(hole, style):
                 for k, (Q, hs) in enumerate(ctx[L]):
                     if len(Q) == len(P) and np.allclose(Q, P):
                         ctx[L][k] = (Q, sorted(set(hs) | {hole}))
-    Z, gZ = terrain.load_dem(); C, gC = terrain.load_canopy()
+    # tees the source files under this hole but that belong to another (source_corrections remove list) paint as neighbours
+    rem = json.load(open(os.path.join(d, 'source_corrections.json'))).get('remove_from_this_hole', []) if os.path.exists(os.path.join(d, 'source_corrections.json')) else []
+    for c in rem:
+        ref = c['ref'].split(':', 1)[1]
+        g = [f for f in D['features'] if f['properties'].get('osm_id') == ref]
+        if g and g[0]['geometry']['type'] == 'Polygon':
+            P = [F.uv(q) for q in g[0]['geometry']['coordinates'][0]]
+            L = g[0]['properties']['layer']
+            for k, (Q, hs) in enumerate(ctx.get(L, [])):
+                if len(Q) == len(P) and np.allclose(Q, P):
+                    ctx[L][k] = (Q, [x for x in hs if x != hole])
+    Z, gZ = terrain.load_dem(hole); C, gC = terrain.load_canopy(hole)
     z_ref = float(terrain.heights_uv(hole, np.array([0.0]), np.array([0.0]), Z, gZ, F)[0])
     return {'hole': hole, 'dir': d, 'feats': feats, 'F': F, 'ctx': ctx, 'stripe_dir': stripe_dir, 'src': src,
             'Z': Z, 'gZ': gZ, 'C': C, 'gC': gC, 'z_ref': z_ref, 'own_ids': own_ids}
@@ -650,8 +661,8 @@ def render(hole, view_name):
                    'focal_px': round(cam['fpx'] / SS, 4), 'look_from_uv': [round(x, 3) for x in cam['look_from_uv']]},
         'inputs_sha256': {'features.geojson': sh(os.path.join(d, 'features.geojson')), 'camera.json': sh(os.path.join(d, 'camera.json')),
                           'flyover_style.json': sh(pcv3.p('style', 'flyover_style.json')), 'course_source': sc['src']['sha256'],
-                          'elevation_source': terrain.elevation_source()['sha256'],
-                          'canopy_source': [s for s in pcv3.check_sources()['sources'] if s['role'] == 'tree_canopy'][0]['sha256'] if sc['C'] is not None else None},
+                          'elevation_source': terrain.elevation_source(sc['hole'])['sha256'],
+                          'canopy_source': terrain.canopy_source(sc['hole'])['sha256'] if sc['C'] is not None else None},
         'trees': 'ILLUSTRATIVE woods where the locked 2023 NAIP canopy grid shows canopy; crown shapes, %.0f m nominal height and colours are style, not surveyed trees' % style['trees']['height_m'],
         'terrain': '2021 USGS 3DEP lidar bare earth (2 m), vertical exaggeration %.2fx; bunker depths and tee/green edge bevels are cosmetic' % world['ex'],
         'material_ids': {v: k for k, v in MAT.items()},

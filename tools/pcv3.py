@@ -278,7 +278,13 @@ def hole_source(hole):
     hole's source_corrections.json (manual, evidence-based; geometry is never altered)."""
     D, src = course_features()
     feats = [f for f in D['features'] if hole in (f['properties'].get('holes') or [])]
-    corr = load(p('data', 'holes', 'hole%02d' % hole, 'source_corrections.json'), {}).get('assign_to_this_hole', [])
+    cfile = load(p('data', 'holes', 'hole%02d' % hole, 'source_corrections.json'), {})
+    drop = {c['ref'].split(':', 1)[1] for c in cfile.get('remove_from_this_hole', [])}
+    for r in drop:
+        if not any(f['properties'].get('osm_id') == r for f in feats):
+            sys.exit('STOP: removal refers to %s, which the source does not assign to hole %d' % (r, hole))
+    feats = [f for f in feats if f['properties'].get('osm_id') not in drop]
+    corr = cfile.get('assign_to_this_hole', [])
     for c in corr:
         ref = c['ref'].split(':', 1)[1]
         m = [f for f in D['features'] if f['properties'].get('osm_id') == ref]
