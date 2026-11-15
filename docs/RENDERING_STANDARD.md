@@ -107,3 +107,9 @@ The renderer needs `numpy`, `scipy`, `opencv-python`. The data tools (`pcv3.py`)
 - **Exaggeration 1.5×** makes slopes look steeper than they are (deliberate, stated).
 - **Heightfield trees** cannot show trunks or overhangs; crown sides are textured in screen space.
 - **Render time** about 2 minutes per view on 2 cores; fine for pre-rendering, not for live use.
+
+## Additions after v1.0 (15 Nov 2026), no change to the approved look
+- **Camera per hole:** `tools/make_camera.py` applies the approved Hole 2 camera pattern scaled by hole length (k = L/336 m, clamped). Hole 2 keeps its approved camera.
+- **QA output:** the renderer also writes `holeNN_<view>_depth.npz` (ray distance per pixel). It is not part of the picture and lets the alignment test report hazards hidden behind illustrative woods as *hidden* rather than misaligned. Pictures and material-ID images are byte-identical with and without it (checked on Hole 1; visual baseline test PASS).
+- **Grids:** each hole uses the first locked lidar/canopy grid that covers it (DATA_SOURCES.md §2e).
+- Open question for the owner: crown clearance over playing surfaces (PROBLEM_REPORT.md item 1). It stays off until approved.

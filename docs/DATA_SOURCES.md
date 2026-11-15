@@ -111,6 +111,13 @@ Outlines drawn over the 2023 NAIP image (0.3 m) and compared with the 2021 lidar
 
 These checks raise confidence but do not satisfy HOLE_VALIDATION.md: imagery predates the rebuild. `verification.json` is unchanged (owner's record).
 
+## 2e. Course-area grids for Holes 1 and 5–9 (15 Nov 2026, in use)
+Same survey, classifier and imagery as §2b and §2c, for a second area (EPSG:6348 bbox 365620,4615710 – 366398,4616592; 389×441 cells at 2 m):
+- **Elevation:** `elevation/usgs3dep_2021_pocasset_course_2m.dm16.gz` (sha256 8e7a63b5…). Native 1 m export 3,212,857 bytes, sha256 5a7d9e4d…, heights 4.49–22.45 m, no gaps. Carried over as base64 (sha256 adf72d74…, verified), then losslessly re-encoded to the Hole 2 grid's format.
+- **Canopy (illustrative):** `canopy/naip2023_canopy_pocasset_course_2m.u8.gz` (sha256 cd90da31…). Same NAIP tiles as Hole 2 (22 Aug 2023); `tools/canopy_browser.js` unchanged except the bounding box; 54.5% of the area classed as canopy.
+- **Which grid a hole uses:** the first locked grid (lock order) whose coverage box holds every mapped point of the hole. Holes 2–4 keep the Hole 2 grid, so Hole 2's approved renders stay byte-identical; Holes 1, 5–9 use the course-area grids.
+- Holes 10–18 lie outside both areas and need a third download.
+
 ## 3. Checked and not used
 - **OpenYardage:** builds yardage books from OSM, so it holds the same data (no new data).
 - **GolfLogix, ezLocator, commercial GPS apps:** not licensed for reuse of their geometry. ezLocator *pin numbers* are entered by the owner daily.

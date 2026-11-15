@@ -2,6 +2,14 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v3.2.0 → v3.6.1: rolling releases of Holes 1–9 to the test site (15 Nov 2026)
+Full table of releases, commits and tests: docs/RELEASES.md. Problems found: docs/PROBLEM_REPORT.md.
+- **Holes 1, 3–9 built with the approved Hole 2 process and published**, each awaiting owner review (Hole 2 look unchanged).
+- **Data:** course-area 2021 lidar (Holes 1, 5–9) and NAIP 2023 canopy locked as second grids; approved greens + EZLocator pin models ported for Holes 1, 4–9 (checksums verified, images unchanged).
+- **Tools:** per-hole grid selection (`terrain.py`); `make_camera.py` (approved camera scaled by hole length); `port_green.py`; `source_corrections.json` `remove_from_this_hole`; renderer writes a QA-only ray-distance file (pictures unchanged); `test_alignment.py` separates hidden-behind-woods from misaligned and scales its edge inset with pixel size; `test_prototype.js` runs for any hole (`HOLE=N`); homepage statuses from `data/release/status.json`.
+- **App fix:** when no Green tee is mapped the app opens at the Blue tee, else the card tee closest to the Green yardage, never at a mapped tee that matches no card tee; footer explains.
+- **Hole 3:** re-rendered with the length-scaled camera (earlier render kept for comparison).
+
 ## v3.1.0-visual-baseline: Hole 2 V2 approved as the V3 visual standard (15 Nov 2026)
 - **Owner approval (visual only):** the Hole 2 V2 appearance is the standard for all V3 holes. Geography, bunkers, Green tee, GPS and iPhone checks remain separate.
 - Approved style, renderer and terrain code frozen read-only in `style/approved/` with `VISUAL_BASELINE_v1.0.json` (checksums, camera approach, Hole 2 reference renders in `render/approved_visual_v1.0/`).

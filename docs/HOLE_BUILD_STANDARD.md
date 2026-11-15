@@ -141,8 +141,11 @@ python3 tools/terrain.py grid --hole 2
 python3 tools/render_flyover.py --hole 2
 python3 tests/test_alignment.py --hole 2
 python3 -I tools/build_prototype.py --hole 2
-node tests/test_prototype.js
+HOLE=2 node tests/test_prototype.js        # release test for any hole (HOLE=N)
+python3 tools/make_camera.py --hole 2        # approved camera pattern scaled by hole length (never overwrites without --force)
+python3 -I tools/build_site.py --holes 1 2 3 # test site; statuses from data/release/status.json
 ```
+Release procedure, rollback and the central progress table: docs/RELEASES.md.
 
 `pcv3.py` uses only Python's standard library (3.9+), so it runs on the Mac with its built-in `python3`, with nothing to install. `terrain.py` needs numpy; the renderer needs numpy, scipy and opencv (all in Claude's workspace).
 

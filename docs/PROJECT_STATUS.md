@@ -2,16 +2,23 @@
 
 *Last updated: 15 Nov 2026. This file is the place to resume from on any computer or in any Claude session. Read it first, then HOLE_BUILD_STANDARD.md.*
 
+## Resume checkpoint (15 Nov 2026, evening)
+- **Holes 1–9 are on the V3 test site**, each "Published — awaiting your review": https://scottamcintire.github.io/pocasset-caddie-v3/ . Releases, commits, tests and data concerns: **docs/RELEASES.md** (central table, Holes 1–18). Owner feedback: **docs/reviews/holeNN.md**. Problems found while repeating the process: **docs/PROBLEM_REPORT.md**.
+- Source: `main` of `scottamcintire/pocasset-caddie-v3` (latest source commit is in RELEASES.md); site: `gh-pages`. Local working copies: `/home/claude/Pocasset_Caddie_V3` (source) and `/home/claude/pocasset-caddie-v3` (site).
+- Data locked: course GeoJSON; 2021 lidar for Hole 2's area **and** for Holes 1, 5–9's area; NAIP 2023 canopy for both areas; V2.3.1 green build data. Each hole uses the first locked grid that covers it (Holes 2–4 keep the Hole 2 grid).
+- **Next:** owner review of Holes 1–9 (record in docs/reviews, set status in data/release/status.json); owner decision on problem-report item 1 (tree crowns over play); on-course checks of the flagged tees/bunkers; Holes 10–18 need a third lidar + canopy download (Mac browser, awake) when that scope is approved.
+- Production V2.3.1 untouched throughout (no change to its repo, site, GPS, scoring or saved data).
+
 ## Where things stand
 
 | Area | Status |
 |---|---|
-| Stage | **Visual baseline approved (owner, 15 Nov 2026): Hole 2 V2 is the V3 standard look** (rendering standard v1.0, locked). Now: Hole 2 geographic verification, V3 app toward iPhone testing, and a two-hole trial of the approved style before the remaining holes |
-| Production app | **V2.3.1 is the protected production baseline** (owner, 15 Nov). Exact V2.2.1 is archived at …/pocasset_caddie/v2.2.1/. V3 never modifies production. The only authorized production change is the established daily pin-sheet update |
-| V3 location | Claude's workspace, local git repository (no remote). **Not yet on the Mac:** `Documents/Pocasset_Caddie_V3` does not exist, and Claude can only reach `Documents/Pocasset AI Caddie` (see decision 6) |
-| GitHub / website | None created (needs approval) |
-| Hole 2 | **C ✔ visual approval (V2, 15 Nov).** A done for terrain and woods (illustrative); Green tee is a **candidate**; B preliminary only (2023 imagery + 2021 lidar agree, not verification); D/E automated parts pass (vs V2.3.1 and V2.2.1); F pending (needs the V3 test site) |
-| Holes 1, 3–18 | Awaiting data (not started, by design) |
+| Stage | Holes 1–9 published for owner review (rolling releases v3.2.0 → v3.6.1). Visual baseline v1.0 (Hole 2) unchanged and byte-identical |
+| Production app | **V2.3.1 is the protected production baseline**; V3 never modifies it. Only the established daily pin-sheet update is authorized there |
+| V3 location | GitHub `scottamcintire/pocasset-caddie-v3` (`main` = source, `gh-pages` = test site) plus Claude's workspace copy. Mac folder still not created (decision 6) |
+| GitHub / website | Live: https://scottamcintire.github.io/pocasset-caddie-v3/ (homepage shows each hole's review status) |
+| Holes 1–9 | Published — awaiting review (none approved). Hole 2: visual style approved; Green tee still a candidate |
+| Holes 10–18 | Not started (outside the current scope); need course-area data for their part of the course |
 
 ## Done (15 Nov 2026)
 - [x] Read-only inventory of the production app, approved greens and course data (V3_PLAN_2026-11-15.md).
