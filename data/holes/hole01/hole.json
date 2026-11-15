@@ -1,0 +1,100 @@
+{
+ "schema": "pocasset-v3/hole@1",
+ "hole": 1,
+ "par": 5,
+ "card_yards": {
+  "Gold": 477,
+  "Blue": 477,
+  "Green": 469,
+  "White": 465,
+  "Bronze": 440,
+  "Silver": 303
+ },
+ "frame": {
+  "type": "green-pin-frame",
+  "origin_lonlat": [
+   -70.61236846,
+   41.68814156
+  ],
+  "playing_bearing_deg": 318.652111,
+  "earth_radius_m": 6371008.8,
+  "definition": "origin = mean of green ring incl. closing vertex; v = last centerline segment toward green; u = golfer's right"
+ },
+ "centerline_length_yd": 477.7,
+ "tees": [
+  {
+   "feature_id": "H01-TE-01",
+   "measured_yards": 479,
+   "tee_sets": [
+    "Gold",
+    "Blue",
+    "Green"
+   ]
+  },
+  {
+   "feature_id": "H01-TE-02",
+   "measured_yards": 475,
+   "tee_sets": [
+    "Gold",
+    "Blue",
+    "Green",
+    "White"
+   ]
+  },
+  {
+   "feature_id": "H01-TE-03",
+   "measured_yards": 473,
+   "tee_sets": [
+    "Gold",
+    "Blue",
+    "Green",
+    "White"
+   ]
+  },
+  {
+   "feature_id": "H01-TE-04",
+   "measured_yards": 449,
+   "tee_sets": [
+    "Bronze"
+   ]
+  }
+ ],
+ "tee_sets_not_mapped": [
+  "Silver"
+ ],
+ "counts": {
+  "bunker": 6,
+  "centerline": 1,
+  "fairway": 1,
+  "green": 1,
+  "path": 4,
+  "tee": 4
+ },
+ "missing": {
+  "not_in_source": [
+   "water"
+  ],
+  "not_yet_sourced": []
+ },
+ "layers": {
+  "terrain": "lidar (flown 20 Mar - 24 Apr 2021 (leaf-off))",
+  "trees": "illustrative woods from imagery canopy (not surveyed trees)"
+ },
+ "unverified_features": 17,
+ "green_asset": {
+  "approved": true,
+  "folder": "Pocasset_AI_Master/03_greens/hole_01/approved/",
+  "files": 6,
+  "approved_on": "2026-10-26",
+  "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+ },
+ "production_green_center": [
+  -70.61236936,
+  41.68814149
+ ],
+ "generated": {
+  "by": "tools/pcv3.py standardize",
+  "on": "2026-11-15",
+  "source_sha256": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304"
+ }
+}

@@ -642,6 +642,10 @@ def render(hole, view_name):
     bgr = cv2.cvtColor((final * 255 + 0.5).astype(np.uint8), cv2.COLOR_RGB2BGR)
     cv2.imwrite(base + '.jpg', bgr, [cv2.IMWRITE_JPEG_QUALITY, out['jpeg_quality'], cv2.IMWRITE_JPEG_PROGRESSIVE, 1])
     cv2.imwrite(base + '_ids.png', mat_out)
+    # QA only (not part of the picture): ray distance per output pixel (centre sub-sample; NaN = sky). Lets the alignment
+    # test tell 'hidden behind trees/terrain' from 'misaligned'.
+    c0 = SS // 2
+    np.savez_compressed(base + '_depth.npz', t_m=np.where(hit, T_, np.nan)[c0::SS, c0::SS][:out['height'], :out['width']].astype(np.float32))
     Pout = np.diag([1 / SS, 1 / SS, 1.0]) @ cam['P']
     def sh(path):
         return hashlib.sha256(open(path, 'rb').read()).hexdigest()

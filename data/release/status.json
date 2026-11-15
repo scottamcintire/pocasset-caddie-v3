@@ -9,14 +9,41 @@
   "blocked": "Blocked — missing data"
  },
  "holes": {
-  "1": {"status": "in_development", "detail": "Lidar locked; waiting for the tree-canopy download"},
-  "2": {"status": "published_awaiting_review", "detail": "Visual style approved 15 Nov (baseline v1.0); hole itself not yet approved"},
-  "3": {"status": "published_awaiting_review", "detail": ""},
-  "4": {"status": "published_awaiting_review", "detail": "Only the Green/White tee is mapped"},
-  "5": {"status": "in_development", "detail": "Lidar locked; waiting for the tree-canopy download"},
-  "6": {"status": "in_development", "detail": "Lidar locked; waiting for the tree-canopy download"},
-  "7": {"status": "in_development", "detail": "Lidar locked; waiting for the tree-canopy download"},
-  "8": {"status": "in_development", "detail": "Lidar locked; waiting for the tree-canopy download"},
-  "9": {"status": "in_development", "detail": "Lidar locked; waiting for the tree-canopy download"}
+  "1": {
+   "status": "published_awaiting_review",
+   "detail": "Silver tee not mapped; no water mapped"
+  },
+  "2": {
+   "status": "published_awaiting_review",
+   "detail": "Visual style approved 15 Nov (baseline v1.0); hole itself not yet approved"
+  },
+  "3": {
+   "status": "published_awaiting_review",
+   "detail": ""
+  },
+  "4": {
+   "status": "published_awaiting_review",
+   "detail": "Only the Green/White tee is mapped"
+  },
+  "5": {
+   "status": "in_development",
+   "detail": "Data locked; build in progress"
+  },
+  "6": {
+   "status": "in_development",
+   "detail": "Data locked; build in progress"
+  },
+  "7": {
+   "status": "in_development",
+   "detail": "Data locked; build in progress"
+  },
+  "8": {
+   "status": "in_development",
+   "detail": "Data locked; build in progress"
+  },
+  "9": {
+   "status": "in_development",
+   "detail": "Data locked; build in progress"
+  }
  }
 }

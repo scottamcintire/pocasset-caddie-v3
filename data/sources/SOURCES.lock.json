@@ -138,6 +138,39 @@
    }
   },
   {
+   "file": "canopy/naip2023_canopy_pocasset_course_2m.u8.gz",
+   "role": "tree_canopy",
+   "sha256": "cd90da3158083000b121d094cc92be237d07cf701f937e429c0027853720bc6b",
+   "origin": "DERIVED: tree-canopy mask classified from USDA NAIP 4-band orthoimagery (tiles m_4107020_nw_19_030_20230822 and m_4107020_sw_19_030_20230822, flown 22 Aug 2023, 0.3 m, leaf-on) via the USGS NAIPPlus ImageServer (lockRasterIds 72824, 72826), resampled to 1 m on the same EPSG:6348 grid as the course-area elevation source (Holes 1, 5-9). Classifier: tools/canopy_browser.js (5x5 m mean NDVI > 0.19, brightness texture sd > 14, mean brightness < 140; 7x7 m majority), then 2 m cells = count of canopy 1 m cells (0-4).",
+   "grid": {
+    "crs": "EPSG:6348 NAD83(2011) / UTM zone 19N",
+    "ul_easting": 365620.0,
+    "ul_northing": 4616592.0,
+    "cell_m": 2.0,
+    "cols": 389,
+    "rows": 441,
+    "row_order": "north to south",
+    "values": "0-4 = number of the cell's four 1 m sub-cells classified as canopy"
+   },
+   "transfer": {
+    "base64_sha256": "4408b6fea4105646f29e6f96b445b65c2939cc486d92c44215100945ddf17a44",
+    "base64_chars": 23944,
+    "classifier": "tools/canopy_browser.js unchanged except BBOX=[365620,4615710,366398,4616592]"
+   },
+   "status": "ILLUSTRATIVE (approximate wooded areas). Not individual trees; not field-verified. 2023 imagery predates the course restoration, so tree removal since 2023 is not reflected. Automated classification also catches some dense shrubs and lawns with tree shadows.",
+   "cross_check": "Not separately cross-checked; same classifier, thresholds and NAIP tiles as the Hole 2 grid (whose cross-check is recorded there). Visual check per hole in the rendered views.",
+   "licence": "NAIP imagery: USDA Farm Service Agency, public domain. Derived mask: project data.",
+   "added": "2026-11-15",
+   "coverage_lonlat_inner_box": {
+    "west": -70.61453834,
+    "east": -70.60543176,
+    "south": 41.6819772,
+    "north": 41.68974743,
+    "note": "largest lon/lat box fully inside the UTM grid (conservative, 2e-5 deg inset); used to decide whether a hole is covered"
+   },
+   "canopy_fraction": 0.545
+  },
+  {
    "file": "production/v231_greens_data.json",
    "role": "production_green_models",
    "sha256": "f548cadab9605ac12c945096015d9cd5c857d6ec86998dbd7c8a6782649f7a78",

@@ -30,6 +30,9 @@ for view in ('tee', 'approach'):
     img = cv2.cvtColor(cv2.imread(os.path.join(d, 'render', pj['image'])), cv2.COLOR_BGR2RGB)
     ids = cv2.imread(os.path.join(d, 'render', pj['image'].replace('.jpg', '_ids.png')), 0)
     M = np.array(pj['camera_matrix']); hm = pj['height_model']
+    dp = os.path.join(d, 'render', pj['image'].replace('.jpg', '_depth.npz'))
+    T = np.load(dp)['t_m'] if os.path.exists(dp) else None          # ray distance per pixel (renderer QA output)
+    Cc = np.array(pj['camera']['position_uvz_m']); fpx = pj['camera']['focal_px']
     for f in feats:
         c = f['properties']['class']
         if c not in test:
@@ -37,13 +40,20 @@ for view in ('tee', 'approach'):
         colour_ok, want_id = test[c]
         P = [F.uv(q) for q in f['geometry']['coordinates'][0]]
         xs = [q[0] for q in P]; ys = [q[1] for q in P]
-        ok = tot = hidden = idok = 0
+        ok = tot = hidden = idok = inset_dropped = 0
         for u in np.linspace(min(xs), max(xs), 25):
             for v in np.linspace(min(ys), max(ys), 25):
-                inside = pcv3.point_in((u, v), P) and all(pcv3.seg_dist((u, v), P[i], P[i + 1])[0] > 1.5 for i in range(len(P) - 1))
-                if not inside:
+                if not pcv3.point_in((u, v), P):
                     continue
                 z = (float(TZ.h(u, v)) - hm['z_ref_m']) * hm['vertical_exaggeration']
+                # stay clear of the outline by 1.5 m, or by 1.5 picture pixels' worth of ground where pixels are coarser
+                dist = float(np.linalg.norm(np.array([u, v, z]) - Cc)); sin_el = max(0.05, (Cc[2] - z) / dist)
+                inset = max(1.5, 1.5 * dist / fpx / sin_el)
+                if not all(pcv3.seg_dist((u, v), P[i], P[i + 1])[0] > inset for i in range(len(P) - 1)):
+                    hh = M @ [u, v, z, 1]
+                    if hh[2] > 0 and 0 <= hh[0] / hh[2] < img.shape[1] and 0 <= hh[1] / hh[2] < img.shape[0]:
+                        inset_dropped += 1          # on screen, but too close to the edge at this pixel size
+                    continue
                 h = M @ [u, v, z, 1]
                 if h[2] <= 0:
                     continue
@@ -51,13 +61,16 @@ for view in ('tee', 'approach'):
                 if not (0 <= x < img.shape[1] and 0 <= y < img.shape[0]):
                     continue
                 mid = ids[int(y), int(x)]
-                if mid == MAT['tree']:
+                occluded = T is not None and np.isfinite(T[int(y), int(x)]) and T[int(y), int(x)] < dist * 0.99 - 1.0
+                if mid == MAT['tree'] or occluded:
                     hidden += 1; continue
                 tot += 1; idok += mid == want_id; ok += (mid == want_id) and colour_ok(img[int(y), int(x)])
         if tot:
             frac = ok / tot; good = frac >= 0.95; allok &= good
             print('%-9s %-10s %-7s %3d samples  %5.1f%% correct (id %5.1f%%)%s%s' % (view, f['properties']['id'], c, tot, 100 * frac, 100 * idok / tot,
-                  ('  [%d behind trees]' % hidden) if hidden else '', '' if good else '  <-- FAIL'))
+                  ('  [%d hidden behind trees/terrain]' % hidden) if hidden else '', '' if good else '  <-- FAIL'))
+        elif not hidden and inset_dropped:
+            print('%-9s %-10s %-7s too small at this distance to sample (alignment covered by the projection test)' % (view, f['properties']['id'], c))
         elif hidden:
-            print('%-9s %-10s %-7s all %d samples behind illustrative trees in this view' % (view, f['properties']['id'], c, hidden))
+            print('%-9s %-10s %-7s all %d samples hidden behind illustrative trees/terrain in this view' % (view, f['properties']['id'], c, hidden))
 print('ALIGNMENT', 'PASS' if allok else 'FAIL'); sys.exit(0 if allok else 1)
