@@ -1,0 +1,78 @@
+{
+ "schema": "pocasset-v3/flyover-style@1",
+ "name": "Pocasset flyover style v0.1 (from owner reference 2026-11-15)",
+ "note": "Appearance only. Changing this file changes how holes look, never where anything is. Colours are sRGB hex.",
+ "output": {
+  "width": 1170,
+  "height": 1800,
+  "supersample": 2,
+  "jpeg_quality": 90
+ },
+ "texture_px_per_m": 8,
+ "colors": {
+  "rough": "#3d7a2a",
+  "rough_dark": "#336d24",
+  "first_cut": "#62a63a",
+  "fairway": "#86c843",
+  "fairway_stripe_dark": "#69ad33",
+  "tee": "#86c247",
+  "green": "#8fd14f",
+  "green_stripe": "#7fc142",
+  "collar": "#6fae37",
+  "sand": "#efe3c3",
+  "sand_shadow": "#cdb98c",
+  "bunker_lip": "#2f6623",
+  "water_deep": "#1f5f8c",
+  "water_shallow": "#3f8fb7",
+  "water_bank": "#2a5a2a",
+  "path": "#bdb8aa",
+  "path_edge": "#8f8a7c",
+  "offcourse": "#2c5523",
+  "haze": "#c8dcc4"
+ },
+ "stripes": {
+  "fairway_width_m": 9.0,
+  "fairway_strength": 1.0,
+  "green_width_m": 2.2,
+  "green_strength": 0.45,
+  "tee_width_m": 2.5
+ },
+ "noise": {
+  "rough_amount": 0.1,
+  "fairway_amount": 0.05,
+  "sand_amount": 0.06,
+  "seed": 2026
+ },
+ "relief": {
+  "note": "Cosmetic bevels at feature edges only (no invented slopes or mounds). Replaced by real lidar heights when available.",
+  "fairway_m": 0.1,
+  "fairway_edge_m": 3.0,
+  "green_m": 0.16,
+  "green_edge_m": 4.0,
+  "tee_m": 0.4,
+  "tee_edge_m": 1.2,
+  "bunker_depth_m": 0.55,
+  "bunker_edge_m": 1.6,
+  "bunker_lip_m": 0.18,
+  "bunker_lip_w_m": 1.0,
+  "water_depth_m": 0.5,
+  "water_edge_m": 1.5
+ },
+ "light": {
+  "azimuth_from_camera_left_deg": 35,
+  "elevation_deg": 38,
+  "ambient": 0.58,
+  "diffuse": 0.55,
+  "relief_exaggeration": 9.0
+ },
+ "first_cut_m": 2.8,
+ "collar_m": 1.4,
+ "path_width_m": 2.6,
+ "water_bank_m": 1.0,
+ "haze": {
+  "amount": 0.16,
+  "distance_m": 650
+ },
+ "vignette": 0.18,
+ "context_dim": 0.38
+}

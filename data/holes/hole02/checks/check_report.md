@@ -1,6 +1,6 @@
 # Hole 2 — automated check (2026-11-15)
 
-Result: **OK to continue (flags need review)** · 9 pass · 4 flag · 0 stop
+Result: **OK to continue (flags need review)** · 11 pass · 4 flag · 0 stop
 
 | Level | Check | Detail |
 |---|---|---|
@@ -10,12 +10,14 @@ Result: **OK to continue (flags need review)** · 9 pass · 4 flag · 0 stop
 | PASS | required class: fairway |  |
 | FLAG | no data source yet: trees | needs lidar / land-cover download (DATA_SOURCES.md) |
 | FLAG | no data source yet: terrain | needs lidar / land-cover download (DATA_SOURCES.md) |
-| FLAG | tee sets without a mapped tee | Green, White, Bronze, Silver |
+| FLAG | tee sets without a mapped tee | Silver |
 | PASS | green area | 520 m² |
 | PASS | centerline ends on the green |  |
 | PASS | tee H02-TE-01 vs scorecard | 462 yd → Gold |
 | PASS | tee H02-TE-02 vs scorecard | 422 yd → Blue |
-| FLAG | features awaiting verification | 13 of 13 |
+| PASS | tee H02-TE-03 vs scorecard | 367 yd → Green, White |
+| PASS | tee H02-TE-04 vs scorecard | 344 yd → Bronze |
+| FLAG | features awaiting verification | 15 of 15 |
 | PASS | approved green asset recorded | Pocasset_AI_Master/03_greens/hole_02/approved/ |
 
 ## Distances from mapped tees (unverified data; for review)
@@ -30,3 +32,11 @@ Result: **OK to continue (flags need review)** · 9 pass · 4 flag · 0 stop
 | H02-TE-02 | H02-BK-01 (green-front) | reach 380 · carry 398  (line through hazard) |
 | H02-TE-02 | H02-BK-02 (green-back) | reach 435 · carry 443  (line through hazard) |
 | H02-TE-02 | H02-WA-01 (across) | reach 345 · carry 372  (along playing line) |
+| H02-TE-03 | green F/C/B (production method) | 352 / 366 / 381 |
+| H02-TE-03 | H02-BK-01 (green-front) | reach 328 · carry 347  (line through hazard) |
+| H02-TE-03 | H02-BK-02 (green-back) | reach 384 · carry 392  (line through hazard) |
+| H02-TE-03 | H02-WA-01 (across) | reach 291 · carry 318  (along playing line) |
+| H02-TE-04 | green F/C/B (production method) | 329 / 344 / 359 |
+| H02-TE-04 | H02-BK-01 (green-front) | reach 306 · carry 324  (line through hazard) |
+| H02-TE-04 | H02-BK-02 (green-back) | reach 362 · carry 370  (line through hazard) |
+| H02-TE-04 | H02-WA-01 (across) | reach 268 · carry 295  (along playing line) |

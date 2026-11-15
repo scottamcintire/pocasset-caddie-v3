@@ -1784,6 +1784,102 @@
     "playing_line": "primary",
     "ref": "2"
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -70.612971,
+       41.689443
+      ],
+      [
+       -70.612973,
+       41.689345
+      ],
+      [
+       -70.612899,
+       41.689344
+      ],
+      [
+       -70.612897,
+       41.689442
+      ],
+      [
+       -70.612971,
+       41.689443
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feature_id": "tee-osm-w1241448277",
+    "layer": "tee",
+    "holes": [
+     4
+    ],
+    "source": "osm",
+    "osm_id": "way/1241448277",
+    "osm_version": 1,
+    "verified": false,
+    "assignment_correction": {
+     "source_said": [
+      4
+     ],
+     "status": "approximate",
+     "evidence": "Mapped tee polygon 23 m beside Hole 2's playing line, 367 yd from the Hole 2 green centre (card: Green/White 368). It is 208 m from Hole 4's tee and 52 m off Hole 4's line (117 yd from Hole 4's green), so it cannot be a Hole 4 tee. Candidate Hole 2 Green/White tee."
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -70.613031,
+       41.689626
+      ],
+      [
+       -70.613035,
+       41.68954
+      ],
+      [
+       -70.612954,
+       41.689537
+      ],
+      [
+       -70.61295,
+       41.689624
+      ],
+      [
+       -70.613031,
+       41.689626
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feature_id": "tee-osm-w1241448276",
+    "layer": "tee",
+    "holes": [
+     4
+    ],
+    "source": "osm",
+    "osm_id": "way/1241448276",
+    "osm_version": 1,
+    "verified": false,
+    "assignment_correction": {
+     "source_said": [
+      4
+     ],
+     "status": "approximate",
+     "evidence": "Mapped tee polygon 26 m beside Hole 2's playing line, 344 yd from the Hole 2 green centre (card: Bronze 349). 187 m from Hole 4's tee, 52 m off its line. Candidate Hole 2 Bronze tee."
+    }
+   }
   }
  ]
 }

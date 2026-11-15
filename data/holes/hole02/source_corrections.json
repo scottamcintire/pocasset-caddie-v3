@@ -1,0 +1,13 @@
+{
+ "schema": "pocasset-v3/source-corrections@1",
+ "hole": 2,
+ "note": "Manual record. Corrections to which hole a SOURCE feature belongs to. Geometry is never edited here. Each entry must give evidence.",
+ "assign_to_this_hole": [
+  {"ref": "osm:way/1241448277", "source_said": [4], "status": "approximate",
+   "evidence": "Mapped tee polygon 23 m beside Hole 2's playing line, 367 yd from the Hole 2 green centre (card: Green/White 368). It is 208 m from Hole 4's tee and 52 m off Hole 4's line (117 yd from Hole 4's green), so it cannot be a Hole 4 tee. Candidate Hole 2 Green/White tee.",
+   "needs": "Confirm on current imagery or on the course before marking verified.", "added": "2026-11-15", "by": "Claude"},
+  {"ref": "osm:way/1241448276", "source_said": [4], "status": "approximate",
+   "evidence": "Mapped tee polygon 26 m beside Hole 2's playing line, 344 yd from the Hole 2 green centre (card: Bronze 349). 187 m from Hole 4's tee, 52 m off its line. Candidate Hole 2 Bronze tee.",
+   "needs": "Confirm on current imagery or on the course before marking verified.", "added": "2026-11-15", "by": "Claude"}
+ ]
+}

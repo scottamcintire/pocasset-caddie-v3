@@ -239,8 +239,19 @@ def self_intersects(P):
 
 # ---------------------------------------------------------------- standardize
 def hole_source(hole):
+    """The hole's features from the locked source, plus any features reassigned to it in the
+    hole's source_corrections.json (manual, evidence-based; geometry is never altered)."""
     D, src = course_features()
     feats = [f for f in D['features'] if hole in (f['properties'].get('holes') or [])]
+    corr = load(p('data', 'holes', 'hole%02d' % hole, 'source_corrections.json'), {}).get('assign_to_this_hole', [])
+    for c in corr:
+        ref = c['ref'].split(':', 1)[1]
+        m = [f for f in D['features'] if f['properties'].get('osm_id') == ref]
+        if not m:
+            sys.exit('STOP: correction refers to %s, which is not in the locked source' % c['ref'])
+        f = json.loads(json.dumps(m[0]))
+        f['properties']['assignment_correction'] = {'source_said': c['source_said'], 'status': c['status'], 'evidence': c['evidence']}
+        feats.append(f)
     return D, src, feats
 
 
@@ -286,6 +297,8 @@ def standardize(hole):
             'along_m': round(al, 1), 'position': side,
             'offset_m': round(perp, 1),
             'geometry_status': 'verified' if f['properties'].get('verified') else 'unverified',
+            'assignment': 'source' if not f['properties'].get('assignment_correction') else 'corrected (source said hole %s; %s)' % (
+                ','.join(map(str, f['properties']['assignment_correction']['source_said'])), f['properties']['assignment_correction']['status']),
             'source': {'file': src['file'], 'ref': ref, 'osm_version': f['properties'].get('osm_version'),
                        'licence': src['licence']},
         }

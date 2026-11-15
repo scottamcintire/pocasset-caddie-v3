@@ -35,12 +35,24 @@
    "tee_sets": [
     "Blue"
    ]
+  },
+  {
+   "feature_id": "H02-TE-03",
+   "measured_yards": 367,
+   "tee_sets": [
+    "Green",
+    "White"
+   ]
+  },
+  {
+   "feature_id": "H02-TE-04",
+   "measured_yards": 344,
+   "tee_sets": [
+    "Bronze"
+   ]
   }
  ],
  "tee_sets_not_mapped": [
-  "Green",
-  "White",
-  "Bronze",
   "Silver"
  ],
  "counts": {
@@ -49,7 +61,7 @@
   "fairway": 2,
   "green": 1,
   "path": 4,
-  "tee": 2,
+  "tee": 4,
   "water": 1
  },
  "missing": {
@@ -59,7 +71,7 @@
    "terrain"
   ]
  },
- "unverified_features": 13,
+ "unverified_features": 15,
  "green_asset": {
   "approved": true,
   "folder": "Pocasset_AI_Master/03_greens/hole_02/approved/",

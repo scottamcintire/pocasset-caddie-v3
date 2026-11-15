@@ -1,0 +1,28 @@
+{
+ "schema": "pocasset-v3/camera@1",
+ "hole": 2,
+ "note": "Manual record (camera only; never geography). Positions in the hole frame: u = golfer's right, v = toward the green along the last leg, metres; origin = green centre.",
+ "views": {
+  "tee": {
+   "description": "Full-hole flyover from behind and high above the back tee, looking toward the green",
+   "look_from_feature": "H02-TE-01",
+   "look_to": "green",
+   "back_m": 250,
+   "height_m": 280,
+   "show_behind_tee_m": 25,
+   "show_beyond_green_m": 85,
+   "side_shift_m": -14
+  },
+  "approach": {
+   "description": "Approach view of the green complex from about 150 yd out on the approach line",
+   "look_from_green_m": 90,
+   "look_to": "green",
+   "back_m": 45,
+   "height_m": 75,
+   "show_behind_tee_m": -5,
+   "show_beyond_green_m": 28,
+   "side_shift_m": 0,
+   "texture_px_per_m": 18
+  }
+ }
+}

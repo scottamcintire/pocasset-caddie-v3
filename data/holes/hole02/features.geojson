@@ -12,6 +12,7 @@
     "position": "green-front",
     "offset_m": 12.6,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241445314",
@@ -208,6 +209,7 @@
     "position": "green-back",
     "offset_m": 22.6,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241445310",
@@ -424,6 +426,7 @@
     "position": null,
     "offset_m": 7.6,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241458696",
@@ -728,6 +731,7 @@
     "position": null,
     "offset_m": 3.1,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241458697",
@@ -884,6 +888,7 @@
     "position": null,
     "offset_m": 1.5,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241452585",
@@ -1072,6 +1077,7 @@
     "position": null,
     "offset_m": 0.0,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241472172",
@@ -1106,6 +1112,7 @@
     "position": null,
     "offset_m": 22.0,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241437938",
@@ -1268,6 +1275,7 @@
     "position": null,
     "offset_m": 40.1,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241437935",
@@ -1302,6 +1310,7 @@
     "position": null,
     "offset_m": 37.0,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241437933",
@@ -1332,6 +1341,7 @@
     "position": null,
     "offset_m": 35.2,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241437934",
@@ -1362,6 +1372,7 @@
     "position": null,
     "offset_m": 0.4,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241448278",
@@ -1454,6 +1465,7 @@
     "position": null,
     "offset_m": 7.2,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/1241448279",
@@ -1532,12 +1544,112 @@
   {
    "type": "Feature",
    "properties": {
+    "id": "H02-TE-03",
+    "class": "tee",
+    "along_m": 87.4,
+    "position": null,
+    "offset_m": 23.0,
+    "geometry_status": "unverified",
+    "assignment": "corrected (source said hole 4; approximate)",
+    "source": {
+     "file": "pocaset-GEO.json",
+     "ref": "osm:way/1241448277",
+     "osm_version": 1,
+     "licence": "ODbL-1.0 © OpenStreetMap contributors"
+    },
+    "measured_yards": 367,
+    "tee_sets": [
+     "Green",
+     "White"
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -70.612971,
+       41.689443
+      ],
+      [
+       -70.612973,
+       41.689345
+      ],
+      [
+       -70.612899,
+       41.689344
+      ],
+      [
+       -70.612897,
+       41.689442
+      ],
+      [
+       -70.612971,
+       41.689443
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "H02-TE-04",
+    "class": "tee",
+    "along_m": 108.7,
+    "position": null,
+    "offset_m": 25.8,
+    "geometry_status": "unverified",
+    "assignment": "corrected (source said hole 4; approximate)",
+    "source": {
+     "file": "pocaset-GEO.json",
+     "ref": "osm:way/1241448276",
+     "osm_version": 1,
+     "licence": "ODbL-1.0 © OpenStreetMap contributors"
+    },
+    "measured_yards": 344,
+    "tee_sets": [
+     "Bronze"
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -70.613031,
+       41.689626
+      ],
+      [
+       -70.613035,
+       41.68954
+      ],
+      [
+       -70.612954,
+       41.689537
+      ],
+      [
+       -70.61295,
+       41.689624
+      ],
+      [
+       -70.613031,
+       41.689626
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
     "id": "H02-WA-01",
     "class": "water",
     "along_m": 377.5,
     "position": "across",
     "offset_m": 30.5,
     "geometry_status": "unverified",
+    "assignment": "source",
     "source": {
      "file": "pocaset-GEO.json",
      "ref": "osm:way/82336976",
