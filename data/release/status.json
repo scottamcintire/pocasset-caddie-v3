@@ -34,12 +34,12 @@
    "detail": "Only the Gold tee is mapped (opens there); one mapped tee matches no card tee"
   },
   "7": {
-   "status": "in_development",
-   "detail": "Data locked; build in progress"
+   "status": "published_awaiting_review",
+   "detail": "White/Bronze/Silver tees not mapped"
   },
   "8": {
-   "status": "in_development",
-   "detail": "Data locked; build in progress"
+   "status": "published_awaiting_review",
+   "detail": "Only mapped bunker lies 112 m left of the hole (likely another hole’s)"
   },
   "9": {
    "status": "in_development",
