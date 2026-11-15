@@ -1,0 +1,7 @@
+{
+ "schema": "pocasset-v3/verification@1",
+ "hole": 2,
+ "note": "Manual record. One entry per feature check. result = verified | approximate | wrong. Tools read this and never write it.",
+ "example": {"feature_id": "H02-BK-01", "result": "verified", "method": "Google Earth Pro imagery dated YYYY-MM-DD | on-course GPS walk", "by": "owner", "date": "YYYY-MM-DD", "ref": "short note or photo name", "error_yd": 1.5},
+ "records": []
+}

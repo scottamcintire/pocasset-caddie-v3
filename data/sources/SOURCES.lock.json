@@ -1,0 +1,14 @@
+{
+ "schema": "pocasset-v3/sources-lock@1",
+ "sources": [
+  {
+   "file": "pocaset-GEO.json",
+   "role": "course_features",
+   "sha256": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304",
+   "origin": "zommagolf course GeoJSON (course_ref ma/pocasset-golf-club), built from OpenStreetMap, traced 2026-08-17",
+   "copied_from": "Pocasset_AI_Master/02_course_sources/geojson/pocaset-GEO.json (same SHA-256 as the master checksum list)",
+   "licence": "ODbL-1.0 \u00a9 OpenStreetMap contributors",
+   "added": "2026-11-15"
+  }
+ ]
+}

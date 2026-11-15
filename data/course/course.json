@@ -1,0 +1,358 @@
+{
+ "schema": "pocasset-v3/course@1",
+ "course": "Pocasset Golf Club",
+ "location": "Pocasset (Bourne), MA",
+ "tee_sets": [
+  "Gold",
+  "Blue",
+  "Green",
+  "White",
+  "Bronze",
+  "Silver"
+ ],
+ "scorecard_source": "Production V2.2.1 index.html (SHA-256 0f4d7ffe\u2026) const pars / const tees",
+ "holes": [
+  {
+   "hole": 1,
+   "par": 5,
+   "card_yards": {
+    "Gold": 477,
+    "Blue": 477,
+    "Green": 469,
+    "White": 465,
+    "Bronze": 440,
+    "Silver": 303
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_01/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 2,
+   "par": 4,
+   "card_yards": {
+    "Gold": 463,
+    "Blue": 424,
+    "Green": 368,
+    "White": 368,
+    "Bronze": 349,
+    "Silver": 265
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_02/approved/",
+    "files": 10,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 3,
+   "par": 3,
+   "card_yards": {
+    "Gold": 170,
+    "Blue": 170,
+    "Green": 147,
+    "White": 142,
+    "Bronze": 142,
+    "Silver": 142
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_03/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 4,
+   "par": 4,
+   "card_yards": {
+    "Gold": 366,
+    "Blue": 337,
+    "Green": 326,
+    "White": 313,
+    "Bronze": 269,
+    "Silver": 269
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_04/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 5,
+   "par": 4,
+   "card_yards": {
+    "Gold": 345,
+    "Blue": 345,
+    "Green": 337,
+    "White": 323,
+    "Bronze": 323,
+    "Silver": 254
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_05/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 6,
+   "par": 3,
+   "card_yards": {
+    "Gold": 208,
+    "Blue": 187,
+    "Green": 167,
+    "White": 143,
+    "Bronze": 138,
+    "Silver": 138
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_06/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 7,
+   "par": 4,
+   "card_yards": {
+    "Gold": 388,
+    "Blue": 376,
+    "Green": 345,
+    "White": 283,
+    "Bronze": 283,
+    "Silver": 283
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_07/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 8,
+   "par": 4,
+   "card_yards": {
+    "Gold": 394,
+    "Blue": 383,
+    "Green": 375,
+    "White": 286,
+    "Bronze": 286,
+    "Silver": 286
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_08/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 9,
+   "par": 5,
+   "card_yards": {
+    "Gold": 499,
+    "Blue": 490,
+    "Green": 469,
+    "White": 460,
+    "Bronze": 437,
+    "Silver": 380
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_09/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 10,
+   "par": 4,
+   "card_yards": {
+    "Gold": 362,
+    "Blue": 362,
+    "Green": 344,
+    "White": 274,
+    "Bronze": 269,
+    "Silver": 269
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_10/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 11,
+   "par": 4,
+   "card_yards": {
+    "Gold": 397,
+    "Blue": 392,
+    "Green": 380,
+    "White": 337,
+    "Bronze": 303,
+    "Silver": 303
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_11/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 12,
+   "par": 3,
+   "card_yards": {
+    "Gold": 140,
+    "Blue": 125,
+    "Green": 112,
+    "White": 106,
+    "Bronze": 98,
+    "Silver": 98
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_12/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 13,
+   "par": 4,
+   "card_yards": {
+    "Gold": 325,
+    "Blue": 316,
+    "Green": 308,
+    "White": 281,
+    "Bronze": 259,
+    "Silver": 202
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_13/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 14,
+   "par": 4,
+   "card_yards": {
+    "Gold": 390,
+    "Blue": 373,
+    "Green": 361,
+    "White": 348,
+    "Bronze": 297,
+    "Silver": 231
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_14/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 15,
+   "par": 3,
+   "card_yards": {
+    "Gold": 184,
+    "Blue": 152,
+    "Green": 152,
+    "White": 135,
+    "Bronze": 116,
+    "Silver": 116
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_15/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 16,
+   "par": 5,
+   "card_yards": {
+    "Gold": 495,
+    "Blue": 485,
+    "Green": 477,
+    "White": 444,
+    "Bronze": 424,
+    "Silver": 335
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_16/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 17,
+   "par": 5,
+   "card_yards": {
+    "Gold": 527,
+    "Blue": 520,
+    "Green": 489,
+    "White": 485,
+    "Bronze": 453,
+    "Silver": 355
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_17/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  },
+  {
+   "hole": 18,
+   "par": 4,
+   "card_yards": {
+    "Gold": 412,
+    "Blue": 404,
+    "Green": 389,
+    "White": 327,
+    "Bronze": 325,
+    "Silver": 325
+   },
+   "green_asset": {
+    "approved": true,
+    "folder": "Pocasset_AI_Master/03_greens/hole_18/approved/",
+    "files": 6,
+    "approved_on": "2026-10-26",
+    "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
+   }
+  }
+ ]
+}

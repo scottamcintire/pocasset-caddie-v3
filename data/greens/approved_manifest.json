@@ -1,0 +1,456 @@
+{
+ "schema": "pocasset-v3/green-manifest@1",
+ "master_root": "Documents/Pocasset AI Caddie/Pocasset_AI_Master",
+ "taken_from": "00_INDEX/SHA256SUMS.txt on the Mac master, read 2026-11-15",
+ "rule": "Read-only. V3 copies these files byte-for-byte; never edits, regenerates or recolours them.",
+ "files": [
+  {
+   "path": "03_greens/hole_01/approved/Pocasset_Hole01_Green_1876x2360.png",
+   "sha256": "f824d6d5af07031dcfe9cafceb75cf758e309b55f76dc8916ad0ea2b9b0a80ba"
+  },
+  {
+   "path": "03_greens/hole_01/approved/Pocasset_Hole01_Green_938x1180.png",
+   "sha256": "a730bae8e4f8a879e0e94c02c3d92ca8cff65ca9cab9eb8ee65ada55deaf0983"
+  },
+  {
+   "path": "03_greens/hole_01/approved/README.md",
+   "sha256": "68bf732c46935bf5dc40c20421f6589394bb7bfd1defd7575d7fc74127a109b1"
+  },
+  {
+   "path": "03_greens/hole_01/approved/SHA256SUMS.txt",
+   "sha256": "fcba22ca78f98fa6da5cbcde0b8bb3d5fb2dafd2756e54acc00939651287d2d4"
+  },
+  {
+   "path": "03_greens/hole_01/approved/index.html",
+   "sha256": "453ffe1a54a54debcc47c017de6f846644d5e959ff3a031f1400fa0c46da1f62"
+  },
+  {
+   "path": "03_greens/hole_01/approved/registration.json",
+   "sha256": "df64f93853a7d9ee7504dab9f8ea6e62f345006761249bcff7d9ac86723ef558"
+  },
+  {
+   "path": "03_greens/hole_02/approved/MANIFEST_SHA256.txt",
+   "sha256": "1de0e70fab1dfe7adafe2ad792fc6598e83c5e836fac72f823527c77f788e302"
+  },
+  {
+   "path": "03_greens/hole_02/approved/Pocasset_Hole02_Green_1400x1576.png",
+   "sha256": "52772b3f0d3403c2a45db3e56c03d7ae0b8198c54b291da3ba70e6583b8bf8d7"
+  },
+  {
+   "path": "03_greens/hole_02/approved/Pocasset_Hole02_Green_700x788.png",
+   "sha256": "7f764c0d662d73ff637257013196dde76d789ed38127c9d31d47226bd5c07e23"
+  },
+  {
+   "path": "03_greens/hole_02/approved/README.md",
+   "sha256": "09bb5fba2ab159c4e298155ae8486b4a5d60951b9c255d38d7206ac18a177a0c"
+  },
+  {
+   "path": "03_greens/hole_02/approved/SHA256SUMS.txt",
+   "sha256": "9fc7c5aabfa6c715be496c540b9b8f28c6cd793ff1d793e02af29074e3125cbf"
+  },
+  {
+   "path": "03_greens/hole_02/approved/green_outline_diagnostic.svg",
+   "sha256": "0c464a6972d4c32ff07e211ec948dd6f401d5b71a04d88dfb6d178097afaf495"
+  },
+  {
+   "path": "03_greens/hole_02/approved/hole2_annotation_cleanup_700x788.png",
+   "sha256": "017bec63544799aeea46f013909ab3bdfb792d4e4a0515218c4ef2b4c3aefc24"
+  },
+  {
+   "path": "03_greens/hole_02/approved/hole2_original_heatmap_700x788.png",
+   "sha256": "3f75dab9affdcdf471b62140c0ecd0cfc454d63a758213a91560e78dece8f803"
+  },
+  {
+   "path": "03_greens/hole_02/approved/index.html",
+   "sha256": "6e17a845b3bc23340361f9340165a51b50a117dcaaefbc482dfd020b685f8c28"
+  },
+  {
+   "path": "03_greens/hole_02/approved/registration.json",
+   "sha256": "79cb3ff8fc0362167c2e2dd53cd5afc6263b4d17d5c27ecfbcc395fbc30ed1e2"
+  },
+  {
+   "path": "03_greens/hole_03/approved/Pocasset_Hole03_Green_700x788.png",
+   "sha256": "d345f59313470236ff36969af7787bb213c812b0c40633d3792d980796f618b4"
+  },
+  {
+   "path": "03_greens/hole_03/approved/README.md",
+   "sha256": "1594c954acab5a0b75da9ab21a203f6bdedd1147b7216f4a6d7962acd0c360c2"
+  },
+  {
+   "path": "03_greens/hole_03/approved/SHA256SUMS.txt",
+   "sha256": "3352bcbb5167fad4c143c9ba587c77cf7978043918ef1617da2857c20aa71b1a"
+  },
+  {
+   "path": "03_greens/hole_03/approved/hole3_original_heatmap_700x788.png",
+   "sha256": "948d975de12f80c3afbc3a4a102bc84e844d2a8e8f84e9a175347761bf42cb0b"
+  },
+  {
+   "path": "03_greens/hole_03/approved/index.html",
+   "sha256": "983c136d531b0c85525ad12032169821ee686f72a473f33d85737ca5568f4a7c"
+  },
+  {
+   "path": "03_greens/hole_03/approved/registration.json",
+   "sha256": "68e54440da3cacb92537e1646e3ccd7f9bdfcef2f095aa668103ac6e157e3f6c"
+  },
+  {
+   "path": "03_greens/hole_04/approved/Pocasset_Hole04_Green_1090x1103.png",
+   "sha256": "5328f0df2a3b88dacad8784fe2becabdb2282bda8e442a0b02918d53d47749b7"
+  },
+  {
+   "path": "03_greens/hole_04/approved/Pocasset_Hole04_Green_2180x2206.png",
+   "sha256": "58206ab417adafcfef8878e4e756fbacfc1bd9270116af7c646ae084d712a408"
+  },
+  {
+   "path": "03_greens/hole_04/approved/README.md",
+   "sha256": "c36d7e38f01636ad753b6c04e53f8b148c71f9e8c33a63892a2584d9a36f2dee"
+  },
+  {
+   "path": "03_greens/hole_04/approved/SHA256SUMS.txt",
+   "sha256": "0478a904a8c527511f8fd5a976cefa5ff305c8023b3fd2ef91d0f4eba09b49b3"
+  },
+  {
+   "path": "03_greens/hole_04/approved/index.html",
+   "sha256": "36bc7136138067599675206b3d122e7b7e70d320cb75c62d8ef3936ecae75422"
+  },
+  {
+   "path": "03_greens/hole_04/approved/registration.json",
+   "sha256": "b7c4b1c9eb9535c48f42ae833d8c6e2b39148d09a73f596c6e4b1986fe7aa117"
+  },
+  {
+   "path": "03_greens/hole_05/approved/Pocasset_Hole05_Green_1726x2206.png",
+   "sha256": "e91761242c42806617aa53d51e5320cb2072a7647776e04cb4b000448fe37ce3"
+  },
+  {
+   "path": "03_greens/hole_05/approved/Pocasset_Hole05_Green_863x1103.png",
+   "sha256": "385858126aeb64ec793e9a0bfe3b7821360cbede2acd771fa3ad34aa22cafca0"
+  },
+  {
+   "path": "03_greens/hole_05/approved/README.md",
+   "sha256": "c36d7e38f01636ad753b6c04e53f8b148c71f9e8c33a63892a2584d9a36f2dee"
+  },
+  {
+   "path": "03_greens/hole_05/approved/SHA256SUMS.txt",
+   "sha256": "7704597b223bc00e714975deabcb8f821d441b7840f805b1f2e558d7d247ce7f"
+  },
+  {
+   "path": "03_greens/hole_05/approved/index.html",
+   "sha256": "c52d80a081d92074e1e19f5e842a6a3d69d07a7f7eba08f20799b21593d47b5d"
+  },
+  {
+   "path": "03_greens/hole_05/approved/registration.json",
+   "sha256": "f95d51afd7ae81ad185976b493f380b53064b6c4e68f81497be2c46dba9a5d95"
+  },
+  {
+   "path": "03_greens/hole_06/approved/Pocasset_Hole06_Green_1660x2226.png",
+   "sha256": "4eaf56e4dc1b68055d1244d265c7faadff56d598a7fb5e3b975a546cce1df7af"
+  },
+  {
+   "path": "03_greens/hole_06/approved/Pocasset_Hole06_Green_830x1113.png",
+   "sha256": "7d39880161667965fc476352c336532e56ec50b464f40b605a44df90447ec9b3"
+  },
+  {
+   "path": "03_greens/hole_06/approved/README.md",
+   "sha256": "4c392435fb91c29f87bf4321f5ddd8fddc532f9c7970e7c98f71004b81045d20"
+  },
+  {
+   "path": "03_greens/hole_06/approved/SHA256SUMS.txt",
+   "sha256": "13173af544237f5a694cfd57f55cdf0c29d48239c9bb619c0389f299fd6ab4f8"
+  },
+  {
+   "path": "03_greens/hole_06/approved/index.html",
+   "sha256": "ad6896457cf29bbcdeb3489328e72063e94c1bd9b7b28ff60a18e79e5daca849"
+  },
+  {
+   "path": "03_greens/hole_06/approved/registration.json",
+   "sha256": "78a8a7de1762d91dcde893d874f69bface0c84e69b4bc8159b89ec1fed09d6b7"
+  },
+  {
+   "path": "03_greens/hole_07/approved/Pocasset_Hole07_Green_1662x2578.png",
+   "sha256": "d20c90cb4d86c8698e0e477996f978739db1cae86b68b7d72e8995c64d329c07"
+  },
+  {
+   "path": "03_greens/hole_07/approved/Pocasset_Hole07_Green_831x1289.png",
+   "sha256": "18ee033ea250fa5749bf0313690e946083e48b7f6d2827d9d07780b24f97f6cf"
+  },
+  {
+   "path": "03_greens/hole_07/approved/README.md",
+   "sha256": "c36d7e38f01636ad753b6c04e53f8b148c71f9e8c33a63892a2584d9a36f2dee"
+  },
+  {
+   "path": "03_greens/hole_07/approved/SHA256SUMS.txt",
+   "sha256": "03ae5a3c1a50aee52cb184243bc33d4c31c7ca61370b449eebcfa3af8093e01f"
+  },
+  {
+   "path": "03_greens/hole_07/approved/index.html",
+   "sha256": "020fe7db8dc19604386ed56e79aa665db69aa7838deed3e6d525531859a00b5b"
+  },
+  {
+   "path": "03_greens/hole_07/approved/registration.json",
+   "sha256": "353c2633d0e07bed3a757e912d568b1032b25db9648f216de83574cda70de8d4"
+  },
+  {
+   "path": "03_greens/hole_08/approved/Pocasset_Hole08_Green_1964x2014.png",
+   "sha256": "b87dd8df93347ee58e7bf48848037f77518579c6b07a782f10a86359bf95f77c"
+  },
+  {
+   "path": "03_greens/hole_08/approved/Pocasset_Hole08_Green_982x1007.png",
+   "sha256": "d8dccec22cef830929af38ed32135c5c473e3742bfeebcac0e68092dece73dce"
+  },
+  {
+   "path": "03_greens/hole_08/approved/README.md",
+   "sha256": "c36d7e38f01636ad753b6c04e53f8b148c71f9e8c33a63892a2584d9a36f2dee"
+  },
+  {
+   "path": "03_greens/hole_08/approved/SHA256SUMS.txt",
+   "sha256": "33dee731f11d65facb12619398ebcb3ff7736a56d7b6892d8131fb5c792ebe9e"
+  },
+  {
+   "path": "03_greens/hole_08/approved/index.html",
+   "sha256": "25072a892c15f47d7a691af435d421c65b7ab5f1c34e5afc3c99f1b6f6516e80"
+  },
+  {
+   "path": "03_greens/hole_08/approved/registration.json",
+   "sha256": "39fbac678f4be54a18223cd95f4e683e865c8b0657b3f80fb7ada8dbf8d36828"
+  },
+  {
+   "path": "03_greens/hole_09/approved/Pocasset_Hole09_Green_1990x1986.png",
+   "sha256": "b7ea298b0cf52b3a874119ad6d90d81f6f939656edd4f1347186867050e6778d"
+  },
+  {
+   "path": "03_greens/hole_09/approved/Pocasset_Hole09_Green_995x993.png",
+   "sha256": "4f31fbe7bd769e9d1135c9b99a59ef6e279604a47ea8e2937992a8dd8929f6d0"
+  },
+  {
+   "path": "03_greens/hole_09/approved/README.md",
+   "sha256": "a485c326e9b2987d0c582257d7138a116b93c254f22f995840470f5bbe3c2d19"
+  },
+  {
+   "path": "03_greens/hole_09/approved/SHA256SUMS.txt",
+   "sha256": "611b3fcbf1e8ff98dff72f2f8b8a773bbbeb90d7e8c5f85e359a50ea99ee35d3"
+  },
+  {
+   "path": "03_greens/hole_09/approved/index.html",
+   "sha256": "c63395ff7d95c195a5a953bcf6cc07ff9243a7c5b1827b1eb7f6a20baeee0796"
+  },
+  {
+   "path": "03_greens/hole_09/approved/registration.json",
+   "sha256": "f122bc8bc97f4154929a5af0730b5f99abbb47b723bf3a5e9aa705a3e8633de5"
+  },
+  {
+   "path": "03_greens/hole_10/approved/Pocasset_Hole10_Green_1726x2056.png",
+   "sha256": "71c901318806ba5460821261aae2fd43400436a469427ab8def041527205ec68"
+  },
+  {
+   "path": "03_greens/hole_10/approved/Pocasset_Hole10_Green_863x1028.png",
+   "sha256": "8308774bfb98d77a872d84084fdcc9483b49d5e76282f2828c71ed5ac92c2ac7"
+  },
+  {
+   "path": "03_greens/hole_10/approved/README.md",
+   "sha256": "68bf732c46935bf5dc40c20421f6589394bb7bfd1defd7575d7fc74127a109b1"
+  },
+  {
+   "path": "03_greens/hole_10/approved/SHA256SUMS.txt",
+   "sha256": "ab78e8f9f033226e80e8b205ad8d20ae8f0ea86d07297d66e762865783b1915c"
+  },
+  {
+   "path": "03_greens/hole_10/approved/index.html",
+   "sha256": "8e11475aea9d442c96e618f5ad2eae71d73b66314b17775ee9b8bdf1ff18fbef"
+  },
+  {
+   "path": "03_greens/hole_10/approved/registration.json",
+   "sha256": "5688021dcd0f6421d14e1aaf8e7054ba2c05a1de9ad8912397e178dcf37955cd"
+  },
+  {
+   "path": "03_greens/hole_11/approved/Pocasset_Hole11_Green_1996x2312.png",
+   "sha256": "56ea354e12c47108d728629e42261519210f5a564c0db31bb5483ed3fa957b84"
+  },
+  {
+   "path": "03_greens/hole_11/approved/Pocasset_Hole11_Green_998x1156.png",
+   "sha256": "7faf1585f9b924b993b80ebf342960cb822d42aaec9723cd03cf94a916101c19"
+  },
+  {
+   "path": "03_greens/hole_11/approved/README.md",
+   "sha256": "68bf732c46935bf5dc40c20421f6589394bb7bfd1defd7575d7fc74127a109b1"
+  },
+  {
+   "path": "03_greens/hole_11/approved/SHA256SUMS.txt",
+   "sha256": "da51056a007c40f5475dedfbcfe29357553fb7c49e4707ff315b270256253c59"
+  },
+  {
+   "path": "03_greens/hole_11/approved/index.html",
+   "sha256": "d495b337a1ac60cd09f0e28469236d1cdd10fab5bd1c5a64e54698a492c9e581"
+  },
+  {
+   "path": "03_greens/hole_11/approved/registration.json",
+   "sha256": "df7aebf21b5452d4cd198e48e0685a542c83374211b42924f81485d0a7094f49"
+  },
+  {
+   "path": "03_greens/hole_12/approved/Pocasset_Hole12_Green_1840x2246.png",
+   "sha256": "716760fb06f423eae27cca51af692b701c42c5c91e136a841d700c042004db59"
+  },
+  {
+   "path": "03_greens/hole_12/approved/Pocasset_Hole12_Green_920x1123.png",
+   "sha256": "247a53fcbb72577e16b3fdbde34fa67ba58f4efe57340b6e34d2bd8ec1efd1d2"
+  },
+  {
+   "path": "03_greens/hole_12/approved/README.md",
+   "sha256": "68bf732c46935bf5dc40c20421f6589394bb7bfd1defd7575d7fc74127a109b1"
+  },
+  {
+   "path": "03_greens/hole_12/approved/SHA256SUMS.txt",
+   "sha256": "88f32eb0f1580c9e23799b403cddf2018ac46cd40070b32bf7a03a11654cbaff"
+  },
+  {
+   "path": "03_greens/hole_12/approved/index.html",
+   "sha256": "8d9da17858bd7213ebd3d6c0ddce5af60c511b0d240d4009c16b5c16b81b96b3"
+  },
+  {
+   "path": "03_greens/hole_12/approved/registration.json",
+   "sha256": "05f090ff7001cc803a9715bd276a4a4baa377c602b660de51be72f92aa59da7c"
+  },
+  {
+   "path": "03_greens/hole_13/approved/Pocasset_Hole13_Green_1060x1069.png",
+   "sha256": "7993554c9a47eaf2d1133b3d2972a8ad51d9c5686faa1b0e78ddd6c709d783f5"
+  },
+  {
+   "path": "03_greens/hole_13/approved/Pocasset_Hole13_Green_2120x2138.png",
+   "sha256": "6f36193d086544e8d4ec88711f98bace4cb3d57ad0da2156a59b10d1695077c0"
+  },
+  {
+   "path": "03_greens/hole_13/approved/README.md",
+   "sha256": "68bf732c46935bf5dc40c20421f6589394bb7bfd1defd7575d7fc74127a109b1"
+  },
+  {
+   "path": "03_greens/hole_13/approved/SHA256SUMS.txt",
+   "sha256": "23077d7695e037cb88e9ee50a39f3cbe3755f01eae9242dec73ad414d07439c7"
+  },
+  {
+   "path": "03_greens/hole_13/approved/index.html",
+   "sha256": "63d69820f0258040f88ca20e287cbe5e5a0791a2c3f03fae7ba138f37ce671b2"
+  },
+  {
+   "path": "03_greens/hole_13/approved/registration.json",
+   "sha256": "3c87f56f2f82db87c761c96a87e15399795be7e3841ea8aa7b5511f90bce82a4"
+  },
+  {
+   "path": "03_greens/hole_14/approved/Pocasset_Hole14_Green_1972x2116.png",
+   "sha256": "7829672a57f11b704ddf6d6487214317de7d51c4506c53ae579fda19d512d24b"
+  },
+  {
+   "path": "03_greens/hole_14/approved/Pocasset_Hole14_Green_986x1058.png",
+   "sha256": "1a009d29281e2f31a9673fa952d920b22e29ac92e0e26a0a5075b74344ab69ac"
+  },
+  {
+   "path": "03_greens/hole_14/approved/README.md",
+   "sha256": "d81d9b23d7298b7cb0afb33eb6f1f71c7e2e1ca29b10be97f0f5687daab99a81"
+  },
+  {
+   "path": "03_greens/hole_14/approved/SHA256SUMS.txt",
+   "sha256": "2b9383bb0f62231035007937754672ceb565a1dd8284a189477d952d6a8d4c59"
+  },
+  {
+   "path": "03_greens/hole_14/approved/index.html",
+   "sha256": "dd7926fe1af8545408821ce6b059d7b6456e798deac07ef6a0e8f4fb1d28404f"
+  },
+  {
+   "path": "03_greens/hole_14/approved/registration.json",
+   "sha256": "da1b926f0ecb528d4d4ea95ff5e6cfe462d46d3046a811787a811634fd781c63"
+  },
+  {
+   "path": "03_greens/hole_15/approved/Pocasset_Hole15_Green_1332x2212.png",
+   "sha256": "da24e026071bdd4917d2a88fe201c87f6e60a8e9551a5339ce1650411ce698c0"
+  },
+  {
+   "path": "03_greens/hole_15/approved/Pocasset_Hole15_Green_666x1106.png",
+   "sha256": "8573860c6772788b1b26cec520c80023b89229a1ed1c8268784a8afa26e4cd3b"
+  },
+  {
+   "path": "03_greens/hole_15/approved/README.md",
+   "sha256": "d81d9b23d7298b7cb0afb33eb6f1f71c7e2e1ca29b10be97f0f5687daab99a81"
+  },
+  {
+   "path": "03_greens/hole_15/approved/SHA256SUMS.txt",
+   "sha256": "1ffd9b692bff77880e63bfe597ec8692552d8e8cd8da38a1902568a955025be6"
+  },
+  {
+   "path": "03_greens/hole_15/approved/index.html",
+   "sha256": "93b3891423d47f29eae370279c403ec8322862ce85e0c51eefae6e30986b26ae"
+  },
+  {
+   "path": "03_greens/hole_15/approved/registration.json",
+   "sha256": "14fefe779c3d776f815ea52bcfafe6695e356caaf7943261bce19a7eb4766125"
+  },
+  {
+   "path": "03_greens/hole_16/approved/Pocasset_Hole16_Green_1031x1085.png",
+   "sha256": "79c739dfca6aaf295b0a83489a9c3e4c375b113a1e57858c36084f0d52f8bc28"
+  },
+  {
+   "path": "03_greens/hole_16/approved/Pocasset_Hole16_Green_2062x2170.png",
+   "sha256": "79790ec8c62c0e213a726f66cd024d217139e3e650b166209ef4b92b5fe9813a"
+  },
+  {
+   "path": "03_greens/hole_16/approved/README.md",
+   "sha256": "d81d9b23d7298b7cb0afb33eb6f1f71c7e2e1ca29b10be97f0f5687daab99a81"
+  },
+  {
+   "path": "03_greens/hole_16/approved/SHA256SUMS.txt",
+   "sha256": "437523b3e7794b7ba33c7d1d9b8133d6d5c7735f1b342c2c6825cf633e6c5c36"
+  },
+  {
+   "path": "03_greens/hole_16/approved/index.html",
+   "sha256": "f583eb6296bc0fd0b9e1108e4f69198ff24cb1990be291a72e49f5dd7bf7290e"
+  },
+  {
+   "path": "03_greens/hole_16/approved/registration.json",
+   "sha256": "27f4158f3dac9b2383d764aadc71699f05cf9c692eb9a7dbeb254c0f95860a9f"
+  },
+  {
+   "path": "03_greens/hole_17/approved/Pocasset_Hole17_Green_1580x2138.png",
+   "sha256": "7885dbb9b3e2103bd0841a720c8c22ba0bb812d1dfc5240897a5f65cb895e7fe"
+  },
+  {
+   "path": "03_greens/hole_17/approved/Pocasset_Hole17_Green_790x1069.png",
+   "sha256": "7e2a9520b989a340a2b2d22ce7ee094ccd86e116ff30b3176e62664d37bed6c0"
+  },
+  {
+   "path": "03_greens/hole_17/approved/README.md",
+   "sha256": "68bf732c46935bf5dc40c20421f6589394bb7bfd1defd7575d7fc74127a109b1"
+  },
+  {
+   "path": "03_greens/hole_17/approved/SHA256SUMS.txt",
+   "sha256": "74569af4e2c5e3cfd1728b6eeca3c020d0604875ec1a92a6d6a70cc262af36ae"
+  },
+  {
+   "path": "03_greens/hole_17/approved/index.html",
+   "sha256": "4dfea24b7ffa60b420085bc9f953e8ab2f36d8c93018ec0dfaeb8db97c2449f5"
+  },
+  {
+   "path": "03_greens/hole_17/approved/registration.json",
+   "sha256": "59e5560d2718ae3e4910ba7ac0a043c127c76626a92e3174c6fccd1e71aececa"
+  },
+  {
+   "path": "03_greens/hole_18/approved/Pocasset_Hole18_Green_1025x1042.png",
+   "sha256": "c84601cb5d58f7f5ad8f78f5403f3c0527b889773ef2094b26581614e6d5c7af"
+  },
+  {
+   "path": "03_greens/hole_18/approved/Pocasset_Hole18_Green_2050x2084.png",
+   "sha256": "74c93b231b10776d98a9cd4558dc2128b74efe5bb095a37e8ccb044c3cfac70d"
+  },
+  {
+   "path": "03_greens/hole_18/approved/README.md",
+   "sha256": "4d61c2378df8c416451fb25a1619dad9d9ad45279e6848d64fe741c6d54977d0"
+  },
+  {
+   "path": "03_greens/hole_18/approved/SHA256SUMS.txt",
+   "sha256": "a7d46b993a65174663358f66233a017c3205f7eb0bc1d55cc3afe32ffdc034ad"
+  },
+  {
+   "path": "03_greens/hole_18/approved/index.html",
+   "sha256": "87d3d359c2c47494b3d4cf9bc092fd45bb87d4fdb32a460eed6752c4cdc1a6d3"
+  },
+  {
+   "path": "03_greens/hole_18/approved/registration.json",
+   "sha256": "542d60c79c9fcc21631b9e4237771989a39ca7100aa8b9efac9b81ad21e701e9"
+  }
+ ]
+}

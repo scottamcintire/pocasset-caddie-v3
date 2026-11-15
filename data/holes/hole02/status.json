@@ -1,0 +1,17 @@
+{
+ "schema": "pocasset-v3/hole-status@1",
+ "hole": 2,
+ "stage": "in development",
+ "note": "Manual record. Tools never write this file. Update it only when a checkpoint is reviewed.",
+ "checkpoints": {
+  "A_data_complete": {"state": "in_progress", "date": "2026-11-15", "by": "Claude", "note": "Required classes present (line, green, 2 tees, fairways, 2 bunkers, pond, paths). Missing: trees, terrain (no source yet); tee sets Green/White/Bronze/Silver not mapped."},
+  "B_layout_verified": {"state": "pending", "note": "All 13 features unverified; course rebuilt every bunker and tee. Needs imagery check (checks/hole02_check.kml) and/or on-course GPS check."},
+  "C_flyover_approved": {"state": "pending", "note": "Renderer not built yet."},
+  "D_gps_validated": {"state": "pending", "note": "Distance method defined (docs/ARCHITECTURE.md); validation after B."},
+  "E_green_preserved": {"state": "pending", "note": "Approved green recorded in data/greens/approved_manifest.json (10 files); integration not built yet."},
+  "F_iphone_tested": {"state": "pending", "note": "Needs the V3 test site (not created; needs owner approval)."}
+ },
+ "history": [
+  {"date": "2026-11-15", "event": "Hole 2 chosen as the pilot. Data extracted, standardized and auto-checked (9 pass, 4 flags, 0 stops)."}
+ ]
+}

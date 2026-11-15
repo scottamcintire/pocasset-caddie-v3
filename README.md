@@ -1,14 +1,23 @@
 # Pocasset AI Caddie V3 (development)
 
-The future production version of the Pocasset AI Caddie: flyovers + the approved green heat maps + GPS + scoring.
+The future production version of the Pocasset AI Caddie: realistic hole flyovers from real geographic data, the approved green heat maps (unchanged), GPS distances to greens and hazards, and scoring.
 
-**Status:** Stage 1–3 (inventory, data research, design). No app code yet. Local only: no GitHub repository,
-no website. See `docs/V3_PLAN_2026-11-15.md`.
+**Start here:** `docs/PROJECT_STATUS.md` → `docs/HOLE_BUILD_STANDARD.md`.
 
-**Production (frozen, never modified from here):** https://scottamcintire.github.io/pocasset_caddie/ (V2.3.1),
-original V2.2.1 at /pocasset_caddie/v2.2.1/.
+| Doc | Purpose |
+|---|---|
+| docs/PROJECT_STATUS.md | Current state, next steps, open decisions |
+| docs/ARCHITECTURE.md | How data, renderer, GPS and green view fit together |
+| docs/HOLE_BUILD_STANDARD.md | The repeatable process for building one hole (most important) |
+| docs/HOLE_VALIDATION.md | Checkpoints A–F and pass rules |
+| docs/HOLE_PROGRESS.md | 18-hole progress table (generated) |
+| docs/DATA_SOURCES.md | Every data source, licence and known problem |
+| docs/GREEN_ASSET_PROTECTION.md | Approved greens: where, checksums, how they stay untouched |
+| docs/CHANGELOG.md · docs/DECISIONS.md | What changed and why · decisions log |
+| docs/FILE_INVENTORY.md | Every file with checksum (generated) |
+| docs/V3_PLAN_2026-11-15.md | First findings report |
 
-**Isolation rules:** storage keys `pocasset_v3:*` only · caches `pcv3-*` only · service worker scope `/pocasset-caddie-v3/` ·
-approved green files copied byte-for-byte and checksum-locked.
+**Production (frozen, never modified from here):** https://scottamcintire.github.io/pocasset_caddie/ (V2.3.1; exact V2.2.1 at /v2.2.1/).
+**Status:** local only. No GitHub repository and no website until the owner approves.
 
 Map data © OpenStreetMap contributors (ODbL-1.0).

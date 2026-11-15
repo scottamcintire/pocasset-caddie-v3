@@ -1,0 +1,57 @@
+{
+ "note": "Stable IDs. Never renumber or reuse; retired IDs stay listed.",
+ "ids": {
+  "osm:way/1241445314": {
+   "id": "H02-BK-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241445310": {
+   "id": "H02-BK-02",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241458696": {
+   "id": "H02-FW-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241458697": {
+   "id": "H02-FW-02",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241452585": {
+   "id": "H02-GR-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241472172": {
+   "id": "H02-CL-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241437938": {
+   "id": "H02-CP-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241437935": {
+   "id": "H02-CP-02",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241437933": {
+   "id": "H02-CP-03",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241437934": {
+   "id": "H02-CP-04",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241448278": {
+   "id": "H02-TE-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241448279": {
+   "id": "H02-TE-02",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/82336976": {
+   "id": "H02-WA-01",
+   "first_seen": "2026-11-15"
+  }
+ }
+}
