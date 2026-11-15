@@ -42,8 +42,8 @@
    "detail": "Only mapped bunker lies 112 m left of the hole (likely another hole’s)"
   },
   "9": {
-   "status": "in_development",
-   "detail": "Data locked; build in progress"
+   "status": "published_awaiting_review",
+   "detail": "Bronze/Silver tees not mapped; one mapped tee matches no card tee"
   }
  }
 }
