@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a1a30">
-<title>Pocasset V3 Hole 2</title>
+<title>Pocasset V3</title>
 <style>
 :root{--navy:#0a1a30;--navy2:#0f2747;--blue:#1d6fe0;--red:#ff5a4a;--ink:#0f1b14;--card:#132a4a;--line:rgba(255,255,255,.14);color-scheme:dark}
 *{box-sizing:border-box}
@@ -53,17 +53,17 @@ main{position:relative}
 </head>
 <body>
 <div class="top">
-  <div class="brand"><div><b>Pocasset <i>AI</i> Caddie</b><small>V3 prototype v0.2 · Hole 2 flyover</small></div><span class="proto" id="srcTag">Simulated GPS</span></div>
+  <div class="brand"><div><b>Pocasset <i>AI</i> Caddie</b><small id="sub">V3 test · flyover</small></div><span style="display:flex;gap:8px;align-items:center"><a href="../" style="color:#cfe0ff;font-size:12px;text-decoration:none;border:1px solid #3d6bb0;border-radius:999px;padding:5px 10px">Holes</a><span class="proto" id="srcTag">Simulated GPS</span></span></div>
   <div class="yard">
-    <div class="hole">2</div>
+    <div class="hole" id="hn">–</div>
     <div class="yc f"><strong id="yF">—</strong><span>FRONT</span></div>
     <div class="yc"><strong id="yC">—</strong><span>CENTER</span></div>
     <div class="yc b"><strong id="yB">—</strong><span>BACK</span></div>
   </div>
-  <div class="meta"><span>PAR 4 · <span id="teeTxt"></span></span><span class="acc" id="acc"></span></div>
+  <div class="meta"><span>PAR <span id="par"></span> · <span id="teeTxt"></span></span><span class="acc" id="acc"></span></div>
 </div>
 <main>
-  <div id="flyover"><div class="stage" id="stage"><img id="img" alt="Hole 2 flyover"><svg id="ov" viewBox="0 0 1170 1800"></svg></div></div>
+  <div id="flyover"><div class="stage" id="stage"><img id="img" alt="Hole flyover"><svg id="ov" viewBox="0 0 1170 1800"></svg></div></div>
   <div id="green" class="greenwrap" hidden><div id="greenHost"></div><p class="gnote" id="gnote"></p></div>
 </main>
 <nav class="tabs"><button id="tTee" class="on">TEE VIEW</button><button id="tApp">APPROACH</button><button id="tGreen">GREEN</button></nav>
@@ -208,7 +208,7 @@ $('live').onclick=function(){
   this.textContent='Stop live GPS';
   S.watch=navigator.geolocation.watchPosition(function(p){
     var uv=hole.frame.toUV(p.coords.longitude,p.coords.latitude); S.acc=p.coords.accuracy;
-    if(G.dist(uv,[0,0])>600){$('fine').textContent='Live GPS: you are not on Hole 2 (more than 600 m away), so the simulated position is kept.';return}
+    if(G.dist(uv,[0,0])>600){$('fine').textContent='Live GPS: you are not on Hole '+D.hole.hole+' (more than 600 m away), so the simulated position is kept.';return}
     S.me=uv;S.source='live';update();
   },function(){$('fine').textContent='Live GPS unavailable here; use the simulated positions.'},{enableHighAccuracy:true,maximumAge:3000});
 };
@@ -217,14 +217,16 @@ function setView(v){
   $('flyover').hidden=v==='green';$('green').hidden=v!=='green';
   if(v==='green'){var r=PGreen.drawGreen($('greenHost'),D.pin_model,D.green_image,D.pin);
     var fcb=hole.greenFCB(S.me);$('yF').textContent=yd(fcb.front);$('yC').textContent=yd(fcb.center);$('yB').textContent=yd(fcb.back);
-    $('gnote').innerHTML='Approved Hole 2 green, shown exactly as approved (image unchanged, SHA-256 '+D.pin_model.image_sha256.slice(0,12)+'…). Flag: Oct 21 sample pin — '+D.pin.front+' yd from front, '+D.pin.edge+' yd from '+(D.pin.side==='L'?'left':'right')+'. Approach at the bottom.';}
+    $('gnote').innerHTML='Approved Hole '+D.hole.hole+' green, shown exactly as approved (image unchanged, SHA-256 '+D.pin_model.image_sha256.slice(0,12)+'…). Flag: Oct 21 sample pin — '+D.pin.front+' yd from front, '+D.pin.edge+' yd from '+(D.pin.side==='L'?'left':'right')+'. Approach at the bottom.';}
   else draw();
 }
 $('tTee').onclick=function(){setView('tee')};$('tApp').onclick=function(){setView('approach')};$('tGreen').onclick=function(){setView('green')};
 var start=presets.filter(function(p){return /Green/.test(p.tee||'')})[0]||presets.filter(function(p){return /Blue/.test(p.tee||'')})[0]||presets[0];
 $('teeTxt').textContent='Green '+D.hole.card_yards.Green+' · Blue '+D.hole.card_yards.Blue+' yd';
+$('hn').textContent=D.hole.hole;$('par').textContent=D.hole.par;$('sub').textContent='V3 test · Hole '+D.hole.hole+' flyover';document.title='Pocasset V3 Hole '+D.hole.hole;
 $('fine').innerHTML='Prototype v0.2. Yardages use the mapped course data, which is <b>not yet verified</b> against the rebuilt bunkers and tees. '+
- 'The <b>Green tee is a candidate</b>: the map filed it under hole 4, but it measures '+D.hole.tees.filter(function(t){return t.tee_sets.indexOf('Green')>=0}).map(function(t){return t.measured_yards})[0]+' yd vs the card’s '+D.hole.card_yards.Green+' and sits on a built tee platform in the 2021 lidar — confirm on the course. '+
+ (presets.some(function(p){return p.cand&&/Green/.test(p.tee||'')})?'The <b>Green tee is a candidate</b>: the map filed it under another hole, but it measures '+D.hole.tees.filter(function(t){return t.tee_sets.indexOf('Green')>=0}).map(function(t){return t.measured_yards})[0]+' yd vs the card’s '+D.hole.card_yards.Green+' and sits on a built tee platform in the 2021 lidar — confirm on the course. ':'')+
+ 'Bunker and tee outlines predate the spring 2026 rebuild and are <b>not yet verified</b>. '+
  'Ground shape: 2021 USGS lidar, heights drawn '+views.tee.height_model.vertical_exaggeration+'× for readability (distances are flat GPS distances). '+
  'Woods are <b>illustrative</b>: placed only where 2023 aerial imagery shows tree canopy; individual trees, heights and colours are not surveyed. '+
  'Map data © OpenStreetMap contributors; imagery-derived canopy from USDA NAIP; elevation USGS 3DEP.';

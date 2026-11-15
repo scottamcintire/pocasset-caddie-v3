@@ -74,6 +74,7 @@ def crowns(U, V, cell, salt):
     x = U / cell; y = V / cell; i0 = np.floor(x); j0 = np.floor(y)
     best = np.full(U.shape, 9.0, np.float32); ra = np.zeros(U.shape, np.float32); rb = np.zeros(U.shape, np.float32)
     second = np.full(U.shape, 9.0, np.float32); cxs = np.zeros(U.shape, np.float32); cys = np.zeros(U.shape, np.float32)
+    rads = np.zeros(U.shape, np.float32)
     for di in (-1, 0, 1):
         for dj in (-1, 0, 1):
             ci = i0 + di; cj = j0 + dj
@@ -83,9 +84,10 @@ def crowns(U, V, cell, salt):
             closer = d < best
             second = np.where(closer, best, np.minimum(second, d))
             ra = np.where(closer, hash2(ci, cj, salt + 3), ra); rb = np.where(closer, hash2(ci, cj, salt + 4), rb)
-            cxs = np.where(closer, px * cell, cxs); cys = np.where(closer, py * cell, cys)
+            cxs = np.where(closer, px * cell, cxs); cys = np.where(closer, py * cell, cys); rads = np.where(closer, rad * cell, rads)
             best = np.minimum(best, d)
     dome = np.sqrt(np.clip(1 - best ** 2, 0, 1))
+    crowns.last_radius = rads
     return dome.astype(np.float32), ra, rb, (second - best).astype(np.float32), cxs.astype(np.float32), cys.astype(np.float32)
 
 
@@ -204,14 +206,16 @@ def build_world(sc, style):
         polys = [P for L in ('fairway', 'green', 'tee', 'bunker', 'water') for P, _ in sc['ctx'][L]]
         lines = [P for P, _ in sc['ctx']['path']]
         keep = cv_.mask(polys, lines, style['path_width_m'])
+        # distance (m) from playing surfaces (not paths), used to keep whole crowns off them; off in approved style v1.0
+        play_dist = (ndimage.distance_transform_edt(cv_.mask(polys) == 0) / cv_.ppm).astype(np.float32)
         buf = int(round(TR['clear_buffer_m'] * cv_.ppm))
         keep = cv2.dilate(keep, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * buf + 1, 2 * buf + 1)))
         Cf = Cf * (1 - keep)
         n = fbm(cv_.U, cv_.V, (9.0, 4.0), (0.6, 0.4), 31)
         cm = smooth((Cf - TR['threshold'] + 0.12 * n) / 0.12)
     else:
-        cm = np.zeros_like(Hb)
-    Hc = crown_heights(cv_, cm, cv_.u0, cv_.v1, cv_.ppm, TR)
+        cm = np.zeros_like(Hb); play_dist = np.full_like(Hb, 1e3)
+    Hc = crown_heights(cv_, cm, cv_.u0, cv_.v1, cv_.ppm, TR, play_dist)
     Hg = (Hb + Hc).astype(np.float32)
     # sun shadows on the 1 m raster
     LT = style['light']
@@ -226,16 +230,21 @@ def build_world(sc, style):
     ao = 1 - LT['ao'] * np.clip((cv2.GaussianBlur(Hg, (0, 0), 6) - Hg) / 4.0, 0, 1)
     print('world raster %dx%d (1 m) in %.1fs' % (cols, rows, time.time() - t0), flush=True)
     return {'u0': u0, 'v1': v1, 'cell': cell, 'cols': cols, 'rows': rows, 'Hb': Hb.astype(np.float32), 'Hg': Hg, 'cm': cm.astype(np.float32),
-            'shadow': shadow.astype(np.float32), 'ao': ao.astype(np.float32), 'nodata': nodata, 'ex': ex}
+            'shadow': shadow.astype(np.float32), 'ao': ao.astype(np.float32), 'nodata': nodata, 'ex': ex, 'play_dist': play_dist}
 
 
-def crown_heights(cv_, cm, r_u0, r_v1, r_ppm, TR):
+def crown_heights(cv_, cm, r_u0, r_v1, r_ppm, TR, play_dist=None):
     """Illustrative crowns: each crown exists only if the canopy fraction at its centre passes the threshold, so wood
     edges are made of rounded crowns. Height = nominal tree height x per-crown variation x spherical profile."""
     dome, ra, rb, _, cx, cy = crowns(cv_.U, cv_.V, TR['crown_cell_m'], 77)
     pres = cv2.remap(cm.astype(np.float32), ((cx - r_u0) * r_ppm - 0.5).astype(np.float32), ((r_v1 - cy) * r_ppm - 0.5).astype(np.float32),
                      cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
     pres = smooth((pres - 0.5) / 0.15)
+    if play_dist is not None and TR.get('crown_surface_fade', False):
+        # whole crowns that would reach a playing surface (+ buffer) are left out; no crown is ever cut flat
+        dc = cv2.remap(play_dist, ((cx - r_u0) * r_ppm - 0.5).astype(np.float32), ((r_v1 - cy) * r_ppm - 0.5).astype(np.float32),
+                       cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+        pres = pres * smooth((dc - crowns.last_radius - TR['clear_buffer_m']) / 1.0)
     top = TR['height_m'] * (0.8 + 0.4 * ra)
     d = np.sqrt(np.clip(1 - dome ** 2, 0, 1))
     p1, p2 = TR['crown_shape']
@@ -367,7 +376,7 @@ def paint(cv_, sc, style, world):
     cm = cv_.from_raster(w['cm'], w['u0'], w['v1'], w['cell']); cm = np.clip(cm, 0, 1)
     Hc = cv_.from_raster(w['Hg'] - w['Hb'], w['u0'], w['v1'], w['cell'])
     if TR['enabled'] and cm.max() > 0:
-        Hc = crown_heights(cv_, w['cm'], w['u0'], w['v1'], 1 / w['cell'], TR)
+        Hc = crown_heights(cv_, w['cm'], w['u0'], w['v1'], 1 / w['cell'], TR, w['play_dist'])
         dome, ra, rb, edge, _, _ = crowns(U, V, TR['crown_cell_m'], 77)
         dome2 = crowns(U, V, TR['crown_cell_m'] * 0.45, 91)[0]
         pal = [hexrgb(c) for c in TR['palette']]
