@@ -32,6 +32,33 @@ See GREEN_ASSET_PROTECTION.md. Project assets derived from GolfLogix heat maps; 
 | Post-restoration bunker/tee outlines | (a) newer aerial imagery review; (b) on-course GPS capture; (c) updated OSM | (a) Google Earth Pro; (b) V3 test page; (c) OSM | (b) is ±3–5 yd per point with a phone | own data | **Needed for checkpoint B** |
 | Forward-tee positions | On-course GPS capture | V3 test page | ±3–5 yd | own data | Needed for tee markers |
 
+
+## 2a. Elevation research (15 Nov 2026): reported, not yet used
+
+| | |
+|---|---|
+| Best candidate | **2021 USGS Lidar: Central Eastern Massachusetts** (USGS 3DEP project MA_CentralEastern_2021_B21), collected by NV5 Geospatial |
+| Quality | Quality Level 1. Bare-earth DEM at 0.5 m ground sample distance, hydro-flattened. QL1 = 3DEP's second-highest level: vertical accuracy ≤10 cm RMSE in open ground, at least 8 points per m² |
+| When flown | 20 Mar – 24 Apr 2021 (leaf-off spring) |
+| Coverage | Most of eastern Massachusetts, co-funded by the Cape Cod Commission. The published extent (41.22–42.90 °N, 72.05–69.92 °W) contains Pocasset. **To confirm:** the exact tile over Hole 2 on the MassGIS tile index |
+| Where | MassGIS "Latest and Best Lidar Terrain Data": 32-bit DEM tiles (0.5 or 1 m) downloaded per tile from MassMapper (Identify → Latest and Best Lidar Index → tile link). Also USGS LidarExplorer / The National Map (point cloud and DEM) |
+| Licence | US government / Commonwealth public data, free to reuse |
+| Fallback | 2010 Barnstable County ARRA lidar, 1 m (vertical accuracy about 18 cm at 95%), superseded by 2021 |
+
+### Caveats before use
+1. **The lidar predates the restoration.** It shows the 2021 ground, before the recent reconstruction of every bunker and tee.
+   - **Use it for:** the broad shape of the land (slopes, rises, hollows), which a bunker and tee rebuild does not change.
+   - **Do not use it for:** bunker or tee shapes, which stay from the mapped outlines.
+2. **Trees from the same lidar are 2021 trees.** Restorations often remove trees. Every lidar-derived tree area must be checked against current imagery before it is drawn.
+3. **Datum:** heights are in NAVD88 (GEOID18). Only relative heights matter for shading, so the datum does not affect the picture.
+
+### Proposed use, once approved
+1. Download the one or two tiles covering Hole 2 into `data/sources/elevation/` inside the V3 folder only. Lock the checksum in `SOURCES.lock.json`.
+2. Clip them to the hole.
+3. Use them for the render's height grid, replacing the cosmetic flat ground. The positions of features do not change: outlines stay where the coordinates put them.
+
+**Status:** reported for approval. Nothing downloaded.
+
 ## 3. Checked and not used
 - **OpenYardage:** builds yardage books from OSM, so it holds the same data (no new data).
 - **GolfLogix, ezLocator, commercial GPS apps:** not licensed for reuse of their geometry. ezLocator *pin numbers* are entered by the owner daily.

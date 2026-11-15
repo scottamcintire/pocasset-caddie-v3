@@ -33,13 +33,13 @@ Generated files are rebuilt by the tools; manual records (status.json, verificat
 | `data/sources/pocaset-GEO.json` | 204609 | 8222dec0c585c2ae |
 | `docs/ARCHITECTURE.md` | 7598 | e8fa185991cb70de |
 | `docs/CHANGELOG.md` | 0 | e3b0c44298fc1c14 |
-| `docs/DATA_SOURCES.md` | 5933 | 19d28982491ff448 |
+| `docs/DATA_SOURCES.md` | 8182 | af5f60867e08dc56 |
 | `docs/DECISIONS.md` | 3158 | 87876a19f2911708 |
 | `docs/GREEN_ASSET_PROTECTION.md` | 6794 | 9635aaaac7eab353 |
 | `docs/HOLE_BUILD_STANDARD.md` | 9855 | e50c8ecb0c32d877 |
 | `docs/HOLE_PROGRESS.md` | 2966 | 799cc30756214bfc |
 | `docs/HOLE_VALIDATION.md` | 4730 | 294f7b39ef7716b1 |
-| `docs/PROJECT_STATUS.md` | 6730 | 79df8b1bb2ed766a |
+| `docs/PROJECT_STATUS.md` | 7184 | 50abb5c6415fbfcd |
 | `docs/RENDERING_STANDARD.md` | 5385 | 7039a4e7ae1117c4 |
 | `docs/V3_PLAN_2026-11-15.md` | 16912 | 254363bad787ddcf |
 | `greens/hole02/Pocasset_Hole02_Green_1400x1576.png` | 1883727 | 52772b3f0d3403c2 |

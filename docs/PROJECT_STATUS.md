@@ -49,6 +49,12 @@
 - **Simulated positions:** Gold and Blue tees, plus 250/200/150/100/60 yd on the line. Tap the picture to measure a spot.
 - **Process doc:** rendering process in docs/RENDERING_STANDARD.md (draft until the owner approves Hole 2).
 
+## Waiting on the owner
+- Visual review of the Hole 2 prototype (checkpoint C): what to change in the look.
+- Approval to use the 2021 QL1 lidar for ground shape (DATA_SOURCES.md §2a). Download into the V3 folder only.
+- Folder access to `Documents/Pocasset_Caddie_V3`. Then Claude transfers the project, verifies every file, and checks all 112 approved green checksums on the Mac.
+- Hole 2 outline check (checkpoint B) with `checks/hole02_check.kml`.
+
 ## Next steps (in order)
 1. Owner decisions below (especially 1, 2, 3, 6).
 2. Hole 2 imagery check with `data/holes/hole02/checks/hole02_check.kml` → `verification.json` (checkpoint B).
