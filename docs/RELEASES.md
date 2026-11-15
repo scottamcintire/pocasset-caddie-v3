@@ -12,7 +12,7 @@ Review status is the owner's: only the owner moves a hole to **Approved** or **N
 |---|---|---|---|---|---|---|---|---|
 | 1 | 5 | /hole01/ | v3.3.0-hole01 | e0d6f0b (rebuilt in later releases) | 0431071 | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; 24 hazards; alignment) | Published — awaiting review | Silver tee unmapped; no water mapped; outlines pre-rebuild |
 | 2 | 4 | /hole02/ | v3.0 test site (look approved 15 Nov) | 401c563 | 90a57c9 | PASS (60/60; 12 hazards; alignment; visual baseline byte-identical) | Published — awaiting review (visual style approved) | Green/Bronze tees are candidates (re-assigned from Hole 4); Silver unmapped |
-| 3 | 3 | /hole03/ | v3.6.1-hole03 | see below | see below | PASS (60/60; 4 hazards; alignment) | Published — awaiting review | Green tee 138 yd vs card 147 (within 10 yd); re-rendered with length-scaled camera |
+| 3 | 3 | /hole03/ | v3.6.1-hole03 | c1eb778 | 13d56e2 | PASS (60/60; 4 hazards; alignment) | Published — awaiting review | Green tee 138 yd vs card 147 (within 10 yd); re-rendered with length-scaled camera |
 | 4 | 4 | /hole04/ | v3.2.0-hole04 | 71ca408 | b1c76b7 | PASS (60/60; 5 hazards; alignment) | Published — awaiting review | Only Green/White tee mapped; two source tees moved to Hole 2 |
 | 5 | 4 | /hole05/ | v3.4.0-holes05-06 | 019fd00 | 50be7e6 | PASS (60/60; 10 hazards; alignment) | Published — awaiting review | White/Bronze/Silver unmapped; H05-TE-02 matches no card tee |
 | 6 | 3 | /hole06/ | v3.4.0-holes05-06 | 019fd00 | 50be7e6 | PASS (60/60; 8 hazards; alignment) | Published — awaiting review | Only Gold tee mapped (app opens there); H06-TE-02 matches no card tee; a greenside bunker hidden by illustrative woods in the tee view |
@@ -48,6 +48,6 @@ Each release is one commit on `gh-pages`. To restore the previous site: `git rev
 | v3.4.0-holes05-06 | 15 Nov 2026 | 5, 6 (+ app fix on all) | 019fd00 | 50be7e6 | Fix: never open at a mapped tee that matches no card tee |
 | v3.5.0-holes07-08 | 15 Nov 2026 | 7, 8 | 0925a46 | aaebec1 | |
 | v3.6.0-hole09 | 15 Nov 2026 | 9 | caf87bc | 2b58586 | Holes 1–9 all on the test site |
-| v3.6.1-hole03 | 15 Nov 2026 | 3 (camera) + docs | (this release) | (this release) | Hole 3 re-rendered with the length-scaled camera used by all other holes; earlier render kept in `render/trial_unscaled_camera/` |
+| v3.6.1-hole03 | 15 Nov 2026 | 3 (camera) + docs | c1eb778 | 13d56e2 | Hole 3 re-rendered with the length-scaled camera used by all other holes; earlier render kept in `render/trial_unscaled_camera/` |
 
 No release failed; no rollback has been needed.
