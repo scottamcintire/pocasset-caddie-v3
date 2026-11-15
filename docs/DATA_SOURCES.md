@@ -21,14 +21,14 @@ Pars and yards for six tee sets (Gold, Blue, Green, White, Bronze, Silver), take
 ### 1.3 Approved greens: `data/greens/approved_manifest.json`
 See GREEN_ASSET_PROTECTION.md. Project assets derived from GolfLogix heat maps; already public on GitHub Pages by owner decision (26 Oct 2026).
 
-## 2. Needed, not yet obtained
+## 2. Needed (status updated 15 Nov)
 
 | Data | Best source | Access | Coverage / quality | Licence | Status |
 |---|---|---|---|---|---|
-| Elevation (ground shape) | USGS 3D Elevation Program (3DEP) lidar, 1 m bare-earth DEM | USGS LidarExplorer / The National Map download (manual: neither Claude's workspace nor the Mac shell can reach it) | Barnstable County lidar 2010 at 1 m; newer quality-level-1 lidar statewide in Massachusetts | Public domain (USGS) | **Download needed** |
-| Tree positions | Lidar canopy height (first-return surface minus bare earth) from the same lidar | same | Shows real trees and wood edges at about 1 m | Public domain | **Download needed** |
+| Elevation (ground shape) | USGS 3D Elevation Program (3DEP) lidar, 1 m bare-earth DEM | USGS LidarExplorer / The National Map download (manual: neither Claude's workspace nor the Mac shell can reach it) | Barnstable County lidar 2010 at 1 m; newer quality-level-1 lidar statewide in Massachusetts | Public domain (USGS) | **Obtained for Hole 2's area (§2b)**; other holes: extract per §5a of HOLE_BUILD_STANDARD |
+| Tree positions | Lidar canopy height (first-return surface minus bare earth) from the same lidar | same | Shows real trees and wood edges at about 1 m | Public domain | Not used (point cloud not reachable; §2c). Replaced by 2023 imagery canopy |
 | Tree areas (fallback) | MassGIS 2016 Land Cover/Land Use (1 m, has a tree class) | MassGIS download | 2016 imagery, may be out of date | MassGIS public data | Optional |
-| OSM woods / tree rows | Fresh OSM extract (Overpass) | Not reachable from Claude's workspace or the Mac shell | Unknown for the course | ODbL | Optional |
+| OSM woods / tree rows | Fresh OSM extract (Overpass) | Reachable from the Mac's browser pane (done 15 Nov) | 4 wood areas near the course | ODbL | Cross-check only (§2c) |
 | Post-restoration bunker/tee outlines | (a) newer aerial imagery review; (b) on-course GPS capture; (c) updated OSM | (a) Google Earth Pro; (b) V3 test page; (c) OSM | (b) is ±3–5 yd per point with a phone | own data | **Needed for checkpoint B** |
 | Forward-tee positions | On-course GPS capture | V3 test page | ±3–5 yd | own data | Needed for tee markers |
 
