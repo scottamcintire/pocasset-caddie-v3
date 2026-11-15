@@ -193,6 +193,35 @@ def ray_extents(P0, through, ring):
     return (min(ts), max(ts)) if ts else None
 
 
+def tf_ll(tf):
+    ring = tf['geometry']['coordinates'][0][:-1]
+    return [sum(c[0] for c in ring) / len(ring), sum(c[1] for c in ring) / len(ring)]
+
+
+def prod_green_extents(center, ring, player):
+    """Production V2.2.1 intersectionExtents, line for line (lon/lat in, metres out): returns (r, front, back)."""
+    deg = math.pi / 180
+    def xy(pt, ref):
+        return ((pt[0] - ref[0]) * deg * R_EARTH * math.cos(ref[1] * deg), (pt[1] - ref[1]) * deg * R_EARTH)
+    v = xy(player, center); r = math.hypot(*v)
+    ux, uy = v[0] / r, v[1] / r
+    pts = [xy(q, center) for q in (ring[:-1] if ring[0] == ring[-1] else ring)]
+    pos, neg = [], []
+    for i in range(len(pts)):
+        a, b = pts[i], pts[(i + 1) % len(pts)]; ex, ey = b[0] - a[0], b[1] - a[1]
+        den = ex * uy - ey * ux
+        if abs(den) < 1e-9:
+            continue
+        seg = (a[1] * ux - a[0] * uy) / den
+        if seg < -1e-8 or seg > 1 + 1e-8:
+            continue
+        sx, sy = a[0] + seg * ex, a[1] + seg * ey; t = sx * ux + sy * uy
+        (pos if t >= 0 else neg).append(t)
+    front = max(pos) if pos else max(p[0] * ux + p[1] * uy for p in pts)
+    back = min(neg) if neg else min(p[0] * ux + p[1] * uy for p in pts)
+    return r, front, back
+
+
 def self_intersects(P):
     def inter(a, b, c, d):
         def o(p1, p2, p3):
@@ -292,7 +321,7 @@ def standardize(hole):
     hole_json = {
         'schema': SCHEMA, 'hole': hole, 'par': H['par'], 'card_yards': H['card_yards'],
         'frame': {'type': 'green-pin-frame', 'origin_lonlat': [round(F.lon0, 8), round(F.lat0, 8)],
-                  'playing_bearing_deg': round(F.bearing, 2), 'earth_radius_m': R_EARTH,
+                  'playing_bearing_deg': round(F.bearing, 6), 'earth_radius_m': R_EARTH,
                   'definition': 'origin = mean of green ring incl. closing vertex; v = last centerline segment toward green; u = golfer\'s right'},
         'centerline_length_yd': round(total / YD, 1),
         'tees': [{'feature_id': t[0], 'measured_yards': t[1], 'tee_sets': t[2]} for t in tees],
@@ -301,6 +330,7 @@ def standardize(hole):
         'missing': {'not_in_source': missing, 'not_yet_sourced': NOT_YET_SOURCED},
         'unverified_features': sum(1 for o in out if o['properties']['geometry_status'] == 'unverified'),
         'green_asset': course['holes'][hole - 1].get('green_asset'),
+        'production_green_center': course['holes'][hole - 1].get('production_green_center'),
         'generated': {'by': 'tools/pcv3.py standardize', 'on': today(), 'source_sha256': src['sha256']},
     }
     save(os.path.join(d, 'hole.json'), hole_json)
@@ -367,8 +397,13 @@ def check(hole):
     for t in hj['tees']:
         tf = [f for f in feats if f['properties']['id'] == t['feature_id']][0]
         T = centroid([F.en(c) for c in tf['geometry']['coordinates'][0]])
-        fb = ray_extents(T, gc, G)
-        dist_rows.append((t['feature_id'], 'green F/C/B', '%d / %d / %d' % (fb[0] / YD, math.dist(T, gc) / YD, fb[1] / YD)))
+        pc = hj.get('production_green_center')
+        if pc:
+            r, fr, bk = prod_green_extents(pc, gr, tf_ll(tf))
+            dist_rows.append((t['feature_id'], 'green F/C/B (production method)', '%d / %d / %d' % (round(abs(r - fr) / YD), round(r / YD), round(abs(r - bk) / YD))))
+        else:
+            fb = ray_extents(T, gc, G)
+            dist_rows.append((t['feature_id'], 'green F/C/B', '%d / %d / %d' % (fb[0] / YD, math.dist(T, gc) / YD, fb[1] / YD)))
         for f in feats:
             if f['properties']['class'] in ('bunker', 'water'):
                 P = [F.en(c) for c in f['geometry']['coordinates'][0]]

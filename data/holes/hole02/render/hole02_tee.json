@@ -1,0 +1,59 @@
+{
+ "schema": "pocasset-v3/flyover-projection@1",
+ "hole": 2,
+ "view": "tee",
+ "image": "hole02_tee.jpg",
+ "width": 1170,
+ "height": 1800,
+ "frame": {
+  "type": "green-pin-frame",
+  "origin_lonlat": [
+   -70.61253637,
+   41.69239537
+  ],
+  "playing_bearing_deg": 13.296798,
+  "earth_radius_m": 6371008.8,
+  "definition": "origin = mean of green ring incl. closing vertex; v = last centerline segment toward green; u = golfer's right"
+ },
+ "ground_to_image_homography": [
+  [
+   4.362736543126,
+   1.694555119389,
+   649.843552400826
+  ],
+  [
+   0.375787448354,
+   -1.632479843968,
+   142.389757450345
+  ],
+  [
+   -0.00025795195,
+   0.001120583888,
+   1.0
+  ]
+ ],
+ "how_to_use": "pixel = H \u00b7 [u, v, 1] (then divide by the 3rd value). u,v = hole-frame metres (u right, v toward green, origin green centre). Valid for ground level (flat; no terrain yet).",
+ "camera": {
+  "position_uvz_m": [
+   136.123,
+   -653.748,
+   280.0
+  ],
+  "forward": [
+   -0.181918,
+   0.790281,
+   -0.585117
+  ],
+  "vfov_deg": 30.8088,
+  "pitch_deg": 35.8112,
+  "focal_px": 3266.4497
+ },
+ "inputs_sha256": {
+  "features.geojson": "e482d0f2c97c6917c0d2cb3e2b933ee3135ed28a637ec5b1b57942208092a363",
+  "camera.json": "c35eb03d09373dffb7a8bf63afb166e9f36bc692afe2a43a26e5349977b66ca4",
+  "flyover_style.json": "5a74db0a2792e5baa9971345b6dc324be0d61b516aa31d9c5ecca71b004d620e",
+  "course_source": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304"
+ },
+ "trees": "none drawn (no tree-position source yet)",
+ "terrain": "flat ground + cosmetic edge bevels (no elevation source yet)"
+}

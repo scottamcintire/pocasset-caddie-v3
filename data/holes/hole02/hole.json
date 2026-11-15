@@ -16,7 +16,7 @@
    -70.61253637,
    41.69239537
   ],
-  "playing_bearing_deg": 13.3,
+  "playing_bearing_deg": 13.296798,
   "earth_radius_m": 6371008.8,
   "definition": "origin = mean of green ring incl. closing vertex; v = last centerline segment toward green; u = golfer's right"
  },
@@ -67,6 +67,10 @@
   "approved_on": "2026-10-26",
   "note": "All 18 approved 26 Oct 2026 (Mac master DECISIONS_LOG); V2.3.1 uses WebP display copies"
  },
+ "production_green_center": [
+  -70.6125246,
+  41.6923872
+ ],
  "generated": {
   "by": "tools/pcv3.py standardize",
   "on": "2026-11-15",

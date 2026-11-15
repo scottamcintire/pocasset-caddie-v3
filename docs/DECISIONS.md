@@ -13,3 +13,12 @@
 | 2026-11-15 | Stable feature IDs (H02-BK-01 …), append-only; manual records never written by tools; approved/vN append-only | Proposed |
 | 2026-11-15 | Build tools use only the Python standard library so they run on the Mac without installs | Proposed |
 | 2026-11-15 | Not building other holes until the Hole 2 process is approved | Owner |
+| 2026-11-15 | **Production baseline = V2.3.1** (live at /pocasset_caddie/), protected completely; exact V2.2.1 preserved as an archived version at /pocasset_caddie/v2.2.1/ | Owner |
+| 2026-11-15 | **Daily pin-sheet updates to production continue** as the established, authorized process (dated sheet preload into V2.3.1). No other production change without approval | Owner |
+| 2026-11-15 | Visual standard = owner's ChatGPT 3D-style illustration (`reference/style_reference_chatgpt_hole11.jpg`); a style reference only, not Hole 11 data | Owner |
+| 2026-11-15 | Flyover v1 = pre-rendered 3D-style images + live GPS yardage overlays, with rendered positions tied to geographic coordinates | Owner (approved recommendation) |
+| 2026-11-15 | No invented trees; trees added only when reliable positions exist (lidar canopy). No invented tee coordinates | Owner |
+| 2026-11-15 | Support every tee set eventually; Green and Blue are the primary tees | Owner |
+| 2026-11-15 | Mac location = Documents/Pocasset_Caddie_V3 (owner grants access to that folder only) | Owner |
+| 2026-11-15 | Claude may research public elevation data via the browser; nothing downloaded outside the V3 project; source and accuracy reported before use | Owner |
+| 2026-11-15 | Appearance must be improvable without rebuilding geographic data or GPS (renderer is a separate stage with its own style file) | Owner |

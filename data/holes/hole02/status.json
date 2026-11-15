@@ -4,14 +4,47 @@
  "stage": "in development",
  "note": "Manual record. Tools never write this file. Update it only when a checkpoint is reviewed.",
  "checkpoints": {
-  "A_data_complete": {"state": "in_progress", "date": "2026-11-15", "by": "Claude", "note": "Required classes present (line, green, 2 tees, fairways, 2 bunkers, pond, paths). Missing: trees, terrain (no source yet); tee sets Green/White/Bronze/Silver not mapped."},
-  "B_layout_verified": {"state": "pending", "note": "All 13 features unverified; course rebuilt every bunker and tee. Needs imagery check (checks/hole02_check.kml) and/or on-course GPS check."},
-  "C_flyover_approved": {"state": "pending", "note": "Renderer not built yet."},
-  "D_gps_validated": {"state": "pending", "note": "Distance method defined (docs/ARCHITECTURE.md); validation after B."},
-  "E_green_preserved": {"state": "pending", "note": "Approved green recorded in data/greens/approved_manifest.json (10 files); integration not built yet."},
-  "F_iphone_tested": {"state": "pending", "note": "Needs the V3 test site (not created; needs owner approval)."}
+  "A_data_complete": {
+   "state": "in_progress",
+   "date": "2026-11-15",
+   "by": "Claude",
+   "note": "Required classes present (line, green, 2 tees, fairways, 2 bunkers, pond, paths). Missing: trees, terrain (no source yet); tee sets Green/White/Bronze/Silver not mapped."
+  },
+  "B_layout_verified": {
+   "state": "pending",
+   "note": "All 13 features unverified; course rebuilt every bunker and tee. Needs imagery check (checks/hole02_check.kml) and/or on-course GPS check."
+  },
+  "C_flyover_approved": {
+   "state": "in_progress",
+   "date": "2026-11-15",
+   "by": "Claude",
+   "note": "Prototype v0.1 rendered (Tee + Approach views) and published privately for owner review. Alignment test 100% for all features. Awaiting owner visual approval."
+  },
+  "D_gps_validated": {
+   "state": "in_progress",
+   "date": "2026-11-15",
+   "by": "Claude (automated)",
+   "note": "Green F/C/B identical to production V2.2.1 page at 60 positions; hazard reach/carry equal build-time reference. On-course check pending (after B and the test site)."
+  },
+  "E_green_preserved": {
+   "state": "in_progress",
+   "date": "2026-11-15",
+   "by": "Claude (automated)",
+   "note": "Protected copy byte-identical to master (52772b3f\u2026); pin model ported unchanged; Green view draws no flyover layer. Full 112-file check on the Mac pending."
+  },
+  "F_iphone_tested": {
+   "state": "pending",
+   "note": "Needs the V3 test site (not created; needs owner approval)."
+  }
  },
  "history": [
-  {"date": "2026-11-15", "event": "Hole 2 chosen as the pilot. Data extracted, standardized and auto-checked (9 pass, 4 flags, 0 stops)."}
+  {
+   "date": "2026-11-15",
+   "event": "Hole 2 chosen as the pilot. Data extracted, standardized and auto-checked (9 pass, 4 flags, 0 stops)."
+  },
+  {
+   "date": "2026-11-15",
+   "event": "Flyover renderer + Hole 2 Tee/Approach renders + prototype viewer with simulated GPS; private review page published."
+  }
  ]
 }

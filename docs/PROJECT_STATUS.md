@@ -6,11 +6,11 @@
 
 | Area | Status |
 |---|---|
-| Stage | **Stages 1–3 (inventory, data research, design) done. Process documented. Hole 2 pilot: data standardized and auto-checked. No app or flyover code yet** |
-| Production app | Untouched by V3. Live V2.3.1 at …/pocasset_caddie/; exact V2.2.1 at …/pocasset_caddie/v2.2.1/ |
+| Stage | **Stage 4 started: Hole 2 flyover prototype v0.1 built and under owner review** (private page). Renderer, distance module, green view port and tests exist. Process documented |
+| Production app | **V2.3.1 is the protected production baseline** (owner, 15 Nov). Exact V2.2.1 is archived at …/pocasset_caddie/v2.2.1/. V3 never modifies production. The only authorized production change is the established daily pin-sheet update |
 | V3 location | Claude's workspace, local git repository (no remote). **Not yet on the Mac:** `Documents/Pocasset_Caddie_V3` does not exist, and Claude can only reach `Documents/Pocasset AI Caddie` (see decision 6) |
 | GitHub / website | None created (needs approval) |
-| Hole 2 | In development: checkpoint A in progress, B–F pending |
+| Hole 2 | In development: A in progress (no trees/elevation), B pending (outline check), C awaiting owner review, D/E automated parts pass, F pending |
 | Holes 1, 3–18 | Awaiting data (not started, by design) |
 
 ## Done (15 Nov 2026)
@@ -43,6 +43,12 @@
   - the renderer, the overlay-alignment test
   - the V3 app (GPS, flyover view, green view port, scoring port, storage isolation test)
 
+## Hole 2 prototype (15 Nov)
+- **Review page:** private claude.ai page "Pocasset V3 Hole 2".
+- **Views:** Tee view and Approach view with live labels; GREEN tab shows the approved green unchanged.
+- **Simulated positions:** Gold and Blue tees, plus 250/200/150/100/60 yd on the line. Tap the picture to measure a spot.
+- **Process doc:** rendering process in docs/RENDERING_STANDARD.md (draft until the owner approves Hole 2).
+
 ## Next steps (in order)
 1. Owner decisions below (especially 1, 2, 3, 6).
 2. Hole 2 imagery check with `data/holes/hole02/checks/hole02_check.kml` → `verification.json` (checkpoint B).
@@ -52,7 +58,10 @@
 6. With approval: create the `pocasset-caddie-v3` repository + Pages → iPhone test (F) → promote Hole 2 v1.
 7. Freeze HOLE_BUILD_STANDARD v1.0 from what Hole 2 taught us → then other holes.
 
-## Decisions needing the owner
+## Owner decisions (15 Nov 2026, answered)
+1 V2.3.1 protected; V2.2.1 archived · 2 pin-sheet updates continue · 3 style reference received (`reference/`) · 4 still images + live overlays approved · 5 no invented trees · 6 Documents/Pocasset_Caddie_V3 (owner grants that folder) · 7 Claude may research elevation via browser, report before use · 8 all tee sets eventually, Green and Blue primary, no invented tee coordinates. Still open: 9 hazard display rules, 11 when to create the GitHub repository.
+
+## Decisions as originally asked
 | # | Decision | Recommendation |
 |---|---|---|
 | 1 | Production baseline: protect the **live V2.3.1** (what you play with), with V2.2.1 kept at /v2.2.1/? Your documents still say V2.2.1 | Yes, V2.3.1 |

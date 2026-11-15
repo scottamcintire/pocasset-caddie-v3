@@ -21,7 +21,7 @@
 
 **Shared coordinate system:** every hole uses the **hole frame**. That is the green-pin frame the approved greens already use: origin at the green centre, v toward the green along the last leg, u to the golfer's right, in metres. GPS positions, hazard outlines, the rendered flyover and the green's orange flag all convert to and from this frame with the same formulas. That is how the markers stay aligned with the artwork.
 
-## 2. Flyover renderer (an independent component)
+## 2. Flyover renderer (an independent component). Built; see RENDERING_STANDARD.md
 
 - **Input:** a hole package plus one shared `style.json` (grass colours, mowing stripe width, sand, water, tree sprites, lighting angle, label styling). One style applies to every hole, so all 18 look alike. Each hole has only `camera.json`; there is no per-hole code.
 - **Method (2.5D):**
@@ -35,7 +35,7 @@
   - An automated test projects every outline and checks the pixel alignment.
 - **Technology:** one WebGL rendering module (pinned three.js copy in the repository).
   - The build uses it inside headless Chromium to produce the stills; the app can use the same module live later (moving camera, "from my position").
-  - **[DECISION] v1 = still images + overlays** (recommended: light on battery, and the exact image you approve is the one you see), or live 3D from the start.
+  - **Decided (15 Nov): v1 = pre-rendered still images + live GPS overlays.**
 - **AI image tools:** may be used only to create the shared surface textures and tree sprites, never to paint a hole, place a hazard or change a shape.
 
 ## 3. Green view: the approved assets, untouched
@@ -51,7 +51,7 @@
 
 | Value | Method |
 |---|---|
-| Green front / center / back | Same as production: along the line from the player through the green centre, entering and leaving the green outline. Ported verbatim; tested identical against V2.3.1 for many positions |
+| Green front / center / back | Production's `intersectionExtents`, ported line for line, using production's own green-centre point per hole (`course.json → production_green_center`). Tested identical to the production page at 60 positions on Hole 2 |
 | Flag | Today's pin (EZLocator numbers) → approved pin model → hole frame → distance. Same as V2.3.1 |
 | Hazard reach / carry | **Side hazard:** along the line from the player through the hazard's centre, where it enters (reach) and leaves (carry). **Hazard that crosses the playing line** (`position: across`, e.g. Hole 2 pond): along the playing line ahead of the player, first and last crossing |
 | Which hazards are shown | **[DECISION]** proposed: ahead of the player (along the playing line), within ±40 yd of the line to the current target (green, or the dogleg point while short of it), nearest 4 |

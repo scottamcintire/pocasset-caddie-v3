@@ -8,7 +8,7 @@ Checkpoints: ✔ pass · … in progress · · pending · ✖ failed. Stages: aw
 | Hole | Par | Gold yd | Tees | Fairways | Bunkers | Water | Paths | Line | Green | Missing / not sourced | Green asset | Checkpoints A–F | Stage |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | 5 | 477 | 4 | 1 | 6 | 0 | 4 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
-| 2 | 4 | 463 | 2 | 2 | 2 | 1 | 4 | 1 | 1 | trees, terrain | approved | A:… B:· C:· D:· E:· F:· | in development |
+| 2 | 4 | 463 | 2 | 2 | 2 | 1 | 4 | 1 | 1 | trees, terrain | approved | A:… B:· C:… D:… E:… F:· | in development |
 | 3 | 3 | 170 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
 | 4 | 4 | 366 | 3 | 1 | 5 | 0 | 1 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
 | 5 | 4 | 345 | 2 | 1 | 5 | 0 | 0 | 1 | 1 | trees, terrain | approved | A:· B:· C:· D:· E:· F:· | awaiting data |
