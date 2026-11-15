@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="257" height="815" viewBox="0 0 257 815" font-family="sans-serif">
+<rect width="100%" height="100%" fill="#3e6b3a"/>
+<circle cx="148.9" cy="116.2" r="91.4" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="204.6" fill="#fff" fill-opacity=".7" font-size="11">50</text>
+<circle cx="148.9" cy="116.2" r="182.9" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="296.0" fill="#fff" fill-opacity=".7" font-size="11">100</text>
+<circle cx="148.9" cy="116.2" r="274.3" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="387.5" fill="#fff" fill-opacity=".7" font-size="11">150</text>
+<circle cx="148.9" cy="116.2" r="365.8" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="478.9" fill="#fff" fill-opacity=".7" font-size="11">200</text>
+<circle cx="148.9" cy="116.2" r="457.2" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="570.4" fill="#fff" fill-opacity=".7" font-size="11">250</text>
+<circle cx="148.9" cy="116.2" r="548.6" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="661.8" fill="#fff" fill-opacity=".7" font-size="11">300</text>
+<circle cx="148.9" cy="116.2" r="640.1" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="753.2" fill="#fff" fill-opacity=".7" font-size="11">350</text>
+<circle cx="148.9" cy="116.2" r="731.5" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="844.7" fill="#fff" fill-opacity=".7" font-size="11">400</text>
+<circle cx="148.9" cy="116.2" r="823.0" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="936.1" fill="#fff" fill-opacity=".7" font-size="11">450</text>
+<circle cx="148.9" cy="116.2" r="914.4" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="1027.6" fill="#fff" fill-opacity=".7" font-size="11">500</text>
+<circle cx="148.9" cy="116.2" r="1005.8" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="1119.0" fill="#fff" fill-opacity=".7" font-size="11">550</text>
+<circle cx="148.9" cy="116.2" r="1097.3" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="1210.4" fill="#fff" fill-opacity=".7" font-size="11">600</text>
+<circle cx="148.9" cy="116.2" r="1188.7" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="152.9" y="1301.9" fill="#fff" fill-opacity=".7" font-size="11">650</text>
+<polygon points="134.2,462.8 137.3,492.9 139.4,507.3 142.0,513.9 146.7,520.4 156.8,530.2 164.0,534.0 168.4,535.4 174.2,535.5 180.0,533.6 184.5,530.6 188.0,525.7 189.9,519.1 191.2,512.1 191.6,502.1 190.2,487.5 187.0,469.5 186.5,456.7 186.7,440.2 187.0,426.2 188.1,408.3 187.2,396.4 184.5,383.7 180.3,355.8 180.4,332.5 180.7,316.4 178.9,303.2 175.0,282.7 172.1,273.3 169.1,265.1 168.0,260.6 166.8,250.5 166.7,233.6 168.2,213.2 169.5,197.2 171.0,178.3 171.2,164.5 172.6,154.6 175.1,147.6 178.6,134.3 180.6,122.8 180.3,114.3 178.9,108.4 175.9,102.7 170.2,91.8 166.3,87.6 160.9,84.6 155.3,83.3 147.3,83.3 139.1,83.9 134.2,85.1 129.4,87.1 125.8,89.3 122.2,93.8 119.0,99.6 118.1,103.5 119.1,110.5 121.5,117.8 124.3,124.4 132.1,138.0 136.6,142.8 140.9,148.2 143.1,152.8 143.7,157.9 142.7,161.9 139.8,165.9 137.1,170.2 129.5,177.3 122.3,187.8 116.7,195.9 114.8,199.8 112.5,205.9 111.8,212.3 112.7,232.2 114.8,266.4 116.6,276.6 119.0,281.2 121.9,285.6 124.5,289.8 127.5,294.0 129.4,296.7 131.1,300.6 132.6,306.1 133.2,310.1 132.0,324.1 128.4,365.1 125.2,398.5 125.6,405.7 126.7,411.6 128.0,420.6 131.5,441.5 133.4,454.1 134.2,462.8" fill="#7cc46a" stroke="#000" stroke-width="1"><title>H05-FW-01</title></polygon>
+<polygon points="139.4,755.3 140.9,691.6 124.8,691.3 123.2,754.7 139.4,755.3" fill="#a7d99a" stroke="#000" stroke-width="1"><title>H05-TE-01</title></polygon>
+<text x="144.1" y="723.3" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">TE-01</text>
+<polygon points="88.7,89.4 80.1,80.0 60.0,98.4 68.6,107.8 88.7,89.4" fill="#a7d99a" stroke="#000" stroke-width="1"><title>H05-TE-02</title></polygon>
+<text x="86.3" y="93.9" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">TE-02</text>
+<polygon points="196.6,282.4 195.7,278.8 195.6,277.5 195.6,275.7 195.9,273.3 196.1,271.9 196.0,270.8 195.4,270.1 194.1,269.8 192.3,269.5 191.2,268.5 189.3,266.8 187.2,265.6 185.3,264.8 183.3,264.7 181.6,265.2 179.8,266.5 178.9,267.7 178.5,269.1 179.1,270.2 179.5,271.1 179.8,272.3 181.2,273.2 184.3,274.5 188.3,276.8 189.6,278.2 190.4,279.2 190.6,280.5 191.4,284.1 191.5,284.6 192.8,285.3 194.6,285.4 195.8,284.8 196.4,284.4 196.6,283.8 196.6,282.4" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H05-BK-01</title></polygon>
+<text x="200.8" y="273.5" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-01</text>
+<polygon points="183.3,173.3 177.5,173.2 176.3,172.9 175.5,172.4 174.8,171.2 174.4,169.9 174.6,168.1 175.3,165.2 175.5,164.1 175.5,163.0 175.7,161.7 176.3,160.9 177.7,159.2 178.3,157.9 178.8,157.0 180.2,156.6 181.6,157.4 182.2,158.5 183.7,160.9 184.1,162.5 183.7,164.0 183.3,165.1 184.2,166.7 185.1,168.8 185.1,170.3 184.9,172.1 184.5,172.9 183.3,173.3" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H05-BK-02</title></polygon>
+<text x="191.8" y="166.1" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-02</text>
+<polygon points="136.9,162.2 137.5,160.4 138.0,159.8 138.4,158.7 138.3,156.3 137.0,154.8 133.7,152.2 131.3,150.7 129.2,148.8 127.8,148.3 126.5,147.7 125.1,147.9 123.8,148.7 122.7,149.5 122.3,150.6 122.6,151.5 123.1,152.0 124.0,152.5 125.6,153.2 126.9,154.4 128.6,156.8 129.5,158.4 130.3,159.3 131.1,159.8 131.9,159.9 133.2,160.4 133.7,160.7 135.1,161.6 135.9,162.3 136.6,162.4 136.9,162.2" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H05-BK-03</title></polygon>
+<text x="143.1" y="154.6" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-03</text>
+<polygon points="123.6,156.7 120.5,154.9 119.1,154.0 118.0,152.3 117.5,150.3 117.4,148.7 116.8,148.0 115.5,147.9 113.5,148.3 111.5,148.6 110.2,150.3 109.4,151.8 109.7,152.9 109.9,154.3 110.2,155.6 112.3,156.2 113.6,156.3 116.1,157.6 117.5,159.0 119.1,160.0 120.8,161.2 122.3,161.1 123.6,160.0 123.9,159.2 124.4,157.4 123.6,156.7" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H05-BK-04</title></polygon>
+<text x="128.4" y="154.4" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-04</text>
+<polygon points="122.6,140.4 120.6,141.1 118.7,141.0 117.8,140.7 116.6,140.2 115.4,138.6 114.2,135.8 113.2,133.8 112.5,132.4 112.5,131.3 113.1,130.6 114.3,130.0 117.8,129.6 119.3,129.7 120.1,130.4 120.8,131.6 123.9,137.8 124.2,138.7 124.0,139.3 123.5,140.0 122.6,140.4" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H05-BK-05</title></polygon>
+<text x="130.3" y="135.3" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-05</text>
+<polygon points="162.8,138.4 165.6,134.8 166.3,133.3 167.5,130.7 167.9,128.7 168.4,112.5 168.4,107.1 168.0,104.2 166.7,100.3 164.0,95.9 161.2,92.2 158.6,89.6 155.7,88.0 152.7,87.4 149.2,87.2 141.7,87.4 137.3,88.2 134.1,89.4 130.5,90.9 128.1,92.6 125.9,95.3 124.4,98.8 123.5,101.9 123.3,104.5 124.1,110.4 128.0,122.6 132.2,130.0 135.9,134.9 139.1,138.3 141.4,140.2 144.0,141.5 146.9,142.8 150.2,143.0 153.1,143.1 156.3,142.7 158.5,141.9 160.2,141.1 161.3,139.9 162.8,138.4" fill="#3fa34d" stroke="#000" stroke-width="1"><title>H05-GR-01</title></polygon>
+<polyline points="130.4,750.7 147.8,252.2 147.8,113.2" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="10" y="20" fill="#fff" font-size="15" font-weight="bold">Hole 5 · mapped data (unverified) · rings = yd to green</text></svg>

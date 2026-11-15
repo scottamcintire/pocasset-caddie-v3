@@ -98,7 +98,7 @@ D.features.features.forEach(function(f){ASSIGN[f.properties.id]=f.properties.ass
 var TEE_ORDER=['Green','Blue','Gold','White','Bronze','Silver'];
 D.hole.tees.slice().sort(function(a,b){return TEE_ORDER.indexOf(a.tee_sets[0])-TEE_ORDER.indexOf(b.tee_sets[0])}).forEach(function(t){var f=hole.feats.filter(function(x){return x.id===t.feature_id})[0];
   var cand=ASSIGN[t.feature_id]!=='source';
-  presets.push({label:(t.tee_sets.join('/')||t.feature_id)+' tee'+(cand?' ·\u00a0candidate':''),uv:G.centroid(f.uv),tee:t.tee_sets.join('/'),cand:cand});});
+  presets.push({label:(t.tee_sets.length?t.tee_sets.join('/')+' tee':'Mapped tee not on card ('+t.feature_id+')')+(cand?' ·\u00a0candidate':''),uv:G.centroid(f.uv),tee:t.tee_sets.join('/'),cand:cand});});
 [250,200,150,100,60].forEach(function(y){presets.push({label:y+' yd',uv:hole.alongFromGreen(y)})});
 presets.forEach(function(p,i){var b=document.createElement('button');b.textContent=p.label;b.onclick=function(){setMe(p.uv,'sim');mark(i)};$('presets').appendChild(b)});
 function mark(i){[].forEach.call($('presets').children,function(b,j){b.classList.toggle('on',j===i)})}
@@ -221,11 +221,18 @@ function setView(v){
   else draw();
 }
 $('tTee').onclick=function(){setView('tee')};$('tApp').onclick=function(){setView('approach')};$('tGreen').onclick=function(){setView('green')};
-var start=presets.filter(function(p){return /Green/.test(p.tee||'')})[0]||presets.filter(function(p){return /Blue/.test(p.tee||'')})[0]||presets[0];
+// default start: Green tee, else Blue, else the card tee measuring closest to the Green card yardage (same rule as
+// tools/make_camera.py); never a mapped tee that matches no card tee
+var cardTees=presets.filter(function(p){return p.tee});
+var start=cardTees.filter(function(p){return /Green/.test(p.tee)})[0]||cardTees.filter(function(p){return /Blue/.test(p.tee)})[0]||
+ cardTees.slice().sort(function(a,b){function m(p){var t=D.hole.tees.filter(function(t){return t.tee_sets.join('/')===p.tee})[0];return Math.abs((t?t.measured_yards:1e9)-D.hole.card_yards.Green)}return m(a)-m(b)})[0]||
+ presets.filter(function(p){return !('tee' in p)})[0];
 $('teeTxt').textContent='Green '+D.hole.card_yards.Green+' · Blue '+D.hole.card_yards.Blue+' yd';
 $('hn').textContent=D.hole.hole;$('par').textContent=D.hole.par;$('sub').textContent='V3 test · Hole '+D.hole.hole+' flyover';document.title='Pocasset V3 Hole '+D.hole.hole;
 $('fine').innerHTML='Prototype v0.2. Yardages use the mapped course data, which is <b>not yet verified</b> against the rebuilt bunkers and tees. '+
  (presets.some(function(p){return p.cand&&/Green/.test(p.tee||'')})?'The <b>Green tee is a candidate</b>: the map filed it under another hole, but it measures '+D.hole.tees.filter(function(t){return t.tee_sets.indexOf('Green')>=0}).map(function(t){return t.measured_yards})[0]+' yd vs the card’s '+D.hole.card_yards.Green+' and sits on a built tee platform in the 2021 lidar — confirm on the course. ':'')+
+ (!cardTees.some(function(p){return /Green/.test(p.tee)})&&start.tee?'No Green tee is mapped for this hole, so it opens at the <b>'+start.tee+' tee</b>. ':'')+
+ (D.hole.tees.some(function(t){return !t.tee_sets.length})?'A mapped tee on this hole matches no scorecard tee; it is listed under Simulated GPS as “Mapped tee not on card”. ':'')+
  'Bunker and tee outlines predate the spring 2026 rebuild and are <b>not yet verified</b>. '+
  'Ground shape: 2021 USGS lidar, heights drawn '+views.tee.height_model.vertical_exaggeration+'× for readability (distances are flat GPS distances). '+
  'Woods are <b>illustrative</b>: placed only where 2023 aerial imagery shows tree canopy; individual trees, heights and colours are not surveyed. '+

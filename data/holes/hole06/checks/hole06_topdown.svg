@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="255" height="565" viewBox="0 0 255 565" font-family="sans-serif">
+<rect width="100%" height="100%" fill="#3e6b3a"/>
+<circle cx="161.4" cy="113.2" r="91.4" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="201.6" fill="#fff" fill-opacity=".7" font-size="11">50</text>
+<circle cx="161.4" cy="113.2" r="182.9" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="293.0" fill="#fff" fill-opacity=".7" font-size="11">100</text>
+<circle cx="161.4" cy="113.2" r="274.3" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="384.5" fill="#fff" fill-opacity=".7" font-size="11">150</text>
+<circle cx="161.4" cy="113.2" r="365.8" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="475.9" fill="#fff" fill-opacity=".7" font-size="11">200</text>
+<circle cx="161.4" cy="113.2" r="457.2" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="567.4" fill="#fff" fill-opacity=".7" font-size="11">250</text>
+<circle cx="161.4" cy="113.2" r="548.6" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="658.8" fill="#fff" fill-opacity=".7" font-size="11">300</text>
+<circle cx="161.4" cy="113.2" r="640.1" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="750.2" fill="#fff" fill-opacity=".7" font-size="11">350</text>
+<circle cx="161.4" cy="113.2" r="731.5" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="841.7" fill="#fff" fill-opacity=".7" font-size="11">400</text>
+<circle cx="161.4" cy="113.2" r="823.0" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="933.1" fill="#fff" fill-opacity=".7" font-size="11">450</text>
+<circle cx="161.4" cy="113.2" r="914.4" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="1024.6" fill="#fff" fill-opacity=".7" font-size="11">500</text>
+<circle cx="161.4" cy="113.2" r="1005.8" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="1116.0" fill="#fff" fill-opacity=".7" font-size="11">550</text>
+<circle cx="161.4" cy="113.2" r="1097.3" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="1207.4" fill="#fff" fill-opacity=".7" font-size="11">600</text>
+<circle cx="161.4" cy="113.2" r="1188.7" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>
+<text x="165.4" y="1298.9" fill="#fff" fill-opacity=".7" font-size="11">650</text>
+<polygon points="162.8,235.4 157.5,226.1 152.5,219.0 147.0,212.7 142.4,207.6 136.7,201.0 131.6,194.5 130.0,190.3 129.9,185.5 131.5,180.7 134.8,175.2 137.9,172.3 143.6,166.7 148.2,162.1 150.1,158.6 151.9,152.6 151.6,146.9 149.3,141.4 144.5,134.6 140.4,129.9 136.3,125.9 133.2,124.0 130.9,123.1 127.8,121.9 125.1,120.7 123.3,119.6 121.0,117.2 119.6,113.9 119.5,110.8 119.9,108.6 121.6,106.1 124.5,103.8 127.2,102.4 129.8,101.6 133.9,100.2 136.5,99.0 139.0,97.7 142.9,94.4 150.9,87.0 155.6,82.4 158.6,80.7 161.1,80.1 162.9,80.0 165.4,80.4 168.3,81.1 172.1,82.9 175.6,85.0 178.4,87.1 179.7,88.8 181.6,91.5 183.1,94.4 183.7,97.2 184.0,100.1 183.7,102.3 182.7,105.3 181.7,108.2 179.1,114.9 178.2,118.8 177.5,125.4 176.4,131.3 174.9,136.2 173.4,141.6 173.5,146.1 173.8,148.1 174.4,149.9 176.6,156.3 177.9,163.5 179.2,170.5 180.0,181.4 180.3,198.2 180.7,220.4 180.0,232.1 178.9,236.9 177.3,239.2 176.1,240.6 174.2,242.1 172.8,242.4 171.0,242.7 168.9,242.2 166.9,240.8 166.0,240.3 164.5,237.9 162.8,235.4" fill="#7cc46a" stroke="#000" stroke-width="1"><title>H06-FW-01</title></polygon>
+<polygon points="167.7,500.4 168.5,482.6 156.3,482.2 156.3,499.3 157.0,502.6 158.1,503.9 160.1,505.1 163.6,505.3 166.0,504.3 167.7,500.4" fill="#a7d99a" stroke="#000" stroke-width="1"><title>H06-TE-01</title></polygon>
+<text x="174.2" y="493.2" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">TE-01</text>
+<polygon points="70.8,122.9 74.5,118.8 76.8,114.6 78.1,110.9 78.8,106.6 78.4,103.0 76.9,99.9 73.3,96.5 69.6,94.6 65.5,94.6 62.7,96.0 60.1,102.2 60.0,108.2 61.3,117.4 62.6,121.8 63.9,123.7 65.0,124.5 66.9,125.1 70.8,122.9" fill="#a7d99a" stroke="#000" stroke-width="1"><title>H06-TE-02</title></polygon>
+<text x="80.7" y="108.9" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">TE-02</text>
+<polygon points="146.9,279.6 149.3,279.7 151.3,280.1 153.4,280.6 155.6,280.9 157.3,280.5 158.6,279.3 159.3,277.7 158.9,275.7 158.2,273.6 158.1,272.4 158.7,271.6 158.7,270.2 157.8,267.6 157.6,266.6 157.7,264.9 156.9,263.0 155.2,262.9 152.7,263.0 149.7,262.9 146.1,262.9 143.9,263.1 143.0,264.2 142.9,265.6 142.9,267.4 142.6,269.9 142.9,271.2 143.6,272.1 144.8,273.7 145.4,275.1 145.6,277.1 145.8,278.1 146.9,279.6" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H06-BK-01</title></polygon>
+<text x="163.2" y="271.3" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-01</text>
+<polygon points="119.8,165.6 121.5,165.8 124.6,164.5 127.5,163.6 130.5,163.2 132.1,164.0 133.7,165.0 134.7,164.1 135.9,161.7 137.4,160.8 140.4,161.4 141.9,159.5 143.2,157.6 145.5,156.5 145.6,155.2 145.3,153.2 145.0,150.9 145.5,146.7 143.5,145.0 140.4,144.2 137.3,142.9 136.3,141.4 134.8,137.4 132.0,133.2 130.5,130.1 128.5,128.0 125.6,127.9 123.8,127.5 122.0,130.7 121.1,133.0 121.7,135.8 123.3,138.9 123.6,140.6 122.9,144.2 121.1,148.3 119.6,155.3 119.4,162.0 119.8,165.6" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H06-BK-02</title></polygon>
+<text x="142.8" y="149.0" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-02</text>
+<polygon points="180.9,156.6 180.8,153.7 180.4,151.5 179.1,149.1 178.2,147.7 176.9,145.1 176.8,143.4 177.2,141.2 178.2,139.7 179.1,138.8 179.8,137.2 181.0,136.9 184.3,138.9 194.0,144.6 194.6,146.7 194.2,149.1 193.1,151.8 192.9,153.8 193.1,155.3 192.4,156.5 189.6,157.4 187.3,157.6 185.1,157.8 183.9,157.1 182.1,157.2 180.9,156.6" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H06-BK-03</title></polygon>
+<text x="197.6" y="147.9" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-03</text>
+<polygon points="192.3,134.6 189.6,133.7 187.0,132.4 184.8,131.1 183.4,130.2 183.0,129.3 182.5,127.1 183.6,119.9 184.3,117.8 184.9,116.6 186.3,115.9 188.8,116.3 193.0,117.9 194.0,119.2 193.9,120.8 193.6,124.0 193.8,125.9 193.7,127.1 193.2,128.8 193.5,131.0 193.7,132.5 193.7,133.4 192.3,134.6" fill="#f1e2b0" stroke="#000" stroke-width="1"><title>H06-BK-04</title></polygon>
+<text x="200.6" y="124.9" fill="#fff" font-size="11" stroke="#000" stroke-width="2.5" paint-order="stroke">BK-04</text>
+<polygon points="159.6,139.5 155.6,138.1 152.6,136.2 148.5,133.1 142.8,127.9 139.8,124.3 137.6,121.4 136.2,118.8 135.7,116.1 136.0,113.8 136.9,111.1 141.3,103.9 146.7,96.6 152.7,89.9 156.0,86.4 159.4,85.2 160.9,84.9 163.1,85.2 165.6,85.9 170.2,87.4 173.0,89.1 175.4,91.3 176.5,93.3 177.9,95.9 179.4,99.7 179.4,102.1 178.7,105.3 177.4,108.6 175.9,111.9 175.2,114.0 174.7,116.2 174.1,119.3 173.3,126.5 172.0,132.9 170.3,136.3 168.6,138.5 167.0,139.6 165.4,140.3 163.5,140.3 159.6,139.5" fill="#3fa34d" stroke="#000" stroke-width="1"><title>H06-GR-01</title></polygon>
+<polyline points="161.3,491.4 161.3,111.6" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="10" y="20" fill="#fff" font-size="15" font-weight="bold">Hole 6 · mapped data (unverified) · rings = yd to green</text></svg>
