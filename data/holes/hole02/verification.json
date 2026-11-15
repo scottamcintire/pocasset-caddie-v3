@@ -2,6 +2,105 @@
  "schema": "pocasset-v3/verification@1",
  "hole": 2,
  "note": "Manual record. One entry per feature check. result = verified | approximate | wrong. Tools read this and never write it.",
- "example": {"feature_id": "H02-BK-01", "result": "verified", "method": "Google Earth Pro imagery dated YYYY-MM-DD | on-course GPS walk", "by": "owner", "date": "YYYY-MM-DD", "ref": "short note or photo name", "error_yd": 1.5},
- "records": []
+ "example": {
+  "feature_id": "H02-BK-01",
+  "result": "verified",
+  "method": "Google Earth Pro imagery dated YYYY-MM-DD | on-course GPS walk",
+  "by": "owner",
+  "date": "YYYY-MM-DD",
+  "ref": "short note or photo name",
+  "error_yd": 1.5
+ },
+ "records": [],
+ "pre_restoration_evidence": [
+  {
+   "feature_id": "H02-GR-01",
+   "method": "Imagery overlay (outlines drawn on the image in the hole's UTM grid): MassGIS 2025 orthoimagery, 18 Mar 2025, 7.5 cm, seen through Esri World Imagery (metadata: 'Massachusetts 2025 Images', accuracy 0.034 m). Taken BEFORE the tee and bunker reconstruction (owner: restoration done spring 2026; no public imagery after it), so it shows the old layout only.",
+   "by": "Claude (imagery check; owner to confirm)",
+   "date": "2026-11-15",
+   "ref": "Outline on the mown green edge all round.",
+   "error_yd": 0.5,
+   "imagery_date": "2025-03-18",
+   "post_restoration": false,
+   "finding": "matches the PRE-restoration layout"
+  },
+  {
+   "feature_id": "H02-BK-01",
+   "method": "Imagery overlay (outlines drawn on the image in the hole's UTM grid): MassGIS 2025 orthoimagery, 18 Mar 2025, 7.5 cm, seen through Esri World Imagery (metadata: 'Massachusetts 2025 Images', accuracy 0.034 m). Taken BEFORE the tee and bunker reconstruction (owner: restoration done spring 2026; no public imagery after it), so it shows the old layout only.",
+   "by": "Claude (imagery check; owner to confirm)",
+   "date": "2026-11-15",
+   "ref": "Outline on the sand edge (left of the approach).",
+   "error_yd": 0.5,
+   "imagery_date": "2025-03-18",
+   "post_restoration": false,
+   "finding": "matches the PRE-restoration layout"
+  },
+  {
+   "feature_id": "H02-BK-02",
+   "method": "Imagery overlay (outlines drawn on the image in the hole's UTM grid): MassGIS 2025 orthoimagery, 18 Mar 2025, 7.5 cm, seen through Esri World Imagery (metadata: 'Massachusetts 2025 Images', accuracy 0.034 m). Taken BEFORE the tee and bunker reconstruction (owner: restoration done spring 2026; no public imagery after it), so it shows the old layout only.",
+   "by": "Claude (imagery check; owner to confirm)",
+   "date": "2026-11-15",
+   "ref": "Outline on the sand edge (behind the green).",
+   "error_yd": 0.5,
+   "imagery_date": "2025-03-18",
+   "post_restoration": false,
+   "finding": "matches the PRE-restoration layout"
+  },
+  {
+   "feature_id": "H02-WA-01",
+   "method": "Imagery overlay (outlines drawn on the image in the hole's UTM grid): MassGIS 2025 orthoimagery, 18 Mar 2025, 7.5 cm, seen through Esri World Imagery (metadata: 'Massachusetts 2025 Images', accuracy 0.034 m). Taken BEFORE the tee and bunker reconstruction (owner: restoration done spring 2026; no public imagery after it), so it shows the old layout only.",
+   "by": "Claude (imagery check; owner to confirm)",
+   "date": "2026-11-15",
+   "ref": "Outline on the water edge; the right lobe is marsh/vegetated water in Mar 2025.",
+   "error_yd": 1.1,
+   "imagery_date": "2025-03-18",
+   "post_restoration": false,
+   "finding": "matches the PRE-restoration layout"
+  },
+  {
+   "feature_id": "H02-TE-01",
+   "method": "Imagery overlay (outlines drawn on the image in the hole's UTM grid): MassGIS 2025 orthoimagery, 18 Mar 2025, 7.5 cm, seen through Esri World Imagery (metadata: 'Massachusetts 2025 Images', accuracy 0.034 m). Taken BEFORE the tee and bunker reconstruction (owner: restoration done spring 2026; no public imagery after it), so it shows the old layout only.",
+   "by": "Claude (imagery check; owner to confirm)",
+   "date": "2026-11-15",
+   "ref": "Outline on a mown tee box (Gold).",
+   "error_yd": 0.5,
+   "imagery_date": "2025-03-18",
+   "post_restoration": false,
+   "finding": "matches the PRE-restoration layout"
+  },
+  {
+   "feature_id": "H02-TE-02",
+   "method": "Imagery overlay (outlines drawn on the image in the hole's UTM grid): MassGIS 2025 orthoimagery, 18 Mar 2025, 7.5 cm, seen through Esri World Imagery (metadata: 'Massachusetts 2025 Images', accuracy 0.034 m). Taken BEFORE the tee and bunker reconstruction (owner: restoration done spring 2026; no public imagery after it), so it shows the old layout only.",
+   "by": "Claude (imagery check; owner to confirm)",
+   "date": "2026-11-15",
+   "ref": "Outline on a mown tee box (Blue).",
+   "error_yd": 0.5,
+   "imagery_date": "2025-03-18",
+   "post_restoration": false,
+   "finding": "matches the PRE-restoration layout"
+  },
+  {
+   "feature_id": "H02-TE-03",
+   "method": "Imagery overlay (outlines drawn on the image in the hole's UTM grid): MassGIS 2025 orthoimagery, 18 Mar 2025, 7.5 cm, seen through Esri World Imagery (metadata: 'Massachusetts 2025 Images', accuracy 0.034 m). Taken BEFORE the tee and bunker reconstruction (owner: restoration done spring 2026; no public imagery after it), so it shows the old layout only.",
+   "by": "Claude (imagery check; owner to confirm)",
+   "date": "2026-11-15",
+   "ref": "Outline on a clearly mown rectangular tee box: the Green/White tee position existed in Mar 2025 (also a raised platform in the 2021 lidar). Remains a CANDIDATE until confirmed on the course or in post-rebuild imagery.",
+   "error_yd": 0.5,
+   "imagery_date": "2025-03-18",
+   "post_restoration": false,
+   "finding": "matches the PRE-restoration layout"
+  },
+  {
+   "feature_id": "H02-TE-04",
+   "method": "Imagery overlay (outlines drawn on the image in the hole's UTM grid): MassGIS 2025 orthoimagery, 18 Mar 2025, 7.5 cm, seen through Esri World Imagery (metadata: 'Massachusetts 2025 Images', accuracy 0.034 m). Taken BEFORE the tee and bunker reconstruction (owner: restoration done spring 2026; no public imagery after it), so it shows the old layout only.",
+   "by": "Claude (imagery check; owner to confirm)",
+   "date": "2026-11-15",
+   "ref": "Outline on a mown rectangular tee box (Bronze candidate).",
+   "error_yd": 0.5,
+   "imagery_date": "2025-03-18",
+   "post_restoration": false,
+   "finding": "matches the PRE-restoration layout"
+  }
+ ],
+ "evidence_note": "Evidence entries do not change geometry_status. They show the source map was traced from the pre-restoration course (all 8 outlines within about 0.5-1 m of the Mar 2025 image). Current positions need an on-course check (V3 field-check mode) or post-restoration imagery."
 }

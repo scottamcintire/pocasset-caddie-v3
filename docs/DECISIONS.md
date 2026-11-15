@@ -27,3 +27,7 @@
 | 2026-11-15 | Vertical exaggeration 1.5× for ground shape in renders (style setting, stated in every projection file and in the app); distances unaffected | Claude (proposed; owner may change) |
 | 2026-11-15 | Source tees filed under the wrong hole are re-assigned via `source_corrections.json` (never hand-edited); shown as **candidate** until verified | Claude (proposed) |
 | 2026-11-15 | V3 defaults to the Green tee; other mapped tees selectable; distances from live GPS | Owner |
+| 2026-11-15 | **Visual baseline approved (v1.0):** the Hole 2 V2 appearance (terrain elevations, woods, fairway look, 3D perspective, lighting, textures, 1.5× exaggeration, camera approach) is the standard for every V3 hole. Locked in `style/approved/VISUAL_BASELINE_v1.0.json`; tag v3.1.0-visual-baseline | Owner |
+| 2026-11-15 | No further significant visual changes without discussing them with the owner first (renderer guard + visual baseline test enforce it) | Owner |
+| 2026-11-15 | The visual approval does **not** approve geographic outlines, rebuilt bunkers, Green tee coordinates, GPS calculations or iPhone function; those pass their own checks. Approved green heat maps and the EZLocator pin system stay unchanged | Owner |
+| 2026-11-15 | Next: preserve V2; finish Hole 2 geographic verification; prepare the independent V3 app for iPhone testing; trial the approved style on two more holes with different layouts; document problems before the remaining holes. Production V2.3.1 not modified or deployed | Owner |

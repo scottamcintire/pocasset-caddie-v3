@@ -17,7 +17,7 @@ Result: **OK to continue (flags need review)** · 12 pass · 3 flag · 0 stop
 | PASS | tee H02-TE-02 vs scorecard | 422 yd → Blue |
 | PASS | tee H02-TE-03 vs scorecard | 367 yd → Green, White |
 | PASS | tee H02-TE-04 vs scorecard | 344 yd → Bronze |
-| FLAG | features awaiting verification | 15 of 15 |
+| FLAG | features awaiting verification | 7 of 15 |
 | PASS | approved green asset recorded | Pocasset_AI_Master/03_greens/hole_02/approved/ |
 
 ## Distances from mapped tees (unverified data; for review)

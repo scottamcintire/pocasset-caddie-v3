@@ -2,6 +2,12 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v3.1.0-visual-baseline: Hole 2 V2 approved as the V3 visual standard (15 Nov 2026)
+- **Owner approval (visual only):** the Hole 2 V2 appearance is the standard for all V3 holes. Geography, bunkers, Green tee, GPS and iPhone checks remain separate.
+- Approved style, renderer and terrain code frozen read-only in `style/approved/` with `VISUAL_BASELINE_v1.0.json` (checksums, camera approach, Hole 2 reference renders in `render/approved_visual_v1.0/`).
+- Renderer guard: stops if the shared style differs from the approved one unless an owner-approved change is named. New `tests/test_visual_baseline.py` (quick checksum check; `--render` proves byte-identical re-render).
+- RENDERING_STANDARD is now v1.0; PROJECT_STATUS and DECISIONS record the approval and the next steps.
+
 ## v3.0.2-hole02-proto-v2: Hole 2 visual prototype V2 (15 Nov 2026)
 
 **Owner approvals this round:** download 2021 lidar into V3; investigate tree sources (approximate woods allowed if labelled illustrative).

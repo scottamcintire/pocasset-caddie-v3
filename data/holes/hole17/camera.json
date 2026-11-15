@@ -1,0 +1,31 @@
+{
+ "schema": "pocasset-v3/camera@1",
+ "hole": 17,
+ "note": "Manual record (camera only; never geography). Approved camera approach v1.0 (style/approved/VISUAL_BASELINE_v1.0.json), values copied unchanged from Hole 2 for the two-hole trial.",
+ "views": {
+  "tee": {
+   "description": "Full-hole flyover from behind the Green tee, looking down the hole to the green",
+   "look_from_feature": "H17-TE-02",
+   "look_to": "green",
+   "back_m": 95,
+   "height_m": 105,
+   "show_behind_tee_m": 22,
+   "show_beyond_green_m": 70,
+   "side_shift_m": 0,
+   "texture_px_per_m": 7,
+   "output_height_px": 1440
+  },
+  "approach": {
+   "description": "Approach: green complex from about 110 yd out on the approach line",
+   "look_from_green_m": 100,
+   "look_to": "green",
+   "back_m": 25,
+   "height_m": 60,
+   "show_behind_tee_m": -5,
+   "show_beyond_green_m": 32,
+   "side_shift_m": 0,
+   "texture_px_per_m": 24,
+   "output_height_px": 1400
+  }
+ }
+}

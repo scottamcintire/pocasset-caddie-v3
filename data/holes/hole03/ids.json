@@ -1,0 +1,37 @@
+{
+ "note": "Stable IDs. Never renumber or reuse; retired IDs stay listed.",
+ "ids": {
+  "osm:way/1241445315": {
+   "id": "H03-BK-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:relation/17057276": {
+   "id": "H03-FW-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241452584": {
+   "id": "H03-GR-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241472171": {
+   "id": "H03-CL-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241437932": {
+   "id": "H03-CP-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241448275": {
+   "id": "H03-TE-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241448274": {
+   "id": "H03-TE-02",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/698252790": {
+   "id": "H03-WA-01",
+   "first_seen": "2026-11-15"
+  }
+ }
+}

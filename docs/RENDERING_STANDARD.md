@@ -1,6 +1,12 @@
 # Flyover Rendering Standard
 
-*Draft 0.2 (15 Nov 2026), proven on Hole 2. It becomes version 1.0 when the owner approves the Hole 2 flyover; after that, every hole is rendered exactly this way.*
+**Version 1.0: approved visual baseline (owner, 15 Nov 2026).** The Hole 2 V2 appearance is the standard look for every V3 hole: lighting, textures, colours, mowing, sand, water, illustrative woods, sky and haze, 1.5× terrain exaggeration, and the camera approach (§7). Locked in `style/approved/VISUAL_BASELINE_v1.0.json`.
+
+> **Change rule:** no significant visual change without discussing it with the owner first. `tools/render_flyover.py` stops if `style/flyover_style.json` differs from the approved copy, unless the run names an owner-approved change recorded in DECISIONS.md (`PCV3_STYLE_CHANGE_APPROVED`). Renderer code changes must keep `tests/test_visual_baseline.py --render` passing (Hole 2 re-renders byte-identical) or be discussed first. Per-hole camera distances may be tuned so a hole fits; the approach stays the same.
+>
+> **Scope:** visual approval only. Outlines, rebuilt bunkers, the Green tee position, GPS calculations and iPhone behaviour are approved separately through HOLE_VALIDATION.md checkpoints. Approved green heat maps and the EZLocator pin system are untouched by rendering.
+
+*History: draft 0.1 (flat ground, no trees), draft 0.2 (this renderer) approved as v1.0 without changes.*
 *Draft 0.1 (flat ground, no trees) is preserved: code `tools/archive/render_flyover_v0.1.py`, style `style/archive/flyover_style_v0.1.json`, renders `data/holes/hole02/render/v0.1/`, prototype `prototype/hole02_v0.1/`.*
 
 ## 1. Principle: independent layers
@@ -72,6 +78,8 @@
 
 ## 6. Commands
 
+Approved files: `style/approved/flyover_style_v1.0.json`, `render_flyover_v1.0.py`, `terrain_v1.0.py` (read-only copies), Hole 2 reference renders in `data/holes/hole02/render/approved_visual_v1.0/`.
+
 ```
 python3 tools/terrain.py check --hole 2       # lidar registration QA (once per hole)
 python3 tools/terrain.py grid  --hole 2       # terrain.json for renderer and app
@@ -79,11 +87,12 @@ python3 tools/render_flyover.py --hole 2      # both views (about 2 min each on 
 python3 tests/test_alignment.py --hole 2
 python3 -I tools/build_prototype.py --hole 2
 node tests/test_prototype.js
+python3 tests/test_visual_baseline.py [--render]   # approved look unchanged
 ```
 
 The renderer needs `numpy`, `scipy`, `opencv-python`. The data tools (`pcv3.py`) still need only Python's standard library; `terrain.py` needs numpy.
 
-## 7. Per-hole checklist (once v1.0 is approved)
+## 7. Per-hole checklist (v1.0)
 
 1. **Data ready:** `standardize` and `check` done; the hole's area lies inside the locked lidar and canopy grids (`terrain.py grid` stops if it does not; then fetch the next tile the same way, HOLE_BUILD_STANDARD.md §5a).
 2. **Terrain QA:** `terrain.py check`: tees and greens should sit on flat platforms; water on flat (hydro-flattened) ground. Look at `checks/terrain_registration.png`.
@@ -92,7 +101,7 @@ The renderer needs `numpy`, `scipy`, `opencv-python`. The data tools (`pcv3.py`)
 5. **Review:** the owner compares with the real hole and the style reference (checkpoint C).
 6. **Freeze:** `pcv3.py promote` freezes the approved renders with their projections.
 
-## 8. Known limits of v0.2
+## 8. Known limits of v1.0
 - **Trees are illustrative** (positions from 2023 imagery; shapes invented). Tree removal since 2023 is not reflected.
 - **Lidar is 2021**, before the bunker and tee rebuild; bunker depths and tee shapes are cosmetic.
 - **Exaggeration 1.5×** makes slopes look steeper than they are (deliberate, stated).

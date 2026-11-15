@@ -66,7 +66,7 @@
  },
  "inputs_sha256": {
   "features.geojson": "a9af93d5dddf348446662ca50edd5e939bd4a0e80432e2ceac1d49fecc291f01",
-  "camera.json": "f21811d20fb62e5a55f8a6c7e27d2e18bdf6598f7e979680ba7424546f845a60",
+  "camera.json": "d9862e457aa39e3ca9aa647346c143f4164dc610a31b42d08ed60e4db96edeca",
   "flyover_style.json": "9f135905db8b71d4462942239af492a7f636fb2632776b16db0192162f72adb3",
   "course_source": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304",
   "elevation_source": "d357299c592729dd42ba5c5344fbabb924cc916fbae00be2941d3315dbe1c35c",

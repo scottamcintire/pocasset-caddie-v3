@@ -1,0 +1,49 @@
+{
+ "note": "Stable IDs. Never renumber or reuse; retired IDs stay listed.",
+ "ids": {
+  "osm:way/1241445307": {
+   "id": "H17-BK-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241445306": {
+   "id": "H17-BK-02",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241445305": {
+   "id": "H17-BK-03",
+   "first_seen": "2026-11-15"
+  },
+  "osm:relation/17057275": {
+   "id": "H17-FW-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241452587": {
+   "id": "H17-GR-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241472157": {
+   "id": "H17-CL-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241437936": {
+   "id": "H17-CP-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241437941": {
+   "id": "H17-CP-02",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241448282": {
+   "id": "H17-TE-01",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241448281": {
+   "id": "H17-TE-02",
+   "first_seen": "2026-11-15"
+  },
+  "osm:way/1241448280": {
+   "id": "H17-TE-03",
+   "first_seen": "2026-11-15"
+  }
+ }
+}

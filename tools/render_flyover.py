@@ -500,8 +500,25 @@ def sample_canvas(cv_, tex, mat, u, v, sel):
 
 
 # ---------------------------------------------------------------- main render
+def check_visual_baseline():
+    """Approved visual baseline guard (owner approval 15 Nov 2026): the shared style may not change without approval."""
+    lp = pcv3.p('style', 'approved', 'VISUAL_BASELINE_v1.0.json')
+    if not os.path.exists(lp):
+        return
+    lock = json.load(open(lp))
+    cur = hashlib.sha256(open(pcv3.p('style', 'flyover_style.json'), 'rb').read()).hexdigest()
+    if cur != lock['files']['style/approved/flyover_style_v1.0.json']:
+        ok = os.environ.get('PCV3_STYLE_CHANGE_APPROVED')
+        if not ok:
+            sys.exit('STOP: style/flyover_style.json differs from the owner-approved visual baseline v%s. Significant visual changes '
+                     'must be discussed with the owner first. If a change was approved, record it in docs/DECISIONS.md and run with '
+                     'PCV3_STYLE_CHANGE_APPROVED="<decision date/ref>".' % lock['version'])
+        print('NOTE: rendering with a style change approved as:', ok, flush=True)
+
+
 def render(hole, view_name):
     tstart = time.time()
+    check_visual_baseline()
     style = json.load(open(pcv3.p('style', 'flyover_style.json')))
     d = pcv3.p('data', 'holes', 'hole%02d' % hole)
     cam_cfg = json.load(open(os.path.join(d, 'camera.json')))['views'][view_name]
