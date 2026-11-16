@@ -56,6 +56,10 @@
   "12": {
    "status": "published_awaiting_review",
    "detail": "Par 3; Blue/Green and White/Bronze/Silver tees mapped (Gold not mapped); no water"
+  },
+  "13": {
+   "status": "published_awaiting_review",
+   "detail": "Green tee mapped; Bronze tee re-assigned from Hole 12 (candidate); Gold/Blue/White/Silver not mapped; no water"
   }
  }
 }

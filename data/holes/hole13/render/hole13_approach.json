@@ -1,0 +1,90 @@
+{
+ "schema": "pocasset-v3/flyover-projection@2",
+ "renderer": "0.2",
+ "hole": 13,
+ "view": "approach",
+ "image": "hole13_approach.jpg",
+ "width": 1170,
+ "height": 1400,
+ "frame": {
+  "type": "green-pin-frame",
+  "origin_lonlat": [
+   -70.60649387,
+   41.69027934
+  ],
+  "playing_bearing_deg": 251.310442,
+  "earth_radius_m": 6371008.8,
+  "definition": "origin = mean of green ring incl. closing vertex; v = last centerline segment toward green; u = golfer's right"
+ },
+ "camera_matrix": [
+  [
+   1788.6228468081,
+   434.0149804785,
+   -392.2448173274,
+   78172.4741888838
+  ],
+  [
+   0.0,
+   -679.9445392803,
+   -1796.3427043932,
+   24554.8381909856
+  ],
+  [
+   0.0,
+   0.7419059495,
+   -0.6705039612,
+   133.6281610066
+  ]
+ ],
+ "height_model": {
+  "terrain_file": "terrain.json",
+  "terrain_sha256": "cc29f9048e2e0bd54353924f8eeba6f4b4dbf23600a0e043885ab96095db450a",
+  "z_ref_m": 19.662,
+  "vertical_exaggeration": 1.5,
+  "formula": "z = (terrain(u,v) - z_ref) * vertical_exaggeration; terrain = bilinear in terrain.json (metres = z_dm/10)"
+ },
+ "how_to_use": "pixel = M \u00b7 [u, v, z, 1] (divide by the 3rd value). u,v = hole-frame metres (u right, v toward the green, origin green centre); z from height_model at (u,v). Ground points only (the ball is on the ground; tree crowns are not part of the height model).",
+ "camera": {
+  "position_uvz_m": [
+   0.0,
+   -125.0,
+   60.984
+  ],
+  "forward": [
+   0.0,
+   0.741906,
+   -0.670504
+  ],
+  "vfov_deg": 42.747,
+  "hfov_deg": 36.2225,
+  "pitch_deg": 42.106,
+  "focal_px": 1788.6228,
+  "look_from_uv": [
+   0.0,
+   -100.0
+  ]
+ },
+ "inputs_sha256": {
+  "features.geojson": "5f5fa27b5039a0ebb1922b1ceffe891a7fff6ed4d6fb9bad346d10ba3ba7c6a6",
+  "camera.json": "49cb824a89ce595f0137df1081092fafa7955138b5b08ed1aae4dcf8e4796226",
+  "flyover_style.json": "8cf8f8a76eede00b586d5a180ab3d926acbadf1fde5bc234f63818d53e4b460f",
+  "course_source": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304",
+  "elevation_source": "5c30724162cc6eb58edf50c5dc39db6a7a384e6d2e6519ca23471ce90eb6c8ac",
+  "canopy_source": "2cdfa7b854bb3ae509b930f06b71110e9a99b89c9942baea287f19675b84425f"
+ },
+ "trees": "ILLUSTRATIVE woods where the locked 2023 NAIP canopy grid shows canopy; crown shapes, 8 m nominal height and colours are style, not surveyed trees",
+ "terrain": "2021 USGS 3DEP lidar bare earth (2 m), vertical exaggeration 1.50x; bunker depths and tee/green edge bevels are cosmetic",
+ "material_ids": {
+  "0": "other",
+  "1": "rough",
+  "2": "fairway",
+  "3": "green",
+  "4": "tee",
+  "5": "bunker",
+  "6": "water",
+  "7": "path",
+  "8": "tree",
+  "9": "offcourse",
+  "10": "sky"
+ }
+}
