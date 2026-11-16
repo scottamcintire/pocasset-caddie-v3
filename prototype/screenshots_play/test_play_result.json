@@ -27,7 +27,7 @@
     ]
    ]
   },
-  "A4 flyover overlay yardages == header yardages, flyover Holes 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17 (707 positions)": {
+  "A4 flyover overlay yardages == header yardages, flyover Holes 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 (749 positions)": {
    "pass": true,
    "detail": []
   },
@@ -70,7 +70,7 @@
    "pass": true,
    "detail": []
   },
-  "E1 hazard reach/carry from every mapped tee == build-time reference (222 checks, Holes 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17)": {
+  "E1 hazard reach/carry from every mapped tee == build-time reference (240 checks, Holes 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)": {
    "pass": true,
    "detail": []
   },
@@ -245,21 +245,10 @@
     "kind": "SIMULATED"
    }
   },
-  "H3 Hole 18 (no flyover yet): playing-line start labelled \"not a tee\"; hazards stated as not mapped": {
-   "pass": true,
-   "detail": {
-    "chips": [
-     "Line start (not a tee)",
-     "250 yd out",
-     "200 yd out",
-     "150 yd out",
-     "100 yd out",
-     "60 yd out"
-    ],
-    "nf": "Hole 18: the flyover isn’t built yet (front nine first). Live GPS front/center/back, the approved green with today’s pin, and scoring all work on this hole.Bunkers and water for this hole are not mapped yet, so no hazard yardages are shown."
-   }
+  "H3 every hole has a flyover (no \"not built yet\" page left)": {
+   "pass": true
   },
-  "K1 all 17 flyovers load and draw overlays in /play/": {
+  "K1 all 18 flyovers load and draw overlays in /play/": {
    "pass": true,
    "detail": [
     [
@@ -363,6 +352,12 @@
      true,
      true,
      true
+    ],
+    [
+     18,
+     true,
+     true,
+     true
     ]
    ]
   },
@@ -437,7 +432,8 @@
   14,
   15,
   16,
-  17
+  17,
+  18
  ],
  "pass": true
 }

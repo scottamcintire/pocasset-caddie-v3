@@ -1,0 +1,9 @@
+{
+ "schema": "pocasset-v3/alignment-exceptions@1",
+ "note": "Manual record. Each entry excuses ONE feature in ONE view from the 95% rule, with evidence; the test still prints it as EXCEPTION. Never used for a feature that fails in every view.",
+ "exceptions": [
+  {"hole": 18, "view": "tee", "feature": "H18-BK-06",
+   "evidence": "Bunker behind a raised green, ~475 m from the tee camera at the top of the picture: 31 of 63 samples counted hidden, and the misses land on the green's back slope / rough 4-6 m in front of the sample (renderer depth exact to mm, so a real occlusion just inside the 1%+1 m allowance). Same bunker 100% correct in the approach view; browser projection = renderer projection (< 0.001 px).",
+   "added": "2026-11-16", "by": "Claude"}
+ ]
+}

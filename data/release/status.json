@@ -76,6 +76,10 @@
   "17": {
    "status": "published_awaiting_review",
    "detail": "Par 5; Gold/Blue, Green/White, Bronze tees mapped (Silver not mapped); Hole 2's pond visible beside it is not a Hole 17 hazard"
+  },
+  "18": {
+   "status": "published_awaiting_review",
+   "detail": "Gold/Blue, Green, White/Bronze/Silver tees mapped (White/Bronze/Silver re-assigned from Hole 15, candidate); no water"
   }
  }
 }
