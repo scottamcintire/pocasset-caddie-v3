@@ -1,0 +1,6 @@
+{
+ "schema": "pocasset-v3/terrain-options@1",
+ "hole": 16,
+ "mosaic": true,
+ "why": "The hole's views reach past the edge of its primary lidar/canopy grid (blank haze in the tee view corner). With the mosaic, ground there comes from the neighbouring locked 2021 USGS grids (same survey) instead of haze. Manual record, 16 Nov 2026."
+}

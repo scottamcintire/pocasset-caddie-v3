@@ -68,6 +68,10 @@
   "15": {
    "status": "published_awaiting_review",
    "detail": "Par 3; all six tee sets mapped (three boxes); no water"
+  },
+  "16": {
+   "status": "published_awaiting_review",
+   "detail": "Par 5; Gold, Green, White, Bronze tees mapped (White/Bronze re-assigned from Hole 14, candidates); no water"
   }
  }
 }
