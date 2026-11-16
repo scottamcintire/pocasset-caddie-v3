@@ -2,6 +2,9 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.0.1: Hole 9 tee-view framing (owner feedback, 16 Nov 2026)
+- Hole 9 is a dogleg, so the standard tee → green aim left its fairway on the picture's edge. Tee view now aimed through the centre of Hole 9's own fairway (optional `aim_through_uv` camera field, Hole 9 only), closer and a little steeper. Camera only: no geography, GPS, hazard or green change; other holes byte-identical (Hole 2 fresh re-render). See docs/reviews/hole09.md.
+
 ## v5.0.0: back nine — Holes 10–18 flyovers, all 18 in /play/ (16 Nov 2026)
 - **Holes 10–18 built and published one at a time** (v4.1.0–v4.9.0) with the approved v1.2 style and the same pipeline; each awaiting owner review.
 - **Data:** new locked lidar + canopy area for Holes 11–14 (`*_back9_2m`); Hole 10 pond traced from lidar (owner report); 7 misfiled source tees re-assigned and 2 removed (source_corrections.json, all candidates/unverified).

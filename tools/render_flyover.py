@@ -444,6 +444,10 @@ def build_camera(view, sc, world, W, H):
         T = np.array(pcv3.centroid([F.uv(c) for c in tee['geometry']['coordinates'][0]]))
     G = np.array([0.0, 0.0])
     d = G - T; L = float(np.linalg.norm(d)); d /= L
+    aim = view.get('aim_through_uv')      # optional (camera.json, per hole): look along the playing corridor of a dogleg
+    if aim is not None:                   # instead of straight at the green centre; framing then runs to the green's
+        d = np.array(aim, float) - T; d /= float(np.linalg.norm(d))     # position along the new axis
+        G = T + d * float(np.dot(np.array([0.0, 0.0]) - T, d))
     side = np.array([d[1], -d[0]])
     b, h = view['back_m'], view['height_m']
     C2 = T - d * b + side * view.get('side_shift_m', 0)

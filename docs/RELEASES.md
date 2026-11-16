@@ -95,5 +95,6 @@ Each release is one commit on `gh-pages`. To restore the previous site: `git rev
 | v4.8.0-hole17 | 16 Nov 2026 | 17 (+ /play/) | 8dbe3ad | b43bc85 | Silver not mapped; standard camera replaced a trial camera |
 | v4.9.0-hole18 | 16 Nov 2026 | 18 (+ /play/) | c0f1f2b | 549cae2 | White/Bronze/Silver candidate from Hole 15; behind-green bunker hidden in tee view (documented exception) |
 | **v5.0.0** | 16 Nov 2026 | all 18 | c0f1f2b | (this docs commit) | All 18 flyovers in /play/; full regression PASS |
+| v5.0.1-hole09-camera | 16 Nov 2026 | 9 (tee view only) | SITE9 | SRC9 | Owner feedback: Hole 9 tee view re-aimed down its dogleg corridor; tests PASS |
 
 No release failed; no rollback has been needed. Rollback for the back nine: revert gh-pages commits after 46c7100 (v4.0.0, front-nine flyovers + /play/).

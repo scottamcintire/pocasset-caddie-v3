@@ -18,22 +18,22 @@
  },
  "camera_matrix": [
   [
-   1106.1827637922,
-   1589.5143259688,
-   -329.4601373957,
-   283130.7354080519
+   428.3403450822,
+   1547.9690863238,
+   -364.2668575725,
+   421728.3972526088
   ],
   [
-   300.7649036973,
-   -349.5508866766,
-   -1955.0625902593,
-   34604.5653724053
+   335.0928760538,
+   -209.6024179947,
+   -1652.9757039212,
+   31903.2619152628
   ],
   [
-   -0.5389581752,
-   0.6263806239,
-   -0.563179722,
-   483.9841630907
+   -0.6633891674,
+   0.4149535353,
+   -0.622678389,
+   428.6519333602
   ]
  ],
  "height_model": {
@@ -46,19 +46,19 @@
  "how_to_use": "pixel = M \u00b7 [u, v, z, 1] (divide by the 3rd value). u,v = hole-frame metres (u right, v toward the green, origin green centre); z from height_model at (u,v). Ground points only (the ball is on the ground; tree crowns are not part of the height model).",
  "camera": {
   "position_uvz_m": [
-   322.327,
-   -374.61,
-   134.264
+   320.362,
+   -331.375,
+   126.264
   ],
   "forward": [
-   -0.538958,
-   0.626381,
-   -0.56318
+   -0.663389,
+   0.414954,
+   -0.622678
   ],
-  "vfov_deg": 42.0087,
-  "hfov_deg": 34.6517,
-  "pitch_deg": 34.276,
-  "focal_px": 1875.2373,
+  "vfov_deg": 50.1287,
+  "hfov_deg": 41.6122,
+  "pitch_deg": 38.512,
+  "focal_px": 1539.5289,
   "look_from_uv": [
    244.06,
    -283.648
@@ -66,7 +66,7 @@
  },
  "inputs_sha256": {
   "features.geojson": "bb50a70adfbf037a52fc7dc47e7609be4ba2ef142b4429a136d76f632de2e0a1",
-  "camera.json": "a23da3e9dd8717e3be88d3556ab7367e441e2fe5c5c88d8a68335d3492f08be5",
+  "camera.json": "b9f82cc5329851cd1f91eed3b279ac472744043cc462876f556c49dea7283795",
   "flyover_style.json": "8cf8f8a76eede00b586d5a180ab3d926acbadf1fde5bc234f63818d53e4b460f",
   "course_source": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304",
   "elevation_source": "8e7a63b5adcacfd1388c3eccb8e5499e390f75aa77669deea41aa4ee7b0be231",
