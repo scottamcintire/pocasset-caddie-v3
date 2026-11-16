@@ -60,6 +60,10 @@
   "13": {
    "status": "published_awaiting_review",
    "detail": "Green tee mapped; Bronze tee re-assigned from Hole 12 (candidate); Gold/Blue/White/Silver not mapped; no water"
+  },
+  "14": {
+   "status": "published_awaiting_review",
+   "detail": "Gold and Green tees mapped; three tees the source filed here re-assigned to Holes 11 and 16; no water"
   }
  }
 }
