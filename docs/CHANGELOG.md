@@ -2,6 +2,11 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v3.8.0-visual-v1.1: shorter illustrative trees on all holes; Hole 8 pond (15 Nov 2026)
+- **Visual baseline v1.1 (owner-approved):** trees 8 m instead of 13 m so wooded holes show their ground; all nine holes re-rendered and re-tested. v1.0 preserved.
+- **v3.7.0 Hole 8 pond:** owner-reported pond traced from the 2021 lidar into a locked lidar-derived source (OSM file untouched); hazard yardages from all three tees; Hole 9 tee view updated.
+- **Terrain audit:** `tools/terrain_audit.py` and `audits/terrain_2026-11-15/`; previews in `previews/` (camera, exaggeration, lighting, woods, shading). Findings: flat-looking holes were real terrain plus woods, not missing lidar or settings.
+
 ## v3.2.0 → v3.6.1: rolling releases of Holes 1–9 to the test site (15 Nov 2026)
 Full table of releases, commits and tests: docs/RELEASES.md. Problems found: docs/PROBLEM_REPORT.md.
 - **Holes 1, 3–9 built with the approved Hole 2 process and published**, each awaiting owner review (Hole 2 look unchanged).

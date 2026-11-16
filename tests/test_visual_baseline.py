@@ -6,15 +6,18 @@ Images and material IDs must match byte-for-byte; projection files must match ex
 Any renderer change that alters Hole 2's approved look fails here and must be discussed with the owner first."""
 import hashlib, json, os, shutil, subprocess, sys, tempfile
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-lock = json.load(open(os.path.join(ROOT, 'style', 'approved', 'VISUAL_BASELINE_v1.0.json')))
+sys.path.insert(0, os.path.join(ROOT, 'tools'))
+from render_flyover import latest_visual_baseline  # noqa: E402
+lock = latest_visual_baseline()
+V = lock['version']
 sh = lambda p: hashlib.sha256(open(p, 'rb').read()).hexdigest()
 bad = []
-if sh(os.path.join(ROOT, 'style', 'flyover_style.json')) != lock['files']['style/approved/flyover_style_v1.0.json']:
+if sh(os.path.join(ROOT, 'style', 'flyover_style.json')) != lock['files']['style/approved/flyover_style_v%s.json' % V]:
     bad.append('style/flyover_style.json differs from the approved style')
 for f, h in lock['files'].items():
     if f.startswith('style/approved/') and sh(os.path.join(ROOT, f)) != h:
         bad.append('approved file changed: ' + f)
-ref = os.path.join(ROOT, 'data', 'holes', 'hole02', 'render', 'approved_visual_v1.0')
+ref = os.path.join(ROOT, 'data', 'holes', 'hole02', 'render', 'approved_visual_v%s' % V)
 for f, h in lock['reference_renders_hole02'].items():
     if sh(os.path.join(ref, f)) != h:
         bad.append('approved reference changed: ' + f)

@@ -520,14 +520,23 @@ def sample_canvas(cv_, tex, mat, u, v, sel):
 
 
 # ---------------------------------------------------------------- main render
+def latest_visual_baseline():
+    """The newest owner-approved visual baseline (style/approved/VISUAL_BASELINE_v*.json); earlier versions stay on file."""
+    import glob
+    fs = glob.glob(pcv3.p('style', 'approved', 'VISUAL_BASELINE_v*.json'))
+    if not fs:
+        return None
+    ver = lambda f: tuple(int(x) for x in os.path.basename(f)[len('VISUAL_BASELINE_v'):-5].split('.'))
+    return json.load(open(max(fs, key=ver)))
+
+
 def check_visual_baseline():
     """Approved visual baseline guard (owner approval 15 Nov 2026): the shared style may not change without approval."""
-    lp = pcv3.p('style', 'approved', 'VISUAL_BASELINE_v1.0.json')
-    if not os.path.exists(lp):
+    lock = latest_visual_baseline()
+    if lock is None:
         return
-    lock = json.load(open(lp))
     cur = hashlib.sha256(open(pcv3.p('style', 'flyover_style.json'), 'rb').read()).hexdigest()
-    if cur != lock['files']['style/approved/flyover_style_v1.0.json']:
+    if cur != lock['files']['style/approved/flyover_style_v%s.json' % lock['version']]:
         ok = os.environ.get('PCV3_STYLE_CHANGE_APPROVED')
         if not ok:
             sys.exit('STOP: style/flyover_style.json differs from the owner-approved visual baseline v%s. Significant visual changes '

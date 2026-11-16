@@ -1,0 +1,49 @@
+{
+ "schema": "pocasset-v3/visual-baseline@1",
+ "version": "1.1",
+ "approved": "2026-11-15",
+ "approved_by": "owner",
+ "scope": "VISUAL APPEARANCE ONLY: lighting, textures, colours, mowing, sand, water, illustrative woods, sky/haze, 1.5x terrain exaggeration, camera approach (Tee view from behind the Green tee, Approach view ~100-110 m short of the green). It does NOT approve geographic outlines, reconstructed bunkers, the Green tee coordinates, GPS calculations or iPhone functionality; those keep their own checkpoints (HOLE_VALIDATION.md).",
+ "owner_words": "I approve the V2 visual appearance as our standard for Pocasset AI Caddie V3. ... Do not make further significant visual changes without discussing them with me.",
+ "rule": "tools/render_flyover.py refuses to render if style/flyover_style.json differs from the approved file below, unless PCV3_STYLE_CHANGE_APPROVED names an owner-approved change recorded in DECISIONS.md. Renderer code changes must keep tests/test_visual_baseline.py passing (Hole 2 renders byte-identical) or be discussed with the owner first.",
+ "files": {
+  "style/flyover_style.json": "225fa6f6d83d2847e07757c0f9d813babc02805507283ffdfb384309286bb92e",
+  "style/approved/flyover_style_v1.1.json": "225fa6f6d83d2847e07757c0f9d813babc02805507283ffdfb384309286bb92e",
+  "style/approved/render_flyover_v1.1.py": "407d589d3c33484cf29dec5e260ed6716a29c624122eb26e4678b4aca0229fc6",
+  "style/approved/terrain_v1.1.py": "fa481931697b6fb0f9c88acc99d32c20cb79f0f570ae30f4e9d3831670f88825"
+ },
+ "camera_approach": {
+  "tee": {
+   "look_from": "owner's primary tee (Green)",
+   "back_m": 95,
+   "height_m": 105,
+   "show_behind_tee_m": 22,
+   "show_beyond_green_m": 70,
+   "output": "1170x1440",
+   "texture_px_per_m": 7
+  },
+  "approach": {
+   "look_from_green_m": 100,
+   "back_m": 25,
+   "height_m": 60,
+   "show_behind_tee_m": -5,
+   "show_beyond_green_m": 32,
+   "output": "1170x1400",
+   "texture_px_per_m": 24
+  },
+  "note": "Per-hole camera.json may adjust distances so the whole hole fits; the approach (where the camera stands, how high, which way it looks, image sizes) is the approved pattern."
+ },
+ "reference_renders_hole02": {
+  "camera.json": "d9862e457aa39e3ca9aa647346c143f4164dc610a31b42d08ed60e4db96edeca",
+  "hole02_approach.jpg": "b22ebf5716f1a24039c953bd39b6cca067fa5cb9d3191147af8792792a1c1233",
+  "hole02_approach.json": "b32dc49e3c10902e0a236f036a346ec1b98789591b6ab71b80dd5df045d5e801",
+  "hole02_approach_ids.png": "a1cbf69cca131fd10c3f2b88e305622084854df393d5ef5ae1a2bb0964a994ae",
+  "hole02_tee.jpg": "5e7f912afbbd9787f3979f39067f6fd0ae442530ccb8c683a0e755449063ccce",
+  "hole02_tee.json": "d10803dd31a27b7acfc73c2d8093ee50ab0b6786918f773b09e65a145ad4fa1a",
+  "hole02_tee_ids.png": "d45681a1abd25ed1ea8fcc46c7e7c8264c4a5913ef382b79b92a5d62e47f3d6b"
+ },
+ "tag": "v3.1.0-visual-baseline",
+ "provenance_note": "15 Nov 2026 (same day): hole02_approach.json reference refreshed because its recorded camera.json checksum predated the Tee view output-size change in the same file. Image and material IDs were confirmed byte-identical; no visual change.",
+ "change_from_previous": "v1.0 -> v1.1: trees.height_m 13 -> 8 (illustrative woods drawn shorter, same places and density) so wooded holes show their ground. Owner approved 15 Nov 2026 (\"do it\") after previews of shorter-only woods (Holes 2, 4, 8). Renderer code: adds a QA-only depth output (no visual effect).",
+ "previous": "VISUAL_BASELINE_v1.0.json (kept; its reference renders stay in render/approved_visual_v1.0/)"
+}

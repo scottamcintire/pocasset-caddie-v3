@@ -121,3 +121,8 @@ Owner asked why Holes 4 and 8 look flatter than Hole 2. Tool: `python3 tools/ter
 - **Learned about cameras:** moving the camera further back while lowering it narrows the lens (telephoto) and flattens the picture; closer **and** lower keeps a wide lens and adds perspective. Use that pattern when a hole-specific camera is needed.
 - **Shared settings:** 1.0x / 1.5x / 2.0x and a side light change Hole 4 very little → recommendation: keep 1.5x and the current light (owner to confirm).
 - **Proposed (not applied):** Hole 4 tee camera back 45/up 55; Hole 8 tee back 50/up 70/side +15 and approach back 5/up 40. Candidate previews next for Holes 1, 6, 7, 9 (most wooded). Published renders change only after owner approval, as a new release.
+
+## Visual baseline v1.1 (15 Nov 2026, owner-approved)
+- **Change:** illustrative trees drawn **8 m** tall instead of 13 m (`trees.height_m`); same places and density from the 2023 canopy. Reason: on tree-lined holes the taller crowns hid the real lidar ground (Holes 4 and 8 looked flat). Hole 2 changes about 3% of its picture; every knoll tree stays.
+- **Not adopted:** thinner woods (removed the Hole 2 knoll trees), stronger shading (darkened Hole 2, little effect on wooded holes), more exaggeration (no visible gain), hole-specific camera moves (owner saw no difference).
+- **Locked in:** `style/approved/VISUAL_BASELINE_v1.1.json`, `flyover_style_v1.1.json`, Hole 2 references in `render/approved_visual_v1.1/`. The renderer guard and `tests/test_visual_baseline.py` use the newest baseline; v1.0 stays on file.

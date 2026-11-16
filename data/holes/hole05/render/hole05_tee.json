@@ -67,12 +67,12 @@
  "inputs_sha256": {
   "features.geojson": "c6fdd56024d6e763a6ab3e4143f7551b3cce61fd68c6586130e5fdab0f899556",
   "camera.json": "fefce809e4addc68dac930160bd8960b06d1610f2c984886e1baa62af47668af",
-  "flyover_style.json": "9f135905db8b71d4462942239af492a7f636fb2632776b16db0192162f72adb3",
+  "flyover_style.json": "225fa6f6d83d2847e07757c0f9d813babc02805507283ffdfb384309286bb92e",
   "course_source": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304",
   "elevation_source": "8e7a63b5adcacfd1388c3eccb8e5499e390f75aa77669deea41aa4ee7b0be231",
   "canopy_source": "cd90da3158083000b121d094cc92be237d07cf701f937e429c0027853720bc6b"
  },
- "trees": "ILLUSTRATIVE woods where the locked 2023 NAIP canopy grid shows canopy; crown shapes, 13 m nominal height and colours are style, not surveyed trees",
+ "trees": "ILLUSTRATIVE woods where the locked 2023 NAIP canopy grid shows canopy; crown shapes, 8 m nominal height and colours are style, not surveyed trees",
  "terrain": "2021 USGS 3DEP lidar bare earth (2 m), vertical exaggeration 1.50x; bunker depths and tee/green edge bevels are cosmetic",
  "material_ids": {
   "0": "other",

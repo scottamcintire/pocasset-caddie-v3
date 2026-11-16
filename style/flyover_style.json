@@ -23,7 +23,7 @@
   "enabled": true,
   "threshold": 0.45,
   "crown_cell_m": 7.0,
-  "height_m": 13,
+  "height_m": 8,
   "crown_relief_m": 1.5,
   "clear_buffer_m": 2.0,
   "palette": [
