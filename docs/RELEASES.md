@@ -10,15 +10,15 @@ Review status is the owner's: only the owner moves a hole to **Approved** or **N
 
 | Hole | Par | URL | Latest release | Site commit | Source commit | Release tests | Review status | Data concerns (see review log) |
 |---|---|---|---|---|---|---|---|---|
-| 1 | 5 | /hole01/ | v3.3.0-hole01 | e0d6f0b (rebuilt in later releases) | 0431071 | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; 24 hazards; alignment) | Published — awaiting review | Silver tee unmapped; no water mapped; outlines pre-rebuild |
-| 2 | 4 | /hole02/ | v3.0 test site (look approved 15 Nov) | 401c563 | 90a57c9 | PASS (60/60; 12 hazards; alignment; visual baseline byte-identical) | Published — awaiting review (visual style approved) | Green/Bronze tees are candidates (re-assigned from Hole 4); Silver unmapped |
-| 3 | 3 | /hole03/ | v3.6.1-hole03 | c1eb778 | 13d56e2 | PASS (60/60; 4 hazards; alignment) | Published — awaiting review | Green tee 138 yd vs card 147 (within 10 yd); re-rendered with length-scaled camera |
-| 4 | 4 | /hole04/ | v3.2.0-hole04 | 71ca408 | b1c76b7 | PASS (60/60; 5 hazards; alignment) | Published — awaiting review | Only Green/White tee mapped; two source tees moved to Hole 2 |
-| 5 | 4 | /hole05/ | v3.4.0-holes05-06 | 019fd00 | 50be7e6 | PASS (60/60; 10 hazards; alignment) | Published — awaiting review | White/Bronze/Silver unmapped; H05-TE-02 matches no card tee |
-| 6 | 3 | /hole06/ | v3.4.0-holes05-06 | 019fd00 | 50be7e6 | PASS (60/60; 8 hazards; alignment) | Published — awaiting review | Only Gold tee mapped (app opens there); H06-TE-02 matches no card tee; a greenside bunker hidden by illustrative woods in the tee view |
-| 7 | 4 | /hole07/ | v3.5.0-holes07-08 | 0925a46 | aaebec1 | PASS (60/60; 14 hazards; alignment) | Published — awaiting review | White/Bronze/Silver unmapped |
-| 8 | 4 | /hole08/ | v3.7.0-hole08-pond | 5dc1bf3 | bd0275b | PASS (60/60; pond hazard from 3 tees; alignment) | Published — awaiting review | Pond added from lidar (unverified); only mapped bunker lies 112 m left beside the tee (probably another hole's) |
-| 9 | 5 | /hole09/ | v3.7.0 (tee view) | 5dc1bf3 | bd0275b | PASS (60/60; 41 hazards; alignment) | Published — awaiting review | Bronze/Silver unmapped; H09-TE-06 matches no card tee |
+| 1 | 5 | /hole01/ | v3.8.0-visual-v1.1 | c9048be | 5ddd9de | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; 24 hazards; alignment) | Published — awaiting review | Silver tee unmapped; no water mapped; outlines pre-rebuild |
+| 2 | 4 | /hole02/ | v3.8.0-visual-v1.1 | c9048be | 5ddd9de | PASS (60/60; 12 hazards; alignment; visual baseline byte-identical) | Published — awaiting review (visual style approved) | Green/Bronze tees are candidates (re-assigned from Hole 4); Silver unmapped |
+| 3 | 3 | /hole03/ | v3.8.0-visual-v1.1 | c9048be | 5ddd9de | PASS (60/60; 4 hazards; alignment) | Published — awaiting review | Green tee 138 yd vs card 147 (within 10 yd); re-rendered with length-scaled camera |
+| 4 | 4 | /hole04/ | v3.8.0-visual-v1.1 | c9048be | 5ddd9de | PASS (60/60; 5 hazards; alignment) | Published — awaiting review | Only Green/White tee mapped; two source tees moved to Hole 2 |
+| 5 | 4 | /hole05/ | v3.8.0-visual-v1.1 | c9048be | 5ddd9de | PASS (60/60; 10 hazards; alignment) | Published — awaiting review | White/Bronze/Silver unmapped; H05-TE-02 matches no card tee |
+| 6 | 3 | /hole06/ | v3.8.0-visual-v1.1 | c9048be | 5ddd9de | PASS (60/60; 8 hazards; alignment) | Published — awaiting review | Only Gold tee mapped (app opens there); H06-TE-02 matches no card tee; a greenside bunker hidden by illustrative woods in the tee view |
+| 7 | 4 | /hole07/ | v3.8.0-visual-v1.1 | c9048be | 5ddd9de | PASS (60/60; 14 hazards; alignment) | Published — awaiting review | White/Bronze/Silver unmapped |
+| 8 | 4 | /hole08/ | v3.8.0-visual-v1.1 | c9048be | 5ddd9de | PASS (60/60; pond hazard from 3 tees; alignment) | Published — awaiting review | Pond added from lidar (unverified); only mapped bunker lies 112 m left beside the tee (probably another hole's) |
+| 9 | 5 | /hole09/ | v3.8.0-visual-v1.1 | c9048be | 5ddd9de | PASS (60/60; 41 hazards; alignment) | Published — awaiting review | Bronze/Silver unmapped; H09-TE-06 matches no card tee |
 | 10–18 | | — | — | — | — | — | Not started (outside the current scope) | Need course-area lidar + canopy for their area |
 
 All holes: bunker and tee outlines come from OpenStreetMap traced before the spring 2026 rebuild and are **unverified**; woods are illustrative (2023 imagery); ground shape is 2021 lidar.
@@ -50,5 +50,6 @@ Each release is one commit on `gh-pages`. To restore the previous site: `git rev
 | v3.6.0-hole09 | 15 Nov 2026 | 9 | caf87bc | 2b58586 | Holes 1–9 all on the test site |
 | v3.6.1-hole03 | 15 Nov 2026 | 3 (camera) + docs | c1eb778 | 13d56e2 | Hole 3 re-rendered with the length-scaled camera used by all other holes; earlier render kept in `render/trial_unscaled_camera/` |
 | v3.7.0-hole08-pond | 15 Nov 2026 | 8 (+ Hole 9 tee view) | 5dc1bf3 | bd0275b | Owner-reported pond traced from 2021 lidar; locked lidar-derived source |
+| v3.8.0-visual-v1.1 | 15 Nov 2026 | 1–9 | c9048be | 5ddd9de | Owner-approved visual baseline v1.1: trees 8 m instead of 13 m; all holes re-rendered and re-tested |
 
 No release failed; no rollback has been needed.
