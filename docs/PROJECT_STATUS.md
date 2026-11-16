@@ -1,8 +1,13 @@
 # Project Status — Pocasset AI Caddie V3
 
-*Last updated: 15 Nov 2026. This file is the place to resume from on any computer or in any Claude session. Read it first, then HOLE_BUILD_STANDARD.md.*
+*Last updated: 16 Nov 2026. This file is the place to resume from on any computer or in any Claude session. Read it first, then HOLE_BUILD_STANDARD.md.*
 
-## Resume checkpoint (15 Nov 2026, evening)
+## Resume checkpoint (16 Nov 2026) — v4.0.0 integrated round page
+- **/play/** is live: https://scottamcintire.github.io/pocasset-caddie-v3/play/ — start round → confirm tee (Green default) → hole → FLYOVER (live GPS + hazards) → GREEN (approved heat map + EZLocator pin) → SCORE. All 18 holes for GPS/green/scoring; flyovers + hazards Holes 1–9. Plan and as-built notes: **docs/INTEGRATION_PLAN.md**; tests and rollback: **docs/RELEASES.md** (v4.0.0).
+- Scorecard: **data/scorecard/pocasset_scorecard.json** — published card preserved; owner's newer Green 5,986 / Blue 6,301 are **provisional** until the club's card confirms them (DATA_SOURCES §2g; H13 Blue 295 < Green 308 worth checking).
+- **Next:** owner tries /play/ on the course; confirm the club-issued card; owner review of Holes 1–9; Holes 10–18 flyovers/tees/hazards need the third lidar + canopy download when approved; possible later: offline mode (pcv3- caches), controlled import of V2.3.1 rounds.
+
+## Earlier checkpoint (15 Nov 2026, evening)
 - **Holes 1–9 are on the V3 test site**, each "Published — awaiting your review": https://scottamcintire.github.io/pocasset-caddie-v3/ . Releases, commits, tests and data concerns: **docs/RELEASES.md** (central table, Holes 1–18). Owner feedback: **docs/reviews/holeNN.md**. Problems found while repeating the process: **docs/PROBLEM_REPORT.md**.
 - Source: `main` of `scottamcintire/pocasset-caddie-v3` (latest source commit is in RELEASES.md); site: `gh-pages`. Local working copies: `/home/claude/Pocasset_Caddie_V3` (source) and `/home/claude/pocasset-caddie-v3` (site).
 - Data locked: course GeoJSON; 2021 lidar for Hole 2's area **and** for Holes 1, 5–9's area; NAIP 2023 canopy for both areas; V2.3.1 green build data. Each hole uses the first locked grid that covers it (Holes 2–4 keep the Hole 2 grid).
@@ -19,7 +24,8 @@
 | V3 location | GitHub `scottamcintire/pocasset-caddie-v3` (`main` = source, `gh-pages` = test site) plus Claude's workspace copy. Mac folder still not created (decision 6) |
 | GitHub / website | Live: https://scottamcintire.github.io/pocasset-caddie-v3/ (homepage shows each hole's review status) |
 | Holes 1–9 | Published — awaiting review (none approved). Hole 2: visual style approved; Green tee still a candidate |
-| Holes 10–18 | Not started (outside the current scope); need course-area data for their part of the course |
+| Holes 10–18 | In /play/ (v4.0.0): live GPS, approved greens + pins, scoring. No flyover, mapped tees or hazards yet |
+| Integrated app | /play/ v4.0.0 published 16 Nov (38/38 tests); awaiting owner trial |
 
 ## Done (15 Nov 2026)
 - [x] Read-only inventory of the production app, approved greens and course data (V3_PLAN_2026-11-15.md).

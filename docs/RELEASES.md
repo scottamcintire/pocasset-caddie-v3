@@ -19,9 +19,26 @@ Review status is the owner's: only the owner moves a hole to **Approved** or **N
 | 7 | 4 | /hole07/ | v3.9.0 | 3ef5687 | 7f59c7f | PASS (60/60; 14 hazards; alignment) | Published — awaiting review | White/Bronze/Silver unmapped |
 | 8 | 4 | /hole08/ | v3.9.0 | 3ef5687 | 7f59c7f | PASS (60/60; pond hazard from 3 tees; alignment) | Published — awaiting review | Pond added from lidar (unverified); only mapped bunker lies 112 m left beside the tee (probably another hole's) |
 | 9 | 5 | /hole09/ | v3.9.0 | 3ef5687 | 7f59c7f | PASS (60/60; 41 hazards; alignment) | Published — awaiting review | Bronze/Silver unmapped; H09-TE-06 matches no card tee |
-| 10–18 | | — | — | — | — | — | Not started (outside the current scope) | Need course-area lidar + canopy for their area |
+| 10–18 | | /play/ only | v4.0.0 | 46c7100 | 8dc2081 | PASS in test_play.js (GPS, auto-hole, greens, pins, scoring) | No flyover yet | No mapped tees or hazards yet; GPS uses V2.3.1's green outlines and playing lines |
 
 All holes: bunker and tee outlines come from OpenStreetMap traced before the spring 2026 rebuild and are **unverified**; woods are illustrative (2023 imagery); ground shape is 2021 lidar.
+
+## Integrated round page /play/ (v4.0.0, 16 Nov 2026)
+| Release | Site commit | Source commit | Rollback to | Tests |
+|---|---|---|---|---|
+| v4.0.0 | 46c7100 | 8dc2081 | site 3ef5687 (v3.9.0): `git revert 46c7100` on gh-pages | test_play.js 38/38 PASS; test_scorecard.py PASS; nine hole pages PASS (screenshots pixel-identical); visual baseline v1.2 PASS; tool tests PASS; live check PASS |
+
+test_play.js (vs production V2.3.1, read-only copy sha in `prototype/screenshots_play/test_play_result.json`):
+- GPS front/centre/back + flag identical at 749 positions on 18 holes incl. off-course; flyover overlay = header on Holes 1–9 (380 positions)
+- automatic hole identical after each of 413 fixes walking all 18 holes
+- EZLocator placement identical for 216 pins; flag drawn at V2.3.1's position on all 18 greens; 18 approved images byte-identical
+- hazard front/carry from every mapped tee = reference tables (115 checks); live hazard table follows position, all marked UNVERIFIED
+- scoring identical to V2.3.1 for 77 taps (strokes, putts, totals); scorecard OUT/IN/TOT; CSV; finish round → V3 history
+- tee: Green default; Blue at start and Gold mid-round persist across reloads; GPS independent of tee
+- simulated positions labelled; Hole 6 states its Green tee is unmapped and never substitutes Gold
+- GPS controller: ask, live fix, weak-signal retry, watch reopened, away-from-course, resume after reload, permission denied
+- V2.3.1 saved round and pins byte-identical after a full V3 session; V3 wrote only `pocasset_v3:` keys
+Live (16 Nov): /play/ loads over https; all 18 green images hash-match; hole data 200; homepage links /play/; with the owner's real V2.3.1 data present on the site, a V3 session left it unchanged.
 
 ## Release checklist (run for every release)
 1. `python3 tools/render_flyover.py --hole N` (style guard stops on any unapproved style change)
