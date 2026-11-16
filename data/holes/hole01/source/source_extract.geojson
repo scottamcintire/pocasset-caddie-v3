@@ -1840,47 +1840,6 @@
   {
    "type": "Feature",
    "geometry": {
-    "type": "Polygon",
-    "coordinates": [
-     [
-      [
-       -70.607224,
-       41.687108
-      ],
-      [
-       -70.607277,
-       41.6869
-      ],
-      [
-       -70.607224,
-       41.686892
-      ],
-      [
-       -70.607171,
-       41.6871
-      ],
-      [
-       -70.607224,
-       41.687108
-      ]
-     ]
-    ]
-   },
-   "properties": {
-    "feature_id": "tee-osm-w1241448305",
-    "layer": "tee",
-    "holes": [
-     1
-    ],
-    "source": "osm",
-    "osm_id": "way/1241448305",
-    "osm_version": 1,
-    "verified": false
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
     "type": "LineString",
     "coordinates": [
      [

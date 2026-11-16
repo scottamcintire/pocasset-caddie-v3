@@ -18,22 +18,22 @@
  },
  "camera_matrix": [
   [
-   1176.0442592729,
-   1309.114330462,
-   -328.6707307386,
-   318661.0151322889
+   1326.7701802735,
+   1242.3061211868,
+   -329.897052425,
+   311603.8479554051
   ],
   [
-   188.6415978878,
-   -300.6855407331,
-   -1804.1791575047,
-   33758.5253655042
+   182.9439000553,
+   -348.4163050075,
+   -1853.0483757952,
+   37556.3614258609
   ],
   [
-   -0.4396374538,
-   0.7007607389,
-   -0.561830309,
-   544.7196839868
+   -0.3839131057,
+   0.7311617698,
+   -0.5639265853,
+   532.6561503511
   ]
  ],
  "height_model": {
@@ -46,28 +46,28 @@
  "how_to_use": "pixel = M \u00b7 [u, v, z, 1] (divide by the 3rd value). u,v = hole-frame metres (u right, v toward the green, origin green centre); z from height_model at (u,v). Ground points only (the ball is on the ground; tree crowns are not part of the height model).",
  "camera": {
   "position_uvz_m": [
-   302.734,
-   -482.543,
-   130.785
+   256.255,
+   -488.036,
+   137.329
   ],
   "forward": [
-   -0.439637,
-   0.700761,
-   -0.56183
+   -0.383913,
+   0.731162,
+   -0.563927
   ],
-  "vfov_deg": 46.1041,
-  "hfov_deg": 38.1464,
-  "pitch_deg": 34.1825,
-  "focal_px": 1691.9397,
+  "vfov_deg": 44.6764,
+  "hfov_deg": 36.9246,
+  "pitch_deg": 34.3278,
+  "focal_px": 1752.2131,
   "look_from_uv": [
-   236.835,
-   -377.503
+   199.074,
+   -379.136
   ]
  },
  "inputs_sha256": {
-  "features.geojson": "5bc03739bd91f8f9e10860ae84a32e754e5dc6fc645211f72d79b3cd9963a54a",
-  "camera.json": "3215db273b27854114884311a62149174b421cd3f15801be7d5d357f993364cd",
-  "flyover_style.json": "225fa6f6d83d2847e07757c0f9d813babc02805507283ffdfb384309286bb92e",
+  "features.geojson": "6c0dc0b31f8a7a789c1ec45d61bfceba17700bcc762798754f90787de191129c",
+  "camera.json": "8472409c99f675d8b1ce7d8bd219d9a77c1d7e05a6a8bc746c0b6ecd0cfbea60",
+  "flyover_style.json": "8cf8f8a76eede00b586d5a180ab3d926acbadf1fde5bc234f63818d53e4b460f",
   "course_source": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304",
   "elevation_source": "8e7a63b5adcacfd1388c3eccb8e5499e390f75aa77669deea41aa4ee7b0be231",
   "canopy_source": "cd90da3158083000b121d094cc92be237d07cf701f937e429c0027853720bc6b"

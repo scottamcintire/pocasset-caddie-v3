@@ -1,7 +1,7 @@
 # Hole 5 — review log
 
 URL: https://scottamcintire.github.io/pocasset-caddie-v3/hole05/ · Par 4 · card Gold 345, Blue 345, Green 337, White 323, Bronze 323, Silver 254
-Current release: v3.4.0-holes05-06 (see docs/RELEASES.md) · Review status: **Published — awaiting your review**
+Current release: v3.9.0 (see docs/RELEASES.md) · Review status: **Published — awaiting your review**
 
 Mapped tees: H05-TE-01 335 yd (Gold/Blue/Green); H05-TE-02 2 yd (no card tee)
 

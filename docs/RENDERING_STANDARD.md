@@ -126,3 +126,7 @@ Owner asked why Holes 4 and 8 look flatter than Hole 2. Tool: `python3 tools/ter
 - **Change:** illustrative trees drawn **8 m** tall instead of 13 m (`trees.height_m`); same places and density from the 2023 canopy. Reason: on tree-lined holes the taller crowns hid the real lidar ground (Holes 4 and 8 looked flat). Hole 2 changes about 3% of its picture; every knoll tree stays.
 - **Not adopted:** thinner woods (removed the Hole 2 knoll trees), stronger shading (darkened Hole 2, little effect on wooded holes), more exaggeration (no visible gain), hole-specific camera moves (owner saw no difference).
 - **Locked in:** `style/approved/VISUAL_BASELINE_v1.1.json`, `flyover_style_v1.1.json`, Hole 2 references in `render/approved_visual_v1.1/`. The renderer guard and `tests/test_visual_baseline.py` use the newest baseline; v1.0 stays on file.
+
+## Visual baseline v1.2 (15 Nov 2026, owner-approved)
+- **Change:** crown clearance on (`trees.crown_surface_fade`): a whole illustrative tree is left out when its crown would reach a tee, green, fairway, bunker or water (+2 m). Trees are never cut flat. Fixes crowns drawn over the Hole 3 tee box, the Hole 6 tee boxes and green edge, and a Hole 1 bunker; Hole 2 changes < 1%.
+- **Locked in:** `style/approved/VISUAL_BASELINE_v1.2.json` (+ v1.0, v1.1 kept); Hole 2 references in `render/approved_visual_v1.2/`.

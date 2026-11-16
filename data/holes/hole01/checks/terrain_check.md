@@ -15,7 +15,6 @@ Lidar is 2021 (before the bunker/tee rebuild): a rebuilt feature may not match. 
 | H01-BK-06 | bunker | 15.6 | 15.8 | 16.5 | 0.16 |
 | H01-FW-01 | fairway | 11.6 | 17.4 | 19.7 | 1.87 |
 | H01-GR-01 | green | 16.9 | 17.3 | 17.6 | 0.15 |
-| H01-TE-01 | tee | 12.9 | 13.2 | 13.8 | 0.12 |
 | H01-TE-02 | tee | 18.1 | 18.2 | 18.3 | 0.07 |
 | H01-TE-03 | tee | 18.2 | 18.4 | 18.4 | 0.06 |
 | H01-TE-04 | tee | 14.9 | 15.3 | 15.5 | 0.15 |

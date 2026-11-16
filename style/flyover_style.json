@@ -26,6 +26,7 @@
   "height_m": 8,
   "crown_relief_m": 1.5,
   "clear_buffer_m": 2.0,
+  "crown_surface_fade": true,
   "palette": [
    "#2e5a25",
    "#3a6a2b",

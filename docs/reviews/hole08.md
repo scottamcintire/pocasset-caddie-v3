@@ -1,7 +1,7 @@
 # Hole 8 — review log
 
 URL: https://scottamcintire.github.io/pocasset-caddie-v3/hole08/ · Par 4 · card Gold 394, Blue 383, Green 375, White 286, Bronze 286, Silver 286
-Current release: v3.5.0-holes07-08 (see docs/RELEASES.md) · Review status: **Published — awaiting your review**
+Current release: v3.9.0 (see docs/RELEASES.md) · Review status: **Published — awaiting your review**
 
 Mapped tees: H08-TE-01 397 yd (Gold); H08-TE-02 384 yd (Blue/Green); H08-TE-03 372 yd (Green)
 

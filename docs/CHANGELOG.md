@@ -2,6 +2,11 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v3.9.0: Hole 1 tee correction; crown clearance (visual baseline v1.2) (15 Nov 2026)
+- **Hole 1:** a source tee pointing ~97° off the line of play (26 m off it, 5 m below the tee platform) was removed from Hole 1; the app and camera now start at the real Green tee (475 yd). Owner-approved.
+- **Crown clearance (baseline v1.2):** trees whose crowns would reach a tee, green, fairway, bunker or water are no longer drawn (Holes 1, 3, 6 most visibly; Hole 2 < 1%). Owner-approved.
+- Hole 4 left as is (owner).
+
 ## v3.8.0-visual-v1.1: shorter illustrative trees on all holes; Hole 8 pond (15 Nov 2026)
 - **Visual baseline v1.1 (owner-approved):** trees 8 m instead of 13 m so wooded holes show their ground; all nine holes re-rendered and re-tested. v1.0 preserved.
 - **v3.7.0 Hole 8 pond:** owner-reported pond traced from the 2021 lidar into a locked lidar-derived source (OSM file untouched); hazard yardages from all three tees; Hole 9 tee view updated.

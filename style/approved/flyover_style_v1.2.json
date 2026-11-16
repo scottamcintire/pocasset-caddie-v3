@@ -1,0 +1,126 @@
+{
+ "schema": "pocasset-v3/flyover-style@2",
+ "name": "Pocasset flyover style v0.2 (3D terrain, illustrative woods; from owner reference 2026-11-15)",
+ "note": "Appearance only. Changing this file changes how holes look, never where anything is. Colours are sRGB hex. Previous versions: style/archive/.",
+ "output": {
+  "width": 1170,
+  "height": 1800,
+  "supersample": 2,
+  "jpeg_quality": 88
+ },
+ "texture_px_per_m": 8,
+ "coarse_px_per_m": 3,
+ "max_canvas_px": 9000000,
+ "detail_margin_m": 90,
+ "max_view_m": 1400,
+ "terrain": {
+  "vertical_exaggeration": 1.5,
+  "shade_gain": 1.3,
+  "note": "Real lidar ground. Exaggeration makes gentle Cape Cod relief readable; it is stated in every projection JSON and never affects distances.",
+  "shade_smooth_m": 1.5
+ },
+ "trees": {
+  "enabled": true,
+  "threshold": 0.45,
+  "crown_cell_m": 7.0,
+  "height_m": 8,
+  "crown_relief_m": 1.5,
+  "clear_buffer_m": 2.0,
+  "crown_surface_fade": true,
+  "palette": [
+   "#2e5a25",
+   "#3a6a2b",
+   "#27502a",
+   "#4a7330",
+   "#355f31",
+   "#3f6526"
+  ],
+  "note": "ILLUSTRATIVE. Woods only where the locked canopy grid shows canopy (2023 NAIP classification); crowns/height/colours are style.",
+  "world_cell_m": 0.5,
+  "crown_shape": [
+   1.8,
+   0.7
+  ]
+ },
+ "colors": {
+  "rough": "#4f8a33",
+  "rough_dark": "#43792b",
+  "rough_dry": "#8c9a52",
+  "first_cut": "#6fb240",
+  "fairway": "#93cf4c",
+  "fairway_stripe_dark": "#74b23a",
+  "tee": "#8fcb4b",
+  "green": "#9ad655",
+  "green_stripe": "#86c447",
+  "collar": "#78b83f",
+  "sand": "#f3e8cc",
+  "sand_shadow": "#cdb994",
+  "bunker_lip": "#3b7428",
+  "water_deep": "#1d4f6e",
+  "water_shallow": "#2f6f86",
+  "water_bank": "#3a6a2e",
+  "path": "#c9c4b6",
+  "path_edge": "#97917f",
+  "offcourse": "#3d6a2c",
+  "haze": "#cfdde0",
+  "sky_top": "#8fb6dc",
+  "sky_horizon": "#dfe9ee"
+ },
+ "stripes": {
+  "fairway_width_m": 9.0,
+  "fairway_strength": 1.0,
+  "green_width_m": 1.6,
+  "green_strength": 1.9,
+  "tee_width_m": 2.2
+ },
+ "noise": {
+  "rough_amount": 0.11,
+  "rough_dry": 0.35,
+  "fairway_amount": 0.035,
+  "sand_amount": 0.05,
+  "micro_amount": 0.07
+ },
+ "relief": {
+  "note": "Cosmetic edge shapes only (the lidar predates the rebuilt bunkers/tees and is 2 m). Shading only; positions unchanged.",
+  "fairway_m": 0.08,
+  "fairway_edge_m": 3.0,
+  "green_m": 0.15,
+  "green_edge_m": 4.0,
+  "tee_m": 0.35,
+  "tee_edge_m": 1.0,
+  "bunker_depth_m": 0.6,
+  "bunker_edge_m": 1.4,
+  "bunker_lip_m": 0.2,
+  "bunker_lip_w_m": 0.9,
+  "water_depth_m": 0.4,
+  "water_edge_m": 1.5
+ },
+ "light": {
+  "azimuth_from_camera_left_deg": 30,
+  "elevation_deg": 34,
+  "ambient": 0.55,
+  "diffuse": 0.6,
+  "relief_exaggeration": 7.0,
+  "ao": 0.35,
+  "shadow_strength": 0.55
+ },
+ "water": {
+  "reflection": 0.55,
+  "sparkle": 0.18
+ },
+ "first_cut_m": 2.6,
+ "collar_m": 1.3,
+ "path_width_m": 2.5,
+ "water_bank_m": 0.9,
+ "haze": {
+  "amount": 0.32,
+  "start_m": 120,
+  "distance_m": 700
+ },
+ "grade": {
+  "gamma": 0.97,
+  "saturation": 1.06
+ },
+ "vignette": 0.14,
+ "context_dim": 0.3
+}

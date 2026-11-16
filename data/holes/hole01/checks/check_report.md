@@ -1,6 +1,6 @@
 # Hole 1 — automated check (2026-11-15)
 
-Result: **OK to continue (flags need review)** · 12 pass · 4 flag · 0 stop
+Result: **OK to continue (flags need review)** · 11 pass · 4 flag · 0 stop
 
 | Level | Check | Detail |
 |---|---|---|
@@ -14,24 +14,16 @@ Result: **OK to continue (flags need review)** · 12 pass · 4 flag · 0 stop
 | FLAG | tee sets without a mapped tee | Silver |
 | PASS | green area | 353 m² |
 | PASS | centerline ends on the green |  |
-| PASS | tee H01-TE-01 vs scorecard | 479 yd → Gold, Blue, Green |
 | PASS | tee H01-TE-02 vs scorecard | 475 yd → Gold, Blue, Green, White |
 | PASS | tee H01-TE-03 vs scorecard | 473 yd → Gold, Blue, Green, White |
 | PASS | tee H01-TE-04 vs scorecard | 449 yd → Bronze |
-| FLAG | features awaiting verification | 17 of 17 |
+| FLAG | features awaiting verification | 16 of 16 |
 | PASS | approved green asset recorded | Pocasset_AI_Master/03_greens/hole_01/approved/ |
 
 ## Distances from mapped tees (unverified data; for review)
 
 | Tee | Feature | Yards |
 |---|---|---|
-| H01-TE-01 | green F/C/B (production method) | 475 / 487 / 501 |
-| H01-TE-01 | H01-BK-01 (R) | reach 273 · carry 305  (line through hazard) |
-| H01-TE-01 | H01-BK-02 (L) | reach 424 · carry 428  (line through hazard) |
-| H01-TE-01 | H01-BK-03 (L) | reach 431 · carry 437  (line through hazard) |
-| H01-TE-01 | H01-BK-04 (R) | reach 436 · carry 445  (line through hazard) |
-| H01-TE-01 | H01-BK-05 (green-front-right) | reach 454 · carry 470  (line through hazard) |
-| H01-TE-01 | H01-BK-06 (green-left) | reach 486 · carry 501  (line through hazard) |
 | H01-TE-02 | green F/C/B (production method) | 455 / 468 / 482 |
 | H01-TE-02 | H01-BK-01 (R) | reach 264 · carry 298  (line through hazard) |
 | H01-TE-02 | H01-BK-02 (L) | reach 403 · carry 406  (line through hazard) |

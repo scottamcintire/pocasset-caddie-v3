@@ -23,15 +23,6 @@
  "centerline_length_yd": 477.7,
  "tees": [
   {
-   "feature_id": "H01-TE-01",
-   "measured_yards": 479,
-   "tee_sets": [
-    "Gold",
-    "Blue",
-    "Green"
-   ]
-  },
-  {
    "feature_id": "H01-TE-02",
    "measured_yards": 475,
    "tee_sets": [
@@ -68,7 +59,7 @@
   "fairway": 1,
   "green": 1,
   "path": 4,
-  "tee": 4
+  "tee": 3
  },
  "missing": {
   "not_in_source": [
@@ -80,7 +71,7 @@
   "terrain": "lidar (flown 20 Mar - 24 Apr 2021 (leaf-off))",
   "trees": "illustrative woods from imagery canopy (not surveyed trees)"
  },
- "unverified_features": 17,
+ "unverified_features": 16,
  "green_asset": {
   "approved": true,
   "folder": "Pocasset_AI_Master/03_greens/hole_01/approved/",

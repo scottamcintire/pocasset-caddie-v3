@@ -1,0 +1,13 @@
+{
+ "schema": "pocasset-v3/source-corrections@1",
+ "hole": 1,
+ "note": "Manual record. A source tee filed under hole 1 that is not a hole 1 tee. Geometry is never edited. Where it belongs is not known (possibly hole 10), so it is not assigned anywhere.",
+ "remove_from_this_hole": [
+  {
+   "ref": "osm:way/1241448305",
+   "source_said": "hole 1",
+   "now": "not assigned (unknown; possibly hole 10)",
+   "evidence": "Long narrow box (5:1) aimed ~12 deg: ~97 deg off hole 1's line of play (109 deg), close to hole 10's first leg (171 deg); 26 m off hole 1's line, 32 m from hole 10's; ground 13.2 m vs 18.2 m on hole 1's tee platform; matched the hole 1 card only by distance (479 yd). Owner, 15 Nov 2026: 'hole 1 looks completely off'. Removal approved by the owner, 15 Nov 2026 ('Fix both')."
+  }
+ ]
+}
