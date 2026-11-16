@@ -6,6 +6,7 @@
 - **Holes 1–9 are on the V3 test site**, each "Published — awaiting your review": https://scottamcintire.github.io/pocasset-caddie-v3/ . Releases, commits, tests and data concerns: **docs/RELEASES.md** (central table, Holes 1–18). Owner feedback: **docs/reviews/holeNN.md**. Problems found while repeating the process: **docs/PROBLEM_REPORT.md**.
 - Source: `main` of `scottamcintire/pocasset-caddie-v3` (latest source commit is in RELEASES.md); site: `gh-pages`. Local working copies: `/home/claude/Pocasset_Caddie_V3` (source) and `/home/claude/pocasset-caddie-v3` (site).
 - Data locked: course GeoJSON; 2021 lidar for Hole 2's area **and** for Holes 1, 5–9's area; NAIP 2023 canopy for both areas; V2.3.1 green build data. Each hole uses the first locked grid that covers it (Holes 2–4 keep the Hole 2 grid).
+- **Latest (15 Nov, night):** release v3.8.0 = visual baseline **v1.1** (owner-approved: illustrative trees 8 m instead of 13 m) on all nine holes; v3.7.0 added the owner-reported **Hole 8 pond** (traced from lidar, unverified). Terrain audit + previews: audits/ and previews/ (strong shading, thinner woods and camera moves previewed, not adopted).
 - **Next:** owner review of Holes 1–9 (record in docs/reviews, set status in data/release/status.json); owner decision on problem-report item 1 (tree crowns over play); on-course checks of the flagged tees/bunkers; Holes 10–18 need a third lidar + canopy download (Mac browser, awake) when that scope is approved.
 - Production V2.3.1 untouched throughout (no change to its repo, site, GPS, scoring or saved data).
 
@@ -13,7 +14,7 @@
 
 | Area | Status |
 |---|---|
-| Stage | Holes 1–9 published for owner review (rolling releases v3.2.0 → v3.6.1). Visual baseline v1.0 (Hole 2) unchanged and byte-identical |
+| Stage | Holes 1–9 published for owner review (rolling releases v3.2.0 → v3.8.0). Visual baseline v1.1 (owner-approved 15 Nov: shorter trees); v1.0 kept on file |
 | Production app | **V2.3.1 is the protected production baseline**; V3 never modifies it. Only the established daily pin-sheet update is authorized there |
 | V3 location | GitHub `scottamcintire/pocasset-caddie-v3` (`main` = source, `gh-pages` = test site) plus Claude's workspace copy. Mac folder still not created (decision 6) |
 | GitHub / website | Live: https://scottamcintire.github.io/pocasset-caddie-v3/ (homepage shows each hole's review status) |
