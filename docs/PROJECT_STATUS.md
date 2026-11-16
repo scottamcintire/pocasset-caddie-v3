@@ -2,7 +2,11 @@
 
 *Last updated: 16 Nov 2026. This file is the place to resume from on any computer or in any Claude session. Read it first, then HOLE_BUILD_STANDARD.md.*
 
-## Resume checkpoint (16 Nov 2026) — v4.0.0 integrated round page
+## Resume checkpoint (16 Nov 2026, afternoon) — v5.0.0: all 18 holes
+- **All 18 flyovers live** in /play/ and on /hole01/–/hole18/, each "Published — awaiting your review". Back-nine notes, tee corrections and the one alignment exception: RELEASES.md ("Back nine"), DATA_SOURCES §2h, reviews/hole10–18.md.
+- **Next:** owner review on the course (tees marked candidate, Hole 10 pond outline, Hole 11 Green tee, Hole 15 Green tee position, rebuilt bunkers); confirm the club's current card; possible later: offline mode, V2.3.1 round import.
+
+## Earlier checkpoint (16 Nov 2026, morning) — v4.0.0 integrated round page
 - **/play/** is live: https://scottamcintire.github.io/pocasset-caddie-v3/play/ — start round → confirm tee (Green default) → hole → FLYOVER (live GPS + hazards) → GREEN (approved heat map + EZLocator pin) → SCORE. All 18 holes for GPS/green/scoring; flyovers + hazards Holes 1–9. Plan and as-built notes: **docs/INTEGRATION_PLAN.md**; tests and rollback: **docs/RELEASES.md** (v4.0.0).
 - Scorecard: **data/scorecard/pocasset_scorecard.json** — published card preserved; owner's newer Green 5,986 / Blue 6,301 are **provisional** until the club's card confirms them (DATA_SOURCES §2g; H13 Blue 295 < Green 308 worth checking).
 - **Next:** owner tries /play/ on the course; confirm the club-issued card; owner review of Holes 1–9; Holes 10–18 flyovers/tees/hazards need the third lidar + canopy download when approved; possible later: offline mode (pcv3- caches), controlled import of V2.3.1 rounds.
@@ -24,7 +28,7 @@
 | V3 location | GitHub `scottamcintire/pocasset-caddie-v3` (`main` = source, `gh-pages` = test site) plus Claude's workspace copy. Mac folder still not created (decision 6) |
 | GitHub / website | Live: https://scottamcintire.github.io/pocasset-caddie-v3/ (homepage shows each hole's review status) |
 | Holes 1–9 | Published — awaiting review (none approved). Hole 2: visual style approved; Green tee still a candidate |
-| Holes 10–18 | In /play/ (v4.0.0): live GPS, approved greens + pins, scoring. No flyover, mapped tees or hazards yet |
+| Holes 10–18 | Flyovers, terrain, woods, hazards published 16 Nov (v4.1.0–v4.9.0); awaiting owner review |
 | Integrated app | /play/ v4.0.0 published 16 Nov (38/38 tests); awaiting owner trial |
 
 ## Done (15 Nov 2026)

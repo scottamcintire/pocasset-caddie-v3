@@ -2,6 +2,13 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.0.0: back nine — Holes 10–18 flyovers, all 18 in /play/ (16 Nov 2026)
+- **Holes 10–18 built and published one at a time** (v4.1.0–v4.9.0) with the approved v1.2 style and the same pipeline; each awaiting owner review.
+- **Data:** new locked lidar + canopy area for Holes 11–14 (`*_back9_2m`); Hole 10 pond traced from lidar (owner report); 7 misfiled source tees re-assigned and 2 removed (source_corrections.json, all candidates/unverified).
+- **Tools:** `terrain.py` per-hole multi-grid mosaic (opt-in `terrain_options.json`; Holes 10, 16–18); renderer world clipped to the hole + 450 m in mosaic mode; `build_site.py` homepage flyover range automatic.
+- **Tests:** `test_play.js` now covers every flyover hole (A4, E1, K1) and the "no flyover yet" case only while one exists; `test_alignment.py` reads `tests/alignment_exceptions.json` (one entry: H18-BK-06 tee view).
+- Cameras: Hole 11 tee view from the on-line Gold/Blue tee (Green tee 43 m off line); Hole 17 trial camera replaced by the standard scaled camera; Hole 18 +25 m beyond the green.
+
 ## v4.0.0: integrated round page /play/ — live GPS, hazards, green & today's pin, Green/Blue scorecard, scoring (16 Nov 2026)
 - **New page `/play/`** (the nine `/holeNN/` pages stay unchanged): start a round and confirm the tee (Green default; Blue and the other four selectable, changeable mid-round, remembered) → hole → FLYOVER (live overlays + hazard front/carry) → GREEN (approved heat map, EZLocator pin entry, 18-pin sheet) → SCORE (strokes, putts, tee shot, pin + hole notes, totals, scorecard OUT/IN/TOT, CSV, finish round → V3 history).
 - **Scorecard vs live GPS shown separately:** the header's SCORECARD line (fixed for the tee) is apart from the LIVE GPS / SIMULATED front-centre-back and flag numbers; GPS never uses the scorecard.

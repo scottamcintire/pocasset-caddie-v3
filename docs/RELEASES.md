@@ -19,7 +19,15 @@ Review status is the owner's: only the owner moves a hole to **Approved** or **N
 | 7 | 4 | /hole07/ | v3.9.0 | 3ef5687 | 7f59c7f | PASS (60/60; 14 hazards; alignment) | Published — awaiting review | White/Bronze/Silver unmapped |
 | 8 | 4 | /hole08/ | v3.9.0 | 3ef5687 | 7f59c7f | PASS (60/60; pond hazard from 3 tees; alignment) | Published — awaiting review | Pond added from lidar (unverified); only mapped bunker lies 112 m left beside the tee (probably another hole's) |
 | 9 | 5 | /hole09/ | v3.9.0 | 3ef5687 | 7f59c7f | PASS (60/60; 41 hazards; alignment) | Published — awaiting review | Bronze/Silver unmapped; H09-TE-06 matches no card tee |
-| 10–18 | | /play/ only | v4.0.0 | 46c7100 | 8dc2081 | PASS in test_play.js (GPS, auto-hole, greens, pins, scoring) | No flyover yet | No mapped tees or hazards yet; GPS uses V2.3.1's green outlines and playing lines |
+| 10 | 4 | /hole10/ + /play/ | v4.1.0 | f262fe7 | eaffcab | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; hazards; alignment; /play/ 38/38) | Published — awaiting review | pond (lidar, approximate); only Gold/Blue tee mapped |
+| 11 | 4 | /hole11/ + /play/ | v4.2.0 | 12a95be | 14f70cd | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; hazards; alignment; /play/ 38/38) | Published — awaiting review | Green tee 43 m off line (may be Hole 14); Bronze/Silver candidate from Hole 14 |
+| 12 | 3 | /hole12/ + /play/ | v4.3.0 | 3999286 | 493f2da | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; hazards; alignment; /play/ 38/38) | Published — awaiting review | Gold tee not mapped |
+| 13 | 4 | /hole13/ + /play/ | v4.4.0 | 8175e42 | f4c6328 | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; hazards; alignment; /play/ 38/38) | Published — awaiting review | only Green + Bronze (candidate) tees mapped; newer card Blue 295 < Green 308 |
+| 14 | 4 | /hole14/ + /play/ | v4.5.0 | eceffbb | f25735e | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; hazards; alignment; /play/ 38/38) | Published — awaiting review | only Gold and Green tees mapped; three tees moved to Holes 11/16 |
+| 15 | 3 | /hole15/ + /play/ | v4.6.0 | 7815cc6 | 41303f0 | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; hazards; alignment; /play/ 38/38) | Published — awaiting review | Green tee 143 yd along line vs newer card 132 |
+| 16 | 5 | /hole16/ + /play/ | v4.7.0 | a8fe9b3 | 93e4161 | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; hazards; alignment; /play/ 38/38) | Published — awaiting review | White/Bronze candidates from Hole 14; Blue/Silver not mapped |
+| 17 | 5 | /hole17/ + /play/ | v4.8.0 | 8dbe3ad | b43bc85 | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; hazards; alignment; /play/ 38/38) | Published — awaiting review | Silver not mapped; standard camera replaced a trial camera |
+| 18 | 4 | /hole18/ + /play/ | v4.9.0 | c0f1f2b | 549cae2 | PASS (60/60 F/C/B vs V2.3.1 + V2.2.1; hazards; alignment; /play/ 38/38) | Published — awaiting review | White/Bronze/Silver candidate from Hole 15; behind-green bunker hidden in tee view (documented exception) |
 
 All holes: bunker and tee outlines come from OpenStreetMap traced before the spring 2026 rebuild and are **unverified**; woods are illustrative (2023 imagery); ground shape is 2021 lidar.
 
@@ -39,6 +47,13 @@ test_play.js (vs production V2.3.1, read-only copy sha in `prototype/screenshots
 - GPS controller: ask, live fix, weak-signal retry, watch reopened, away-from-course, resume after reload, permission denied
 - V2.3.1 saved round and pins byte-identical after a full V3 session; V3 wrote only `pocasset_v3:` keys
 Live (16 Nov): /play/ loads over https; all 18 green images hash-match; hole data 200; homepage links /play/; with the owner's real V2.3.1 data present on the site, a V3 session left it unchanged.
+
+## Back nine (16 Nov 2026): data and method notes
+- Holes 11–14 use a new locked lidar + canopy area (same 2021 USGS survey, same 2023 NAIP classifier), fetched in the Mac browser and checksum-verified in parts. Holes 10, 16, 17, 18 opt into `terrain_options.json` (mosaic): where the primary grid ends, heights come from the other locked grids instead of a nearest-height fill or haze (front nine unaffected; terrain.json and screenshots byte-identical).
+- Hole 10 pond traced from the lidar after the owner's report (second locked derived file; the 15 Nov file unchanged).
+- Tee audit: 7 tees re-filed (source_corrections.json in Holes 11–18), 2 removed from Hole 18.
+- One documented alignment exception (tests/alignment_exceptions.json): H18-BK-06 in the tee view.
+- Final regression (16 Nov): 18/18 hole-page tests PASS; alignment 18/18 PASS; /play/ 38/38 PASS with 18 flyovers; visual baseline v1.2 PASS; tool tests PASS; scorecard PASS; front-nine screenshots pixel-identical; production V2.3.1 repo unchanged (e8b22e4).
 
 ## Release checklist (run for every release)
 1. `python3 tools/render_flyover.py --hole N` (style guard stops on any unapproved style change)
@@ -70,4 +85,15 @@ Each release is one commit on `gh-pages`. To restore the previous site: `git rev
 | v3.8.0-visual-v1.1 | 15 Nov 2026 | 1–9 | c9048be | 5ddd9de | Owner-approved visual baseline v1.1: trees 8 m instead of 13 m; all holes re-rendered and re-tested |
 | v3.9.0 | 15 Nov 2026 | 1–9 | 3ef5687 | 7f59c7f | Hole 1 opens at its real tee; crown clearance (visual baseline v1.2); both owner-approved |
 
-No release failed; no rollback has been needed.
+| v4.1.0-hole10 | 16 Nov 2026 | 10 (+ /play/) | f262fe7 | eaffcab | pond (lidar, approximate); only Gold/Blue tee mapped |
+| v4.2.0-hole11 | 16 Nov 2026 | 11 (+ /play/) | 12a95be | 14f70cd | Green tee 43 m off line (may be Hole 14); Bronze/Silver candidate from Hole 14 |
+| v4.3.0-hole12 | 16 Nov 2026 | 12 (+ /play/) | 3999286 | 493f2da | Gold tee not mapped |
+| v4.4.0-hole13 | 16 Nov 2026 | 13 (+ /play/) | 8175e42 | f4c6328 | only Green + Bronze (candidate) tees mapped; newer card Blue 295 < Green 308 |
+| v4.5.0-hole14 | 16 Nov 2026 | 14 (+ /play/) | eceffbb | f25735e | only Gold and Green tees mapped; three tees moved to Holes 11/16 |
+| v4.6.0-hole15 | 16 Nov 2026 | 15 (+ /play/) | 7815cc6 | 41303f0 | Green tee 143 yd along line vs newer card 132 |
+| v4.7.0-hole16 | 16 Nov 2026 | 16 (+ /play/) | a8fe9b3 | 93e4161 | White/Bronze candidates from Hole 14; Blue/Silver not mapped |
+| v4.8.0-hole17 | 16 Nov 2026 | 17 (+ /play/) | 8dbe3ad | b43bc85 | Silver not mapped; standard camera replaced a trial camera |
+| v4.9.0-hole18 | 16 Nov 2026 | 18 (+ /play/) | c0f1f2b | 549cae2 | White/Bronze/Silver candidate from Hole 15; behind-green bunker hidden in tee view (documented exception) |
+| **v5.0.0** | 16 Nov 2026 | all 18 | c0f1f2b | (this docs commit) | All 18 flyovers in /play/; full regression PASS |
+
+No release failed; no rollback has been needed. Rollback for the back nine: revert gh-pages commits after 46c7100 (v4.0.0, front-nine flyovers + /play/).
