@@ -154,3 +154,9 @@ A source is never edited after it is locked; a corrected source is a new file.
 | Trees | — (to derive) | Lidar canopy height (DSM − DTM); fallback MassGIS 2016 Land Cover (1 m, tree class) | Public | Not yet downloaded *(superseded: 2023 NAIP canopy in use, §2c)* |
 | Approved greens | — (to copy) | Mac master `03_greens/hole_NN/approved/` | Project asset (GolfLogix-derived imagery, already public on GitHub Pages by owner decision 26 Oct) | Copy byte-for-byte, checksum-locked |
 | Scorecard (pars, tee yardages) | — (to port) | V2.2.1 `index.html` | Project data | |
+
+## 2g. Scorecard (added 16 Nov 2026) — `data/scorecard/pocasset_scorecard.json`
+- **Published card (preserved as `original`)**: par, handicap, six tees, ratings/slopes. Same yardages as production V2.3.1. Seen on greensvisited.com (page titled "2025 scorecard"; no publication date), BlueGolf and GolfPass (totals; GolfPass lists Blue 6,236, an outlier). Checked 15–16 Nov 2026.
+- **Owner's newer Green/Blue yardages (`provisional`)**: Green 5,986, Blue 6,301, supplied by the owner 16 Nov 2026. Not found on any published or club-issued card, so labelled PROVISIONAL in the app; 7 holes differ (H8/H15 Green; H1/H3/H13/H14/H16 Blue). Note H13 Blue 295 is shorter than H13 Green 308 in these figures — worth confirming with the club.
+- The app shows the provisional figures for Green and Blue, the published card for the other tees. Replace with the club's card once confirmed (then drop the provisional label).
+- **GPS course data for /play/**: green centres/outlines and playing lines for all 18 holes from `data/sources/production/v231_greens_data.json` (locked; identical to the V2.3.1 page's GREEN_MAP / HOLE_PATHS / GREENS).

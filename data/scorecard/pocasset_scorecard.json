@@ -1,0 +1,330 @@
+{
+ "schema": "pocasset-v3/scorecard@1",
+ "course": "Pocasset Golf Club, Bourne MA",
+ "status_note": "The original card is the published card (same values as production V2.3.1). The owner's newer Green and Blue yardages could not be confirmed against a club-issued card as of 16 Nov 2026, so they are PROVISIONAL. The app shows the provisional values for Green and Blue, labelled, with the original for comparison. Other tees use the original card.",
+ "par": [
+  5,
+  4,
+  3,
+  4,
+  4,
+  3,
+  4,
+  4,
+  5,
+  4,
+  4,
+  3,
+  4,
+  4,
+  3,
+  5,
+  5,
+  4
+ ],
+ "handicap": [
+  15,
+  1,
+  11,
+  7,
+  17,
+  5,
+  9,
+  3,
+  13,
+  8,
+  10,
+  18,
+  16,
+  4,
+  14,
+  12,
+  6,
+  2
+ ],
+ "original": {
+  "label": "Published scorecard",
+  "sources": [
+   {
+    "name": "greensvisited.com Pocasset GC page (titled '2025 scorecard')",
+    "publication_date": "not stated (labelled 2025)",
+    "checked": "2026-11-15"
+   },
+   {
+    "name": "BlueGolf course page (totals and ratings; page robots-blocked for detail)",
+    "publication_date": "not stated",
+    "checked": "2026-11-15"
+   },
+   {
+    "name": "GolfPass course page (totals; lists Blue 6,236 \u2014 differs)",
+    "publication_date": "not stated",
+    "checked": "2026-11-15"
+   },
+   {
+    "name": "Production V2.3.1 tees table (index.html, read only)",
+    "publication_date": "V2.3.1 build",
+    "checked": "2026-11-16"
+   }
+  ],
+  "tees": {
+   "Gold": {
+    "yards": [
+     477,
+     463,
+     170,
+     366,
+     345,
+     208,
+     388,
+     394,
+     499,
+     362,
+     397,
+     140,
+     325,
+     390,
+     184,
+     495,
+     527,
+     412
+    ],
+    "total": 6542,
+    "rating": 72.6,
+    "slope": 138
+   },
+   "Blue": {
+    "yards": [
+     477,
+     424,
+     170,
+     337,
+     345,
+     187,
+     376,
+     383,
+     490,
+     362,
+     392,
+     125,
+     316,
+     373,
+     152,
+     485,
+     520,
+     404
+    ],
+    "total": 6318,
+    "rating": 71.7,
+    "slope": 137
+   },
+   "Green": {
+    "yards": [
+     469,
+     368,
+     147,
+     326,
+     337,
+     167,
+     345,
+     375,
+     469,
+     344,
+     380,
+     112,
+     308,
+     361,
+     152,
+     477,
+     489,
+     389
+    ],
+    "total": 6015,
+    "rating": 70.3,
+    "slope": 130
+   },
+   "White": {
+    "yards": [
+     465,
+     368,
+     142,
+     313,
+     323,
+     143,
+     283,
+     286,
+     460,
+     274,
+     337,
+     106,
+     281,
+     348,
+     135,
+     444,
+     485,
+     327
+    ],
+    "total": 5520,
+    "rating": 67.7,
+    "slope": 121
+   },
+   "Bronze": {
+    "yards": [
+     440,
+     349,
+     142,
+     269,
+     323,
+     138,
+     283,
+     286,
+     437,
+     269,
+     303,
+     98,
+     259,
+     297,
+     116,
+     424,
+     453,
+     325
+    ],
+    "total": 5211,
+    "rating": 65.6,
+    "slope": 115
+   },
+   "Silver": {
+    "yards": [
+     303,
+     265,
+     142,
+     269,
+     254,
+     138,
+     283,
+     286,
+     380,
+     269,
+     303,
+     98,
+     202,
+     231,
+     116,
+     335,
+     355,
+     325
+    ],
+    "total": 4554,
+    "rating": 63.0,
+    "slope": 110
+   }
+  }
+ },
+ "provisional": {
+  "label": "Owner's newer yardages \u2014 PROVISIONAL",
+  "source": "Provided by the owner, 16 Nov 2026; not found on any published or club-issued card",
+  "publication_date": "unknown",
+  "tees": {
+   "Green": {
+    "yards": [
+     469,
+     368,
+     147,
+     326,
+     337,
+     167,
+     345,
+     366,
+     469,
+     344,
+     380,
+     112,
+     308,
+     361,
+     132,
+     477,
+     489,
+     389
+    ],
+    "total": 5986
+   },
+   "Blue": {
+    "yards": [
+     470,
+     424,
+     162,
+     337,
+     345,
+     187,
+     376,
+     383,
+     490,
+     362,
+     392,
+     125,
+     295,
+     381,
+     152,
+     496,
+     520,
+     404
+    ],
+    "total": 6301
+   }
+  },
+  "differences_from_original": [
+   {
+    "hole": 8,
+    "tee": "Green",
+    "original": 375,
+    "provisional": 366
+   },
+   {
+    "hole": 15,
+    "tee": "Green",
+    "original": 152,
+    "provisional": 132
+   },
+   {
+    "hole": 1,
+    "tee": "Blue",
+    "original": 477,
+    "provisional": 470
+   },
+   {
+    "hole": 3,
+    "tee": "Blue",
+    "original": 170,
+    "provisional": 162
+   },
+   {
+    "hole": 13,
+    "tee": "Blue",
+    "original": 316,
+    "provisional": 295
+   },
+   {
+    "hole": 14,
+    "tee": "Blue",
+    "original": 373,
+    "provisional": 381
+   },
+   {
+    "hole": 16,
+    "tee": "Blue",
+    "original": 485,
+    "provisional": 496
+   }
+  ]
+ },
+ "display": {
+  "default_tee": "Green",
+  "use": {
+   "Green": "provisional",
+   "Blue": "provisional",
+   "Gold": "original",
+   "White": "original",
+   "Bronze": "original",
+   "Silver": "original"
+  }
+ }
+}

@@ -1,0 +1,376 @@
+{
+ "errors": [],
+ "checks": {
+  "G1 tee modal opens with Green preselected (default)": {
+   "pass": true
+  },
+  "A1 front/center/back/flag identical to V2.3.1 (749 positions, 18 holes, incl. off-course)": {
+   "pass": true,
+   "detail": []
+  },
+  "A2 off-course positions blank (live)": {
+   "pass": true
+  },
+  "A3 header shows the V2.3.1 numbers after a live fix": {
+   "pass": true,
+   "detail": [
+    [
+     13,
+     25,
+     37
+    ],
+    [
+     13,
+     25,
+     37,
+     20
+    ]
+   ]
+  },
+  "A4 flyover overlay yardages == header yardages, Holes 1-9 (380 positions)": {
+   "pass": true,
+   "detail": []
+  },
+  "B1 automatic hole identical to V2.3.1 after each of 413 fixes": {
+   "pass": true,
+   "detail": []
+  },
+  "B2 automatic selection reached hole 18 and visited all holes": {
+   "pass": true,
+   "detail": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ]
+  },
+  "C1 EZLocator pin placement identical to V2.3.1 (216 pins, 18 greens)": {
+   "pass": true,
+   "detail": []
+  },
+  "C2 flag drawn at the V2.3.1 position on all 18 greens": {
+   "pass": true,
+   "detail": []
+  },
+  "D1 all 18 approved greens shown byte-identical to the master checksums": {
+   "pass": true,
+   "detail": []
+  },
+  "E1 hazard reach/carry from every mapped tee == build-time reference (115 checks, Holes 1-9)": {
+   "pass": true,
+   "detail": []
+  },
+  "E2 hazard table follows the live position and marks hazards UNVERIFIED": {
+   "pass": true,
+   "detail": {
+    "rows": [
+     [
+      65,
+      70
+     ],
+     [
+      118,
+      127
+     ],
+     [
+      124,
+      129
+     ],
+     [
+      126,
+      131
+     ]
+    ],
+    "hz": [
+     [
+      65,
+      70
+     ],
+     [
+      118,
+      127
+     ],
+     [
+      124,
+      129
+     ],
+     [
+      126,
+      131
+     ]
+    ],
+    "tags": 4
+   }
+  },
+  "F1 strokes and putts identical to V2.3.1 for the same 77 taps": {
+   "pass": true
+  },
+  "F2 totals identical (strokes, to par, putts)": {
+   "pass": true,
+   "detail": [
+    [
+     "95",
+     "+23",
+     "34",
+     "3/5"
+    ],
+    [
+     "95",
+     "+23",
+     "34"
+    ]
+   ]
+  },
+  "F3 fairways stat counts par 4/5 tee shots (3 hit of 5 recorded)": {
+   "pass": true,
+   "detail": "3/5"
+  },
+  "F4 scorecard OUT/IN/TOT rows (par 36/36/72, Green 2,994/2,992/5,986 provisional)": {
+   "pass": true,
+   "detail": [
+    [
+     "OUT",
+     "36",
+     "2994",
+     "48",
+     "17"
+    ],
+    [
+     "IN",
+     "36",
+     "2992",
+     "47",
+     "17"
+    ],
+    [
+     "TOT",
+     "72",
+     "5986",
+     "95",
+     "34"
+    ]
+   ]
+  },
+  "F5 CSV has 18 holes with V2.3.1 columns + yardage source": {
+   "pass": true
+  },
+  "J1 \"Copy today's pins from V2.3.1\" copies them into V3 (read only)": {
+   "pass": true,
+   "detail": [
+    11,
+    12,
+    13,
+    14,
+    15
+   ]
+  },
+  "F6 finished round saved to V3 history; new-round tee screen opens": {
+   "pass": true
+  },
+  "J2 V2.3.1 saved round byte-identical after a full V3 session": {
+   "pass": true
+  },
+  "J3 V2.3.1 pins byte-identical after a full V3 session": {
+   "pass": true
+  },
+  "J4 V3 wrote only pocasset_v3: keys": {
+   "pass": true,
+   "detail": [
+    "pocasset_v3:prefs",
+    "pocasset_pins_v1",
+    "pocasset_v3:pins",
+    "pocasset_caddie_v1",
+    "pocasset_v3:gps",
+    "pocasset_v3:history",
+    "pocasset_v3:round"
+   ]
+  },
+  "G2 Blue chosen at start shows Blue card yardage (H1 470, provisional)": {
+   "pass": true,
+   "detail": "Blue tee 470 yd"
+  },
+  "G3 Blue persists after reload (prefs + round), round resumes without the start screen": {
+   "pass": true,
+   "detail": {
+    "t": "Blue tee 470 yd",
+    "modal": false,
+    "p": "Blue",
+    "r": "Blue"
+   }
+  },
+  "G4 tee changed mid-round to Gold persists; hole kept; Gold uses the published card": {
+   "pass": true,
+   "detail": {
+    "t": "Gold tee 170 yd",
+    "p": "Gold",
+    "r": "Gold",
+    "h": 3,
+    "src": "· PUBLISHED"
+   }
+  },
+  "G5 GPS distance independent of the selected tee": {
+   "pass": true
+  },
+  "H1 Hole 6: Green tee not mapped is stated; no Green tee start; Gold labelled simulated": {
+   "pass": true,
+   "detail": {
+    "chips": [
+     "Gold tee (sim)",
+     "150 yd out",
+     "100 yd out",
+     "60 yd out"
+    ],
+    "note": "Green tee position isn’t mapped on this hole, so the Green scorecard yardage (167 yd) is shown and there’s no simulated Green tee start. "
+   }
+  },
+  "H2 simulated Gold start says so (tag, status, header)": {
+   "pass": true,
+   "detail": {
+    "tag": "SIMULATED",
+    "status": "SIMULATED from the Gold tee — not your tee. This is not your actual location.",
+    "kind": "SIMULATED"
+   }
+  },
+  "H3 Hole 14 (no flyover): playing-line start labelled \"not a tee\"; hazards stated as not mapped": {
+   "pass": true,
+   "detail": {
+    "chips": [
+     "Line start (not a tee)",
+     "250 yd out",
+     "200 yd out",
+     "150 yd out",
+     "100 yd out",
+     "60 yd out"
+    ],
+    "nf": "Hole 14: the flyover isn’t built yet (front nine first). Live GPS front/center/back, the approved green with today’s pin, and scoring all work on this hole.Bunkers and water for this hole are not mapped yet, so no hazard yardages are shown."
+   }
+  },
+  "K1 all nine flyovers load and draw overlays in /play/": {
+   "pass": true,
+   "detail": [
+    [
+     1,
+     true,
+     true,
+     true
+    ],
+    [
+     2,
+     true,
+     true,
+     true
+    ],
+    [
+     3,
+     true,
+     true,
+     true
+    ],
+    [
+     4,
+     true,
+     true,
+     true
+    ],
+    [
+     5,
+     true,
+     true,
+     true
+    ],
+    [
+     6,
+     true,
+     true,
+     true
+    ],
+    [
+     7,
+     true,
+     true,
+     true
+    ],
+    [
+     8,
+     true,
+     true,
+     true
+    ],
+    [
+     9,
+     true,
+     true,
+     true
+    ]
+   ]
+  },
+  "I1 start asks for location": {
+   "pass": true,
+   "detail": "Requesting iPhone location… If asked, tap Allow While Using."
+  },
+  "I2 live fix shows LIVE, accuracy and yardage": {
+   "pass": true,
+   "detail": {
+    "s": "● LIVE GPS · accuracy approximately ±7 yd. GPS stays on until you tap Stop GPS.",
+    "tag": "LIVE ±7 yd",
+    "c": "193",
+    "btn": "Stop GPS"
+   }
+  },
+  "I3 weak signal keeps GPS on and last yardages, retries": {
+   "pass": true,
+   "detail": {
+    "s": "◌ Weak GPS signal — retrying. Last fix 0 s ago; GPS stays on.",
+    "c": "193"
+   }
+  },
+  "I4 watch reopened after 3 s": {
+   "pass": true
+  },
+  "I5 away from the course: no yardages, says so": {
+   "pass": true,
+   "detail": {
+    "s": "You appear to be away from Pocasset (more than 180 m from every hole). No on-course yardages are shown. Use a simulated position to preview.",
+    "c": "—"
+   }
+  },
+  "I6 GPS resumes after reload (within 3 h)": {
+   "pass": true,
+   "detail": {
+    "s": "Resuming live GPS…",
+    "o": 1
+   }
+  },
+  "I7 permission denied: stops and shows iPhone settings help": {
+   "pass": true,
+   "detail": {
+    "s": "GPS ERROR 1: Location permission denied. On iPhone, open Settings → Privacy & Security → Location Services; allow Safari Websites, then in Safari tap aA / Page Menu → Website Settings → Location → Allow.",
+    "b": "Start live GPS",
+    "on": false
+   }
+  },
+  "Z1 no page errors": {
+   "pass": true,
+   "detail": []
+  }
+ },
+ "v231": {
+  "file": "/home/claude/pocasset_caddie/index.html",
+  "sha256": "e2e4bd11936460abb70971a126f19e9be7ac777b097cdeef6770e7e0e0dd16f3"
+ },
+ "pass": true
+}

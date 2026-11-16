@@ -21,15 +21,19 @@
     return { px: px, uv: pinv(M.geoT, px[0], px[1]) };
   }
   /* Draw the approved green into `host` (a sized element). Only adds a flag on top; never alters the image. */
-  function drawGreen(host, M, imgUrl, pin) {
+  /* opts.sample: draw V2.3.1's dashed "Oct 21 sample" flag (no pin entered today) instead of the solid flag. */
+  function drawGreen(host, M, imgUrl, pin, opts) {
     var W = M.coord_W, H = M.coord_H, r = M.t.rotation_deg, a = r * pdeg;
     var Wb = W * Math.abs(Math.cos(a)) + H * Math.abs(Math.sin(a)), Hb = W * Math.abs(Math.sin(a)) + H * Math.abs(Math.cos(a));
     var res = pin ? placePin(M, pin) : null, flag = '';
     if (res && res.px) {
       var k = W / 700;
-      flag = '<g transform="translate(' + res.px[0].toFixed(2) + ' ' + res.px[1].toFixed(2) + ') scale(' + k.toFixed(3) + ')"><g transform="rotate(' + r.toFixed(3) + ')">' +
+      var body = opts && opts.sample ?   // V2.3.1 renderGreen sample flag, verbatim
+        '<circle r="14" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="6 5"/><path d="M0 -14 V-60" stroke="#e9efe9" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 5"/><path d="M0 -60 L34 -49 L0 -38 Z" fill="none" stroke="#fff" stroke-width="3"/>' +
+        '<text x="44" y="-38" font-size="22" font-weight="800" fill="#fff" stroke="#000" stroke-width="5" paint-order="stroke" font-family="-apple-system,sans-serif">' + (opts.label || 'Oct 21 sample') + '</text>' :
         '<circle r="23" fill="#fff" fill-opacity=".85"/><circle r="12" fill="#db5338" stroke="#fff" stroke-width="3"/>' +
-        '<path d="M0 -12 V-60" stroke="#102e24" stroke-width="5" stroke-linecap="round"/><path d="M0 -60 L38 -48 L0 -35 Z" fill="#ec5939" stroke="#fff" stroke-width="1"/></g></g>';
+        '<path d="M0 -12 V-60" stroke="#102e24" stroke-width="5" stroke-linecap="round"/><path d="M0 -60 L38 -48 L0 -35 Z" fill="#ec5939" stroke="#fff" stroke-width="1"/>';
+      flag = '<g id="flag" data-x="' + res.px[0].toFixed(2) + '" data-y="' + res.px[1].toFixed(2) + '" transform="translate(' + res.px[0].toFixed(2) + ' ' + res.px[1].toFixed(2) + ') scale(' + k.toFixed(3) + ')"><g transform="rotate(' + r.toFixed(3) + ')">' + body + '</g></g>';
     }
     host.innerHTML = '<div class="gstage" style="position:relative;margin:0 auto;line-height:0;aspect-ratio:' + Wb.toFixed(1) + '/' + Hb.toFixed(1) + ';width:min(100%,calc(62vh * ' + (Wb / Hb).toFixed(4) + '))">' +
       '<div style="position:absolute;transform-origin:50% 50%;left:' + ((Wb - W) / 2 / Wb * 100) + '%;top:' + ((Hb - H) / 2 / Hb * 100) + '%;width:' + (W / Wb * 100) + '%;height:' + (H / Hb * 100) + '%;transform:rotate(' + (-r).toFixed(3) + 'deg)">' +

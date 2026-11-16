@@ -10,7 +10,7 @@ ap = argparse.ArgumentParser(); ap.add_argument('--hole', type=int, required=Tru
 n = a.hole; hd = P('data', 'holes', 'hole%02d' % n); out = P('prototype', 'hole%02d' % n)
 if os.path.exists(out): shutil.rmtree(out)
 os.makedirs(os.path.join(out, 'img'))
-for f in ('geo.js', 'green.js'): shutil.copy2(P('app', f), os.path.join(out, f))
+for f in ('geo.js', 'green.js', 'flyover.js'): shutil.copy2(P('app', f), os.path.join(out, f))
 shutil.copy2(P('prototype', 'src', 'index.html'), os.path.join(out, 'index.html'))
 views = {}
 for v in ('tee', 'approach'):

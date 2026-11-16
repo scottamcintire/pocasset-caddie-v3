@@ -2,6 +2,15 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v4.0.0: integrated round page /play/ — live GPS, hazards, green & today's pin, Green/Blue scorecard, scoring (16 Nov 2026)
+- **New page `/play/`** (the nine `/holeNN/` pages stay unchanged): start a round and confirm the tee (Green default; Blue and the other four selectable, changeable mid-round, remembered) → hole → FLYOVER (live overlays + hazard front/carry) → GREEN (approved heat map, EZLocator pin entry, 18-pin sheet) → SCORE (strokes, putts, tee shot, pin + hole notes, totals, scorecard OUT/IN/TOT, CSV, finish round → V3 history).
+- **Scorecard vs live GPS shown separately:** the header's SCORECARD line (fixed for the tee) is apart from the LIVE GPS / SIMULATED front-centre-back and flag numbers; GPS never uses the scorecard.
+- **Central scorecard** `data/scorecard/pocasset_scorecard.json`: published card (all six tees, ratings/slopes, = V2.3.1) preserved; the owner's newer Green 5,986 / Blue 6,301 figures are **provisional** (no club-issued card found); 7 differences listed.
+- **GPS = V2.3.1's engine** (`app/caddie.js`): same front/back method, flag yardage, 180 m away-from-course rule, automatic-hole thresholds, retry/watchdog/resume/wake-lock/permission messages. Tested identical to V2.3.1 at 749 positions and through a 413-fix walk of all 18 holes.
+- **All 18 holes** get GPS, greens and scoring; flyovers/hazards Holes 1–9. Approved greens for Holes 10–18 ported byte-identical (checksums).
+- **Storage isolation:** V3 writes only `pocasset_v3:*`; a test proves V2.3.1's saved round and pins stay byte-identical through a full V3 session. No service worker.
+- Overlay drawing moved to `app/flyover.js` and shared; nine hole pages re-tested, screenshots pixel-identical.
+
 ## v3.9.0: Hole 1 tee correction; crown clearance (visual baseline v1.2) (15 Nov 2026)
 - **Hole 1:** a source tee pointing ~97° off the line of play (26 m off it, 5 m below the tee platform) was removed from Hole 1; the app and camera now start at the real Green tee (475 yd). Owner-approved.
 - **Crown clearance (baseline v1.2):** trees whose crowns would reach a tee, green, fairway, bunker or water are no longer drawn (Holes 1, 3, 6 most visibly; Hole 2 < 1%). Owner-approved.
