@@ -48,6 +48,10 @@
   "10": {
    "status": "published_awaiting_review",
    "detail": "Pond in front of the tee traced from lidar (owner report; approximate); only the Gold/Blue tee is mapped"
+  },
+  "11": {
+   "status": "published_awaiting_review",
+   "detail": "Four tees mapped (Bronze/Silver re-assigned from Hole 14, candidate); no water"
   }
  }
 }
