@@ -1,4 +1,4 @@
-# Hole 17 — automated check (2026-11-15)
+# Hole 17 — automated check (2026-11-16)
 
 Result: **OK to continue (flags need review)** · 11 pass · 4 flag · 0 stop
 
