@@ -1,0 +1,13 @@
+{
+ "note": "Counterpart of hole 13's correction. Geometry is never edited.",
+ "remove_from_this_hole": [
+  {
+   "ref": "osm:way/1241448292",
+   "source_said": "hole 12",
+   "now": "hole 13 (Bronze candidate)",
+   "evidence": "47 m off hole 12's line, 2 yd from its green; 1 m off hole 13's line at 260 yd (card Bronze 259)"
+  }
+ ],
+ "schema": "pocasset-v3/source-corrections@1",
+ "hole": 12
+}

@@ -94,8 +94,43 @@ def elevation_source(hole=None):
     return s
 
 
+def mosaic_on(hole):
+    """Manual per-hole record data/holes/holeNN/terrain_options.json {"mosaic": true, "why": ...}: the hole straddles
+    locked lidar grids, so heights outside the primary grid are read from the other locked grids (lock order) instead of
+    holding the nearest height. Off for every hole without the record (Holes 1-9 unchanged)."""
+    if hole is None:
+        return False
+    f = pcv3.p('data', 'holes', 'hole%02d' % hole, 'terrain_options.json')
+    return os.path.exists(f) and bool(json.load(open(f)).get('mosaic'))
+
+
+def _decode_dem(s):
+    g = s['grid']
+    raw = gzip.decompress(open(pcv3.p('data', 'sources', s['file']), 'rb').read())
+    a = np.frombuffer(raw, dtype='<i2').astype(np.int32).reshape(g['rows'], g['cols'])
+    return (np.cumsum(a, axis=1) / 10.0).astype(np.float32), g
+
+
+def _decode_canopy(s):
+    g = s['grid']
+    raw = gzip.decompress(open(pcv3.p('data', 'sources', s['file']), 'rb').read())
+    return (np.frombuffer(raw, np.uint8).reshape(g['rows'], g['cols']).astype(np.float32) / 4.0), g
+
+
+def _mosaic(role, hole, decode):
+    """[(array, grid)] with the hole's primary grid first, then every other locked grid of the role (lock order)."""
+    prim = _pick(role, hole)
+    rest = [x for x in pcv3.check_sources()['sources'] if x['role'] == role and x['file'] != prim['file']]
+    out = [decode(x) for x in [prim] + rest]
+    return [a for a, _ in out], [g for _, g in out]
+
+
 def load_dem(hole=None):
-    """Returns (Z float32 [rows, cols] metres NAVD88, grid dict) from the locked grid that covers the hole."""
+    """Returns (Z float32 [rows, cols] metres NAVD88, grid dict) from the locked grid that covers the hole.
+    With the hole's mosaic option on: (list of Z, list of grids), primary first."""
+    if mosaic_on(hole):
+        elevation_source(hole)
+        return _mosaic('elevation', hole, _decode_dem)
     s = elevation_source(hole); g = s['grid']
     raw = gzip.decompress(open(pcv3.p('data', 'sources', s['file']), 'rb').read())
     a = np.frombuffer(raw, dtype='<i2').astype(np.int32).reshape(g['rows'], g['cols'])
@@ -103,7 +138,16 @@ def load_dem(hole=None):
 
 
 def sample_utm(Z, g, E, N):
-    """Bilinear sample at UTM points (cell centres are the sample locations). NaN outside the grid."""
+    """Bilinear sample at UTM points (cell centres are the sample locations). NaN outside the grid.
+    Lists of grids (mosaic): the first grid that holds a point gives its value."""
+    if isinstance(g, list):
+        z = sample_utm(Z[0], g[0], E, N)
+        for Zi, gi in zip(Z[1:], g[1:]):
+            m = np.isnan(z)
+            if not m.any():
+                break
+            z = np.where(m, sample_utm(Zi, gi, E, N), z)
+        return z
     c = (np.asarray(E) - g['ul_easting']) / g['cell_m'] - 0.5
     r = (g['ul_northing'] - np.asarray(N)) / g['cell_m'] - 0.5
     ok = (c >= 0) & (r >= 0) & (c <= g['cols'] - 1) & (r <= g['rows'] - 1)
@@ -150,6 +194,8 @@ def load_canopy(hole=None):
     s = canopy_source(hole)
     if s is None:
         return None, None
+    if mosaic_on(hole):
+        return _mosaic('tree_canopy', hole, _decode_canopy)
     g = s['grid']
     raw = gzip.decompress(open(pcv3.p('data', 'sources', s['file']), 'rb').read())
     return (np.frombuffer(raw, np.uint8).reshape(g['rows'], g['cols']).astype(np.float32) / 4.0), g
@@ -169,7 +215,9 @@ def raster_uv(F, Z, g, u0, v1, cell, cols, rows):
 
 
 def utm_bounds_uv(F, g):
-    """The source grid's four corners in the hole frame."""
+    """The source grid's four corners in the hole frame (all grids' corners for a mosaic list)."""
+    if isinstance(g, list):
+        return np.vstack([utm_bounds_uv(F, x) for x in g])
     E = [g['ul_easting'], g['ul_easting'] + g['cols'] * g['cell_m']]
     N = [g['ul_northing'] - g['rows'] * g['cell_m'], g['ul_northing']]
     pts = []
@@ -224,6 +272,8 @@ def check(hole):
     neighbours drawn on it, and height statistics per feature. Tees and greens should sit on visible built platforms."""
     import cv2
     Z, g = load_dem(hole); F, feats = frame_for(hole)
+    if isinstance(g, list):     # mosaic: the hole's own features lie in the primary grid (the one checked here)
+        Z, g = Z[0], g[0]
     gy, gx = np.gradient(Z.astype(np.float64), g['cell_m'])
     az, alt = math.radians(315), math.radians(40)
     slope = np.arctan(np.hypot(gx, gy) * 2.0); aspect = np.arctan2(-gx, gy)

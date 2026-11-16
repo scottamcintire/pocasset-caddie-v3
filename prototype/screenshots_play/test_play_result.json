@@ -27,7 +27,7 @@
     ]
    ]
   },
-  "A4 flyover overlay yardages == header yardages, Holes 1-9 (380 positions)": {
+  "A4 flyover overlay yardages == header yardages, flyover Holes 1,2,3,4,5,6,7,8,9,10 (422 positions)": {
    "pass": true,
    "detail": []
   },
@@ -70,7 +70,7 @@
    "pass": true,
    "detail": []
   },
-  "E1 hazard reach/carry from every mapped tee == build-time reference (115 checks, Holes 1-9)": {
+  "E1 hazard reach/carry from every mapped tee == build-time reference (120 checks, Holes 1,2,3,4,5,6,7,8,9,10)": {
    "pass": true,
    "detail": []
   },
@@ -245,7 +245,7 @@
     "kind": "SIMULATED"
    }
   },
-  "H3 Hole 14 (no flyover): playing-line start labelled \"not a tee\"; hazards stated as not mapped": {
+  "H3 Hole 18 (no flyover yet): playing-line start labelled \"not a tee\"; hazards stated as not mapped": {
    "pass": true,
    "detail": {
     "chips": [
@@ -256,10 +256,10 @@
      "100 yd out",
      "60 yd out"
     ],
-    "nf": "Hole 14: the flyover isn’t built yet (front nine first). Live GPS front/center/back, the approved green with today’s pin, and scoring all work on this hole.Bunkers and water for this hole are not mapped yet, so no hazard yardages are shown."
+    "nf": "Hole 18: the flyover isn’t built yet (front nine first). Live GPS front/center/back, the approved green with today’s pin, and scoring all work on this hole.Bunkers and water for this hole are not mapped yet, so no hazard yardages are shown."
    }
   },
-  "K1 all nine flyovers load and draw overlays in /play/": {
+  "K1 all 10 flyovers load and draw overlays in /play/": {
    "pass": true,
    "detail": [
     [
@@ -312,6 +312,12 @@
     ],
     [
      9,
+     true,
+     true,
+     true
+    ],
+    [
+     10,
      true,
      true,
      true
@@ -372,5 +378,17 @@
   "file": "/home/claude/pocasset_caddie/index.html",
   "sha256": "e2e4bd11936460abb70971a126f19e9be7ac777b097cdeef6770e7e0e0dd16f3"
  },
+ "flyover_holes": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10
+ ],
  "pass": true
 }

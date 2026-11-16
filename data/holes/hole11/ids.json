@@ -1,0 +1,85 @@
+{
+ "note": "Stable IDs. Never renumber or reuse; retired IDs stay listed.",
+ "ids": {
+  "osm:way/1241445248": {
+   "id": "H11-BK-01",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241445269": {
+   "id": "H11-BK-02",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241445262": {
+   "id": "H11-BK-03",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241445263": {
+   "id": "H11-BK-04",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241445268": {
+   "id": "H11-BK-05",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241445264": {
+   "id": "H11-BK-06",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241445265": {
+   "id": "H11-BK-07",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241445266": {
+   "id": "H11-BK-08",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241445267": {
+   "id": "H11-BK-09",
+   "first_seen": "2026-11-16"
+  },
+  "osm:relation/17057270": {
+   "id": "H11-FW-01",
+   "first_seen": "2026-11-16"
+  },
+  "osm:relation/19177394": {
+   "id": "H11-FW-02",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241452592": {
+   "id": "H11-GR-01",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241472163": {
+   "id": "H11-CL-01",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241437951": {
+   "id": "H11-CP-01",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241437952": {
+   "id": "H11-CP-02",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241437947": {
+   "id": "H11-CP-03",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241448298": {
+   "id": "H11-TE-01",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241448288": {
+   "id": "H11-TE-02",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241448297": {
+   "id": "H11-TE-03",
+   "first_seen": "2026-11-16"
+  },
+  "osm:way/1241448296": {
+   "id": "H11-TE-04",
+   "first_seen": "2026-11-16"
+  }
+ }
+}

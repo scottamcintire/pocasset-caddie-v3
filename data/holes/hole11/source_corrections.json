@@ -1,0 +1,18 @@
+{
+ "note": "Manual record. Tee filed under hole 14 that sits on hole 11's line. Geometry is never edited.",
+ "assign_to_this_hole": [
+  {
+   "ref": "osm:way/1241448296",
+   "source_said": [
+    14
+   ],
+   "status": "approximate",
+   "evidence": "Tee polygon 13 m off hole 11's playing line, 308 yd from the hole 11 green (card Bronze/Silver 303). 51 m off hole 14's line; hole 14's Green/Blue are already matched by H14-TE-02/03 on its line. Candidate Hole 11 Bronze/Silver tee.",
+   "needs": "Confirm on current imagery or on the course before marking verified.",
+   "added": "2026-11-16",
+   "by": "Claude"
+  }
+ ],
+ "schema": "pocasset-v3/source-corrections@1",
+ "hole": 11
+}

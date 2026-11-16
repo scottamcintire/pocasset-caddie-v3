@@ -1,0 +1,25 @@
+{
+ "note": "Counterpart of the hole 11 and hole 16 corrections. Geometry is never edited.",
+ "remove_from_this_hole": [
+  {
+   "ref": "osm:way/1241448283",
+   "source_said": "hole 14",
+   "now": "hole 16 (Bronze candidate)",
+   "evidence": "40 m off hole 14's line, 3 yd from its green; 5 m off hole 16's line at 426 yd (card Bronze 424)"
+  },
+  {
+   "ref": "osm:way/1241448284",
+   "source_said": "hole 14",
+   "now": "hole 16 (White candidate)",
+   "evidence": "44 m off hole 14's line, 3 yd from its green; 2 m off hole 16's line at 448 yd (card White 444)"
+  },
+  {
+   "ref": "osm:way/1241448296",
+   "source_said": "hole 14",
+   "now": "hole 11 (Bronze/Silver candidate)",
+   "evidence": "51 m off hole 14's line; 13 m off hole 11's line at 308 yd (card Bronze/Silver 303)"
+  }
+ ],
+ "schema": "pocasset-v3/source-corrections@1",
+ "hole": 14
+}

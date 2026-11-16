@@ -49,10 +49,11 @@ const FAKE_GEO=`(()=>{const w={};let id=0;window.__geo={w,opens:0,send(lon,lat,a
  await pg.evaluate(()=>{__play.prefs.autoHole=false});
  const dom=await pg.evaluate(p=>{__play.goHole(4,false);__play.fix(p[0],p[1],5);return ['yF','yC','yB'].map(i=>+document.getElementById(i).textContent)},pts.find(x=>x[0]===4)[1]);
  const i4=pts.findIndex(x=>x[0]===4);ok('A3 header shows the V2.3.1 numbers after a live fix',dom.join()===prod[i4].slice(0,3).join(),[dom,prod[i4]]);
- // flyover overlay (V3 hole model) agrees with the header (V2.3.1 engine) on Holes 1-9
- let fly=[];for(let n=1;n<=9;n++){await pg.evaluate(n=>__play.goHole(n,false),n);await pg.waitForTimeout(400);
+ // flyover overlay (V3 hole model) agrees with the header (V2.3.1 engine) on every flyover hole
+ const FLY=await pg.evaluate(()=>COURSE.flyover_holes);R.flyover_holes=FLY;
+ let fly=[];for(const n of FLY){await pg.evaluate(n=>__play.goHole(n,false),n);await pg.waitForTimeout(400);
   fly=fly.concat(await pg.evaluate(([pts,n])=>{const hd=__play.HD[n];return pts.filter(x=>x[0]===n).map(([_,p])=>{const f=hd.hole.greenFCB(hd.hole.frame.toUV(p[0],p[1])),r=__play.course.readout(n,p,'sim',0,null);return [[f.front,f.center,f.back].map(m=>Math.round(m/0.9144)).join(),[r.front,r.center,r.back].join()]})},[pts,n]))}
- const fm=fly.filter(x=>x[0]!==x[1]);ok('A4 flyover overlay yardages == header yardages, Holes 1-9 ('+fly.length+' positions)',!fm.length,fm.slice(0,5));
+ const fm=fly.filter(x=>x[0]!==x[1]);ok('A4 flyover overlay yardages == header yardages, flyover Holes '+FLY.join(',')+' ('+fly.length+' positions)',!fm.length,fm.slice(0,5));
 
  // B. automatic hole on a walk through the course
  const walk=await pg.evaluate(()=>{const c=__play.course,o=[];for(let n=1;n<=18;n++){const P=c.HOLE_PATHS[n].concat([c.GREEN_MAP[n].center]);for(let i=1;i<P.length;i++){const a=P[i-1],b=P[i],m=Math.hypot((b[0]-a[0])*83000,(b[1]-a[1])*111000),k=Math.max(1,Math.round(m/15));for(let j=0;j<k;j++)o.push([a[0]+(b[0]-a[0])*j/k,a[1]+(b[1]-a[1])*j/k])}}return o});
@@ -83,11 +84,11 @@ const FAKE_GEO=`(()=>{const w={};let id=0;window.__geo={w,opens:0,send(lon,lat,a
 
  // E. hazards from mapped tees vs build-time references
  const hzBad=[];let hzN=0;
- for(let n=1;n<=9;n++){const HH=String(n).padStart(2,'0'),ref=fs.readFileSync(path.join(ROOT,'data/holes/hole'+HH+'/checks/check_report.md'),'utf8');
+ for(const n of FLY){const HH=String(n).padStart(2,'0'),ref=fs.readFileSync(path.join(ROOT,'data/holes/hole'+HH+'/checks/check_report.md'),'utf8');
   await pg.evaluate(n=>__play.goHole(n,false),n);await pg.waitForTimeout(300);
   const hz=await pg.evaluate(n=>{const h=__play.HD[n].hole,r={};for(const t of __play.HD[n].tees){r[t.id]=h.hazards(t.uv,{corridor_m:1e6,max:99}).map(z=>[z.id,Math.floor(z.reach/0.9144),Math.floor(z.carry/0.9144)])}return r},n);
   for(const [tee,list] of Object.entries(hz))for(const [id,re,ca] of list){hzN++;const m=ref.match(new RegExp('\\| '+tee+' \\| '+id+' \\([^)]*\\) \\| reach (\\d+) · carry (\\d+)'));if(!(m&&+m[1]===re&&+m[2]===ca))hzBad.push([tee,id,re,ca,m&&m.slice(1)])}}
- ok('E1 hazard reach/carry from every mapped tee == build-time reference ('+hzN+' checks, Holes 1-9)',!hzBad.length&&hzN>0,hzBad.slice(0,5));
+ ok('E1 hazard reach/carry from every mapped tee == build-time reference ('+hzN+' checks, Holes '+FLY.join(',')+')',!hzBad.length&&hzN>0,hzBad.slice(0,5));
  const hzLive=await pg.evaluate(()=>{__play.setTab('fly');__play.goHole(5,false);return 1});await pg.waitForTimeout(300);
  const live5=await pg.evaluate(()=>{const c=__play.course,p=c.alongFromGreen(5,150);__play.fix(p[0],p[1],4);const hd=__play.HD[5],uv=hd.hole.frame.toUV(p[0],p[1]),hz=hd.hole.hazards(uv,{corridor_m:40*0.9144,max:4});
   const rows=[...document.querySelectorAll('#haz tr')].slice(1).map(tr=>[...tr.querySelectorAll('td.n')].map(td=>+td.textContent));return {rows,hz:hz.map(h=>[Math.round(h.reach/0.9144),Math.round(h.carry/0.9144)]),tags:document.querySelectorAll('#haz .tag').length}});
@@ -158,15 +159,17 @@ const FAKE_GEO=`(()=>{const w={};let id=0;window.__geo={w,opens:0,send(lon,lat,a
  const st=await pg.evaluate(()=>({tag:srcTag.textContent,status:gpsStatus.textContent,kind:liveKind.textContent}));
  ok('H2 simulated Gold start says so (tag, status, header)',st.tag==='SIMULATED'&&/SIMULATED from the Gold tee — not your tee/.test(st.status)&&st.kind==='SIMULATED',st);
  await pg.evaluate(()=>window.scrollTo(0,0));await pg.screenshot({path:path.join(SHOTS,'5_hole6_sim_gold.png')});
- await pg.evaluate(()=>__play.goHole(14,true));await pg.waitForTimeout(150);
- const h14=await pg.evaluate(()=>({chips:[...document.querySelectorAll('#presets button')].map(b=>b.textContent),nf:noFly.textContent}));
- ok('H3 Hole 14 (no flyover): playing-line start labelled "not a tee"; hazards stated as not mapped',h14.chips[0]==='Line start (not a tee)'&&/not mapped yet/.test(h14.nf),h14);
- await pg.click('#presets button:first-child');await pg.evaluate(()=>window.scrollTo(0,0));await pg.screenshot({path:path.join(SHOTS,'6_hole14_no_flyover.png')});
- // K. nine flyovers in /play/
- const K9=[];for(let n=1;n<=9;n++){await pg.evaluate(n=>{__play.goHole(n,true)},n);await pg.waitForTimeout(500);await pg.click('#presets button:first-child');await pg.waitForTimeout(300);
+ const NOFLY=[...Array(18).keys()].map(i=>i+1).filter(n=>!FLY.includes(n));
+ if(NOFLY.length){const nf=NOFLY[NOFLY.length-1];await pg.evaluate(n=>__play.goHole(n,true),nf);await pg.waitForTimeout(150);
+  const h14=await pg.evaluate(()=>({chips:[...document.querySelectorAll('#presets button')].map(b=>b.textContent),nf:noFly.textContent}));
+  ok('H3 Hole '+nf+' (no flyover yet): playing-line start labelled "not a tee"; hazards stated as not mapped',h14.chips[0]==='Line start (not a tee)'&&/not mapped yet/.test(h14.nf),h14);
+  await pg.click('#presets button:first-child');await pg.evaluate(()=>window.scrollTo(0,0));await pg.screenshot({path:path.join(SHOTS,'6_no_flyover.png')});
+ } else ok('H3 every hole has a flyover (no "not built yet" page left)',true);
+ // K. every flyover in /play/
+ const K9=[];for(const n of FLY){await pg.evaluate(n=>{__play.goHole(n,true)},n);await pg.waitForTimeout(500);await pg.click('#presets button:first-child');await pg.waitForTimeout(300);
   K9.push(await pg.evaluate(n=>{const i=document.getElementById('img');return [n,i.complete&&i.naturalWidth>0,document.getElementById('ov').innerHTML.length>200,!flyWrap.hidden]},n));
-  if(n===8){await pg.evaluate(()=>window.scrollTo(0,0));await pg.screenshot({path:path.join(SHOTS,'2_hole8_tee.png')})}}
- ok('K1 all nine flyovers load and draw overlays in /play/',K9.every(x=>x[1]&&x[2]&&x[3]),K9);
+  if(n===8||n>=10){await pg.evaluate(()=>window.scrollTo(0,0));await pg.screenshot({path:path.join(SHOTS,'2_hole'+String(n).padStart(2,'0')+'_tee.png')})}}
+ ok('K1 all '+FLY.length+' flyovers load and draw overlays in /play/',K9.every(x=>x[1]&&x[2]&&x[3]),K9);
  await ctx.close();
 
  // I. GPS controller behaviour (fake iPhone location)

@@ -1,0 +1,13 @@
+{
+ "note": "Counterpart of hole 18's correction. Geometry is never edited.",
+ "remove_from_this_hole": [
+  {
+   "ref": "osm:way/1241448258",
+   "source_said": "hole 15",
+   "now": "hole 18 (White/Bronze/Silver candidate)",
+   "evidence": "51 m off hole 15's line, 8 yd from its green; 7 m off hole 18's line at 324 yd"
+  }
+ ],
+ "schema": "pocasset-v3/source-corrections@1",
+ "hole": 15
+}

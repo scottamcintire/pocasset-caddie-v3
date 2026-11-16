@@ -1,0 +1,18 @@
+{
+ "note": "Manual record. Tee filed under hole 12 that sits on hole 13's line. Geometry is never edited.",
+ "assign_to_this_hole": [
+  {
+   "ref": "osm:way/1241448292",
+   "source_said": [
+    12
+   ],
+   "status": "approximate",
+   "evidence": "Tee polygon 1 m off hole 13's playing line, 260 yd from the hole 13 green (card Bronze 259). It is 2 yd from the hole 12 green and 47 m off hole 12's line, so it cannot be a hole 12 tee. Candidate Hole 13 Bronze tee.",
+   "needs": "Confirm on current imagery or on the course before marking verified.",
+   "added": "2026-11-16",
+   "by": "Claude"
+  }
+ ],
+ "schema": "pocasset-v3/source-corrections@1",
+ "hole": 13
+}

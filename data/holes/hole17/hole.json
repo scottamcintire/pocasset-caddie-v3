@@ -81,7 +81,7 @@
  ],
  "generated": {
   "by": "tools/pcv3.py standardize",
-  "on": "2026-11-15",
+  "on": "2026-11-16",
   "source_sha256": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304"
  }
 }

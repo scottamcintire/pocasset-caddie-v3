@@ -1,0 +1,142 @@
+{
+ "type": "FeatureCollection",
+ "metadata": {
+  "name": "Pocasset V3 lidar-derived course features (16 Nov 2026)",
+  "note": "Second locked file of features missing from the OpenStreetMap course source, traced from the locked lidar (the 15 Nov file is left unchanged). Merged at read time by tools/pcv3.py course_features(). All unverified until checked on the course."
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -70.6066693,
+       41.6864521
+      ],
+      [
+       -70.6067311,
+       41.6864259
+      ],
+      [
+       -70.6067678,
+       41.6864224
+      ],
+      [
+       -70.6067936,
+       41.6864308
+      ],
+      [
+       -70.6068521,
+       41.6864661
+      ],
+      [
+       -70.6069004,
+       41.6865368
+      ],
+      [
+       -70.6069305,
+       41.6865653
+      ],
+      [
+       -70.606942,
+       41.6866053
+      ],
+      [
+       -70.6069801,
+       41.6866661
+      ],
+      [
+       -70.6069917,
+       41.6867234
+      ],
+      [
+       -70.6070131,
+       41.6867668
+      ],
+      [
+       -70.607001,
+       41.6868202
+      ],
+      [
+       -70.6069667,
+       41.6868832
+      ],
+      [
+       -70.6068897,
+       41.6869207
+      ],
+      [
+       -70.6068184,
+       41.6869192
+      ],
+      [
+       -70.6067378,
+       41.6869436
+      ],
+      [
+       -70.6066775,
+       41.6869349
+      ],
+      [
+       -70.6066458,
+       41.686915
+      ],
+      [
+       -70.6065979,
+       41.6868367
+      ],
+      [
+       -70.6065873,
+       41.6867607
+      ],
+      [
+       -70.6066002,
+       41.6867169
+      ],
+      [
+       -70.6066225,
+       41.6866812
+      ],
+      [
+       -70.6066179,
+       41.6866235
+      ],
+      [
+       -70.606627,
+       41.6865914
+      ],
+      [
+       -70.6066268,
+       41.6865508
+      ],
+      [
+       -70.6066393,
+       41.6865092
+      ],
+      [
+       -70.6066693,
+       41.6864521
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feature_id": "water-lidar-h10-pond",
+    "layer": "water",
+    "holes": [
+     10
+    ],
+    "source": "lidar",
+    "water_type": "pond",
+    "verified": false,
+    "evidence": "Owner (16 Nov 2026): on the back nine 'only hole 10 has water ... right in front of the tees'. 2021 USGS lidar: basin with a dead-flat floor at 5.7-5.8 m NAVD88 (hydro-flattened water surface), ~50 x 49 m, from ~16 m to ~65 m in front of the mapped Gold/Blue tee, 1.6 m below it, on the line of play.",
+    "method": "Cells of the locked 2 m course-area lidar grid connected to the flat surface and within 0.15 m of it (largest connected area only; a 38-cell flat patch beside the tee left out); outline smoothed (0.75 cell Gaussian at 8x) and simplified to 0.4 m; area ~1,490 m2.",
+    "derived_from": "elevation/usgs3dep_2021_pocasset_course_2m.dm16.gz",
+    "added": "2026-11-16",
+    "approved": "Owner report, 16 Nov 2026 (traced as for the Hole 8 pond)"
+   }
+  }
+ ]
+}

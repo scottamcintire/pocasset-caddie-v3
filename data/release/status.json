@@ -44,6 +44,10 @@
   "9": {
    "status": "published_awaiting_review",
    "detail": "Bronze/Silver tees not mapped; one mapped tee matches no card tee"
+  },
+  "10": {
+   "status": "published_awaiting_review",
+   "detail": "Pond in front of the tee traced from lidar (owner report; approximate); only the Gold/Blue tee is mapped"
   }
  }
 }

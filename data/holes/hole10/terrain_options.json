@@ -1,0 +1,6 @@
+{
+ "schema": "pocasset-v3/terrain-options@1",
+ "hole": 10,
+ "mosaic": true,
+ "why": "Hole 10 straddles the course-area and back-nine lidar/canopy grids: with one grid, 23% of the terrain margin (beyond the green) would hold the nearest height. With the mosaic every height comes from a locked 2021 USGS grid (same survey). Manual record, 16 Nov 2026."
+}

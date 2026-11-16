@@ -31,7 +31,7 @@ play = ''
 if os.path.exists(os.path.join(ROOT, 'prototype', 'play', 'index.html')):   # integrated round page (tools/build_play.py)
     shutil.copytree(os.path.join(ROOT, 'prototype', 'play'), os.path.join(out, 'play'))
     play = ('<a class="h play" href="play/"><b>▶</b><span>Play a round<em>Live GPS · hazards · green &amp; today\'s pin · scorecard · '
-            'all 18 holes (flyovers 1–9)</em></span><i>New</i></a>')
+            'all 18 holes (flyovers %s)</em></span><i>New</i></a>') % ('1–%d' % max(a.holes) if sorted(a.holes) == list(range(1, max(a.holes) + 1)) else ', '.join(map(str, a.holes)))
 page = '''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0a1a30"><title>Pocasset V3 test</title><meta name="robots" content="noindex">
 <style>*{box-sizing:border-box}body{margin:0;background:#0a1a30;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Roboto,sans-serif;padding:max(16px,env(safe-area-inset-top)) 16px max(24px,env(safe-area-inset-bottom))}

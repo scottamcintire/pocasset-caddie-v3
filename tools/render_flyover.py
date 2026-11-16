@@ -200,6 +200,11 @@ def build_world(sc, style):
     T = style['terrain']; TR = style['trees']; ex = T['vertical_exaggeration']
     bnd = terrain.utm_bounds_uv(sc['F'], sc['gZ'])
     u0, u1 = math.floor(bnd[:, 0].min()), math.ceil(bnd[:, 0].max()); v0, v1 = math.floor(bnd[:, 1].min()), math.ceil(bnd[:, 1].max())
+    if isinstance(sc['gZ'], list):    # mosaic of locked grids (opt-in per hole): keep the world to the hole's area + 450 m
+        fp = np.array([sc['F'].uv(c) for f in sc['feats'] for c in (f['geometry']['coordinates'][0] if f['geometry']['type'] == 'Polygon'
+                       else f['geometry']['coordinates'] if f['geometry']['type'] == 'LineString' else [f['geometry']['coordinates']])])
+        u0, u1 = max(u0, math.floor(fp[:, 0].min() - 450)), min(u1, math.ceil(fp[:, 0].max() + 450))
+        v0, v1 = max(v0, math.floor(fp[:, 1].min() - 450)), min(v1, math.ceil(fp[:, 1].max() + 450))
     cell = TR['world_cell_m']; cols = int((u1 - u0) / cell); rows = int((v1 - v0) / cell)
     t0 = time.time()
     Hb = terrain.raster_uv(sc['F'], sc['Z'], sc['gZ'], u0, v1, cell, cols, rows)
