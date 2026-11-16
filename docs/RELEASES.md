@@ -17,8 +17,8 @@ Review status is the owner's: only the owner moves a hole to **Approved** or **N
 | 5 | 4 | /hole05/ | v3.4.0-holes05-06 | 019fd00 | 50be7e6 | PASS (60/60; 10 hazards; alignment) | Published — awaiting review | White/Bronze/Silver unmapped; H05-TE-02 matches no card tee |
 | 6 | 3 | /hole06/ | v3.4.0-holes05-06 | 019fd00 | 50be7e6 | PASS (60/60; 8 hazards; alignment) | Published — awaiting review | Only Gold tee mapped (app opens there); H06-TE-02 matches no card tee; a greenside bunker hidden by illustrative woods in the tee view |
 | 7 | 4 | /hole07/ | v3.5.0-holes07-08 | 0925a46 | aaebec1 | PASS (60/60; 14 hazards; alignment) | Published — awaiting review | White/Bronze/Silver unmapped |
-| 8 | 4 | /hole08/ | v3.5.0-holes07-08 | 0925a46 | aaebec1 | PASS (60/60; no hazards ahead; alignment) | Published — awaiting review | Only mapped bunker lies 112 m left beside the tee (probably another hole's) |
-| 9 | 5 | /hole09/ | v3.6.0-hole09 | caf87bc | 2b58586 | PASS (60/60; 41 hazards; alignment) | Published — awaiting review | Bronze/Silver unmapped; H09-TE-06 matches no card tee |
+| 8 | 4 | /hole08/ | v3.7.0-hole08-pond | 5dc1bf3 | bd0275b | PASS (60/60; pond hazard from 3 tees; alignment) | Published — awaiting review | Pond added from lidar (unverified); only mapped bunker lies 112 m left beside the tee (probably another hole's) |
+| 9 | 5 | /hole09/ | v3.7.0 (tee view) | 5dc1bf3 | bd0275b | PASS (60/60; 41 hazards; alignment) | Published — awaiting review | Bronze/Silver unmapped; H09-TE-06 matches no card tee |
 | 10–18 | | — | — | — | — | — | Not started (outside the current scope) | Need course-area lidar + canopy for their area |
 
 All holes: bunker and tee outlines come from OpenStreetMap traced before the spring 2026 rebuild and are **unverified**; woods are illustrative (2023 imagery); ground shape is 2021 lidar.
@@ -49,5 +49,6 @@ Each release is one commit on `gh-pages`. To restore the previous site: `git rev
 | v3.5.0-holes07-08 | 15 Nov 2026 | 7, 8 | 0925a46 | aaebec1 | |
 | v3.6.0-hole09 | 15 Nov 2026 | 9 | caf87bc | 2b58586 | Holes 1–9 all on the test site |
 | v3.6.1-hole03 | 15 Nov 2026 | 3 (camera) + docs | c1eb778 | 13d56e2 | Hole 3 re-rendered with the length-scaled camera used by all other holes; earlier render kept in `render/trial_unscaled_camera/` |
+| v3.7.0-hole08-pond | 15 Nov 2026 | 8 (+ Hole 9 tee view) | 5dc1bf3 | bd0275b | Owner-reported pond traced from 2021 lidar; locked lidar-derived source |
 
 No release failed; no rollback has been needed.
