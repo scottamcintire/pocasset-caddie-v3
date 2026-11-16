@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a1a30">
+<title>Pocasset V3</title>
+<style>
+:root{--navy:#0a1a30;--navy2:#0f2747;--blue:#1d6fe0;--red:#ff5a4a;--ink:#0f1b14;--card:#132a4a;--line:rgba(255,255,255,.14);color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--navy);color:#fff;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;touch-action:manipulation;-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit;touch-action:manipulation;-webkit-tap-highlight-color:transparent;cursor:pointer}
+.top{position:sticky;top:0;z-index:5;background:var(--navy);padding-top:env(safe-area-inset-top)}
+.brand{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 6px}
+.brand b{font-size:17px;letter-spacing:.2px}.brand b i{font-style:normal;color:#5aa2ff}
+.brand small{display:block;font-size:9.5px;letter-spacing:1.6px;color:#9fb3cf;text-transform:uppercase;margin-top:1px}
+.proto{font-size:11px;border:1px solid #3d6bb0;color:#cfe0ff;border-radius:999px;padding:5px 10px;white-space:nowrap}
+.yard{display:grid;grid-template-columns:78px 1fr 1fr 1fr;align-items:stretch;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hole{background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:800;font-variant-numeric:tabular-nums}
+.yc{text-align:center;padding:6px 0 7px;border-left:1px solid var(--line)}
+.yc strong{display:block;font-size:31px;font-weight:800;line-height:1.05;font-variant-numeric:tabular-nums}
+.yc span{font-size:11px;font-weight:700;letter-spacing:1.2px}
+.yc.f span{color:var(--red)}.yc.b span{color:#5aa2ff}
+.meta{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;font-size:12px;font-weight:700;background:var(--navy2)}
+.meta .acc{font-weight:600;color:#bcd0ee}
+.meta .acc.weak{color:#ffcf6b}
+main{position:relative}
+.stage{position:relative;margin:0 auto;line-height:0;user-select:none;-webkit-user-select:none;width:min(100vw,640px);aspect-ratio:var(--ar,1170/1800)}
+.stage img{width:100%;height:100%;display:block;-webkit-touch-callout:none;pointer-events:none}
+.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.lbl text{font-weight:800;paint-order:stroke;stroke:rgba(0,0,0,.55);stroke-width:5px;fill:#fff;font-family:inherit}
+.lbl .sub{font-weight:600}
+.pill{fill:rgba(8,20,38,.55)}
+.greenwrap{padding:14px 10px;background:#13241a;min-height:calc(100svh - 222px)}
+.gnote{font-size:12px;line-height:1.45;color:#cfe3d4;max-width:560px;margin:10px auto 0;text-align:center}
+.tabs{position:sticky;bottom:0;display:grid;grid-template-columns:repeat(3,1fr);background:var(--navy);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom);z-index:5}
+.tabs button{background:none;border:0;padding:13px 0 12px;font-weight:800;font-size:14px;letter-spacing:.6px;color:#9fb3cf;position:relative}
+.tabs button.on{color:#fff}.tabs button.on:after{content:"";position:absolute;left:28%;right:28%;bottom:6px;height:3px;border-radius:2px;background:var(--blue)}
+.panel{background:#0d2140;padding:12px 12px 18px;border-top:1px solid var(--line)}
+.panel h3{margin:0 0 8px;font-size:12px;letter-spacing:1.4px;color:#9fb3cf;text-transform:uppercase}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{background:#18345d;border:1px solid #2c5591;border-radius:999px;padding:9px 13px;font-size:14px;font-weight:700}
+.chips button.on{background:var(--blue);border-color:var(--blue)}
+.row{display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid #2c5591;border-radius:10px;overflow:hidden}
+.seg button{background:#18345d;border:0;padding:9px 12px;font-size:13px;font-weight:700}
+.seg button.on{background:var(--blue)}
+.list{margin-top:12px;font-size:13px;line-height:1.5;color:#d8e4f6}
+.list table{width:100%;border-collapse:collapse}.list td{padding:5px 4px;border-top:1px solid var(--line)}.list td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:800}
+.fine{font-size:11.5px;color:#94a9c8;line-height:1.5;margin-top:12px}
+.tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.8px;padding:2px 6px;border-radius:5px;background:#5a3b10;color:#ffd38a;margin-left:4px;vertical-align:1px}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="brand"><div><b>Pocasset <i>AI</i> Caddie</b><small id="sub">V3 test · flyover</small></div><span style="display:flex;gap:8px;align-items:center"><a href="../" style="color:#cfe0ff;font-size:12px;text-decoration:none;border:1px solid #3d6bb0;border-radius:999px;padding:5px 10px">Holes</a><span class="proto" id="srcTag">Simulated GPS</span></span></div>
+  <div class="yard">
+    <div class="hole" id="hn">–</div>
+    <div class="yc f"><strong id="yF">—</strong><span>FRONT</span></div>
+    <div class="yc"><strong id="yC">—</strong><span>CENTER</span></div>
+    <div class="yc b"><strong id="yB">—</strong><span>BACK</span></div>
+  </div>
+  <div class="meta"><span>PAR <span id="par"></span> · <span id="teeTxt"></span></span><span class="acc" id="acc"></span></div>
+</div>
+<main>
+  <div id="flyover"><div class="stage" id="stage"><img id="img" alt="Hole flyover"><svg id="ov" viewBox="0 0 1170 1800"></svg></div></div>
+  <div id="green" class="greenwrap" hidden><div id="greenHost"></div><p class="gnote" id="gnote"></p></div>
+</main>
+<nav class="tabs"><button id="tTee" class="on">TEE VIEW</button><button id="tApp">APPROACH</button><button id="tGreen">GREEN</button></nav>
+<section class="panel">
+  <h3>Where am I? (simulated)</h3>
+  <div class="chips" id="presets"></div>
+  <div class="row"><span style="font-size:13px;color:#9fb3cf">Tap the picture to</span>
+    <div class="seg"><button id="mTarget" class="on">measure a spot</button><button id="mMe">move me</button></div>
+    <button class="seg" id="live" style="padding:9px 12px;background:#18345d;font-weight:700;font-size:13px;border-radius:10px">Use live GPS</button>
+  </div>
+  <div class="list" id="haz"></div>
+  <p class="fine" id="fine"></p>
+</section>
+<script src="geo.js"></script>
+<script src="green.js"></script>
+<script src="flyover.js"></script>
+<script src="data.js"></script>
+<script>
+(function(){
+'use strict';
+var D=window.HOLEDATA, G=PGeo, hole=new G.Hole(D.hole,D.features), YD=G.YD;
+var TER=new G.Terrain(D.terrain);
+var views={tee:D.views.tee, approach:D.views.approach};
+views.tee.V=new G.View(views.tee,TER); views.approach.V=new G.View(views.approach,TER);
+var pinRes=PGreen.placePin(D.pin_model,D.pin);
+var S={view:'tee', me:null, target:null, tapMode:'target', source:'sim', acc:null, watch:null};
+var $=function(id){return document.getElementById(id)};
+var RULE={corridor_m:40*YD, max:4};
+
+// presets: mapped tees (by tee set; tees whose hole assignment was corrected are marked 'candidate') and points on the playing line
+var presets=[], ASSIGN={};
+D.features.features.forEach(function(f){ASSIGN[f.properties.id]=f.properties.assignment||'source'});
+var TEE_ORDER=['Green','Blue','Gold','White','Bronze','Silver'];
+D.hole.tees.slice().sort(function(a,b){return TEE_ORDER.indexOf(a.tee_sets[0])-TEE_ORDER.indexOf(b.tee_sets[0])}).forEach(function(t){var f=hole.feats.filter(function(x){return x.id===t.feature_id})[0];
+  var cand=ASSIGN[t.feature_id]!=='source';
+  presets.push({label:(t.tee_sets.length?t.tee_sets.join('/')+' tee':'Mapped tee not on card ('+t.feature_id+')')+(cand?' ·\u00a0candidate':''),uv:G.centroid(f.uv),tee:t.tee_sets.join('/'),cand:cand});});
+[250,200,150,100,60].forEach(function(y){presets.push({label:y+' yd',uv:hole.alongFromGreen(y)})});
+presets.forEach(function(p,i){var b=document.createElement('button');b.textContent=p.label;b.onclick=function(){setMe(p.uv,'sim');mark(i)};$('presets').appendChild(b)});
+function mark(i){[].forEach.call($('presets').children,function(b,j){b.classList.toggle('on',j===i)})}
+
+function setMe(uv,src){S.me=uv;S.source=src;S.target=null;update()}
+function yd(m){return m==null?'—':String(Math.round(m/YD))}
+function P(uv){return views[S.view].V.project(uv[0],uv[1])}
+
+function draw(){
+  if(S.view==='green')return;
+  var v=views[S.view], me=S.me, W=v.width, H=v.height;
+  $('img').src=v.image;
+  // overlay drawn by app/flyover.js (shared with the integrated /play/ page)
+  var o=PFly.overlay(v,hole,me,{name:S.view,target:S.target,pinUV:pinRes.uv,rule:RULE}), fcb=o.fcb, rows='';
+  o.hz.forEach(function(h){
+    rows+='<tr><td>'+(h.cls==='water'?'Pond':'Bunker')+' · '+h.id.slice(4)+' · '+pos(h.position)+(h.status==='unverified'?'<span class="tag">UNVERIFIED</span>':'')+'</td><td class="n">'+yd(h.reach)+'</td><td class="n">'+yd(h.carry)+'</td></tr>';
+  });
+  $('haz').innerHTML='<table><tr><td style="color:#9fb3cf">Hazards ahead (±40 yd of your line)</td><td class="n" style="color:#9fb3cf">front</td><td class="n" style="color:#9fb3cf">carry</td></tr>'+(rows||'<tr><td colspan="3">None ahead</td></tr>')+'</table>';
+  $('ov').setAttribute('viewBox','0 0 '+W+' '+H);document.getElementById('stage').style.setProperty('--ar',W+'/'+H);
+  $('ov').innerHTML=o.svg;
+  $('yF').textContent=yd(fcb.front);$('yC').textContent=yd(fcb.center);$('yB').textContent=yd(fcb.back);
+}
+var pos=PFly.posText;
+function update(){
+  draw();
+  $('srcTag').textContent=S.source==='live'?'Live GPS':'Simulated GPS';
+  $('acc').textContent=S.source==='live'&&S.acc!=null?'GPS ±'+Math.round(S.acc/YD)+' yd':'';
+  $('acc').className='acc'+(S.acc!=null&&S.acc/YD>10?' weak':'');
+}
+// tap to measure / move me
+$('stage').addEventListener('click',function(e){
+  var vv=views[S.view],r=$('stage').getBoundingClientRect(), x=(e.clientX-r.left)/r.width*vv.width, y=(e.clientY-r.top)/r.height*vv.height;
+  var uv=vv.V.unproject(x,y); if(!uv)return;
+  if(S.tapMode==='me'){mark(-1);setMe(uv,'sim')}else{S.target=uv;draw()}
+});
+$('mTarget').onclick=function(){S.tapMode='target';this.classList.add('on');$('mMe').classList.remove('on')};
+$('mMe').onclick=function(){S.tapMode='me';this.classList.add('on');$('mTarget').classList.remove('on')};
+$('live').onclick=function(){
+  if(!navigator.geolocation){$('fine').textContent='This browser has no GPS access.';return}
+  if(S.watch!=null){navigator.geolocation.clearWatch(S.watch);S.watch=null;this.textContent='Use live GPS';S.source='sim';update();return}
+  this.textContent='Stop live GPS';
+  S.watch=navigator.geolocation.watchPosition(function(p){
+    var uv=hole.frame.toUV(p.coords.longitude,p.coords.latitude); S.acc=p.coords.accuracy;
+    if(G.dist(uv,[0,0])>600){$('fine').textContent='Live GPS: you are not on Hole '+D.hole.hole+' (more than 600 m away), so the simulated position is kept.';return}
+    S.me=uv;S.source='live';update();
+  },function(){$('fine').textContent='Live GPS unavailable here; use the simulated positions.'},{enableHighAccuracy:true,maximumAge:3000});
+};
+function setView(v){
+  S.view=v;['tee','approach','green'].forEach(function(k){$({tee:'tTee',approach:'tApp',green:'tGreen'}[k]).classList.toggle('on',k===v)});
+  $('flyover').hidden=v==='green';$('green').hidden=v!=='green';
+  if(v==='green'){var r=PGreen.drawGreen($('greenHost'),D.pin_model,D.green_image,D.pin);
+    var fcb=hole.greenFCB(S.me);$('yF').textContent=yd(fcb.front);$('yC').textContent=yd(fcb.center);$('yB').textContent=yd(fcb.back);
+    $('gnote').innerHTML='Approved Hole '+D.hole.hole+' green, shown exactly as approved (image unchanged, SHA-256 '+D.pin_model.image_sha256.slice(0,12)+'…). Flag: Oct 21 sample pin — '+D.pin.front+' yd from front, '+D.pin.edge+' yd from '+(D.pin.side==='L'?'left':'right')+'. Approach at the bottom.';}
+  else draw();
+}
+$('tTee').onclick=function(){setView('tee')};$('tApp').onclick=function(){setView('approach')};$('tGreen').onclick=function(){setView('green')};
+// default start: Green tee, else Blue, else the card tee measuring closest to the Green card yardage (same rule as
+// tools/make_camera.py); never a mapped tee that matches no card tee
+var cardTees=presets.filter(function(p){return p.tee});
+var start=cardTees.filter(function(p){return /Green/.test(p.tee)})[0]||cardTees.filter(function(p){return /Blue/.test(p.tee)})[0]||
+ cardTees.slice().sort(function(a,b){function m(p){var t=D.hole.tees.filter(function(t){return t.tee_sets.join('/')===p.tee})[0];return Math.abs((t?t.measured_yards:1e9)-D.hole.card_yards.Green)}return m(a)-m(b)})[0]||
+ presets.filter(function(p){return !('tee' in p)})[0];
+$('teeTxt').textContent='Green '+D.hole.card_yards.Green+' · Blue '+D.hole.card_yards.Blue+' yd';
+$('hn').textContent=D.hole.hole;$('par').textContent=D.hole.par;$('sub').textContent='V3 test · Hole '+D.hole.hole+' flyover';document.title='Pocasset V3 Hole '+D.hole.hole;
+$('fine').innerHTML='Prototype v0.2. Yardages use the mapped course data, which is <b>not yet verified</b> against the rebuilt bunkers and tees. '+
+ (presets.some(function(p){return p.cand&&/Green/.test(p.tee||'')})?'The <b>Green tee is a candidate</b>: the map filed it under another hole, but it measures '+D.hole.tees.filter(function(t){return t.tee_sets.indexOf('Green')>=0}).map(function(t){return t.measured_yards})[0]+' yd vs the card’s '+D.hole.card_yards.Green+' and sits on a built tee platform in the 2021 lidar — confirm on the course. ':'')+
+ (!cardTees.some(function(p){return /Green/.test(p.tee)})&&start.tee?'No Green tee is mapped for this hole, so it opens at the <b>'+start.tee+' tee</b>. ':'')+
+ (D.hole.tees.some(function(t){return !t.tee_sets.length})?'A mapped tee on this hole matches no scorecard tee; it is listed under Simulated GPS as “Mapped tee not on card”. ':'')+
+ 'Bunker and tee outlines predate the spring 2026 rebuild and are <b>not yet verified</b>. '+
+ 'Ground shape: 2021 USGS lidar, heights drawn '+views.tee.height_model.vertical_exaggeration+'× for readability (distances are flat GPS distances). '+
+ 'Woods are <b>illustrative</b>: placed only where 2023 aerial imagery shows tree canopy; individual trees, heights and colours are not surveyed. '+
+ 'Map data © OpenStreetMap contributors; imagery-derived canopy from USDA NAIP; elevation USGS 3DEP.';
+setMe(start.uv,'sim');mark(presets.indexOf(start));
+window.__proto={S:S,hole:hole,views:views,setMe:setMe,setView:setView,pinRes:pinRes};
+})();
+</script>
+</body>
+</html>
