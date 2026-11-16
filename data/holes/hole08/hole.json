@@ -56,19 +56,18 @@
   "fairway": 3,
   "green": 1,
   "path": 2,
-  "tee": 3
+  "tee": 3,
+  "water": 1
  },
  "missing": {
-  "not_in_source": [
-   "water"
-  ],
+  "not_in_source": [],
   "not_yet_sourced": []
  },
  "layers": {
   "terrain": "lidar (flown 20 Mar - 24 Apr 2021 (leaf-off))",
   "trees": "illustrative woods from imagery canopy (not surveyed trees)"
  },
- "unverified_features": 11,
+ "unverified_features": 12,
  "green_asset": {
   "approved": true,
   "folder": "Pocasset_AI_Master/03_greens/hole_08/approved/",

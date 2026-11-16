@@ -11,6 +11,15 @@
    "added": "2026-11-15"
   },
   {
+   "file": "derived/lidar_derived_features.geojson",
+   "role": "derived_features",
+   "sha256": "a88e7795b713b20e052483ca356400fb970607e9bac7495d08cf92da4be31e07",
+   "origin": "DERIVED: features absent from the OSM course source, traced from the locked 2021 USGS lidar with an owner report as the trigger (see each feature's evidence).",
+   "licence": "Derived from USGS 3DEP (public domain); project data",
+   "status": "APPROXIMATE, unverified (2021 lidar; the course was rebuilt in spring 2026)",
+   "added": "2026-11-15"
+  },
+  {
    "file": "elevation/usgs3dep_2021_pocasset_hole02_2m.dm16.gz",
    "role": "elevation",
    "sha256": "d357299c592729dd42ba5c5344fbabb924cc916fbae00be2941d3315dbe1c35c",

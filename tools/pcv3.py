@@ -97,9 +97,18 @@ def check_sources():
 
 
 def course_features():
+    """The locked OSM course source, plus any locked 'derived_features' sources (features missing from OSM, traced from
+    other locked data with stated evidence). The OSM file itself is never edited; derived features carry their own
+    source file and licence."""
     lock = check_sources()
     src = [s for s in lock['sources'] if s['role'] == 'course_features'][0]
-    return load(p('data', 'sources', src['file'])), src
+    D = load(p('data', 'sources', src['file']))
+    for ds in [s for s in lock['sources'] if s['role'] == 'derived_features']:
+        for f in load(p('data', 'sources', ds['file']))['features']:
+            f = json.loads(json.dumps(f))
+            f['properties']['derived_source'] = {'file': ds['file'], 'licence': ds['licence'], 'status': ds['status']}
+            D['features'].append(f)
+    return D, src
 
 
 # ---------------------------------------------------------------- geometry (local metres)
@@ -338,10 +347,13 @@ def standardize(hole):
             'along_m': round(al, 1), 'position': side,
             'offset_m': round(perp, 1),
             'geometry_status': 'verified' if f['properties'].get('verified') else 'unverified',
-            'assignment': 'source' if not f['properties'].get('assignment_correction') else 'corrected (source said hole %s; %s)' % (
+            'assignment': ('derived (traced from lidar; see source.evidence)' if 'derived_source' in f['properties'] else 'source')
+            if not f['properties'].get('assignment_correction') else 'corrected (source said hole %s; %s)' % (
                 ','.join(map(str, f['properties']['assignment_correction']['source_said'])), f['properties']['assignment_correction']['status']),
-            'source': {'file': src['file'], 'ref': ref, 'osm_version': f['properties'].get('osm_version'),
-                       'licence': src['licence']},
+            'source': ({'file': src['file'], 'ref': ref, 'osm_version': f['properties'].get('osm_version'),
+                        'licence': src['licence']} if 'derived_source' not in f['properties'] else
+                       {'file': f['properties']['derived_source']['file'], 'ref': ref, 'licence': f['properties']['derived_source']['licence'],
+                        'derived_from': f['properties'].get('derived_from'), 'evidence': f['properties'].get('evidence')}),
         }
         if layer == 'water':
             props['water_type'] = f['properties'].get('water_type')

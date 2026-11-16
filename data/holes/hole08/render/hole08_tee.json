@@ -65,7 +65,7 @@
   ]
  },
  "inputs_sha256": {
-  "features.geojson": "31cdf1b5f6e6d9bb1b2382adae97501f7b8970c83c2eec0644c4e8eb364c5ef1",
+  "features.geojson": "5fca39b19c686863394d41e3e410efb41f8aaa56acbdda11b7e9b20d9c448a83",
   "camera.json": "028b734b2386cf382a945bac78f67a2b343953fbc77928a444bfdeade7e2fd16",
   "flyover_style.json": "9f135905db8b71d4462942239af492a7f636fb2632776b16db0192162f72adb3",
   "course_source": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304",

@@ -1396,6 +1396,85 @@
      ]
     ]
    }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "H08-WA-01",
+    "class": "water",
+    "along_m": 64.3,
+    "position": "across",
+    "offset_m": 21.5,
+    "geometry_status": "unverified",
+    "assignment": "derived (traced from lidar; see source.evidence)",
+    "source": {
+     "file": "derived/lidar_derived_features.geojson",
+     "ref": "lidar:water-lidar-h08-pond",
+     "licence": "Derived from USGS 3DEP (public domain); project data",
+     "derived_from": "elevation/usgs3dep_2021_pocasset_course_2m.dm16.gz",
+     "evidence": "Owner (15 Nov 2026): \"a small pond right in front of the tee box\" on Hole 8. 2021 USGS lidar: basin with a dead-flat floor at 5.0 m NAVD88 (hydro-flattened water surface), ~28 x 44 m, 25-45 m in front of the tees, 9 m below them."
+    },
+    "water_type": "pond"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -70.6088227,
+       41.6861568
+      ],
+      [
+       -70.6089114,
+       41.6860993
+      ],
+      [
+       -70.6089398,
+       41.6860358
+      ],
+      [
+       -70.6089378,
+       41.6858354
+      ],
+      [
+       -70.6088944,
+       41.685782
+      ],
+      [
+       -70.6087018,
+       41.6857644
+      ],
+      [
+       -70.608678,
+       41.685776
+      ],
+      [
+       -70.6086322,
+       41.6858667
+      ],
+      [
+       -70.6086088,
+       41.6860134
+      ],
+      [
+       -70.6086379,
+       41.6860941
+      ],
+      [
+       -70.6086869,
+       41.6861339
+      ],
+      [
+       -70.6087596,
+       41.6861577
+      ],
+      [
+       -70.6088227,
+       41.6861568
+      ]
+     ]
+    ]
+   }
   }
  ]
 }

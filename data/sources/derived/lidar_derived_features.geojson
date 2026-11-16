@@ -1,0 +1,86 @@
+{
+ "type": "FeatureCollection",
+ "metadata": {
+  "name": "Pocasset V3 lidar-derived course features",
+  "note": "Features missing from the OpenStreetMap course source, traced from the locked lidar. Each entry names its evidence. Never edits the OSM file; merged at read time by tools/pcv3.py course_features(). All unverified until checked on the course."
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -70.6088227,
+       41.6861568
+      ],
+      [
+       -70.6089114,
+       41.6860993
+      ],
+      [
+       -70.6089398,
+       41.6860358
+      ],
+      [
+       -70.6089378,
+       41.6858354
+      ],
+      [
+       -70.6088944,
+       41.685782
+      ],
+      [
+       -70.6087018,
+       41.6857644
+      ],
+      [
+       -70.608678,
+       41.685776
+      ],
+      [
+       -70.6086322,
+       41.6858667
+      ],
+      [
+       -70.6086088,
+       41.6860134
+      ],
+      [
+       -70.6086379,
+       41.6860941
+      ],
+      [
+       -70.6086869,
+       41.6861339
+      ],
+      [
+       -70.6087596,
+       41.6861577
+      ],
+      [
+       -70.6088227,
+       41.6861568
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feature_id": "water-lidar-h08-pond",
+    "layer": "water",
+    "holes": [
+     8
+    ],
+    "source": "lidar",
+    "water_type": "pond",
+    "verified": false,
+    "evidence": "Owner (15 Nov 2026): \"a small pond right in front of the tee box\" on Hole 8. 2021 USGS lidar: basin with a dead-flat floor at 5.0 m NAVD88 (hydro-flattened water surface), ~28 x 44 m, 25-45 m in front of the tees, 9 m below them.",
+    "method": "Cells of the locked 2 m course-area lidar grid connected to the flat surface and within 0.15 m of it; outline smoothed (0.75 cell Gaussian at 8x) and simplified to 0.4 m; area ~1,000 m2.",
+    "derived_from": "elevation/usgs3dep_2021_pocasset_course_2m.dm16.gz",
+    "added": "2026-11-15",
+    "approved": "Owner, 15 Nov 2026 (\"keep pond\")"
+   }
+  }
+ ]
+}

@@ -118,6 +118,10 @@ Same survey, classifier and imagery as §2b and §2c, for a second area (EPSG:63
 - **Which grid a hole uses:** the first locked grid (lock order) whose coverage box holds every mapped point of the hole. Holes 2–4 keep the Hole 2 grid, so Hole 2's approved renders stay byte-identical; Holes 1, 5–9 use the course-area grids.
 - Holes 10–18 lie outside both areas and need a third download.
 
+## 2f. Lidar-derived features (15 Nov 2026, in use)
+`derived/lidar_derived_features.geojson` (locked, role `derived_features`) holds features missing from the OSM source, each with its evidence. `pcv3.py course_features()` merges them at read time; the OSM file is never edited. Standardized features carry `source.file`, `source.evidence` and `assignment: derived (traced from lidar …)`.
+- **H08-WA-01, Hole 8 pond** — owner-reported; 2021 lidar basin with a dead-flat floor at 5.0 m (water surface), ~28 x 44 m (~1,000 m2), 25–45 m in front of the tees. Outline: connected cells within 0.15 m of the flat surface, smoothed. Approximate, unverified.
+
 ## 3. Checked and not used
 - **OpenYardage:** builds yardage books from OSM, so it holds the same data (no new data).
 - **GolfLogix, ezLocator, commercial GPS apps:** not licensed for reuse of their geometry. ezLocator *pin numbers* are entered by the owner daily.
