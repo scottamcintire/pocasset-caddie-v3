@@ -1,0 +1,449 @@
+{
+ "checks": {
+  "dev chips present on Hole 2 with ?dev=1": {
+   "pass": true,
+   "detail": [
+    "Green tee · candidate",
+    "Blue tee (sim)",
+    "Gold tee (sim)",
+    "Bronze tee (sim)",
+    "250 yd out",
+    "200 yd out",
+    "150 yd out",
+    "100 yd out",
+    "60 yd out",
+    "DEV 150",
+    "DEV 75",
+    "DEV 50",
+    "DEV 25",
+    "DEV 10",
+    "DEV beyond"
+   ]
+  },
+  "zoom rises smoothly as the golfer nears the green (150→10 yd)": {
+   "pass": true,
+   "detail": [
+    1,
+    1.115,
+    1.95,
+    2.378,
+    2.8
+   ]
+  },
+  "success criterion: visibly closer at 25 yd than at 50 yd (≥ 1.15×)": {
+   "pass": true,
+   "detail": [
+    1.95,
+    2.378
+   ]
+  },
+  "green stays inside the visible area at every distance (5% margin)": {
+   "pass": true,
+   "detail": {
+    "DEV 150": true,
+    "DEV 75": true,
+    "DEV 50": true,
+    "DEV 25": true,
+    "DEV 10": true,
+    "DEV beyond": true
+   }
+  },
+  "golfer marker visible (on screen, or the \"You\" pill)": {
+   "pass": true
+  },
+  "overlay marks stay on the image: green centre marker within 1 px of the image pixel": {
+   "pass": true,
+   "detail": {
+    "DEV 150": 0,
+    "DEV 75": 0,
+    "DEV 50": 0,
+    "DEV 25": 0,
+    "DEV 10": 0,
+    "DEV beyond": 0
+   }
+  },
+  "labels stay inside the picture": {
+   "pass": true
+  },
+  "label text keeps its on-screen size when zoomed (±10%)": {
+   "pass": true,
+   "detail": [
+    15,
+    15,
+    15,
+    15,
+    15,
+    15
+   ]
+  },
+  "front/centre/back unchanged (header = V2.3.1 engine) at every distance": {
+   "pass": true,
+   "detail": {
+    "DEV 150": [
+     135,
+     150,
+     165
+    ],
+    "DEV 75": [
+     61,
+     75,
+     90
+    ],
+    "DEV 50": [
+     36,
+     50,
+     65
+    ],
+    "DEV 25": [
+     11,
+     25,
+     40
+    ],
+    "DEV 10": [
+     4,
+     10,
+     25
+    ],
+    "DEV beyond": [
+     0,
+     15,
+     29
+    ]
+   }
+  },
+  "hazard table unchanged (= hazard calculation)": {
+   "pass": true
+  },
+  "beyond the green: front/back reversed as before, green visible": {
+   "pass": true,
+   "detail": {
+    "view": "approach",
+    "z": 2.722,
+    "header": [
+     0,
+     15,
+     29
+    ],
+    "engine": [
+     0,
+     15,
+     29
+    ],
+    "hzTable": [
+     [
+      47,
+      57
+     ]
+    ],
+    "hzCalc": [
+     [
+      47,
+      57
+     ]
+    ],
+    "greenInside": true,
+    "meInside": true,
+    "pillShown": false,
+    "alignPx": 0,
+    "labelsInStage": true,
+    "labels": 4,
+    "labelFontPx": 15
+   }
+  },
+  "live GPS jitter (±3 m) at a standing spot does not change the zoom": {
+   "pass": true,
+   "detail": [
+    "1.865"
+   ]
+  },
+  "live walk 55 → 25 yd zooms in smoothly": {
+   "pass": true,
+   "detail": {
+    "still": [
+     "1.865"
+    ],
+    "walk": [
+     1.87,
+     1.87,
+     1.87,
+     1.87,
+     1.87,
+     1.98,
+     1.98,
+     2.08,
+     2.08,
+     2.21,
+     2.21,
+     2.21,
+     2.21
+    ],
+    "end": 2.21
+   }
+  },
+  "Hole 1 (not in the test) keeps fixed framing and no DEV chips": {
+   "pass": true,
+   "detail": {
+    "t": "",
+    "vb": "0 0 1170 1400",
+    "dev": false
+   }
+  },
+  "DEV chips hidden without ?dev=1": {
+   "pass": true
+  },
+  "no page errors": {
+   "pass": true,
+   "detail": []
+  }
+ },
+ "errors": [],
+ "positions": {
+  "DEV 150": {
+   "view": "approach",
+   "z": 1,
+   "header": [
+    135,
+    150,
+    165
+   ],
+   "engine": [
+    135,
+    150,
+    165
+   ],
+   "hzTable": [
+    [
+     75,
+     102
+    ],
+    [
+     111,
+     129
+    ],
+    [
+     169,
+     176
+    ]
+   ],
+   "hzCalc": [
+    [
+     75,
+     102
+    ],
+    [
+     111,
+     129
+    ],
+    [
+     169,
+     176
+    ]
+   ],
+   "greenInside": true,
+   "meInside": false,
+   "pillShown": true,
+   "alignPx": 0,
+   "labelsInStage": true,
+   "labels": 6,
+   "labelFontPx": 15
+  },
+  "DEV 75": {
+   "view": "approach",
+   "z": 1.115,
+   "header": [
+    61,
+    75,
+    90
+   ],
+   "engine": [
+    61,
+    75,
+    90
+   ],
+   "hzTable": [
+    [
+     27,
+     27
+    ],
+    [
+     37,
+     54
+    ],
+    [
+     94,
+     102
+    ]
+   ],
+   "hzCalc": [
+    [
+     27,
+     27
+    ],
+    [
+     37,
+     54
+    ],
+    [
+     94,
+     102
+    ]
+   ],
+   "greenInside": true,
+   "meInside": true,
+   "pillShown": false,
+   "alignPx": 0,
+   "labelsInStage": true,
+   "labels": 6,
+   "labelFontPx": 15
+  },
+  "DEV 50": {
+   "view": "approach",
+   "z": 1.95,
+   "header": [
+    36,
+    50,
+    65
+   ],
+   "engine": [
+    36,
+    50,
+    65
+   ],
+   "hzTable": [
+    [
+     2,
+     2
+    ],
+    [
+     15,
+     26
+    ],
+    [
+     69,
+     77
+    ]
+   ],
+   "hzCalc": [
+    [
+     2,
+     2
+    ],
+    [
+     15,
+     26
+    ],
+    [
+     69,
+     77
+    ]
+   ],
+   "greenInside": true,
+   "meInside": true,
+   "pillShown": false,
+   "alignPx": 0,
+   "labelsInStage": true,
+   "labels": 6,
+   "labelFontPx": 15
+  },
+  "DEV 25": {
+   "view": "approach",
+   "z": 2.378,
+   "header": [
+    11,
+    25,
+    40
+   ],
+   "engine": [
+    11,
+    25,
+    40
+   ],
+   "hzTable": [
+    [
+     44,
+     52
+    ]
+   ],
+   "hzCalc": [
+    [
+     44,
+     52
+    ]
+   ],
+   "greenInside": true,
+   "meInside": true,
+   "pillShown": false,
+   "alignPx": 0,
+   "labelsInStage": true,
+   "labels": 4,
+   "labelFontPx": 15
+  },
+  "DEV 10": {
+   "view": "approach",
+   "z": 2.8,
+   "header": [
+    4,
+    10,
+    25
+   ],
+   "engine": [
+    4,
+    10,
+    25
+   ],
+   "hzTable": [
+    [
+     29,
+     37
+    ]
+   ],
+   "hzCalc": [
+    [
+     29,
+     37
+    ]
+   ],
+   "greenInside": true,
+   "meInside": true,
+   "pillShown": false,
+   "alignPx": 0,
+   "labelsInStage": true,
+   "labels": 4,
+   "labelFontPx": 15
+  },
+  "DEV beyond": {
+   "view": "approach",
+   "z": 2.722,
+   "header": [
+    0,
+    15,
+    29
+   ],
+   "engine": [
+    0,
+    15,
+    29
+   ],
+   "hzTable": [
+    [
+     47,
+     57
+    ]
+   ],
+   "hzCalc": [
+    [
+     47,
+     57
+    ]
+   ],
+   "greenInside": true,
+   "meInside": true,
+   "pillShown": false,
+   "alignPx": 0,
+   "labelsInStage": true,
+   "labels": 4,
+   "labelFontPx": 15
+  }
+ },
+ "pass": true
+}

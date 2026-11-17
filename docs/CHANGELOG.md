@@ -2,6 +2,10 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.1.0-zoom-test: GPS zoom, Phase 1 (Hole 2 only, 17 Nov 2026)
+- /play/ flyover zooms toward the green as the distance to the green centre falls (1× at 150+ yd → 2.8× at 10 yd, smooth curve), centred between green and golfer and never cropping either; image and overlay share one visible box (`PFly.zoomBox`/`zoomFor`, overlay `box` option keeps marks on their ground points and labels at constant on-screen size). Smoothing: EMA on distance + 0.1× change threshold; animation only on change.
+- Enabled for Hole 2 only (`ZOOM_HOLES`). Developer distances with `?dev=1` (150/75/50/25/10 yd + 15 yd beyond the green). Without a box the overlay output is byte-identical (1,440 overlays compared); GPS engine, hazards, pins, scoring, artwork unchanged. Test: tests/test_zoom.js (16 checks).
+
 ## v5.0.2: Hole 11 Green tee (owner information, 17 Nov 2026)
 - New manual record `tee_positions.json` (owner-reported tee-set positions within/next to a mapped box): standardize/check/hole page/play support it (own id, label "owner-reported", own distance rows and tests). First use: Hole 11 Green tee at the front of the Gold/Blue box (F/C/B 355/369/382, matching the owner's screenshot).
 - Off-line box re-filed from Hole 11 to Hole 14 (Bronze candidate). No images re-rendered (tee boxes are painted from the whole course map); all 18 hole pages re-tested, only Holes 11 and 14 pages changed.
