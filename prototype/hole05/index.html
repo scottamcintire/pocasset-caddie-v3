@@ -100,6 +100,8 @@ var TEE_ORDER=['Green','Blue','Gold','White','Bronze','Silver'];
 D.hole.tees.slice().sort(function(a,b){return TEE_ORDER.indexOf(a.tee_sets[0])-TEE_ORDER.indexOf(b.tee_sets[0])}).forEach(function(t){var f=hole.feats.filter(function(x){return x.id===t.feature_id})[0];
   var cand=ASSIGN[t.feature_id]!=='source';
   presets.push({label:(t.tee_sets.length?t.tee_sets.join('/')+' tee':'Mapped tee not on card ('+t.feature_id+')')+(cand?' ·\u00a0candidate':''),uv:G.centroid(f.uv),tee:t.tee_sets.join('/'),cand:cand});});
+// owner-reported tee positions (where a tee set's markers stand; data/holes/holeNN/tee_positions.json) come first
+(D.hole.tee_positions||[]).slice().reverse().forEach(function(t){presets.unshift({label:t.tee_set+' tee ·\u00a0owner-reported',uv:hole.frame.toUV(t.lonlat[0],t.lonlat[1]),tee:t.tee_set,owner:true})});
 [250,200,150,100,60].forEach(function(y){presets.push({label:y+' yd',uv:hole.alongFromGreen(y)})});
 presets.forEach(function(p,i){var b=document.createElement('button');b.textContent=p.label;b.onclick=function(){setMe(p.uv,'sim');mark(i)};$('presets').appendChild(b)});
 function mark(i){[].forEach.call($('presets').children,function(b,j){b.classList.toggle('on',j===i)})}
@@ -175,6 +177,7 @@ $('fine').innerHTML='Prototype v0.2. Yardages use the mapped course data, which 
 setMe(start.uv,'sim');mark(presets.indexOf(start));
 window.__proto={S:S,hole:hole,views:views,setMe:setMe,setView:setView,pinRes:pinRes};
 })();
+if((window.HOLEDATA.hole.tee_positions||[]).length)document.getElementById("fine").innerHTML+=" "+window.HOLEDATA.hole.tee_positions.map(function(t){return 'The <b>'+t.tee_set+' tee</b> position is <b>owner-reported</b> ('+(t.where||'reported by the owner')+')'}).join(' ')+'.';
 </script>
 </body>
 </html>

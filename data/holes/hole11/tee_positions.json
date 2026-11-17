@@ -1,0 +1,20 @@
+{
+ "schema": "pocasset-v3/tee-positions@1",
+ "hole": 11,
+ "note": "Manual record (owner information). Where a tee set's markers stand when no separate tee box is mapped for it. Never written by tools.",
+ "positions": [
+  {
+   "id": "H11-TP-GREEN",
+   "tee_set": "Green",
+   "on_feature": "H11-TE-01",
+   "lonlat": [
+    -70.6077551,
+    41.6896549
+   ],
+   "where": "front (green-side) end of the long Gold/Blue tee box H11-TE-01",
+   "status": "owner-reported (approximate: markers move day to day)",
+   "source": "Owner, 17 Nov 2026: app screenshot with the simulated position placed on the Green tee (readout F/C/B 355/369/382, which is exactly the front end of H11-TE-01)",
+   "added": "2026-11-17"
+  }
+ ]
+}

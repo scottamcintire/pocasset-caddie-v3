@@ -369,7 +369,16 @@ def standardize(hole):
         ft['properties']['measured_yards'] = round(yards)
         ft['properties']['tee_sets'] = match
         tees.append((ft['properties']['id'], round(yards), match))
-    matched = sorted({s for t in tees for s in t[2]})
+    # owner-reported tee positions (manual record tee_positions.json): a point inside or beside a mapped box where a tee
+    # set's markers actually stand; kept apart from the boxes so each has its own id, label and distances
+    tpos = []
+    for tp in load(os.path.join(d, 'tee_positions.json'), {'positions': []})['positions']:
+        c = F.en(tp['lonlat'])
+        al, perp, _ = along_line(c, CLm)
+        tpos.append({'id': tp['id'], 'tee_set': tp['tee_set'], 'on_feature': tp.get('on_feature'), 'lonlat': tp['lonlat'],
+                     'measured_yards': round((total - al + math.dist(CLm[-1], (0, 0))) / YD), 'card_yards': H['card_yards'][tp['tee_set']],
+                     'status': tp['status'], 'source': tp['source'], 'where': tp.get('where')})
+    matched = sorted({s for t in tees for s in t[2]} | {t['tee_set'] for t in tpos})
     missing_sets = [s for s in H['card_yards'] if s not in matched]
     # verification records override the source status (manual, never written by this tool)
     ver = load(os.path.join(d, 'verification.json'), {'records': []})
@@ -392,6 +401,7 @@ def standardize(hole):
         'centerline_length_yd': round(total / YD, 1),
         'tees': [{'feature_id': t[0], 'measured_yards': t[1], 'tee_sets': t[2]} for t in tees],
         'tee_sets_not_mapped': missing_sets,
+        'tee_positions': tpos,
         'counts': {c: sum(1 for o in out if o['properties']['class'] == c) for c in classes},
         'missing': {'not_in_source': missing, 'not_yet_sourced': [c for c in NOT_YET_SOURCED if c not in layer_sources(hole)]},
         'layers': layer_sources(hole),
@@ -455,6 +465,9 @@ def check(hole):
     for t in hj['tees']:
         add('PASS' if t['tee_sets'] else 'FLAG', 'tee %s vs scorecard' % t['feature_id'],
             '%d yd → %s' % (t['measured_yards'], ', '.join(t['tee_sets']) or 'no card tee within 10 yd'))
+    for t in hj.get('tee_positions', []):
+        add('PASS', 'owner-reported tee position %s (%s)' % (t['id'], t['tee_set']),
+            '%d yd along the line (card %d); %s' % (t['measured_yards'], t['card_yards'], t['source']))
     add('FLAG' if hj['unverified_features'] else 'PASS', 'features awaiting verification',
         '%d of %d' % (hj['unverified_features'], len(feats)))
     # green asset dependency
@@ -464,16 +477,20 @@ def check(hole):
     # distances from each mapped tee (reported for review; carry method = docs/ARCHITECTURE.md §GPS)
     gc = (0.0, 0.0)
     dist_rows = []
-    for t in hj['tees']:
-        tf = [f for f in feats if f['properties']['id'] == t['feature_id']][0]
-        T = centroid([F.en(c) for c in tf['geometry']['coordinates'][0]])
+    starts = [(t['feature_id'], None) for t in hj['tees']] + [(t['id'], t['lonlat']) for t in hj.get('tee_positions', [])]
+    for tid, pll in starts:
+        if pll is None:
+            tf = [f for f in feats if f['properties']['id'] == tid][0]
+            T = centroid([F.en(c) for c in tf['geometry']['coordinates'][0]]); tll = tf_ll(tf)
+        else:
+            T = F.en(pll); tll = pll
         pc = hj.get('production_green_center')
         if pc:
-            r, fr, bk = prod_green_extents(pc, gr, tf_ll(tf))
-            dist_rows.append((t['feature_id'], 'green F/C/B (production method)', '%d / %d / %d' % (round(abs(r - fr) / YD), round(r / YD), round(abs(r - bk) / YD))))
+            r, fr, bk = prod_green_extents(pc, gr, tll)
+            dist_rows.append((tid, 'green F/C/B (production method)', '%d / %d / %d' % (round(abs(r - fr) / YD), round(r / YD), round(abs(r - bk) / YD))))
         else:
             fb = ray_extents(T, gc, G)
-            dist_rows.append((t['feature_id'], 'green F/C/B', '%d / %d / %d' % (fb[0] / YD, math.dist(T, gc) / YD, fb[1] / YD)))
+            dist_rows.append((tid, 'green F/C/B', '%d / %d / %d' % (fb[0] / YD, math.dist(T, gc) / YD, fb[1] / YD)))
         for f in feats:
             if f['properties']['class'] in ('bunker', 'water'):
                 P = [F.en(c) for c in f['geometry']['coordinates'][0]]
@@ -484,7 +501,7 @@ def check(hole):
                 else:
                     e = ray_extents(T, centroid(P), P); how = 'line through hazard'
                 if e:
-                    dist_rows.append((t['feature_id'], f['properties']['id'] + ' (%s)' % pos,
+                    dist_rows.append((tid, f['properties']['id'] + ' (%s)' % pos,
                                       'reach %d · carry %d  (%s)' % (e[0] / YD, e[1] / YD, how)))
     os.makedirs(os.path.join(d, 'checks'), exist_ok=True)
     stops = [r for r in res if r[0] == 'STOP']

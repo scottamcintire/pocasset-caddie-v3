@@ -2672,55 +2672,6 @@
   {
    "type": "Feature",
    "properties": {
-    "id": "H11-TE-02",
-    "class": "tee",
-    "along_m": 23.0,
-    "position": null,
-    "offset_m": 42.5,
-    "geometry_status": "unverified",
-    "assignment": "source",
-    "source": {
-     "file": "pocaset-GEO.json",
-     "ref": "osm:way/1241448288",
-     "osm_version": 1,
-     "licence": "ODbL-1.0 © OpenStreetMap contributors"
-    },
-    "measured_yards": 377,
-    "tee_sets": [
-     "Green"
-    ]
-   },
-   "geometry": {
-    "type": "Polygon",
-    "coordinates": [
-     [
-      [
-       -70.607972,
-       41.690049
-      ],
-      [
-       -70.607849,
-       41.690071
-      ],
-      [
-       -70.607834,
-       41.690027
-      ],
-      [
-       -70.607958,
-       41.690004
-      ],
-      [
-       -70.607972,
-       41.690049
-      ]
-     ]
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "properties": {
     "id": "H11-TE-03",
     "class": "tee",
     "along_m": 54.5,

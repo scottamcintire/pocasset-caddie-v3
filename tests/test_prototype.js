@@ -34,7 +34,7 @@ function serve(dir,port){return new Promise(r=>{const s=http.createServer((q,res
  }
  // hazards from tees vs the build-time reference table
  const ref=fs.readFileSync(path.join(ROOT,'data/holes/hole'+HH+'/checks/check_report.md'),'utf8');
- const hz=await pg.evaluate(()=>{const h=__proto.hole,r={};for(const t of window.HOLEDATA.hole.tees){const f=h.feats.find(x=>x.id===t.feature_id),c=PGeo.centroid(f.uv);r[t.feature_id]=h.hazards(c,{corridor_m:1e6,max:99}).map(z=>[z.id,Math.floor(z.reach/0.9144),Math.floor(z.carry/0.9144)])}return r});
+ const hz=await pg.evaluate(()=>{const h=__proto.hole,r={};for(const t of window.HOLEDATA.hole.tees){const f=h.feats.find(x=>x.id===t.feature_id),c=PGeo.centroid(f.uv);r[t.feature_id]=h.hazards(c,{corridor_m:1e6,max:99}).map(z=>[z.id,Math.floor(z.reach/0.9144),Math.floor(z.carry/0.9144)])}for(const t of (window.HOLEDATA.hole.tee_positions||[])){const c=h.frame.toUV(t.lonlat[0],t.lonlat[1]);r[t.id]=h.hazards(c,{corridor_m:1e6,max:99}).map(z=>[z.id,Math.floor(z.reach/0.9144),Math.floor(z.carry/0.9144)])}return r});
  out.hazard_checks=[];for(const [tee,list] of Object.entries(hz))for(const [id,re,ca] of list){const m=ref.match(new RegExp('\\| '+tee+' \\| '+id+' \\([^)]*\\) \\| reach (\\d+) · carry (\\d+)'));out.hazard_checks.push([tee,id,re,ca,m?+m[1]:null,m?+m[2]:null,m&&+m[1]===re&&+m[2]===ca])}
  // alignment: browser projection (camera matrix + terrain) of the green ring and tee centres == Python renderer math
  out.alignment={};

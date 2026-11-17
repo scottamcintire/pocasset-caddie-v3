@@ -1584,6 +1584,54 @@
     "playing_line": "primary",
     "ref": "14"
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -70.607972,
+       41.690049
+      ],
+      [
+       -70.607849,
+       41.690071
+      ],
+      [
+       -70.607834,
+       41.690027
+      ],
+      [
+       -70.607958,
+       41.690004
+      ],
+      [
+       -70.607972,
+       41.690049
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feature_id": "tee-osm-w1241448288",
+    "layer": "tee",
+    "holes": [
+     11
+    ],
+    "source": "osm",
+    "osm_id": "way/1241448288",
+    "osm_version": 1,
+    "verified": false,
+    "assignment_correction": {
+     "source_said": [
+      11
+     ],
+     "status": "approximate",
+     "evidence": "Tee polygon 7 m off hole 14's playing line, 298 yd from the hole 14 green (card Bronze 297). The owner confirmed (17 Nov 2026) that Hole 11's Green tee is elsewhere, at the front of Hole 11's Gold/Blue box. Candidate Hole 14 Bronze tee."
+    }
+   }
   }
  ]
 }

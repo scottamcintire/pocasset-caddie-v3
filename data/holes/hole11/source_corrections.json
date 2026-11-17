@@ -1,5 +1,5 @@
 {
- "note": "Manual record. Tee filed under hole 14 that sits on hole 11's line. Geometry is never edited.",
+ "note": "Manual record. Tee filed under hole 14 that sits on hole 11's line (added 16 Nov); tee filed under hole 11 that the owner confirmed is not Hole 11's Green tee (17 Nov). Geometry is never edited.",
  "assign_to_this_hole": [
   {
    "ref": "osm:way/1241448296",
@@ -14,5 +14,13 @@
   }
  ],
  "schema": "pocasset-v3/source-corrections@1",
- "hole": 11
+ "hole": 11,
+ "remove_from_this_hole": [
+  {
+   "ref": "osm:way/1241448288",
+   "source_said": "hole 11",
+   "now": "hole 14 (Bronze candidate)",
+   "evidence": "Owner, 17 Nov 2026: Hole 11's Green tee is at the front of the long Gold/Blue box (see tee_positions.json), not this box. This box is 43 m off Hole 11's line and 7 m off Hole 14's line at 298 yd (card Bronze 297)."
+  }
+ ]
 }

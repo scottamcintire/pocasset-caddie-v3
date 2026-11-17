@@ -232,6 +232,7 @@ function loadHole(n,cb){
     v.tee.V=new PGeo.View(v.tee,T);v.approach.V=new PGeo.View(v.approach,T);
     var A={};D.features.features.forEach(function(f){A[f.properties.id]=f.properties.assignment||'source'});
     var tees=D.hole.tees.map(function(t){var f=h.feats.filter(function(x){return x.id===t.feature_id})[0];var uv=PGeo.centroid(f.uv);return {id:t.feature_id,sets:t.tee_sets,yards:t.measured_yards,candidate:A[t.feature_id]!=='source',uv:uv,ll:h.frame.toLonLat(uv[0],uv[1])}});
+    (D.hole.tee_positions||[]).forEach(function(t){tees.push({id:t.id,sets:[t.tee_set],yards:t.measured_yards,candidate:false,owner:true,uv:h.frame.toUV(t.lonlat[0],t.lonlat[1]),ll:t.lonlat})});
     HD[n]={D:D,hole:h,views:v,tees:tees};cb(HD[n])};
   sc.onerror=function(){cb(null)};document.head.appendChild(sc);
 }
@@ -240,7 +241,7 @@ function loadHole(n,cb){
 function mappedTee(hd,tee,n){
   if(!hd)return null;var want=card.yards(tee)[n-1];
   var c=hd.tees.filter(function(t){return t.sets.indexOf(tee)>=0});
-  c.sort(function(a,b){return Math.abs(a.yards-want)-Math.abs(b.yards-want)});return c[0]||null;
+  c.sort(function(a,b){return (b.owner?1:0)-(a.owner?1:0)||Math.abs(a.yards-want)-Math.abs(b.yards-want)});return c[0]||null;   // owner-reported position first
 }
 
 // ---------- header
@@ -304,7 +305,7 @@ function renderPresets(hd){
   var n=hole(),tee=R?R.tee:prefs.tee,list=[],note='';
   if(hd){
     var mt=mappedTee(hd,tee,n);
-    if(mt)list.push({label:tee+' tee'+(mt.candidate?' · candidate':''),ll:mt.ll,src:tee+' tee box (mapped'+(mt.sets.length>1?', shared with '+mt.sets.filter(function(s){return s!==tee}).join('/'):'')+')'});
+    if(mt)list.push({label:tee+' tee'+(mt.candidate?' · candidate':mt.owner?' · owner-reported':''),ll:mt.ll,src:mt.owner?tee+' tee position reported by the owner (front of the shared tee box)':tee+' tee box (mapped'+(mt.sets.length>1?', shared with '+mt.sets.filter(function(s){return s!==tee}).join('/'):'')+')'});
     else note='<b>'+tee+' tee position isn’t mapped on this hole</b>, so the '+tee+' scorecard yardage ('+yardsCard(n)+' yd) is shown and there’s no simulated '+tee+' tee start. ';
     TEE_ORDER.forEach(function(t){if(t===tee)return;var m=mappedTee(hd,t,n);if(m&&!list.some(function(x){return x.ll===m.ll}))list.push({label:t+' tee (sim)',ll:m.ll,src:'SIMULATED from the '+t+' tee — not your tee'})});
     if(mt&&mt.candidate)note+='The '+tee+' tee box here is a <b>candidate</b> (the map filed it under another hole); confirm on the course. ';

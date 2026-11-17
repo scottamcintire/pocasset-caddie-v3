@@ -2,6 +2,10 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.0.2: Hole 11 Green tee (owner information, 17 Nov 2026)
+- New manual record `tee_positions.json` (owner-reported tee-set positions within/next to a mapped box): standardize/check/hole page/play support it (own id, label "owner-reported", own distance rows and tests). First use: Hole 11 Green tee at the front of the Gold/Blue box (F/C/B 355/369/382, matching the owner's screenshot).
+- Off-line box re-filed from Hole 11 to Hole 14 (Bronze candidate). No images re-rendered (tee boxes are painted from the whole course map); all 18 hole pages re-tested, only Holes 11 and 14 pages changed.
+
 ## v5.0.1: Hole 9 tee-view framing (owner feedback, 16 Nov 2026)
 - Hole 9 is a dogleg, so the standard tee → green aim left its fairway on the picture's edge. Tee view now aimed through the centre of Hole 9's own fairway (optional `aim_through_uv` camera field, Hole 9 only), closer and a little steeper. Camera only: no geography, GPS, hazard or green change; other holes byte-identical (Hole 2 fresh re-render). See docs/reviews/hole09.md.
 

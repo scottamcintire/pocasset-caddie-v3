@@ -2137,47 +2137,6 @@
     "coordinates": [
      [
       [
-       -70.607972,
-       41.690049
-      ],
-      [
-       -70.607849,
-       41.690071
-      ],
-      [
-       -70.607834,
-       41.690027
-      ],
-      [
-       -70.607958,
-       41.690004
-      ],
-      [
-       -70.607972,
-       41.690049
-      ]
-     ]
-    ]
-   },
-   "properties": {
-    "feature_id": "tee-osm-w1241448288",
-    "layer": "tee",
-    "holes": [
-     11
-    ],
-    "source": "osm",
-    "osm_id": "way/1241448288",
-    "osm_version": 1,
-    "verified": false
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Polygon",
-    "coordinates": [
-     [
-      [
        -70.607467,
        41.689653
       ],

@@ -31,13 +31,6 @@
    ]
   },
   {
-   "feature_id": "H11-TE-02",
-   "measured_yards": 377,
-   "tee_sets": [
-    "Green"
-   ]
-  },
-  {
    "feature_id": "H11-TE-03",
    "measured_yards": 343,
    "tee_sets": [
@@ -54,13 +47,29 @@
   }
  ],
  "tee_sets_not_mapped": [],
+ "tee_positions": [
+  {
+   "id": "H11-TP-GREEN",
+   "tee_set": "Green",
+   "on_feature": "H11-TE-01",
+   "lonlat": [
+    -70.6077551,
+    41.6896549
+   ],
+   "measured_yards": 374,
+   "card_yards": 380,
+   "status": "owner-reported (approximate: markers move day to day)",
+   "source": "Owner, 17 Nov 2026: app screenshot with the simulated position placed on the Green tee (readout F/C/B 355/369/382, which is exactly the front end of H11-TE-01)",
+   "where": "front (green-side) end of the long Gold/Blue tee box H11-TE-01"
+  }
+ ],
  "counts": {
   "bunker": 9,
   "centerline": 1,
   "fairway": 2,
   "green": 1,
   "path": 3,
-  "tee": 4
+  "tee": 3
  },
  "missing": {
   "not_in_source": [
@@ -72,7 +81,7 @@
   "terrain": "lidar (flown 20 Mar - 24 Apr 2021 (leaf-off))",
   "trees": "illustrative woods from imagery canopy (not surveyed trees)"
  },
- "unverified_features": 20,
+ "unverified_features": 19,
  "green_asset": {
   "approved": true,
   "folder": "Pocasset_AI_Master/03_greens/hole_11/approved/",
@@ -86,7 +95,7 @@
  ],
  "generated": {
   "by": "tools/pcv3.py standardize",
-  "on": "2026-11-16",
+  "on": "2026-11-17",
   "source_sha256": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304"
  }
 }

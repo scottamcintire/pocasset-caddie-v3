@@ -1642,6 +1642,55 @@
      ]
     ]
    }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "H14-TE-06",
+    "class": "tee",
+    "along_m": 86.7,
+    "position": null,
+    "offset_m": 7.5,
+    "geometry_status": "unverified",
+    "assignment": "corrected (source said hole 11; approximate)",
+    "source": {
+     "file": "pocaset-GEO.json",
+     "ref": "osm:way/1241448288",
+     "osm_version": 1,
+     "licence": "ODbL-1.0 © OpenStreetMap contributors"
+    },
+    "measured_yards": 298,
+    "tee_sets": [
+     "Bronze"
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -70.607972,
+       41.690049
+      ],
+      [
+       -70.607849,
+       41.690071
+      ],
+      [
+       -70.607834,
+       41.690027
+      ],
+      [
+       -70.607958,
+       41.690004
+      ],
+      [
+       -70.607972,
+       41.690049
+      ]
+     ]
+    ]
+   }
   }
  ]
 }

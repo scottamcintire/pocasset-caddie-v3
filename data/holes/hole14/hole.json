@@ -35,21 +35,28 @@
    "tee_sets": [
     "Green"
    ]
+  },
+  {
+   "feature_id": "H14-TE-06",
+   "measured_yards": 298,
+   "tee_sets": [
+    "Bronze"
+   ]
   }
  ],
  "tee_sets_not_mapped": [
   "Blue",
   "White",
-  "Bronze",
   "Silver"
  ],
+ "tee_positions": [],
  "counts": {
   "bunker": 3,
   "centerline": 1,
   "fairway": 1,
   "green": 1,
   "path": 6,
-  "tee": 2
+  "tee": 3
  },
  "missing": {
   "not_in_source": [
@@ -61,7 +68,7 @@
   "terrain": "lidar (flown 20 Mar - 24 Apr 2021 (leaf-off))",
   "trees": "illustrative woods from imagery canopy (not surveyed trees)"
  },
- "unverified_features": 14,
+ "unverified_features": 15,
  "green_asset": {
   "approved": true,
   "folder": "Pocasset_AI_Master/03_greens/hole_14/approved/",
@@ -75,7 +82,7 @@
  ],
  "generated": {
   "by": "tools/pcv3.py standardize",
-  "on": "2026-11-16",
+  "on": "2026-11-17",
   "source_sha256": "8222dec0c585c2ae53f264b32ae64061338b2983a1bcf5fce692028b1228a304"
  }
 }
