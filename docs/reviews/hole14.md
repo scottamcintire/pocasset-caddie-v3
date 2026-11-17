@@ -9,12 +9,10 @@ Mapped tees: H14-TE-01 388 yd (Gold); H14-TE-03 359 yd (Green)
 *(Newest first. Only the owner sets Approved / Needs revision in data/release/status.json.)*
 
 - 17 Nov 2026: (via Hole 11 feedback) the box 43 m off Hole 11's line is not Hole 11's Green tee.
-- (none yet)
 
 ## Corrections made in response to feedback
 
 - 17 Nov 2026, v5.0.2: Bronze tee added — osm:way/1241448288 re-filed from Hole 11 (7 m off Hole 14's line, 298 yd vs card Bronze 297; candidate).
-- (none yet)
 
 ## Data concerns to check on the course
 - Only Gold (388 yd vs card 390) and Green (359 yd vs card 361) tees mapped; Blue, White, Bronze, Silver show card yardage only.
