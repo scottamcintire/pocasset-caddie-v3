@@ -1,78 +1,141 @@
 {
  "checks": {
-  "dev chips present on Hole 2 with ?dev=1": {
+  "H1 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 458
+   }
+  },
+  "H1 edge distance = button (±1 yd) and drives the zoom": {
    "pass": true,
    "detail": [
-    "Green tee · candidate",
-    "Blue tee (sim)",
-    "Gold tee (sim)",
-    "Bronze tee (sim)",
-    "250 yd out",
-    "200 yd out",
-    "150 yd out",
-    "100 yd out",
-    "60 yd out",
-    "DEV 150",
-    "DEV 75",
-    "DEV 50",
-    "DEV 25",
-    "DEV 10",
-    "DEV beyond 10"
-   ]
-  },
-  "DEV buttons are nearest-edge distances (±1 yd) and drive the zoom": {
-   "pass": true,
-   "detail": {
-    "DEV 150": [
-     150,
+    [
+     "DEV 150",
      150
     ],
-    "DEV 75": [
-     75,
+    [
+     "DEV 75",
      75
     ],
-    "DEV 50": [
-     50,
+    [
+     "DEV 50",
      50
     ],
-    "DEV 25": [
-     25,
+    [
+     "DEV 25",
      25
     ],
-    "DEV 10": [
-     10,
+    [
+     "DEV 10",
      10
     ],
-    "DEV beyond 10": [
-     10,
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H1 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H1 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H1 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H1 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H1 label size constant": {
+   "pass": true
+  },
+  "H1 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H1 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H1 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.601,
+    2.378,
+    2.8
+   ]
+  },
+  "H1 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 119.83473263023528
+   }
+  },
+  "H2 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 442
+   }
+  },
+  "H2 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
      10
+    ],
+    [
+     "DEV beyond 15",
+     15
     ]
-   }
+   ]
   },
-  "blue golfer marker sits exactly on the simulated position (< 1 px), or the \"You\" pill when off the picture": {
+  "H2 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H2 green inside the visible area whenever zoomed": {
    "pass": true,
-   "detail": {
-    "DEV 150": null,
-    "DEV 75": 0.001,
-    "DEV 50": 0,
-    "DEV 25": 0,
-    "DEV 10": 0,
-    "DEV beyond 10": 0
-   }
+   "detail": []
   },
-  "beyond the green: 10 yd from the back edge, marker drawn beyond the green (above it in the approach view)": {
+  "H2 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H2 labels inside the picture": {
    "pass": true,
-   "detail": {
-    "edge": 10,
-    "meAboveGreenPx": 123.3,
-    "header": [
-     10,
-     26,
-     40
-    ]
-   }
+   "detail": []
   },
-  "zoom rises smoothly as the golfer nears the green (150→10 yd)": {
+  "H2 label size constant": {
+   "pass": true
+  },
+  "H2 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H2 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H2 zoom never decreases as the golfer approaches": {
    "pass": true,
    "detail": [
     1,
@@ -82,137 +145,1248 @@
     2.8
    ]
   },
-  "success criterion: visibly closer at 25 yd than at 50 yd (≥ 1.15×)": {
-   "pass": true,
-   "detail": [
-    1.398,
-    2.378
-   ]
-  },
-  "green stays inside the visible area at every distance (5% margin)": {
+  "H2 beyond the green: 15 yd from the back edge, marker beyond the green": {
    "pass": true,
    "detail": {
-    "DEV 150": true,
-    "DEV 75": true,
-    "DEV 50": true,
-    "DEV 25": true,
-    "DEV 10": true,
-    "DEV beyond 10": true
+    "edge": 15,
+    "above": 147.81363843053444
    }
   },
-  "golfer marker visible (on screen, or the \"You\" pill)": {
-   "pass": true
-  },
-  "overlay marks stay on the image: green centre marker within 1 px of the image pixel": {
+  "H3 DEV buttons present (missing only where the hole never reaches that edge distance)": {
    "pass": true,
    "detail": {
-    "DEV 150": 0,
-    "DEV 75": 0,
-    "DEV 50": 0,
-    "DEV 25": 0,
-    "DEV 10": 0,
-    "DEV beyond 10": 0
+    "na": [],
+    "maxEdgeYd": 158
    }
   },
-  "labels stay inside the picture": {
-   "pass": true
-  },
-  "label text keeps its on-screen size when zoomed (±10%)": {
+  "H3 edge distance = button (±1 yd) and drives the zoom": {
    "pass": true,
    "detail": [
-    15,
-    15,
-    15,
-    15,
-    15,
-    15
-   ]
-  },
-  "front/centre/back unchanged (header = V2.3.1 engine) at every distance": {
-   "pass": true,
-   "detail": {
-    "DEV 150": [
-     150,
-     164,
-     180
+    [
+     "DEV 150",
+     150
     ],
-    "DEV 75": [
-     75,
-     89,
-     105
+    [
+     "DEV 75",
+     75
     ],
-    "DEV 50": [
-     50,
-     64,
-     80
+    [
+     "DEV 50",
+     50
     ],
-    "DEV 25": [
-     25,
-     39,
-     55
+    [
+     "DEV 25",
+     25
     ],
-    "DEV 10": [
-     10,
-     24,
-     40
+    [
+     "DEV 10",
+     10
     ],
-    "DEV beyond 10": [
-     10,
-     26,
-     40
+    [
+     "DEV beyond 15",
+     15
     ]
-   }
-  },
-  "hazard table unchanged (= hazard calculation)": {
-   "pass": true
-  },
-  "beyond the green: front/centre/back = the unchanged V2.3.1 readout (near edge first), green visible": {
-   "pass": true,
-   "detail": [
-    10,
-    26,
-    40
    ]
   },
-  "live GPS jitter (±3 m) at a standing spot does not change the zoom": {
+  "H3 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H3 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H3 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H3 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H3 label size constant": {
+   "pass": true
+  },
+  "H3 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H3 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H3 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1.6,
+    1.95,
+    2.378,
+    2.8
+   ]
+  },
+  "H3 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 96.79783043622217
+   }
+  },
+  "H4 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 321
+   }
+  },
+  "H4 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H4 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H4 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H4 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H4 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H4 label size constant": {
+   "pass": true
+  },
+  "H4 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H4 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H4 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.598,
+    2.378,
+    2.8
+   ]
+  },
+  "H4 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 84.20302452977276
+   }
+  },
+  "H5 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 332
+   }
+  },
+  "H5 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H5 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H5 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H5 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H5 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H5 label size constant": {
+   "pass": true
+  },
+  "H5 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H5 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H5 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.275,
+    2.293,
+    2.8
+   ]
+  },
+  "H5 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 124.18840754554198
+   }
+  },
+  "H6 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 191
+   }
+  },
+  "H6 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H6 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H6 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H6 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H6 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H6 label size constant": {
+   "pass": true
+  },
+  "H6 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H6 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H6 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1.6,
+    1.95,
+    2.378,
+    2.8
+   ]
+  },
+  "H6 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 48.44040766240837
+   }
+  },
+  "H7 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 368
+   }
+  },
+  "H7 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H7 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H7 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H7 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H7 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H7 label size constant": {
+   "pass": true
+  },
+  "H7 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H7 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H7 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.383,
+    2.378,
+    2.8
+   ]
+  },
+  "H7 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 131.43411287850114
+   }
+  },
+  "H8 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 364
+   }
+  },
+  "H8 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H8 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H8 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H8 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H8 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H8 label size constant": {
+   "pass": true
+  },
+  "H8 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H8 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H8 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.431,
+    2.378,
+    2.8
+   ]
+  },
+  "H8 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 142.8598187529083
+   }
+  },
+  "H9 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 427
+   }
+  },
+  "H9 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H9 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H9 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H9 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H9 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H9 label size constant": {
+   "pass": true
+  },
+  "H9 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H9 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H9 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.492,
+    2.378,
+    2.8
+   ]
+  },
+  "H9 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 171.8427625866152
+   }
+  },
+  "H10 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 336
+   }
+  },
+  "H10 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H10 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H10 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H10 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H10 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H10 label size constant": {
+   "pass": true
+  },
+  "H10 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H10 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H10 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.431,
+    2.378,
+    2.8
+   ]
+  },
+  "H10 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 98.18645521681437
+   }
+  },
+  "H11 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 381
+   }
+  },
+  "H11 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H11 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H11 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H11 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H11 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H11 label size constant": {
+   "pass": true
+  },
+  "H11 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H11 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H11 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.461,
+    2.378,
+    2.8
+   ]
+  },
+  "H11 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 161.01065009925517
+   }
+  },
+  "H12 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [
+     "DEV 150"
+    ],
+    "maxEdgeYd": 117
+   }
+  },
+  "H12 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H12 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H12 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H12 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H12 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H12 label size constant": {
+   "pass": true
+  },
+  "H12 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H12 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H12 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1.362,
+    1.891,
+    2.378,
+    2.8
+   ]
+  },
+  "H12 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 96.352389516127
+   }
+  },
+  "H13 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 297
+   }
+  },
+  "H13 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H13 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H13 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H13 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H13 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H13 label size constant": {
+   "pass": true
+  },
+  "H13 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H13 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H13 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.532,
+    2.378,
+    2.8
+   ]
+  },
+  "H13 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 153.49814329833623
+   }
+  },
+  "H14 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 375
+   }
+  },
+  "H14 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H14 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H14 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H14 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H14 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H14 label size constant": {
+   "pass": true
+  },
+  "H14 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H14 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H14 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.439,
+    2.378,
+    2.8
+   ]
+  },
+  "H14 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 178.40262190257573
+   }
+  },
+  "H15 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [
+     "DEV 150"
+    ],
+    "maxEdgeYd": 143
+   }
+  },
+  "H15 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H15 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H15 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H15 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H15 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H15 label size constant": {
+   "pass": true
+  },
+  "H15 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H15 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H15 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1.179,
+    1.725,
+    2.378,
+    2.8
+   ]
+  },
+  "H15 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 110.03655660040985
+   }
+  },
+  "H16 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 489
+   }
+  },
+  "H16 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H16 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H16 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H16 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H16 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H16 label size constant": {
+   "pass": true
+  },
+  "H16 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H16 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H16 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.268,
+    2.35,
+    2.8
+   ]
+  },
+  "H16 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 130.50815151513584
+   }
+  },
+  "H17 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 492
+   }
+  },
+  "H17 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H17 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H17 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H17 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H17 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H17 label size constant": {
+   "pass": true
+  },
+  "H17 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H17 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H17 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.328,
+    2.333,
+    2.8
+   ]
+  },
+  "H17 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 121.33773997533149
+   }
+  },
+  "H18 DEV buttons present (missing only where the hole never reaches that edge distance)": {
+   "pass": true,
+   "detail": {
+    "na": [],
+    "maxEdgeYd": 399
+   }
+  },
+  "H18 edge distance = button (±1 yd) and drives the zoom": {
+   "pass": true,
+   "detail": [
+    [
+     "DEV 150",
+     150
+    ],
+    [
+     "DEV 75",
+     75
+    ],
+    [
+     "DEV 50",
+     50
+    ],
+    [
+     "DEV 25",
+     25
+    ],
+    [
+     "DEV 10",
+     10
+    ],
+    [
+     "DEV beyond 15",
+     15
+    ]
+   ]
+  },
+  "H18 golfer marker on its position (<1 px) or \"You\" pill": {
+   "pass": true
+  },
+  "H18 green inside the visible area whenever zoomed": {
+   "pass": true,
+   "detail": []
+  },
+  "H18 overlay aligned with image (<1 px)": {
+   "pass": true
+  },
+  "H18 labels inside the picture": {
+   "pass": true,
+   "detail": []
+  },
+  "H18 label size constant": {
+   "pass": true
+  },
+  "H18 front/centre/back = V2.3.1 engine": {
+   "pass": true
+  },
+  "H18 hazard table = hazard calculation": {
+   "pass": true
+  },
+  "H18 zoom never decreases as the golfer approaches": {
+   "pass": true,
+   "detail": [
+    1,
+    1,
+    1.328,
+    2.252,
+    2.8
+   ]
+  },
+  "H18 beyond the green: 15 yd from the back edge, marker beyond the green": {
+   "pass": true,
+   "detail": {
+    "edge": 15,
+    "above": 124.19701269110018
+   }
+  },
+  "live GPS jitter (±3 m) does not change the zoom (Hole 2)": {
    "pass": true,
    "detail": [
     "2.042"
    ]
   },
-  "live walk 55 → 25 yd zooms in smoothly": {
+  "live walk 55 → 25 yd zooms in smoothly (Hole 2)": {
    "pass": true,
-   "detail": {
-    "still": [
-     "2.042"
-    ],
-    "walk": [
-     2.04,
-     2.04,
-     2.17,
-     2.17,
-     2.17,
-     2.29,
-     2.29,
-     2.29,
-     2.29,
-     2.45,
-     2.45,
-     2.63,
-     2.63
-    ],
-    "end": 2.63
-   }
+   "detail": [
+    2.04,
+    2.04,
+    2.17,
+    2.17,
+    2.17,
+    2.29,
+    2.29,
+    2.29,
+    2.29,
+    2.45,
+    2.45,
+    2.63,
+    2.63
+   ]
   },
-  "Hole 1 (not in the test) keeps fixed framing and no DEV chips": {
-   "pass": true,
-   "detail": {
-    "t": "",
-    "vb": "0 0 1170 1400",
-    "dev": false
-   }
-  },
-  "DEV chips hidden without ?dev=1": {
+  "DEV buttons hidden without ?dev=1": {
    "pass": true
   },
   "no page errors": {
@@ -220,286 +1394,298 @@
    "detail": []
   }
  },
- "errors": [],
- "positions": {
-  "DEV 150": {
-   "meAboveGreenPx": -6111.7,
-   "edge": 150,
-   "zoomYd": 150,
-   "meMarkerPx": null,
-   "view": "approach",
-   "z": 1,
-   "header": [
-    150,
-    164,
-    180
-   ],
-   "engine": [
-    150,
-    164,
-    180
-   ],
-   "hzTable": [
-    [
-     90,
-     117
-    ],
-    [
-     126,
-     144
-    ],
-    [
-     183,
-     191
-    ]
-   ],
-   "hzCalc": [
-    [
-     90,
-     117
-    ],
-    [
-     126,
-     144
-    ],
-    [
-     183,
-     191
-    ]
-   ],
-   "greenInside": true,
-   "meInside": false,
-   "pillShown": true,
-   "alignPx": 0,
-   "labelsInStage": true,
-   "labels": 6,
-   "labelFontPx": 15
+ "holes": {
+  "1": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.601,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
   },
-  "DEV 75": {
-   "meAboveGreenPx": -929.9,
-   "edge": 75,
-   "zoomYd": 75,
-   "meMarkerPx": 0.001,
-   "view": "approach",
-   "z": 1,
-   "header": [
-    75,
-    89,
-    105
-   ],
-   "engine": [
-    75,
-    89,
-    105
-   ],
-   "hzTable": [
-    [
-     14,
-     41
-    ],
-    [
-     51,
-     69
-    ],
-    [
-     108,
-     116
-    ]
-   ],
-   "hzCalc": [
-    [
-     14,
-     41
-    ],
-    [
-     51,
-     69
-    ],
-    [
-     108,
-     116
-    ]
-   ],
-   "greenInside": true,
-   "meInside": true,
-   "pillShown": false,
-   "alignPx": 0,
-   "labelsInStage": true,
-   "labels": 6,
-   "labelFontPx": 15
+  "2": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.398,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
   },
-  "DEV 50": {
-   "meAboveGreenPx": -560.8,
-   "edge": 50,
-   "zoomYd": 50,
-   "meMarkerPx": 0,
-   "view": "approach",
-   "z": 1.398,
-   "header": [
-    50,
-    64,
-    80
-   ],
-   "engine": [
-    50,
-    64,
-    80
-   ],
-   "hzTable": [
-    [
-     16,
-     16
-    ],
-    [
-     27,
-     43
-    ],
-    [
-     83,
-     91
-    ]
-   ],
-   "hzCalc": [
-    [
-     16,
-     16
-    ],
-    [
-     27,
-     43
-    ],
-    [
-     83,
-     91
-    ]
-   ],
-   "greenInside": true,
-   "meInside": true,
-   "pillShown": false,
-   "alignPx": 0,
-   "labelsInStage": true,
-   "labels": 6,
-   "labelFontPx": 15
+  "3": {
+   "pass": true,
+   "fails": [],
+   "view25": "tee",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.95,
+    "75": 1.6,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
   },
-  "DEV 25": {
-   "meAboveGreenPx": -289.6,
-   "edge": 25,
-   "zoomYd": 25,
-   "meMarkerPx": 0,
-   "view": "approach",
-   "z": 2.378,
-   "header": [
-    25,
-    39,
-    55
-   ],
-   "engine": [
-    25,
-    39,
-    55
-   ],
-   "hzTable": [
-    [
-     9,
-     18
-    ],
-    [
-     58,
-     66
-    ]
-   ],
-   "hzCalc": [
-    [
-     9,
-     18
-    ],
-    [
-     58,
-     66
-    ]
-   ],
-   "greenInside": true,
-   "meInside": true,
-   "pillShown": false,
-   "alignPx": 0,
-   "labelsInStage": true,
-   "labels": 5,
-   "labelFontPx": 15
+  "4": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.598,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
   },
-  "DEV 10": {
-   "meAboveGreenPx": -162.5,
-   "edge": 10,
-   "zoomYd": 10,
-   "meMarkerPx": 0,
-   "view": "approach",
-   "z": 2.8,
-   "header": [
-    10,
-    24,
-    40
-   ],
-   "engine": [
-    10,
-    24,
-    40
-   ],
-   "hzTable": [
-    [
-     43,
-     51
-    ]
-   ],
-   "hzCalc": [
-    [
-     43,
-     51
-    ]
-   ],
-   "greenInside": true,
-   "meInside": true,
-   "pillShown": false,
-   "alignPx": 0,
-   "labelsInStage": true,
-   "labels": 4,
-   "labelFontPx": 15
+  "5": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.293,
+    "50": 1.275,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
   },
-  "DEV beyond 10": {
-   "meAboveGreenPx": 123.3,
-   "edge": 10,
-   "zoomYd": 10,
-   "meMarkerPx": 0,
-   "view": "approach",
-   "z": 2.8,
-   "header": [
-    10,
-    26,
-    40
+  "6": {
+   "pass": true,
+   "fails": [],
+   "view25": "tee",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.95,
+    "75": 1.6,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "unzoomed framing (unchanged from v5.0): green within 5% of the picture edge at DEV 150",
+   "note": ""
+  },
+  "7": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.383,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
+  },
+  "8": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.431,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
+  },
+  "9": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.492,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
+  },
+  "10": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.431,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
+  },
+  "11": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.461,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
+  },
+  "12": {
+   "pass": true,
+   "fails": [],
+   "view25": "tee",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.891,
+    "75": 1.362,
+    "beyond 15": 2.722
+   },
+   "na": [
+    "DEV 150"
    ],
-   "engine": [
-    10,
-    26,
-    40
+   "flag": "",
+   "note": ""
+  },
+  "13": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.532,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
+  },
+  "14": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.439,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
+  },
+  "15": {
+   "pass": true,
+   "fails": [],
+   "view25": "tee",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.378,
+    "50": 1.725,
+    "75": 1.179,
+    "beyond 15": 2.722
+   },
+   "na": [
+    "DEV 150"
    ],
-   "hzTable": [
-    [
-     57,
-     68
-    ]
-   ],
-   "hzCalc": [
-    [
-     57,
-     68
-    ]
-   ],
-   "greenInside": true,
-   "meInside": true,
-   "pillShown": false,
-   "alignPx": 0,
-   "labelsInStage": true,
-   "labels": 4,
-   "labelFontPx": 15
+   "flag": "",
+   "note": ""
+  },
+  "16": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.35,
+    "50": 1.268,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
+  },
+  "17": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.333,
+    "50": 1.328,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
+  },
+  "18": {
+   "pass": true,
+   "fails": [],
+   "view25": "approach",
+   "zoom": {
+    "10": 2.8,
+    "25": 2.252,
+    "50": 1.328,
+    "75": 1,
+    "150": 1,
+    "beyond 15": 2.722
+   },
+   "na": [],
+   "flag": "",
+   "note": ""
   }
  },
+ "errors": [],
  "pass": true
 }

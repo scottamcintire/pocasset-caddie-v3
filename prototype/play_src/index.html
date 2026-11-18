@@ -301,12 +301,12 @@ function renderFly(){
   if(S.offCourse&&S.mode==='live')setStatus('You appear to be away from Pocasset (more than 180 m from every hole). No on-course yardages are shown. Use a simulated position to preview.','warn');
   renderPresets(hd);
 }
-/* ---------- GPS zoom (Phase 1: test holes only). The image and its overlay move together: the overlay is redrawn
+/* ---------- GPS zoom (all flyover holes). The image and its overlay move together: the overlay is redrawn
    in image pixels for the visible box (PFly.overlay box) and the SVG viewBox and the image transform show the same box,
    so every mark stays on its ground point. Distance = the header's centre yardage (V2.3.1 engine, unchanged), smoothed;
    the zoom only moves when the smoothed target changes by more than ZOOM_STEP (GPS jitter / standing still = no change). */
 var DEV=/[?&]dev=1\b/.test(location.search);
-var ZOOM_HOLES=[2], ZOOM_STEP=0.1;
+var ZOOM_HOLES=C.flyover_holes, ZOOM_STEP=0.1;   // every hole with a flyover (approved on Hole 2, 17 Nov 2026)
 function zoomTarget(n,hd,v,me,r){
   if(ZOOM_HOLES.indexOf(n)<0||!S.me||!r||!r.onCourse){S.zoom=null;return null}
   var key=n+'|'+S.view+'|'+S.mode;   // a new hole, view or source (simulated/live) starts fresh
@@ -331,7 +331,7 @@ function devPoint(n,yards,beyond){
   var c=C.green_map[n].center,p30=course.alongFromGreen(n,30),lo=0,hi=400,pt=null;
   for(var k=0;k<40;k++){var mid=(lo+hi)/2,q=beyond?[c[0]+(c[0]-p30[0])*mid/30,c[1]+(c[1]-p30[1])*mid/30]:course.alongFromGreen(n,mid);
     if(!q){hi=mid;continue}pt=q;if(edgeYards(n,q)<yards)lo=mid;else hi=mid}
-  return pt;
+  return pt&&Math.abs(edgeYards(n,pt)-yards)<=1?pt:null;   // hole too short (par 3 at 150) → no button
 }
 var zoomAnim=null;
 function setBox(v,b){var img=$('img');S.box=b;
@@ -362,7 +362,7 @@ function renderPresets(hd){
   var L=course.pathLengthYd(n);
   [250,200,150,100,60].forEach(function(y){if(y<L-15){var ll=course.alongFromGreen(n,y);if(ll)list.push({label:y+' yd out',ll:ll,src:'SIMULATED '+y+' yd back from the green centre along the playing line (straight-line yardage can be shorter on a dogleg)'})}});
   if(DEV&&ZOOM_HOLES.indexOf(n)>=0){[150,75,50,25,10].forEach(function(y){var ll=devPoint(n,y,false);if(ll)list.push({label:'DEV '+y,ll:ll,src:'DEV simulated '+y+' yd short of the green edge'})});
-    var bl=devPoint(n,10,true);if(bl)list.push({label:'DEV beyond 10',ll:bl,src:'DEV simulated 10 yd beyond the back edge of the green'})}
+    var bl=devPoint(n,15,true);if(bl)list.push({label:'DEV beyond 15',ll:bl,src:'DEV simulated 15 yd beyond the back edge of the green'})}
   presetList=list;
   $('presets').innerHTML=list.map(function(p,i){return '<button data-i="'+i+'"'+(S.mode==='sim'&&S.meLabel===p.src?' class="on"':'')+'>'+p.label+'</button>'}).join('');
   $('teeNote').innerHTML=note;
