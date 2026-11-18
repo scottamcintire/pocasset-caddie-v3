@@ -17,15 +17,67 @@
     "DEV 50",
     "DEV 25",
     "DEV 10",
-    "DEV beyond"
+    "DEV beyond 10"
    ]
+  },
+  "DEV buttons are nearest-edge distances (±1 yd) and drive the zoom": {
+   "pass": true,
+   "detail": {
+    "DEV 150": [
+     150,
+     150
+    ],
+    "DEV 75": [
+     75,
+     75
+    ],
+    "DEV 50": [
+     50,
+     50
+    ],
+    "DEV 25": [
+     25,
+     25
+    ],
+    "DEV 10": [
+     10,
+     10
+    ],
+    "DEV beyond 10": [
+     10,
+     10
+    ]
+   }
+  },
+  "blue golfer marker sits exactly on the simulated position (< 1 px), or the \"You\" pill when off the picture": {
+   "pass": true,
+   "detail": {
+    "DEV 150": null,
+    "DEV 75": 0.001,
+    "DEV 50": 0,
+    "DEV 25": 0,
+    "DEV 10": 0,
+    "DEV beyond 10": 0
+   }
+  },
+  "beyond the green: 10 yd from the back edge, marker drawn beyond the green (above it in the approach view)": {
+   "pass": true,
+   "detail": {
+    "edge": 10,
+    "meAboveGreenPx": 123.3,
+    "header": [
+     10,
+     26,
+     40
+    ]
+   }
   },
   "zoom rises smoothly as the golfer nears the green (150→10 yd)": {
    "pass": true,
    "detail": [
     1,
-    1.115,
-    1.95,
+    1,
+    1.398,
     2.378,
     2.8
    ]
@@ -33,7 +85,7 @@
   "success criterion: visibly closer at 25 yd than at 50 yd (≥ 1.15×)": {
    "pass": true,
    "detail": [
-    1.95,
+    1.398,
     2.378
    ]
   },
@@ -45,7 +97,7 @@
     "DEV 50": true,
     "DEV 25": true,
     "DEV 10": true,
-    "DEV beyond": true
+    "DEV beyond 10": true
    }
   },
   "golfer marker visible (on screen, or the \"You\" pill)": {
@@ -59,7 +111,7 @@
     "DEV 50": 0,
     "DEV 25": 0,
     "DEV 10": 0,
-    "DEV beyond": 0
+    "DEV beyond 10": 0
    }
   },
   "labels stay inside the picture": {
@@ -80,104 +132,76 @@
    "pass": true,
    "detail": {
     "DEV 150": [
-     135,
      150,
-     165
+     164,
+     180
     ],
     "DEV 75": [
-     61,
      75,
-     90
+     89,
+     105
     ],
     "DEV 50": [
-     36,
      50,
-     65
+     64,
+     80
     ],
     "DEV 25": [
-     11,
      25,
-     40
+     39,
+     55
     ],
     "DEV 10": [
-     4,
      10,
-     25
+     24,
+     40
     ],
-    "DEV beyond": [
-     0,
-     15,
-     29
+    "DEV beyond 10": [
+     10,
+     26,
+     40
     ]
    }
   },
   "hazard table unchanged (= hazard calculation)": {
    "pass": true
   },
-  "beyond the green: front/back reversed as before, green visible": {
+  "beyond the green: front/centre/back = the unchanged V2.3.1 readout (near edge first), green visible": {
    "pass": true,
-   "detail": {
-    "view": "approach",
-    "z": 2.722,
-    "header": [
-     0,
-     15,
-     29
-    ],
-    "engine": [
-     0,
-     15,
-     29
-    ],
-    "hzTable": [
-     [
-      47,
-      57
-     ]
-    ],
-    "hzCalc": [
-     [
-      47,
-      57
-     ]
-    ],
-    "greenInside": true,
-    "meInside": true,
-    "pillShown": false,
-    "alignPx": 0,
-    "labelsInStage": true,
-    "labels": 4,
-    "labelFontPx": 15
-   }
+   "detail": [
+    10,
+    26,
+    40
+   ]
   },
   "live GPS jitter (±3 m) at a standing spot does not change the zoom": {
    "pass": true,
    "detail": [
-    "1.865"
+    "2.042"
    ]
   },
   "live walk 55 → 25 yd zooms in smoothly": {
    "pass": true,
    "detail": {
     "still": [
-     "1.865"
+     "2.042"
     ],
     "walk": [
-     1.87,
-     1.87,
-     1.87,
-     1.87,
-     1.87,
-     1.98,
-     1.98,
-     2.08,
-     2.08,
-     2.21,
-     2.21,
-     2.21,
-     2.21
+     2.04,
+     2.04,
+     2.17,
+     2.17,
+     2.17,
+     2.29,
+     2.29,
+     2.29,
+     2.29,
+     2.45,
+     2.45,
+     2.63,
+     2.63
     ],
-    "end": 2.21
+    "end": 2.63
    }
   },
   "Hole 1 (not in the test) keeps fixed framing and no DEV chips": {
@@ -199,44 +223,48 @@
  "errors": [],
  "positions": {
   "DEV 150": {
+   "meAboveGreenPx": -6111.7,
+   "edge": 150,
+   "zoomYd": 150,
+   "meMarkerPx": null,
    "view": "approach",
    "z": 1,
    "header": [
-    135,
     150,
-    165
+    164,
+    180
    ],
    "engine": [
-    135,
     150,
-    165
+    164,
+    180
    ],
    "hzTable": [
     [
-     75,
-     102
+     90,
+     117
     ],
     [
-     111,
-     129
+     126,
+     144
     ],
     [
-     169,
-     176
+     183,
+     191
     ]
    ],
    "hzCalc": [
     [
-     75,
-     102
+     90,
+     117
     ],
     [
-     111,
-     129
+     126,
+     144
     ],
     [
-     169,
-     176
+     183,
+     191
     ]
    ],
    "greenInside": true,
@@ -248,44 +276,48 @@
    "labelFontPx": 15
   },
   "DEV 75": {
+   "meAboveGreenPx": -929.9,
+   "edge": 75,
+   "zoomYd": 75,
+   "meMarkerPx": 0.001,
    "view": "approach",
-   "z": 1.115,
+   "z": 1,
    "header": [
-    61,
     75,
-    90
+    89,
+    105
    ],
    "engine": [
-    61,
     75,
-    90
+    89,
+    105
    ],
    "hzTable": [
     [
-     27,
-     27
+     14,
+     41
     ],
     [
-     37,
-     54
+     51,
+     69
     ],
     [
-     94,
-     102
+     108,
+     116
     ]
    ],
    "hzCalc": [
     [
-     27,
-     27
+     14,
+     41
     ],
     [
-     37,
-     54
+     51,
+     69
     ],
     [
-     94,
-     102
+     108,
+     116
     ]
    ],
    "greenInside": true,
@@ -297,44 +329,48 @@
    "labelFontPx": 15
   },
   "DEV 50": {
+   "meAboveGreenPx": -560.8,
+   "edge": 50,
+   "zoomYd": 50,
+   "meMarkerPx": 0,
    "view": "approach",
-   "z": 1.95,
+   "z": 1.398,
    "header": [
-    36,
     50,
-    65
+    64,
+    80
    ],
    "engine": [
-    36,
     50,
-    65
+    64,
+    80
    ],
    "hzTable": [
     [
-     2,
-     2
+     16,
+     16
     ],
     [
-     15,
-     26
+     27,
+     43
     ],
     [
-     69,
-     77
+     83,
+     91
     ]
    ],
    "hzCalc": [
     [
-     2,
-     2
+     16,
+     16
     ],
     [
-     15,
-     26
+     27,
+     43
     ],
     [
-     69,
-     77
+     83,
+     91
     ]
    ],
    "greenInside": true,
@@ -346,28 +382,40 @@
    "labelFontPx": 15
   },
   "DEV 25": {
+   "meAboveGreenPx": -289.6,
+   "edge": 25,
+   "zoomYd": 25,
+   "meMarkerPx": 0,
    "view": "approach",
    "z": 2.378,
    "header": [
-    11,
     25,
-    40
+    39,
+    55
    ],
    "engine": [
-    11,
     25,
-    40
+    39,
+    55
    ],
    "hzTable": [
     [
-     44,
-     52
+     9,
+     18
+    ],
+    [
+     58,
+     66
     ]
    ],
    "hzCalc": [
     [
-     44,
-     52
+     9,
+     18
+    ],
+    [
+     58,
+     66
     ]
    ],
    "greenInside": true,
@@ -375,32 +423,36 @@
    "pillShown": false,
    "alignPx": 0,
    "labelsInStage": true,
-   "labels": 4,
+   "labels": 5,
    "labelFontPx": 15
   },
   "DEV 10": {
+   "meAboveGreenPx": -162.5,
+   "edge": 10,
+   "zoomYd": 10,
+   "meMarkerPx": 0,
    "view": "approach",
    "z": 2.8,
    "header": [
-    4,
     10,
-    25
+    24,
+    40
    ],
    "engine": [
-    4,
     10,
-    25
+    24,
+    40
    ],
    "hzTable": [
     [
-     29,
-     37
+     43,
+     51
     ]
    ],
    "hzCalc": [
     [
-     29,
-     37
+     43,
+     51
     ]
    ],
    "greenInside": true,
@@ -411,29 +463,33 @@
    "labels": 4,
    "labelFontPx": 15
   },
-  "DEV beyond": {
+  "DEV beyond 10": {
+   "meAboveGreenPx": 123.3,
+   "edge": 10,
+   "zoomYd": 10,
+   "meMarkerPx": 0,
    "view": "approach",
-   "z": 2.722,
+   "z": 2.8,
    "header": [
-    0,
-    15,
-    29
+    10,
+    26,
+    40
    ],
    "engine": [
-    0,
-    15,
-    29
+    10,
+    26,
+    40
    ],
    "hzTable": [
     [
-     47,
-     57
+     57,
+     68
     ]
    ],
    "hzCalc": [
     [
-     47,
-     57
+     57,
+     68
     ]
    ],
    "greenInside": true,

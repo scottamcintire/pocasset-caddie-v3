@@ -2,6 +2,9 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.1.1-zoom-test: zoom by nearest green edge (owner, 17 Nov 2026)
+- Zoom now follows the distance to the NEAREST EDGE of the green (0 on the green; back edge when beyond it), from the same green outline and metres as the GPS engine; front/centre/back unchanged. DEV buttons (`?dev=1`) are edge distances (150/75/50/25/10 short, 10 beyond). Hole 2 only; tests/test_zoom.js 19 checks.
+
 ## v5.1.0-zoom-test: GPS zoom, Phase 1 (Hole 2 only, 17 Nov 2026)
 - /play/ flyover zooms toward the green as the distance to the green centre falls (1× at 150+ yd → 2.8× at 10 yd, smooth curve), centred between green and golfer and never cropping either; image and overlay share one visible box (`PFly.zoomBox`/`zoomFor`, overlay `box` option keeps marks on their ground points and labels at constant on-screen size). Smoothing: EMA on distance + 0.1× change threshold; animation only on change.
 - Enabled for Hole 2 only (`ZOOM_HOLES`). Developer distances with `?dev=1` (150/75/50/25/10 yd + 15 yd beyond the green). Without a box the overlay output is byte-identical (1,440 overlays compared); GPS engine, hazards, pins, scoring, artwork unchanged. Test: tests/test_zoom.js (16 checks).
