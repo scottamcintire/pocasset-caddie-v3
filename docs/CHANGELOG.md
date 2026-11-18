@@ -7,6 +7,7 @@ All changes to the V3 project, newest first. V3 is separate from production: not
 - DEV (`?dev=1`): beyond button now 15 yd; a DEV distance button is hidden when the hole never reaches it (DEV 150 on par-3 Holes 12 and 15).
 - tests/test_zoom.js covers all 18 holes (202 checks, all pass). Regression: test_play 38/38, test_prototype Holes 1–18, alignment, visual baseline v1.2, tools, scorecard: all pass.
 - Flagged for review (no change made): Hole 6 at 150 yd (unzoomed tee picture, same as v5.0) shows the green within 5% of the top edge.
+- Owner decision 17 Nov 2026: the short par 3s (Holes 6, 12, 15) stay as they are; Hole 6 framing flag closed, no change.
 
 ## v5.1.1-zoom-test: zoom by nearest green edge (owner, 17 Nov 2026)
 - Zoom now follows the distance to the NEAREST EDGE of the green (0 on the green; back edge when beyond it), from the same green outline and metres as the GPS engine; front/centre/back unchanged. DEV buttons (`?dev=1`) are edge distances (150/75/50/25/10 short, 10 beyond). Hole 2 only; tests/test_zoom.js 19 checks.
