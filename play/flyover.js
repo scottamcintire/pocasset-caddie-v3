@@ -93,8 +93,8 @@
     s += layout(LB, W, H, B, k);
     return { svg: s, fcb: fcb, hz: hz };
   }
-  /* GPS zoom (/play/): the visible rectangle for a distance to the green centre. Zoom 1 at >= 150 yd, rising
-     smoothly to 2.8 at 10 yd; centred between the green and the golfer and shrunk only as far as keeps both inside
+  /* GPS zoom (/play/): the visible rectangle for a distance to the green (the caller passes the nearest-edge distance).
+     Zoom 1 at >= 150 yd, rising smoothly to 2.8 at 10 yd and closer; centred between the green and the golfer and shrunk only as far as keeps both inside
      (with a margin); always inside the image and at the image's aspect ratio. */
   var ZOOM_PTS = [[150, 1], [75, 1.6], [50, 1.95], [30, 2.3], [10, 2.8]];
   function zoomFor(yards) {

@@ -310,11 +310,28 @@ var ZOOM_HOLES=[2], ZOOM_STEP=0.1;
 function zoomTarget(n,hd,v,me,r){
   if(ZOOM_HOLES.indexOf(n)<0||!S.me||!r||!r.onCourse){S.zoom=null;return null}
   var key=n+'|'+S.view+'|'+S.mode;   // a new hole, view or source (simulated/live) starts fresh
-  if(!S.zoom||S.zoom.key!==key||S.mode==='sim')S.zoom={key:key,yd:r.center,z:PFly.zoomFor(r.center)};   // simulated jumps apply at once
-  else{S.zoom.yd+=0.35*(r.center-S.zoom.yd);var zt=PFly.zoomFor(S.zoom.yd);if(Math.abs(zt-S.zoom.z)>ZOOM_STEP||(zt===1&&S.zoom.z!==1))S.zoom.z=zt}
+  var ey=edgeYards(n,S.me);   // nearest green edge (not the centre)
+  if(!S.zoom||S.zoom.key!==key||S.mode==='sim')S.zoom={key:key,yd:ey,z:PFly.zoomFor(ey)};   // simulated jumps apply at once
+  else{S.zoom.yd+=0.35*(ey-S.zoom.yd);var zt=PFly.zoomFor(S.zoom.yd);if(Math.abs(zt-S.zoom.z)>ZOOM_STEP||(zt===1&&S.zoom.z!==1))S.zoom.z=zt}
   var g=v.V.project(hd.hole.centerUV[0],hd.hole.centerUV[1]),m=v.V.project(me[0],me[1]);
   if(!g)return null;
   return PFly.zoomBox(v.width,v.height,S.zoom.z,g,m);
+}
+/* Yards from a point to the NEAREST EDGE of the green (0 on the green), using the same green outline and
+   flat-earth metres as the GPS engine (PCaddie.xy). Used only for the zoom; front/centre/back are untouched. */
+function edgeYards(n,pt){
+  var c=C.green_map[n].center,q=K.xy(pt,c),ring=C.green_map[n].ring.map(function(p){return K.xy(p,c)}),inside=false,best=Infinity;
+  for(var i=0,j=ring.length-1;i<ring.length;j=i++){var a=ring[i],b=ring[j];
+    if((a.y>q.y)!==(b.y>q.y)&&q.x<(b.x-a.x)*(q.y-a.y)/(b.y-a.y)+a.x)inside=!inside;
+    var vx=b.x-a.x,vy=b.y-a.y,L=vx*vx+vy*vy,t=L?Math.max(0,Math.min(1,((q.x-a.x)*vx+(q.y-a.y)*vy)/L)):0;best=Math.min(best,Math.hypot(q.x-a.x-t*vx,q.y-a.y-t*vy))}
+  return inside?0:best*K.YARDS_PER_METER;
+}
+/* DEV: a point on the playing line (or beyond the green, past its centre) whose nearest-edge distance is `yards`. */
+function devPoint(n,yards,beyond){
+  var c=C.green_map[n].center,p30=course.alongFromGreen(n,30),lo=0,hi=400,pt=null;
+  for(var k=0;k<40;k++){var mid=(lo+hi)/2,q=beyond?[c[0]+(c[0]-p30[0])*mid/30,c[1]+(c[1]-p30[1])*mid/30]:course.alongFromGreen(n,mid);
+    if(!q){hi=mid;continue}pt=q;if(edgeYards(n,q)<yards)lo=mid;else hi=mid}
+  return pt;
 }
 var zoomAnim=null;
 function setBox(v,b){var img=$('img');S.box=b;
@@ -344,8 +361,8 @@ function renderPresets(hd){
   }
   var L=course.pathLengthYd(n);
   [250,200,150,100,60].forEach(function(y){if(y<L-15){var ll=course.alongFromGreen(n,y);if(ll)list.push({label:y+' yd out',ll:ll,src:'SIMULATED '+y+' yd back from the green centre along the playing line (straight-line yardage can be shorter on a dogleg)'})}});
-  if(DEV&&ZOOM_HOLES.indexOf(n)>=0){[150,75,50,25,10].forEach(function(y){var ll=course.alongFromGreen(n,y);if(ll)list.push({label:'DEV '+y,ll:ll,src:'DEV simulated '+y+' yd from the green centre'})});
-    var c=C.green_map[n].center,p=course.alongFromGreen(n,30);if(p)list.push({label:'DEV beyond',ll:[c[0]+(c[0]-p[0])*0.5,c[1]+(c[1]-p[1])*0.5],src:'DEV simulated 15 yd beyond the green centre'})}
+  if(DEV&&ZOOM_HOLES.indexOf(n)>=0){[150,75,50,25,10].forEach(function(y){var ll=devPoint(n,y,false);if(ll)list.push({label:'DEV '+y,ll:ll,src:'DEV simulated '+y+' yd short of the green edge'})});
+    var bl=devPoint(n,10,true);if(bl)list.push({label:'DEV beyond 10',ll:bl,src:'DEV simulated 10 yd beyond the back edge of the green'})}
   presetList=list;
   $('presets').innerHTML=list.map(function(p,i){return '<button data-i="'+i+'"'+(S.mode==='sim'&&S.meLabel===p.src?' class="on"':'')+'>'+p.label+'</button>'}).join('');
   $('teeNote').innerHTML=note;
@@ -486,7 +503,7 @@ $('fine').innerHTML='Live GPS uses the same method as the live app (V2.3.1): fro
  'Hazard outlines predate the spring 2026 bunker rebuild and are <b>unverified</b>; the Hole 8 pond is traced from 2021 lidar (approximate). Woods are illustrative. Approved greens are shown unchanged. '+
  'Map data © OpenStreetMap contributors; elevation USGS 3DEP; canopy from USDA NAIP.';
 updWake();
-window.__play={zoomTarget:zoomTarget,S:S,R:function(){return R},prefs:prefs,course:course,card:card,pins:pins,gps:gps,auto:auto,HD:HD,goHole:goHole,setTab:setTab,render:render,
+window.__play={zoomTarget:zoomTarget,edgeYards:edgeYards,S:S,R:function(){return R},prefs:prefs,course:course,card:card,pins:pins,gps:gps,auto:auto,HD:HD,goHole:goHole,setTab:setTab,render:render,
   fix:function(lon,lat,acc){gps.setWanted(true);gps.fix({coords:{longitude:lon,latitude:lat,accuracy:acc==null?5:acc}})}};
 gps.attach();
 if(!R)openTee('start');
