@@ -2,7 +2,7 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
-## v5.2.0-zoom-all: GPS zoom on all 18 holes (test release, 17 Nov 2026; awaiting owner review)
+## v5.2.0-zoom-all: GPS zoom on all 18 holes (test release, 17 Nov 2026; APPROVED by owner 17 Nov 2026)
 - The approved Hole 2 zoom (nearest-green-edge distance) now runs on every flyover hole through the same shared code (`ZOOM_HOLES = COURSE.flyover_holes`); no per-hole logic, no artwork, camera, GPS, hazard, pin or scoring change.
 - DEV (`?dev=1`): beyond button now 15 yd; a DEV distance button is hidden when the hole never reaches it (DEV 150 on par-3 Holes 12 and 15).
 - tests/test_zoom.js covers all 18 holes (202 checks, all pass). Regression: test_play 38/38, test_prototype Holes 1–18, alignment, visual baseline v1.2, tools, scorecard: all pass.
