@@ -26,6 +26,8 @@ button{cursor:pointer}
 .yc strong{display:block;font-size:31px;font-weight:800;line-height:1.05;font-variant-numeric:tabular-nums}
 .yc span{font-size:11px;font-weight:700;letter-spacing:1.2px}
 .yc.f span{color:var(--red)}.yc.b span{color:#5aa2ff}
+.yard.min{grid-template-columns:78px 1fr}.yard.min .yc.f,.yard.min .yc.b{display:none}
+.simbtn{width:100%;margin-top:14px;letter-spacing:1.4px;font-weight:800}
 .meta{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 12px;font-size:12px;font-weight:700;background:var(--navy2)}
 .meta button{background:none;border:0;padding:0;font-weight:800;font-size:12px;text-align:left}
 .meta .card b{color:var(--amber)}.meta .flag{color:#ffb1a6;white-space:nowrap}
@@ -104,7 +106,7 @@ main{min-height:calc(100svh - 260px)}
 <div class="top">
   <div class="brand"><div><b>Pocasset <i>AI</i> Caddie</b><small>V3 test · play the round</small></div>
     <span style="display:flex;gap:8px;align-items:center"><a class="pillbtn" href="../">Holes</a><span class="src" id="srcTag">GPS OFF</span></span></div>
-  <div class="yard">
+  <div class="yard" id="yard">
     <div class="hole"><span id="hn">–</span><small id="par">PAR</small></div>
     <div class="yc f"><strong id="yF">—</strong><span>FRONT</span></div>
     <div class="yc"><strong id="yC">—</strong><span>CENTER</span></div>
@@ -127,9 +129,10 @@ main{min-height:calc(100svh - 260px)}
       <button class="big" id="gpsBtn">Start live GPS</button>
       <div class="status" id="gpsStatus">GPS off. Live yardages appear when you start GPS on the course.</div>
       <div class="list" id="haz"></div>
-      <h3 style="margin-top:16px">Try it without GPS (simulated)</h3>
+      <button class="btn2 simbtn" id="simBtn" aria-expanded="false" aria-controls="simBox" hidden>SIMULATE ▸</button>
+      <div id="simBox"><h3 style="margin-top:16px">Try it without GPS (simulated)</h3>
       <div class="chips" id="presets"></div>
-      <div class="fine" id="teeNote"></div>
+      <div class="fine" id="teeNote"></div></div>
       <div class="row" id="tapRow"><span style="font-size:13px;color:#9fb3cf">Tap the picture to</span>
         <div class="seg"><button id="mTarget" class="on">measure a spot</button><button id="mMe">move me</button></div></div>
       <div class="row"><button class="btn2" id="wakeBtn">Keep screen on while GPS runs · ON</button></div>
@@ -216,6 +219,13 @@ var R=store.get('round');            // current V3 round (null until started)
 function saveRound(){if(R)store.set('round',R)}
 var S={tab:'fly',view:'tee',viewManual:false,me:null,meSrc:null,meLabel:'',target:null,tapMode:'target',acc:null,mode:'off',hd:null,offCourse:false};
 var RULE={corridor_m:40*YD,max:4};
+/* Minimalist display (Phase 1: Hole 2 only, v5.3.0). Uses the header's centre-of-green yardage (V2.3.1 engine, unchanged):
+   beyond MIN_FAR_YD → centre only in the header and no hazard labels on the flyover; at MIN_FAR_YD or closer → full
+   front/centre/back and at most MIN_HZ_LABELS hazard labels (hazards ahead of you, nearest first: the existing order).
+   Display only: GPS, zoom, hazard geometry and the hazard table below the picture are unchanged. */
+var MIN_HOLES=[2],MIN_FAR_YD=250,MIN_HZ_LABELS=3;
+function minFar(n,r){return MIN_HOLES.indexOf(n)>=0&&!!r&&r.onCourse&&r.center>MIN_FAR_YD}
+S.simOpen=false;
 var hole=function(){return R?R.hole:1};
 
 // ---------- toast
@@ -263,9 +273,11 @@ function renderHeader(){
 // GPS readout (V2.3.1 engine) for the header
 function renderReadout(){
   var n=hole(),ids=['yF','yC','yB'];
+  $('yard').classList.remove('min');
   if(!S.me){ids.forEach(function(i){$(i).textContent='—'});$('flagTxt').textContent='';return null}
   var r=course.readout(n,S.me,S.mode==='live'?'live':'sim',S.acc,pins.todayPinLL(n));
   S.offCourse=!r.onCourse;
+  $('yard').classList.toggle('min',minFar(n,r));   // values below are still written; only front/back cells are hidden
   if(!r.onCourse){ids.forEach(function(i){$(i).textContent='—'});$('flagTxt').textContent='';return r}
   $('yF').textContent=r.front;$('yC').textContent=r.center;$('yB').textContent=r.back;
   $('flagTxt').textContent=r.flag!=null?'FLAG '+r.flag+' yd':'flag: no pin today';
@@ -292,8 +304,9 @@ function renderFly(){
     var zb=zoomTarget(n,hd,v,me,r);
     if(!S.me||S.offCourse){applyBox(v,null);$('ov').innerHTML='';$('haz').innerHTML=S.offCourse?'':'<table><tr><td>Start GPS or pick a simulated position to see hazard yardages.</td></tr></table>'}
     else{
-      var pl=pins.placed(n),o=PFly.overlay(v,hd.hole,me,{name:S.view,target:S.target,pinUV:pl.src==='today'&&pl.res.uv?pl.res.uv:null,rule:RULE,box:zb&&zb.z>1?zb:null}),rows='';
-      o.hz.forEach(function(h){rows+='<tr><td>'+(h.cls==='water'?'Pond':'Bunker')+' · '+PFly.posText(h.position)+(h.status==='unverified'?'<span class="tag">UNVERIFIED</span>':'')+'</td><td class="n">'+PFly.yd(h.reach)+'</td><td class="n">'+PFly.yd(h.carry)+'</td></tr>'});
+      var mh=MIN_HOLES.indexOf(n)>=0,rule=mh?{corridor_m:RULE.corridor_m,max:minFar(n,r)?0:MIN_HZ_LABELS}:RULE;
+      var pl=pins.placed(n),o=PFly.overlay(v,hd.hole,me,{name:S.view,target:S.target,pinUV:pl.src==='today'&&pl.res.uv?pl.res.uv:null,rule:rule,box:zb&&zb.z>1?zb:null}),rows='';
+      (mh?hd.hole.hazards(me,RULE):o.hz).forEach(function(h){rows+='<tr><td>'+(h.cls==='water'?'Pond':'Bunker')+' · '+PFly.posText(h.position)+(h.status==='unverified'?'<span class="tag">UNVERIFIED</span>':'')+'</td><td class="n">'+PFly.yd(h.reach)+'</td><td class="n">'+PFly.yd(h.carry)+'</td></tr>'});
       $('haz').innerHTML='<table><tr><td style="color:#9fb3cf">Hazards ahead (±40 yd of your line), from your position</td><td class="n" style="color:#9fb3cf">front</td><td class="n" style="color:#9fb3cf">carry</td></tr>'+(rows||'<tr><td colspan="3">None ahead</td></tr>')+'</table>';
       $('ov').innerHTML=o.svg;applyBox(v,zb);
     }
@@ -364,9 +377,13 @@ function renderPresets(hd){
   if(DEV&&ZOOM_HOLES.indexOf(n)>=0){[150,75,50,25,10].forEach(function(y){var ll=devPoint(n,y,false);if(ll)list.push({label:'DEV '+y,ll:ll,src:'DEV simulated '+y+' yd short of the green edge'})});
     var bl=devPoint(n,15,true);if(bl)list.push({label:'DEV beyond 15',ll:bl,src:'DEV simulated 15 yd beyond the back edge of the green'})}
   presetList=list;
+  var col=MIN_HOLES.indexOf(n)>=0;   // SIMULATE collapsed behind one button (Phase 1: Hole 2 only)
+  $('simBtn').hidden=!col;$('simBox').hidden=col&&!S.simOpen;
+  $('simBtn').textContent='SIMULATE '+(S.simOpen?'▾':'▸');$('simBtn').setAttribute('aria-expanded',String(!col||S.simOpen));
   $('presets').innerHTML=list.map(function(p,i){return '<button data-i="'+i+'"'+(S.mode==='sim'&&S.meLabel===p.src?' class="on"':'')+'>'+p.label+'</button>'}).join('');
   $('teeNote').innerHTML=note;
 }
+$('simBtn').onclick=function(){S.simOpen=!S.simOpen;renderPresets(S.hd&&S.hd.n===hole()?S.hd.data:null)};
 $('presets').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var p=presetList[+b.dataset.i];
   if(gps.wanted())gps.stop(true);S.mode='sim';S.me=p.ll;S.acc=null;S.meLabel=p.src;S.target=null;setStatus(p.src+'. This is not your actual location.','warn');render()});
 $('stage').addEventListener('click',function(e){
