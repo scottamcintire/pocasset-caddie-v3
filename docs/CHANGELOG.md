@@ -2,6 +2,12 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.3.1-hole02-hazard-reach: hazard labels by golfer-to-hazard distance (Hole 2 only, test release, 19 Nov 2026)
+- Owner report: at 261 yd from the green the pond ahead had no label (v5.3.0 hid all labels when the green was > 250 yd). Hazard labels no longer depend on the green distance: a hazard is labelled when its near edge is ≤ 250 yd from the golfer and ahead (existing hazard calculation: ahead, in the ±40 yd corridor, nearest first), max 3. The centre-only header beyond 250 yd from the green is unchanged.
+- Pond H02-WA-01 inspected first: closed OSM outline, 68 points, no self-intersections, ~1,765 m², 13–76 yd short of the green centre, imagery check Mar 2025 ±1.1 yd (pre-restoration, unverified). Front · carry come from the existing crossings of the playing line; no geometry or distance changed. The playing line runs through the mapped pond ~50–76 yd out: a golfer inside the outline has no near edge ahead, so no pond front · carry label there (the table still lists it, unchanged).
+- Page code only (labels drawn from a filtered hazard list); app/*.js, GPS, zoom, images, coordinates, hazard table and UNVERIFIED warnings unchanged; built /play/ differs from v5.3.0 in index.html only.
+- Tests: tests/test_minimal.js 82/82, Move Me taps at 300/261/251/250/200/100/60/40 yd + the same spots as live GPS; test_play 38/38; test_zoom 202/202 (results and screenshots byte-identical). Production V2.3.1 unchanged (e8b22e4).
+
 ## v5.3.0-minimal-hole02: minimalist display, Phase 1 (Hole 2 only, test release, 19 Nov 2026)
 - /play/ on Hole 2: beyond 250 yd from the green centre (the header's existing V2.3.1 centre yardage) the header shows the centre yardage only and the flyover shows no bunker/pond labels; at 250 yd or closer the front/centre/back header returns and at most 3 hazard labels are drawn (hazards ahead within ±40 yd of the line, nearest first: the existing order, `rule.max` 3 for drawing only).
 - The hazard table below the picture is unchanged (up to 4 rows). Simulation buttons sit behind one collapsible **SIMULATE** button (collapsed by default, Hole 2 only). Tap-to-measure and the "move me" toggle stay visible.

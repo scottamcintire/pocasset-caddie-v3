@@ -219,12 +219,20 @@ var R=store.get('round');            // current V3 round (null until started)
 function saveRound(){if(R)store.set('round',R)}
 var S={tab:'fly',view:'tee',viewManual:false,me:null,meSrc:null,meLabel:'',target:null,tapMode:'target',acc:null,mode:'off',hd:null,offCourse:false};
 var RULE={corridor_m:40*YD,max:4};
-/* Minimalist display (Phase 1: Hole 2 only, v5.3.0). Uses the header's centre-of-green yardage (V2.3.1 engine, unchanged):
-   beyond MIN_FAR_YD → centre only in the header and no hazard labels on the flyover; at MIN_FAR_YD or closer → full
-   front/centre/back and at most MIN_HZ_LABELS hazard labels (hazards ahead of you, nearest first: the existing order).
-   Display only: GPS, zoom, hazard geometry and the hazard table below the picture are unchanged. */
-var MIN_HOLES=[2],MIN_FAR_YD=250,MIN_HZ_LABELS=3;
+/* Minimalist display (Phase 1: Hole 2 only). Header (v5.3.0): beyond MIN_FAR_YD from the green centre (the header's
+   V2.3.1 yardage) → centre only. Hazard labels (v5.3.1), independent of the green distance: a hazard is labelled when its
+   near edge is within MIN_HZ_REACH_YD of the golfer, ahead (existing hazard calculation: ahead of you, in the ±40 yd
+   corridor, nearest first), at most MIN_HZ_LABELS. Water you are standing inside has no near edge ahead, so it gets no
+   front · carry label. Display only: GPS, zoom, hazard geometry/distances and the hazard table are unchanged. */
+var MIN_HOLES=[2],MIN_FAR_YD=250,MIN_HZ_LABELS=3,MIN_HZ_REACH_YD=250;
 function minFar(n,r){return MIN_HOLES.indexOf(n)>=0&&!!r&&r.onCourse&&r.center>MIN_FAR_YD}
+function inRing(q,ring){var c=false;for(var i=0,j=ring.length-1;i<ring.length;j=i++){var a=ring[i],b=ring[j];if((a[1]>q[1])!==(b[1]>q[1])&&q[0]<(b[0]-a[0])*(q[1]-a[1])/(b[1]-a[1])+a[0])c=!c}return c}
+function labelHole(h){var o=Object.create(h);   // same hole for the overlay, with only the hazard list for labels filtered
+  o.hazards=function(p,rule){return h.hazards(p,{corridor_m:rule.corridor_m,max:Infinity}).filter(function(z){
+    if(z.reach/YD>MIN_HZ_REACH_YD)return false;
+    if(z.cls==='water'){var f=h.feats.filter(function(x){return x.id===z.id})[0];if(f&&inRing(p,f.uv))return false}
+    return true}).slice(0,rule.max)};
+  return o}
 S.simOpen=false;
 var hole=function(){return R?R.hole:1};
 
@@ -304,8 +312,8 @@ function renderFly(){
     var zb=zoomTarget(n,hd,v,me,r);
     if(!S.me||S.offCourse){applyBox(v,null);$('ov').innerHTML='';$('haz').innerHTML=S.offCourse?'':'<table><tr><td>Start GPS or pick a simulated position to see hazard yardages.</td></tr></table>'}
     else{
-      var mh=MIN_HOLES.indexOf(n)>=0,rule=mh?{corridor_m:RULE.corridor_m,max:minFar(n,r)?0:MIN_HZ_LABELS}:RULE;
-      var pl=pins.placed(n),o=PFly.overlay(v,hd.hole,me,{name:S.view,target:S.target,pinUV:pl.src==='today'&&pl.res.uv?pl.res.uv:null,rule:rule,box:zb&&zb.z>1?zb:null}),rows='';
+      var mh=MIN_HOLES.indexOf(n)>=0,rule=mh?{corridor_m:RULE.corridor_m,max:MIN_HZ_LABELS}:RULE;
+      var pl=pins.placed(n),o=PFly.overlay(v,mh?labelHole(hd.hole):hd.hole,me,{name:S.view,target:S.target,pinUV:pl.src==='today'&&pl.res.uv?pl.res.uv:null,rule:rule,box:zb&&zb.z>1?zb:null}),rows='';
       (mh?hd.hole.hazards(me,RULE):o.hz).forEach(function(h){rows+='<tr><td>'+(h.cls==='water'?'Pond':'Bunker')+' · '+PFly.posText(h.position)+(h.status==='unverified'?'<span class="tag">UNVERIFIED</span>':'')+'</td><td class="n">'+PFly.yd(h.reach)+'</td><td class="n">'+PFly.yd(h.carry)+'</td></tr>'});
       $('haz').innerHTML='<table><tr><td style="color:#9fb3cf">Hazards ahead (±40 yd of your line), from your position</td><td class="n" style="color:#9fb3cf">front</td><td class="n" style="color:#9fb3cf">carry</td></tr>'+(rows||'<tr><td colspan="3">None ahead</td></tr>')+'</table>';
       $('ov').innerHTML=o.svg;applyBox(v,zb);

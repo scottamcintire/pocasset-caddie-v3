@@ -1,8 +1,10 @@
 {
  "checks": {
-  "test points found (header centre exactly 300/251/250/200/100/60)": {
+  "test spots found (header centre exactly 300/261/251/250/200/100/60/40)": {
    "pass": true,
    "detail": [
+    true,
+    true,
     true,
     true,
     true,
@@ -11,67 +13,165 @@
     true
    ]
   },
-  "sim 300 yd: header centre = 300": {
+  "300 yd: Move Me placed the golfer (simulated) on the spot": {
+   "pass": true,
+   "detail": {
+    "how": "tapped on tee view",
+    "errYd": 0.33,
+    "me": [
+     -70.61272407713898,
+     41.68992609712553
+    ],
+    "mode": "sim",
+    "view": "tee",
+    "manual": false
+   }
+  },
+  "300 yd (Move Me, centre 300): header centre = V2.3.1 engine": {
    "pass": true,
    "detail": [
-    "285",
+    "286",
     "300",
     "315"
    ]
   },
-  "sim 300 yd: centre only (front/back hidden)": {
+  "300 yd (Move Me, centre 300): centre only (front/back hidden)": {
    "pass": true,
    "detail": {
     "min": true,
     "F": false,
-    "C": true,
     "B": false
    }
   },
-  "sim 300 yd: no hazard labels on the flyover": {
+  "300 yd (Move Me, centre 300): labels = hazards ahead whose near edge is ≤250 yd from the golfer (max 3, nearest first)": {
    "pass": true,
    "detail": {
-    "labels": [],
-    "ahead": [
-     "229 · 256",
-     "263 · 281",
-     "318 · 326"
-    ]
-   }
-  },
-  "sim 300 yd: hazard table below the picture unchanged": {
-   "pass": true,
-   "detail": {
-    "now": [
-     "229 · 256",
-     "263 · 281",
-     "318 · 326"
+    "labels": [
+     "229 · 256 pond"
     ],
-    "before": [
-     "229 · 256",
-     "263 · 281",
-     "318 · 326"
+    "expected": [
+     "229 · 256 pond"
+    ],
+    "ahead": [
+     "229 · 256 pond",
+     "263 · 282 bunker",
+     "319 · 327 bunker"
     ]
    }
   },
-  "sim 300 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+  "300 yd (Move Me, centre 300): no label beyond 250 yd from the golfer": {
+   "pass": true
+  },
+  "300 yd (Move Me, centre 300): hazard table and UNVERIFIED warnings unchanged": {
+   "pass": true
+  },
+  "300 yd (Move Me, centre 300): zoom and hazard table identical to previous release": {
    "pass": true,
    "detail": {
-    "now": null,
+    "box": null,
     "before": null
    }
   },
-  "sim 300 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+  "300 yd (Move Me, centre 300): live GPS shows the same header and hazard labels": {
    "pass": true,
    "detail": {
-    "view": "tee",
-    "before": "tee",
-    "me": true,
-    "meBefore": true,
-    "nav": true
+    "live": [
+     "229 · 256 pond"
+    ],
+    "moveMe": [
+     "229 · 256 pond"
+    ]
    }
   },
-  "sim 251 yd: header centre = 251": {
+  "261 yd: Move Me placed the golfer (simulated) on the spot": {
+   "pass": true,
+   "detail": {
+    "how": "tapped on tee view",
+    "errYd": 0.28,
+    "me": [
+     -70.6127673490936,
+     41.690250896521896
+    ],
+    "mode": "sim",
+    "view": "tee",
+    "manual": false
+   }
+  },
+  "261 yd (Move Me, centre 261): header centre = V2.3.1 engine": {
+   "pass": true,
+   "detail": [
+    "246",
+    "261",
+    "276"
+   ]
+  },
+  "261 yd (Move Me, centre 261): centre only (front/back hidden)": {
+   "pass": true,
+   "detail": {
+    "min": true,
+    "F": false,
+    "B": false
+   }
+  },
+  "261 yd (Move Me, centre 261): labels = hazards ahead whose near edge is ≤250 yd from the golfer (max 3, nearest first)": {
+   "pass": true,
+   "detail": {
+    "labels": [
+     "189 · 216 pond",
+     "224 · 242 bunker"
+    ],
+    "expected": [
+     "189 · 216 pond",
+     "224 · 242 bunker"
+    ],
+    "ahead": [
+     "189 · 216 pond",
+     "224 · 242 bunker",
+     "280 · 288 bunker"
+    ]
+   }
+  },
+  "261 yd (Move Me, centre 261): no label beyond 250 yd from the golfer": {
+   "pass": true
+  },
+  "261 yd (Move Me, centre 261): hazard table and UNVERIFIED warnings unchanged": {
+   "pass": true
+  },
+  "261 yd (Move Me, centre 261): zoom and hazard table identical to previous release": {
+   "pass": true,
+   "detail": {
+    "box": null,
+    "before": null
+   }
+  },
+  "261 yd (Move Me, centre 261): live GPS shows the same header and hazard labels": {
+   "pass": true,
+   "detail": {
+    "live": [
+     "189 · 216 pond",
+     "224 · 242 bunker"
+    ],
+    "moveMe": [
+     "189 · 216 pond",
+     "224 · 242 bunker"
+    ]
+   }
+  },
+  "251 yd: Move Me placed the golfer (simulated) on the spot": {
+   "pass": true,
+   "detail": {
+    "how": "tapped on tee view",
+    "errYd": 0.31,
+    "me": [
+     -70.61277814872692,
+     41.69033409403007
+    ],
+    "mode": "sim",
+    "view": "tee",
+    "manual": false
+   }
+  },
+  "251 yd (Move Me, centre 251): header centre = V2.3.1 engine": {
    "pass": true,
    "detail": [
     "236",
@@ -79,573 +179,225 @@
     "266"
    ]
   },
-  "sim 251 yd: centre only (front/back hidden)": {
+  "251 yd (Move Me, centre 251): centre only (front/back hidden)": {
    "pass": true,
    "detail": {
     "min": true,
     "F": false,
-    "C": true,
     "B": false
    }
   },
-  "sim 251 yd: no hazard labels on the flyover": {
+  "251 yd (Move Me, centre 251): labels = hazards ahead whose near edge is ≤250 yd from the golfer (max 3, nearest first)": {
    "pass": true,
    "detail": {
-    "labels": [],
-    "ahead": [
-     "179 · 206",
-     "214 · 232",
-     "269 · 277"
-    ]
-   }
-  },
-  "sim 251 yd: hazard table below the picture unchanged": {
-   "pass": true,
-   "detail": {
-    "now": [
-     "179 · 206",
-     "214 · 232",
-     "269 · 277"
+    "labels": [
+     "179 · 206 pond",
+     "214 · 232 bunker"
     ],
-    "before": [
-     "179 · 206",
-     "214 · 232",
-     "269 · 277"
+    "expected": [
+     "179 · 206 pond",
+     "214 · 232 bunker"
+    ],
+    "ahead": [
+     "179 · 206 pond",
+     "214 · 232 bunker",
+     "270 · 278 bunker"
     ]
    }
   },
-  "sim 251 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+  "251 yd (Move Me, centre 251): no label beyond 250 yd from the golfer": {
+   "pass": true
+  },
+  "251 yd (Move Me, centre 251): hazard table and UNVERIFIED warnings unchanged": {
+   "pass": true
+  },
+  "251 yd (Move Me, centre 251): zoom and hazard table identical to previous release": {
    "pass": true,
    "detail": {
-    "now": null,
+    "box": null,
     "before": null
    }
   },
-  "sim 251 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+  "251 yd (Move Me, centre 251): live GPS shows the same header and hazard labels": {
    "pass": true,
    "detail": {
+    "live": [
+     "179 · 206 pond",
+     "214 · 232 bunker"
+    ],
+    "moveMe": [
+     "179 · 206 pond",
+     "214 · 232 bunker"
+    ]
+   }
+  },
+  "250 yd: Move Me placed the golfer (simulated) on the spot": {
+   "pass": true,
+   "detail": {
+    "how": "tapped on tee view",
+    "errYd": 0.42,
+    "me": [
+     -70.612776997044,
+     41.690340666376464
+    ],
+    "mode": "sim",
     "view": "tee",
-    "before": "tee",
-    "me": true,
-    "meBefore": true,
-    "nav": true
+    "manual": false
    }
   },
-  "sim 250 yd: header centre = 250": {
-   "pass": true,
-   "detail": [
-    "235",
-    "250",
-    "265"
-   ]
-  },
-  "sim 250 yd: front/centre/back shown": {
-   "pass": true,
-   "detail": {
-    "min": false,
-    "F": true,
-    "C": true,
-    "B": true
-   }
-  },
-  "sim 250 yd: ≤3 hazard labels, nearest hazards ahead": {
-   "pass": true,
-   "detail": {
-    "labels": [
-     "178 · 205",
-     "213 · 231",
-     "268 · 276"
-    ],
-    "ahead": [
-     "178 · 205",
-     "213 · 231",
-     "268 · 276"
-    ]
-   }
-  },
-  "sim 250 yd: hazard table below the picture unchanged": {
-   "pass": true,
-   "detail": {
-    "now": [
-     "178 · 205",
-     "213 · 231",
-     "268 · 276"
-    ],
-    "before": [
-     "178 · 205",
-     "213 · 231",
-     "268 · 276"
-    ]
-   }
-  },
-  "sim 250 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
-   "pass": true,
-   "detail": {
-    "now": null,
-    "before": null
-   }
-  },
-  "sim 250 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
-   "pass": true,
-   "detail": {
-    "view": "tee",
-    "before": "tee",
-    "me": true,
-    "meBefore": true,
-    "nav": true
-   }
-  },
-  "sim 200 yd: header centre = 200": {
-   "pass": true,
-   "detail": [
-    "185",
-    "200",
-    "215"
-   ]
-  },
-  "sim 200 yd: front/centre/back shown": {
-   "pass": true,
-   "detail": {
-    "min": false,
-    "F": true,
-    "C": true,
-    "B": true
-   }
-  },
-  "sim 200 yd: ≤3 hazard labels, nearest hazards ahead": {
-   "pass": true,
-   "detail": {
-    "labels": [
-     "127 · 154",
-     "162 · 180",
-     "219 · 226"
-    ],
-    "ahead": [
-     "127 · 154",
-     "162 · 180",
-     "219 · 226"
-    ]
-   }
-  },
-  "sim 200 yd: hazard table below the picture unchanged": {
-   "pass": true,
-   "detail": {
-    "now": [
-     "127 · 154",
-     "162 · 180",
-     "219 · 226"
-    ],
-    "before": [
-     "127 · 154",
-     "162 · 180",
-     "219 · 226"
-    ]
-   }
-  },
-  "sim 200 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
-   "pass": true,
-   "detail": {
-    "now": null,
-    "before": null
-   }
-  },
-  "sim 200 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
-   "pass": true,
-   "detail": {
-    "view": "approach",
-    "before": "approach",
-    "me": false,
-    "meBefore": false,
-    "nav": true
-   }
-  },
-  "sim 100 yd: header centre = 100": {
-   "pass": true,
-   "detail": [
-    "85",
-    "100",
-    "115"
-   ]
-  },
-  "sim 100 yd: front/centre/back shown": {
-   "pass": true,
-   "detail": {
-    "min": false,
-    "F": true,
-    "C": true,
-    "B": true
-   }
-  },
-  "sim 100 yd: ≤3 hazard labels, nearest hazards ahead": {
-   "pass": true,
-   "detail": {
-    "labels": [
-     "25 · 52",
-     "61 · 79",
-     "119 · 126"
-    ],
-    "ahead": [
-     "25 · 52",
-     "61 · 79",
-     "119 · 126"
-    ]
-   }
-  },
-  "sim 100 yd: hazard table below the picture unchanged": {
-   "pass": true,
-   "detail": {
-    "now": [
-     "25 · 52",
-     "61 · 79",
-     "119 · 126"
-    ],
-    "before": [
-     "25 · 52",
-     "61 · 79",
-     "119 · 126"
-    ]
-   }
-  },
-  "sim 100 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
-   "pass": true,
-   "detail": {
-    "now": null,
-    "before": null
-   }
-  },
-  "sim 100 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
-   "pass": true,
-   "detail": {
-    "view": "approach",
-    "before": "approach",
-    "me": true,
-    "meBefore": true,
-    "nav": true
-   }
-  },
-  "sim 60 yd: header centre = 60": {
-   "pass": true,
-   "detail": [
-    "45",
-    "60",
-    "75"
-   ]
-  },
-  "sim 60 yd: front/centre/back shown": {
-   "pass": true,
-   "detail": {
-    "min": false,
-    "F": true,
-    "C": true,
-    "B": true
-   }
-  },
-  "sim 60 yd: ≤3 hazard labels, nearest hazards ahead": {
-   "pass": true,
-   "detail": {
-    "labels": [
-     "12 · 12",
-     "23 · 37",
-     "79 · 86"
-    ],
-    "ahead": [
-     "12 · 12",
-     "23 · 37",
-     "79 · 86"
-    ]
-   }
-  },
-  "sim 60 yd: hazard table below the picture unchanged": {
-   "pass": true,
-   "detail": {
-    "now": [
-     "12 · 12",
-     "23 · 37",
-     "79 · 86"
-    ],
-    "before": [
-     "12 · 12",
-     "23 · 37",
-     "79 · 86"
-    ]
-   }
-  },
-  "sim 60 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
-   "pass": true,
-   "detail": {
-    "now": [
-     157.442,
-     0,
-     753.235,
-     901.307
-    ],
-    "before": [
-     157.442,
-     0,
-     753.235,
-     901.307
-    ]
-   }
-  },
-  "sim 60 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
-   "pass": true,
-   "detail": {
-    "view": "approach",
-    "before": "approach",
-    "me": true,
-    "meBefore": true,
-    "nav": true
-   }
-  },
-  "live 300 yd: header centre = 300": {
-   "pass": true,
-   "detail": [
-    "285",
-    "300",
-    "315"
-   ]
-  },
-  "live 300 yd: centre only (front/back hidden)": {
-   "pass": true,
-   "detail": {
-    "min": true,
-    "F": false,
-    "C": true,
-    "B": false
-   }
-  },
-  "live 300 yd: no hazard labels on the flyover": {
-   "pass": true,
-   "detail": {
-    "labels": [],
-    "ahead": [
-     "229 · 256",
-     "263 · 281",
-     "318 · 326"
-    ]
-   }
-  },
-  "live 300 yd: hazard table below the picture unchanged": {
-   "pass": true,
-   "detail": {
-    "now": [
-     "229 · 256",
-     "263 · 281",
-     "318 · 326"
-    ],
-    "before": [
-     "229 · 256",
-     "263 · 281",
-     "318 · 326"
-    ]
-   }
-  },
-  "live 300 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
-   "pass": true,
-   "detail": {
-    "now": null,
-    "before": null
-   }
-  },
-  "live 300 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
-   "pass": true,
-   "detail": {
-    "view": "tee",
-    "before": "tee",
-    "me": true,
-    "meBefore": true,
-    "nav": true
-   }
-  },
-  "live 251 yd: header centre = 251": {
+  "250 yd (Move Me, centre 250): header centre = V2.3.1 engine": {
    "pass": true,
    "detail": [
     "236",
-    "251",
-    "266"
-   ]
-  },
-  "live 251 yd: centre only (front/back hidden)": {
-   "pass": true,
-   "detail": {
-    "min": true,
-    "F": false,
-    "C": true,
-    "B": false
-   }
-  },
-  "live 251 yd: no hazard labels on the flyover": {
-   "pass": true,
-   "detail": {
-    "labels": [],
-    "ahead": [
-     "179 · 206",
-     "214 · 232",
-     "269 · 277"
-    ]
-   }
-  },
-  "live 251 yd: hazard table below the picture unchanged": {
-   "pass": true,
-   "detail": {
-    "now": [
-     "179 · 206",
-     "214 · 232",
-     "269 · 277"
-    ],
-    "before": [
-     "179 · 206",
-     "214 · 232",
-     "269 · 277"
-    ]
-   }
-  },
-  "live 251 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
-   "pass": true,
-   "detail": {
-    "now": null,
-    "before": null
-   }
-  },
-  "live 251 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
-   "pass": true,
-   "detail": {
-    "view": "tee",
-    "before": "tee",
-    "me": true,
-    "meBefore": true,
-    "nav": true
-   }
-  },
-  "live 250 yd: header centre = 250": {
-   "pass": true,
-   "detail": [
-    "235",
     "250",
     "265"
    ]
   },
-  "live 250 yd: front/centre/back shown": {
+  "250 yd (Move Me, centre 250): front/centre/back shown": {
    "pass": true,
    "detail": {
     "min": false,
     "F": true,
-    "C": true,
     "B": true
    }
   },
-  "live 250 yd: ≤3 hazard labels, nearest hazards ahead": {
+  "250 yd (Move Me, centre 250): labels = hazards ahead whose near edge is ≤250 yd from the golfer (max 3, nearest first)": {
    "pass": true,
    "detail": {
     "labels": [
-     "178 · 205",
-     "213 · 231",
-     "268 · 276"
+     "178 · 205 pond",
+     "213 · 232 bunker"
+    ],
+    "expected": [
+     "178 · 205 pond",
+     "213 · 232 bunker"
     ],
     "ahead": [
-     "178 · 205",
-     "213 · 231",
-     "268 · 276"
+     "178 · 205 pond",
+     "213 · 232 bunker",
+     "269 · 277 bunker"
     ]
    }
   },
-  "live 250 yd: hazard table below the picture unchanged": {
-   "pass": true,
-   "detail": {
-    "now": [
-     "178 · 205",
-     "213 · 231",
-     "268 · 276"
-    ],
-    "before": [
-     "178 · 205",
-     "213 · 231",
-     "268 · 276"
-    ]
-   }
+  "250 yd (Move Me, centre 250): no label beyond 250 yd from the golfer": {
+   "pass": true
   },
-  "live 250 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+  "250 yd (Move Me, centre 250): hazard table and UNVERIFIED warnings unchanged": {
+   "pass": true
+  },
+  "250 yd (Move Me, centre 250): zoom and hazard table identical to previous release": {
    "pass": true,
    "detail": {
-    "now": null,
+    "box": null,
     "before": null
    }
   },
-  "live 250 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+  "250 yd (Move Me, centre 250): live GPS shows the same header and hazard labels": {
    "pass": true,
    "detail": {
-    "view": "tee",
-    "before": "tee",
-    "me": true,
-    "meBefore": true,
-    "nav": true
+    "live": [
+     "178 · 205 pond",
+     "213 · 232 bunker"
+    ],
+    "moveMe": [
+     "178 · 205 pond",
+     "213 · 232 bunker"
+    ]
    }
   },
-  "live 200 yd: header centre = 200": {
+  "200 yd: Move Me placed the golfer (simulated) on the spot": {
+   "pass": true,
+   "detail": {
+    "how": "tapped on tee view",
+    "errYd": 0.56,
+    "me": [
+     -70.61283156131881,
+     41.69075814511104
+    ],
+    "mode": "sim",
+    "view": "approach",
+    "manual": false
+   }
+  },
+  "200 yd (Move Me, centre 200): header centre = V2.3.1 engine": {
    "pass": true,
    "detail": [
-    "185",
+    "186",
     "200",
-    "215"
+    "216"
    ]
   },
-  "live 200 yd: front/centre/back shown": {
+  "200 yd (Move Me, centre 200): front/centre/back shown": {
    "pass": true,
    "detail": {
     "min": false,
     "F": true,
-    "C": true,
     "B": true
    }
   },
-  "live 200 yd: ≤3 hazard labels, nearest hazards ahead": {
+  "200 yd (Move Me, centre 200): labels = hazards ahead whose near edge is ≤250 yd from the golfer (max 3, nearest first)": {
    "pass": true,
    "detail": {
     "labels": [
-     "127 · 154",
-     "162 · 180",
-     "219 · 226"
+     "127 · 154 pond",
+     "162 · 181 bunker",
+     "219 · 227 bunker"
+    ],
+    "expected": [
+     "127 · 154 pond",
+     "162 · 181 bunker",
+     "219 · 227 bunker"
     ],
     "ahead": [
-     "127 · 154",
-     "162 · 180",
-     "219 · 226"
+     "127 · 154 pond",
+     "162 · 181 bunker",
+     "219 · 227 bunker"
     ]
    }
   },
-  "live 200 yd: hazard table below the picture unchanged": {
-   "pass": true,
-   "detail": {
-    "now": [
-     "127 · 154",
-     "162 · 180",
-     "219 · 226"
-    ],
-    "before": [
-     "127 · 154",
-     "162 · 180",
-     "219 · 226"
-    ]
-   }
+  "200 yd (Move Me, centre 200): no label beyond 250 yd from the golfer": {
+   "pass": true
   },
-  "live 200 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+  "200 yd (Move Me, centre 200): hazard table and UNVERIFIED warnings unchanged": {
+   "pass": true
+  },
+  "200 yd (Move Me, centre 200): zoom and hazard table identical to previous release": {
    "pass": true,
    "detail": {
-    "now": null,
+    "box": null,
     "before": null
    }
   },
-  "live 200 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+  "200 yd (Move Me, centre 200): live GPS shows the same header and hazard labels": {
    "pass": true,
    "detail": {
-    "view": "approach",
-    "before": "approach",
-    "me": false,
-    "meBefore": false,
-    "nav": true
+    "live": [
+     "127 · 154 pond",
+     "162 · 181 bunker",
+     "219 · 227 bunker"
+    ],
+    "moveMe": [
+     "127 · 154 pond",
+     "162 · 181 bunker",
+     "219 · 227 bunker"
+    ]
    }
   },
-  "live 100 yd: header centre = 100": {
+  "100 yd: Move Me placed the golfer (simulated) on the spot": {
+   "pass": true,
+   "detail": {
+    "how": "tapped on approach view",
+    "errYd": 0.06,
+    "me": [
+     -70.61278186296845,
+     41.69159149289367
+    ],
+    "mode": "sim",
+    "view": "approach",
+    "manual": false
+   }
+  },
+  "100 yd (Move Me, centre 100): header centre = V2.3.1 engine": {
    "pass": true,
    "detail": [
     "85",
@@ -653,63 +405,77 @@
     "115"
    ]
   },
-  "live 100 yd: front/centre/back shown": {
+  "100 yd (Move Me, centre 100): front/centre/back shown": {
    "pass": true,
    "detail": {
     "min": false,
     "F": true,
-    "C": true,
     "B": true
    }
   },
-  "live 100 yd: ≤3 hazard labels, nearest hazards ahead": {
+  "100 yd (Move Me, centre 100): labels = hazards ahead whose near edge is ≤250 yd from the golfer (max 3, nearest first)": {
    "pass": true,
    "detail": {
     "labels": [
-     "25 · 52",
-     "61 · 79",
-     "119 · 126"
+     "25 · 52 pond",
+     "61 · 79 bunker",
+     "119 · 126 bunker"
+    ],
+    "expected": [
+     "25 · 52 pond",
+     "61 · 79 bunker",
+     "119 · 126 bunker"
     ],
     "ahead": [
-     "25 · 52",
-     "61 · 79",
-     "119 · 126"
+     "25 · 52 pond",
+     "61 · 79 bunker",
+     "119 · 126 bunker"
     ]
    }
   },
-  "live 100 yd: hazard table below the picture unchanged": {
-   "pass": true,
-   "detail": {
-    "now": [
-     "25 · 52",
-     "61 · 79",
-     "119 · 126"
-    ],
-    "before": [
-     "25 · 52",
-     "61 · 79",
-     "119 · 126"
-    ]
-   }
+  "100 yd (Move Me, centre 100): no label beyond 250 yd from the golfer": {
+   "pass": true
   },
-  "live 100 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+  "100 yd (Move Me, centre 100): hazard table and UNVERIFIED warnings unchanged": {
+   "pass": true
+  },
+  "100 yd (Move Me, centre 100): zoom and hazard table identical to previous release": {
    "pass": true,
    "detail": {
-    "now": null,
+    "box": null,
     "before": null
    }
   },
-  "live 100 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+  "100 yd (Move Me, centre 100): live GPS shows the same header and hazard labels": {
    "pass": true,
    "detail": {
-    "view": "approach",
-    "before": "approach",
-    "me": true,
-    "meBefore": true,
-    "nav": true
+    "live": [
+     "25 · 52 pond",
+     "61 · 79 bunker",
+     "119 · 126 bunker"
+    ],
+    "moveMe": [
+     "25 · 52 pond",
+     "61 · 79 bunker",
+     "119 · 126 bunker"
+    ]
    }
   },
-  "live 60 yd: header centre = 60": {
+  "60 yd: Move Me placed the golfer (simulated) on the spot": {
+   "pass": true,
+   "detail": {
+    "how": "tapped on approach view",
+    "errYd": 0.08,
+    "me": [
+     -70.61268068146234,
+     41.69191138677584
+    ],
+    "mode": "sim",
+    "view": "approach",
+    "manual": false
+   }
+  },
+  "60 yd (Move Me, centre 60): header centre = V2.3.1 engine": {
    "pass": true,
    "detail": [
     "45",
@@ -717,70 +483,232 @@
     "75"
    ]
   },
-  "live 60 yd: front/centre/back shown": {
+  "60 yd (Move Me, centre 60): front/centre/back shown": {
    "pass": true,
    "detail": {
     "min": false,
     "F": true,
-    "C": true,
     "B": true
    }
   },
-  "live 60 yd: ≤3 hazard labels, nearest hazards ahead": {
+  "60 yd (Move Me, centre 60): labels = hazards ahead whose near edge is ≤250 yd from the golfer (max 3, nearest first)": {
    "pass": true,
    "detail": {
     "labels": [
-     "12 · 12",
-     "23 · 37",
-     "79 · 86"
+     "23 · 37 bunker",
+     "79 · 86 bunker"
+    ],
+    "expected": [
+     "23 · 37 bunker",
+     "79 · 86 bunker"
     ],
     "ahead": [
-     "12 · 12",
-     "23 · 37",
-     "79 · 86"
+     "12 · 12 pond",
+     "23 · 37 bunker",
+     "79 · 86 bunker"
     ]
    }
   },
-  "live 60 yd: hazard table below the picture unchanged": {
+  "60 yd (Move Me, centre 60): no label beyond 250 yd from the golfer": {
+   "pass": true
+  },
+  "60 yd (Move Me, centre 60): hazard table and UNVERIFIED warnings unchanged": {
+   "pass": true
+  },
+  "60 yd (Move Me, centre 60): zoom and hazard table identical to previous release": {
    "pass": true,
    "detail": {
-    "now": [
-     "12 · 12",
-     "23 · 37",
-     "79 · 86"
+    "box": [
+     157.064,
+     0,
+     754.522,
+     902.847
     ],
     "before": [
-     "12 · 12",
-     "23 · 37",
-     "79 · 86"
+     157.064,
+     0,
+     754.522,
+     902.847
     ]
    }
   },
-  "live 60 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+  "60 yd (Move Me, centre 60): live GPS shows the same header and hazard labels": {
    "pass": true,
    "detail": {
-    "now": [
-     79.989,
-     0,
-     908.141,
-     1086.664
+    "live": [
+     "23 · 37 bunker",
+     "79 · 86 bunker"
     ],
-    "before": [
-     79.989,
-     0,
-     908.141,
-     1086.664
+    "moveMe": [
+     "23 · 37 bunker",
+     "79 · 86 bunker"
     ]
    }
   },
-  "live 60 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+  "40 yd: Move Me placed the golfer (simulated) on the spot": {
    "pass": true,
    "detail": {
+    "how": "tapped on approach view",
+    "errYd": 0.09,
+    "me": [
+     -70.61263089641086,
+     41.69207154815106
+    ],
+    "mode": "sim",
     "view": "approach",
-    "before": "approach",
-    "me": true,
-    "meBefore": true,
-    "nav": true
+    "manual": false
+   }
+  },
+  "40 yd (Move Me, centre 40): header centre = V2.3.1 engine": {
+   "pass": true,
+   "detail": [
+    "25",
+    "40",
+    "55"
+   ]
+  },
+  "40 yd (Move Me, centre 40): front/centre/back shown": {
+   "pass": true,
+   "detail": {
+    "min": false,
+    "F": true,
+    "B": true
+   }
+  },
+  "40 yd (Move Me, centre 40): labels = hazards ahead whose near edge is ≤250 yd from the golfer (max 3, nearest first)": {
+   "pass": true,
+   "detail": {
+    "labels": [
+     "9 · 18 bunker",
+     "59 · 66 bunker"
+    ],
+    "expected": [
+     "9 · 18 bunker",
+     "59 · 66 bunker"
+    ],
+    "ahead": [
+     "9 · 18 bunker",
+     "59 · 66 bunker"
+    ]
+   }
+  },
+  "40 yd (Move Me, centre 40): no label beyond 250 yd from the golfer": {
+   "pass": true
+  },
+  "40 yd (Move Me, centre 40): hazard table and UNVERIFIED warnings unchanged": {
+   "pass": true
+  },
+  "40 yd (Move Me, centre 40): zoom and hazard table identical to previous release": {
+   "pass": true,
+   "detail": {
+    "box": [
+     290.648,
+     21.546,
+     493.876,
+     590.962
+    ],
+    "before": [
+     290.648,
+     21.546,
+     493.876,
+     590.962
+    ]
+   }
+  },
+  "40 yd (Move Me, centre 40): live GPS shows the same header and hazard labels": {
+   "pass": true,
+   "detail": {
+    "live": [
+     "9 · 18 bunker",
+     "59 · 66 bunker"
+    ],
+    "moveMe": [
+     "9 · 18 bunker",
+     "59 · 66 bunker"
+    ]
+   }
+  },
+  "golfer-to-hazard, not green distance: at 261 the pond is labelled although the green is >250": {
+   "pass": true,
+   "detail": {
+    "d": 261,
+    "centre": 261,
+    "how": "tapped on tee view",
+    "view": "tee",
+    "header": "centre only",
+    "inPond": false,
+    "labels": [
+     "189 · 216 pond",
+     "224 · 242 bunker"
+    ],
+    "hazardsAhead": [
+     "189 · 216 pond",
+     "224 · 242 bunker",
+     "280 · 288 bunker"
+    ],
+    "dot": true
+   }
+  },
+  "golfer-to-hazard, not green distance: at 250 the back bunker (>250 from the golfer) is not labelled although the green is ≤250": {
+   "pass": true,
+   "detail": {
+    "d": 250,
+    "centre": 250,
+    "how": "tapped on tee view",
+    "view": "tee",
+    "header": "front/centre/back",
+    "inPond": false,
+    "labels": [
+     "178 · 205 pond",
+     "213 · 232 bunker"
+    ],
+    "hazardsAhead": [
+     "178 · 205 pond",
+     "213 · 232 bunker",
+     "269 · 277 bunker"
+    ],
+    "dot": true
+   }
+  },
+  "inside the mapped pond (60 yd): no pond front · carry label": {
+   "pass": true,
+   "detail": {
+    "d": 60,
+    "centre": 60,
+    "how": "tapped on approach view",
+    "view": "approach",
+    "header": "front/centre/back",
+    "inPond": true,
+    "labels": [
+     "23 · 37 bunker",
+     "79 · 86 bunker"
+    ],
+    "hazardsAhead": [
+     "12 · 12 pond (you are inside it)",
+     "23 · 37 bunker",
+     "79 · 86 bunker"
+    ],
+    "dot": true
+   }
+  },
+  "pond behind the golfer (40 yd): not listed or labelled": {
+   "pass": true,
+   "detail": {
+    "d": 40,
+    "centre": 40,
+    "how": "tapped on approach view",
+    "view": "approach",
+    "header": "front/centre/back",
+    "inPond": false,
+    "labels": [
+     "9 · 18 bunker",
+     "59 · 66 bunker"
+    ],
+    "hazardsAhead": [
+     "9 · 18 bunker",
+     "59 · 66 bunker"
+    ],
+    "dot": true
    }
   },
   "tap-to-measure works at 300 yd": {
@@ -970,178 +898,148 @@
  },
  "rows": [
   {
-   "mode": "sim",
    "d": 300,
+   "centre": 300,
+   "how": "tapped on tee view",
    "view": "tee",
-   "dot": true,
-   "header": "center only",
-   "hzLabels": [],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": null
+   "header": "centre only",
+   "inPond": false,
+   "labels": [
+    "229 · 256 pond"
+   ],
+   "hazardsAhead": [
+    "229 · 256 pond",
+    "263 · 282 bunker",
+    "319 · 327 bunker"
+   ],
+   "dot": true
   },
   {
-   "mode": "sim",
+   "d": 261,
+   "centre": 261,
+   "how": "tapped on tee view",
+   "view": "tee",
+   "header": "centre only",
+   "inPond": false,
+   "labels": [
+    "189 · 216 pond",
+    "224 · 242 bunker"
+   ],
+   "hazardsAhead": [
+    "189 · 216 pond",
+    "224 · 242 bunker",
+    "280 · 288 bunker"
+   ],
+   "dot": true
+  },
+  {
    "d": 251,
+   "centre": 251,
+   "how": "tapped on tee view",
    "view": "tee",
-   "dot": true,
-   "header": "center only",
-   "hzLabels": [],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": null
+   "header": "centre only",
+   "inPond": false,
+   "labels": [
+    "179 · 206 pond",
+    "214 · 232 bunker"
+   ],
+   "hazardsAhead": [
+    "179 · 206 pond",
+    "214 · 232 bunker",
+    "270 · 278 bunker"
+   ],
+   "dot": true
   },
   {
-   "mode": "sim",
    "d": 250,
+   "centre": 250,
+   "how": "tapped on tee view",
    "view": "tee",
-   "dot": true,
-   "header": "front/center/back",
-   "hzLabels": [
-    "178 · 205",
-    "213 · 231",
-    "268 · 276"
+   "header": "front/centre/back",
+   "inPond": false,
+   "labels": [
+    "178 · 205 pond",
+    "213 · 232 bunker"
    ],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": null
+   "hazardsAhead": [
+    "178 · 205 pond",
+    "213 · 232 bunker",
+    "269 · 277 bunker"
+   ],
+   "dot": true
   },
   {
-   "mode": "sim",
    "d": 200,
+   "centre": 200,
+   "how": "tapped on tee view",
    "view": "approach",
-   "dot": false,
-   "header": "front/center/back",
-   "hzLabels": [
-    "127 · 154",
-    "162 · 180",
-    "219 · 226"
+   "header": "front/centre/back",
+   "inPond": false,
+   "labels": [
+    "127 · 154 pond",
+    "162 · 181 bunker",
+    "219 · 227 bunker"
    ],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": null
+   "hazardsAhead": [
+    "127 · 154 pond",
+    "162 · 181 bunker",
+    "219 · 227 bunker"
+   ],
+   "dot": false
   },
   {
-   "mode": "sim",
    "d": 100,
+   "centre": 100,
+   "how": "tapped on approach view",
    "view": "approach",
-   "dot": true,
-   "header": "front/center/back",
-   "hzLabels": [
-    "25 · 52",
-    "61 · 79",
-    "119 · 126"
+   "header": "front/centre/back",
+   "inPond": false,
+   "labels": [
+    "25 · 52 pond",
+    "61 · 79 bunker",
+    "119 · 126 bunker"
    ],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": null
+   "hazardsAhead": [
+    "25 · 52 pond",
+    "61 · 79 bunker",
+    "119 · 126 bunker"
+   ],
+   "dot": true
   },
   {
-   "mode": "sim",
    "d": 60,
+   "centre": 60,
+   "how": "tapped on approach view",
    "view": "approach",
-   "dot": true,
-   "header": "front/center/back",
-   "hzLabels": [
-    "12 · 12",
-    "23 · 37",
-    "79 · 86"
+   "header": "front/centre/back",
+   "inPond": true,
+   "labels": [
+    "23 · 37 bunker",
+    "79 · 86 bunker"
    ],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": [
-    157.442,
-    0,
-    753.235,
-    901.307
-   ]
-  },
-  {
-   "mode": "live",
-   "d": 300,
-   "view": "tee",
-   "dot": true,
-   "header": "center only",
-   "hzLabels": [],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": null
-  },
-  {
-   "mode": "live",
-   "d": 251,
-   "view": "tee",
-   "dot": true,
-   "header": "center only",
-   "hzLabels": [],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": null
-  },
-  {
-   "mode": "live",
-   "d": 250,
-   "view": "tee",
-   "dot": true,
-   "header": "front/center/back",
-   "hzLabels": [
-    "178 · 205",
-    "213 · 231",
-    "268 · 276"
+   "hazardsAhead": [
+    "12 · 12 pond (you are inside it)",
+    "23 · 37 bunker",
+    "79 · 86 bunker"
    ],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": null
+   "dot": true
   },
   {
-   "mode": "live",
-   "d": 200,
+   "d": 40,
+   "centre": 40,
+   "how": "tapped on approach view",
    "view": "approach",
-   "dot": false,
-   "header": "front/center/back",
-   "hzLabels": [
-    "127 · 154",
-    "162 · 180",
-    "219 · 226"
+   "header": "front/centre/back",
+   "inPond": false,
+   "labels": [
+    "9 · 18 bunker",
+    "59 · 66 bunker"
    ],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": null
-  },
-  {
-   "mode": "live",
-   "d": 100,
-   "view": "approach",
-   "dot": true,
-   "header": "front/center/back",
-   "hzLabels": [
-    "25 · 52",
-    "61 · 79",
-    "119 · 126"
+   "hazardsAhead": [
+    "9 · 18 bunker",
+    "59 · 66 bunker"
    ],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": null
-  },
-  {
-   "mode": "live",
-   "d": 60,
-   "view": "approach",
-   "dot": true,
-   "header": "front/center/back",
-   "hzLabels": [
-    "12 · 12",
-    "23 · 37",
-    "79 · 86"
-   ],
-   "hazardsAhead": 3,
-   "table": 3,
-   "zoomBox": [
-    79.989,
-    0,
-    908.141,
-    1086.664
-   ]
+   "dot": true
   }
  ],
  "errors": [],
