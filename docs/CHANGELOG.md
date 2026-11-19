@@ -2,6 +2,13 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.3.0-minimal-hole02: minimalist display, Phase 1 (Hole 2 only, test release, 19 Nov 2026)
+- /play/ on Hole 2: beyond 250 yd from the green centre (the header's existing V2.3.1 centre yardage) the header shows the centre yardage only and the flyover shows no bunker/pond labels; at 250 yd or closer the front/centre/back header returns and at most 3 hazard labels are drawn (hazards ahead within ±40 yd of the line, nearest first: the existing order, `rule.max` 3 for drawing only).
+- The hazard table below the picture is unchanged (up to 4 rows). Simulation buttons sit behind one collapsible **SIMULATE** button (collapsed by default, Hole 2 only). Tap-to-measure and the "move me" toggle stay visible.
+- Page code only (`prototype/play_src/index.html`); `app/*.js` (GPS, zoom, overlay, geometry), images, coordinates and hazard geometry unchanged; built /play/ differs from v5.2.0 in index.html only. Other holes and the /holeNN/ pages are unchanged.
+- Tests: new tests/test_minimal.js 86/86 (300/251/250/200/100/60 yd, simulated and live; zoom box/transform identical to v5.2.0; Holes 1, 3, 9, 14 overlays identical to v5.2.0); test_play 38/38 (one line: opens SIMULATE before tapping a preset); test_zoom 202/202 with results and screenshots byte-identical to v5.2.0. Production V2.3.1 unchanged (e8b22e4).
+- Noted, not changed: at 200 yd the automatic Approach view (camera ~110 yd out) has the golfer behind the camera, so no blue dot or "You" pill is drawn — same as v5.2.0.
+
 ## v5.2.0-zoom-all: GPS zoom on all 18 holes (test release, 17 Nov 2026; APPROVED by owner 17 Nov 2026)
 - The approved Hole 2 zoom (nearest-green-edge distance) now runs on every flyover hole through the same shared code (`ZOOM_HOLES = COURSE.flyover_holes`); no per-hole logic, no artwork, camera, GPS, hazard, pin or scoring change.
 - DEV (`?dev=1`): beyond button now 15 yd; a DEV distance button is hidden when the hole never reaches it (DEV 150 on par-3 Holes 12 and 15).

@@ -166,7 +166,7 @@ const FAKE_GEO=`(()=>{const w={};let id=0;window.__geo={w,opens:0,send(lon,lat,a
   await pg.click('#presets button:first-child');await pg.evaluate(()=>window.scrollTo(0,0));await pg.screenshot({path:path.join(SHOTS,'6_no_flyover.png')});
  } else ok('H3 every hole has a flyover (no "not built yet" page left)',true);
  // K. every flyover in /play/
- const K9=[];for(const n of FLY){await pg.evaluate(n=>{__play.goHole(n,true)},n);await pg.waitForTimeout(500);await pg.click('#presets button:first-child');await pg.waitForTimeout(300);
+ const K9=[];for(const n of FLY){await pg.evaluate(n=>{__play.goHole(n,true)},n);await pg.waitForTimeout(500);if(await pg.isVisible('#simBtn')&&!(await pg.isVisible('#presets')))await pg.click('#simBtn');await pg.click('#presets button:first-child');await pg.waitForTimeout(300);   // SIMULATE collapsed on Hole 2 (v5.3.0)
   K9.push(await pg.evaluate(n=>{const i=document.getElementById('img');return [n,i.complete&&i.naturalWidth>0,document.getElementById('ov').innerHTML.length>200,!flyWrap.hidden]},n));
   if(n===8||n>=10){await pg.evaluate(()=>window.scrollTo(0,0));await pg.screenshot({path:path.join(SHOTS,'2_hole'+String(n).padStart(2,'0')+'_tee.png')})}}
  ok('K1 all '+FLY.length+' flyovers load and draw overlays in /play/',K9.every(x=>x[1]&&x[2]&&x[3]),K9);

@@ -1,0 +1,1149 @@
+{
+ "checks": {
+  "test points found (header centre exactly 300/251/250/200/100/60)": {
+   "pass": true,
+   "detail": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  "sim 300 yd: header centre = 300": {
+   "pass": true,
+   "detail": [
+    "285",
+    "300",
+    "315"
+   ]
+  },
+  "sim 300 yd: centre only (front/back hidden)": {
+   "pass": true,
+   "detail": {
+    "min": true,
+    "F": false,
+    "C": true,
+    "B": false
+   }
+  },
+  "sim 300 yd: no hazard labels on the flyover": {
+   "pass": true,
+   "detail": {
+    "labels": [],
+    "ahead": [
+     "229 · 256",
+     "263 · 281",
+     "318 · 326"
+    ]
+   }
+  },
+  "sim 300 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "229 · 256",
+     "263 · 281",
+     "318 · 326"
+    ],
+    "before": [
+     "229 · 256",
+     "263 · 281",
+     "318 · 326"
+    ]
+   }
+  },
+  "sim 300 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": null,
+    "before": null
+   }
+  },
+  "sim 300 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "tee",
+    "before": "tee",
+    "me": true,
+    "meBefore": true,
+    "nav": true
+   }
+  },
+  "sim 251 yd: header centre = 251": {
+   "pass": true,
+   "detail": [
+    "236",
+    "251",
+    "266"
+   ]
+  },
+  "sim 251 yd: centre only (front/back hidden)": {
+   "pass": true,
+   "detail": {
+    "min": true,
+    "F": false,
+    "C": true,
+    "B": false
+   }
+  },
+  "sim 251 yd: no hazard labels on the flyover": {
+   "pass": true,
+   "detail": {
+    "labels": [],
+    "ahead": [
+     "179 · 206",
+     "214 · 232",
+     "269 · 277"
+    ]
+   }
+  },
+  "sim 251 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "179 · 206",
+     "214 · 232",
+     "269 · 277"
+    ],
+    "before": [
+     "179 · 206",
+     "214 · 232",
+     "269 · 277"
+    ]
+   }
+  },
+  "sim 251 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": null,
+    "before": null
+   }
+  },
+  "sim 251 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "tee",
+    "before": "tee",
+    "me": true,
+    "meBefore": true,
+    "nav": true
+   }
+  },
+  "sim 250 yd: header centre = 250": {
+   "pass": true,
+   "detail": [
+    "235",
+    "250",
+    "265"
+   ]
+  },
+  "sim 250 yd: front/centre/back shown": {
+   "pass": true,
+   "detail": {
+    "min": false,
+    "F": true,
+    "C": true,
+    "B": true
+   }
+  },
+  "sim 250 yd: ≤3 hazard labels, nearest hazards ahead": {
+   "pass": true,
+   "detail": {
+    "labels": [
+     "178 · 205",
+     "213 · 231",
+     "268 · 276"
+    ],
+    "ahead": [
+     "178 · 205",
+     "213 · 231",
+     "268 · 276"
+    ]
+   }
+  },
+  "sim 250 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "178 · 205",
+     "213 · 231",
+     "268 · 276"
+    ],
+    "before": [
+     "178 · 205",
+     "213 · 231",
+     "268 · 276"
+    ]
+   }
+  },
+  "sim 250 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": null,
+    "before": null
+   }
+  },
+  "sim 250 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "tee",
+    "before": "tee",
+    "me": true,
+    "meBefore": true,
+    "nav": true
+   }
+  },
+  "sim 200 yd: header centre = 200": {
+   "pass": true,
+   "detail": [
+    "185",
+    "200",
+    "215"
+   ]
+  },
+  "sim 200 yd: front/centre/back shown": {
+   "pass": true,
+   "detail": {
+    "min": false,
+    "F": true,
+    "C": true,
+    "B": true
+   }
+  },
+  "sim 200 yd: ≤3 hazard labels, nearest hazards ahead": {
+   "pass": true,
+   "detail": {
+    "labels": [
+     "127 · 154",
+     "162 · 180",
+     "219 · 226"
+    ],
+    "ahead": [
+     "127 · 154",
+     "162 · 180",
+     "219 · 226"
+    ]
+   }
+  },
+  "sim 200 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "127 · 154",
+     "162 · 180",
+     "219 · 226"
+    ],
+    "before": [
+     "127 · 154",
+     "162 · 180",
+     "219 · 226"
+    ]
+   }
+  },
+  "sim 200 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": null,
+    "before": null
+   }
+  },
+  "sim 200 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "approach",
+    "before": "approach",
+    "me": false,
+    "meBefore": false,
+    "nav": true
+   }
+  },
+  "sim 100 yd: header centre = 100": {
+   "pass": true,
+   "detail": [
+    "85",
+    "100",
+    "115"
+   ]
+  },
+  "sim 100 yd: front/centre/back shown": {
+   "pass": true,
+   "detail": {
+    "min": false,
+    "F": true,
+    "C": true,
+    "B": true
+   }
+  },
+  "sim 100 yd: ≤3 hazard labels, nearest hazards ahead": {
+   "pass": true,
+   "detail": {
+    "labels": [
+     "25 · 52",
+     "61 · 79",
+     "119 · 126"
+    ],
+    "ahead": [
+     "25 · 52",
+     "61 · 79",
+     "119 · 126"
+    ]
+   }
+  },
+  "sim 100 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "25 · 52",
+     "61 · 79",
+     "119 · 126"
+    ],
+    "before": [
+     "25 · 52",
+     "61 · 79",
+     "119 · 126"
+    ]
+   }
+  },
+  "sim 100 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": null,
+    "before": null
+   }
+  },
+  "sim 100 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "approach",
+    "before": "approach",
+    "me": true,
+    "meBefore": true,
+    "nav": true
+   }
+  },
+  "sim 60 yd: header centre = 60": {
+   "pass": true,
+   "detail": [
+    "45",
+    "60",
+    "75"
+   ]
+  },
+  "sim 60 yd: front/centre/back shown": {
+   "pass": true,
+   "detail": {
+    "min": false,
+    "F": true,
+    "C": true,
+    "B": true
+   }
+  },
+  "sim 60 yd: ≤3 hazard labels, nearest hazards ahead": {
+   "pass": true,
+   "detail": {
+    "labels": [
+     "12 · 12",
+     "23 · 37",
+     "79 · 86"
+    ],
+    "ahead": [
+     "12 · 12",
+     "23 · 37",
+     "79 · 86"
+    ]
+   }
+  },
+  "sim 60 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "12 · 12",
+     "23 · 37",
+     "79 · 86"
+    ],
+    "before": [
+     "12 · 12",
+     "23 · 37",
+     "79 · 86"
+    ]
+   }
+  },
+  "sim 60 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": [
+     157.442,
+     0,
+     753.235,
+     901.307
+    ],
+    "before": [
+     157.442,
+     0,
+     753.235,
+     901.307
+    ]
+   }
+  },
+  "sim 60 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "approach",
+    "before": "approach",
+    "me": true,
+    "meBefore": true,
+    "nav": true
+   }
+  },
+  "live 300 yd: header centre = 300": {
+   "pass": true,
+   "detail": [
+    "285",
+    "300",
+    "315"
+   ]
+  },
+  "live 300 yd: centre only (front/back hidden)": {
+   "pass": true,
+   "detail": {
+    "min": true,
+    "F": false,
+    "C": true,
+    "B": false
+   }
+  },
+  "live 300 yd: no hazard labels on the flyover": {
+   "pass": true,
+   "detail": {
+    "labels": [],
+    "ahead": [
+     "229 · 256",
+     "263 · 281",
+     "318 · 326"
+    ]
+   }
+  },
+  "live 300 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "229 · 256",
+     "263 · 281",
+     "318 · 326"
+    ],
+    "before": [
+     "229 · 256",
+     "263 · 281",
+     "318 · 326"
+    ]
+   }
+  },
+  "live 300 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": null,
+    "before": null
+   }
+  },
+  "live 300 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "tee",
+    "before": "tee",
+    "me": true,
+    "meBefore": true,
+    "nav": true
+   }
+  },
+  "live 251 yd: header centre = 251": {
+   "pass": true,
+   "detail": [
+    "236",
+    "251",
+    "266"
+   ]
+  },
+  "live 251 yd: centre only (front/back hidden)": {
+   "pass": true,
+   "detail": {
+    "min": true,
+    "F": false,
+    "C": true,
+    "B": false
+   }
+  },
+  "live 251 yd: no hazard labels on the flyover": {
+   "pass": true,
+   "detail": {
+    "labels": [],
+    "ahead": [
+     "179 · 206",
+     "214 · 232",
+     "269 · 277"
+    ]
+   }
+  },
+  "live 251 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "179 · 206",
+     "214 · 232",
+     "269 · 277"
+    ],
+    "before": [
+     "179 · 206",
+     "214 · 232",
+     "269 · 277"
+    ]
+   }
+  },
+  "live 251 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": null,
+    "before": null
+   }
+  },
+  "live 251 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "tee",
+    "before": "tee",
+    "me": true,
+    "meBefore": true,
+    "nav": true
+   }
+  },
+  "live 250 yd: header centre = 250": {
+   "pass": true,
+   "detail": [
+    "235",
+    "250",
+    "265"
+   ]
+  },
+  "live 250 yd: front/centre/back shown": {
+   "pass": true,
+   "detail": {
+    "min": false,
+    "F": true,
+    "C": true,
+    "B": true
+   }
+  },
+  "live 250 yd: ≤3 hazard labels, nearest hazards ahead": {
+   "pass": true,
+   "detail": {
+    "labels": [
+     "178 · 205",
+     "213 · 231",
+     "268 · 276"
+    ],
+    "ahead": [
+     "178 · 205",
+     "213 · 231",
+     "268 · 276"
+    ]
+   }
+  },
+  "live 250 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "178 · 205",
+     "213 · 231",
+     "268 · 276"
+    ],
+    "before": [
+     "178 · 205",
+     "213 · 231",
+     "268 · 276"
+    ]
+   }
+  },
+  "live 250 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": null,
+    "before": null
+   }
+  },
+  "live 250 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "tee",
+    "before": "tee",
+    "me": true,
+    "meBefore": true,
+    "nav": true
+   }
+  },
+  "live 200 yd: header centre = 200": {
+   "pass": true,
+   "detail": [
+    "185",
+    "200",
+    "215"
+   ]
+  },
+  "live 200 yd: front/centre/back shown": {
+   "pass": true,
+   "detail": {
+    "min": false,
+    "F": true,
+    "C": true,
+    "B": true
+   }
+  },
+  "live 200 yd: ≤3 hazard labels, nearest hazards ahead": {
+   "pass": true,
+   "detail": {
+    "labels": [
+     "127 · 154",
+     "162 · 180",
+     "219 · 226"
+    ],
+    "ahead": [
+     "127 · 154",
+     "162 · 180",
+     "219 · 226"
+    ]
+   }
+  },
+  "live 200 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "127 · 154",
+     "162 · 180",
+     "219 · 226"
+    ],
+    "before": [
+     "127 · 154",
+     "162 · 180",
+     "219 · 226"
+    ]
+   }
+  },
+  "live 200 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": null,
+    "before": null
+   }
+  },
+  "live 200 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "approach",
+    "before": "approach",
+    "me": false,
+    "meBefore": false,
+    "nav": true
+   }
+  },
+  "live 100 yd: header centre = 100": {
+   "pass": true,
+   "detail": [
+    "85",
+    "100",
+    "115"
+   ]
+  },
+  "live 100 yd: front/centre/back shown": {
+   "pass": true,
+   "detail": {
+    "min": false,
+    "F": true,
+    "C": true,
+    "B": true
+   }
+  },
+  "live 100 yd: ≤3 hazard labels, nearest hazards ahead": {
+   "pass": true,
+   "detail": {
+    "labels": [
+     "25 · 52",
+     "61 · 79",
+     "119 · 126"
+    ],
+    "ahead": [
+     "25 · 52",
+     "61 · 79",
+     "119 · 126"
+    ]
+   }
+  },
+  "live 100 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "25 · 52",
+     "61 · 79",
+     "119 · 126"
+    ],
+    "before": [
+     "25 · 52",
+     "61 · 79",
+     "119 · 126"
+    ]
+   }
+  },
+  "live 100 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": null,
+    "before": null
+   }
+  },
+  "live 100 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "approach",
+    "before": "approach",
+    "me": true,
+    "meBefore": true,
+    "nav": true
+   }
+  },
+  "live 60 yd: header centre = 60": {
+   "pass": true,
+   "detail": [
+    "45",
+    "60",
+    "75"
+   ]
+  },
+  "live 60 yd: front/centre/back shown": {
+   "pass": true,
+   "detail": {
+    "min": false,
+    "F": true,
+    "C": true,
+    "B": true
+   }
+  },
+  "live 60 yd: ≤3 hazard labels, nearest hazards ahead": {
+   "pass": true,
+   "detail": {
+    "labels": [
+     "12 · 12",
+     "23 · 37",
+     "79 · 86"
+    ],
+    "ahead": [
+     "12 · 12",
+     "23 · 37",
+     "79 · 86"
+    ]
+   }
+  },
+  "live 60 yd: hazard table below the picture unchanged": {
+   "pass": true,
+   "detail": {
+    "now": [
+     "12 · 12",
+     "23 · 37",
+     "79 · 86"
+    ],
+    "before": [
+     "12 · 12",
+     "23 · 37",
+     "79 · 86"
+    ]
+   }
+  },
+  "live 60 yd: zoom unchanged (box, image transform, overlay viewBox = previous release)": {
+   "pass": true,
+   "detail": {
+    "now": [
+     79.989,
+     0,
+     908.141,
+     1086.664
+    ],
+    "before": [
+     79.989,
+     0,
+     908.141,
+     1086.664
+    ]
+   }
+  },
+  "live 60 yd: same automatic view, picture and blue-dot marker as before; nav controls present": {
+   "pass": true,
+   "detail": {
+    "view": "approach",
+    "before": "approach",
+    "me": true,
+    "meBefore": true,
+    "nav": true
+   }
+  },
+  "tap-to-measure works at 300 yd": {
+   "pass": true,
+   "detail": {
+    "target": true,
+    "label": true
+   }
+  },
+  "tap-to-measure works at 200 yd": {
+   "pass": true,
+   "detail": {
+    "target": true,
+    "label": true
+   }
+  },
+  "manual Tee/Approach switching preserved (beyond 250: header stays centre-only)": {
+   "pass": true,
+   "detail": {
+    "v1": true
+   }
+  },
+  "SIMULATE starts collapsed on Hole 2": {
+   "pass": true,
+   "detail": {
+    "btn": true,
+    "txt": "SIMULATE ▸",
+    "exp": "false",
+    "box": false,
+    "chips": [
+     "Green tee · candidate",
+     "Blue tee (sim)",
+     "Gold tee (sim)",
+     "Bronze tee (sim)",
+     "250 yd out",
+     "200 yd out",
+     "150 yd out",
+     "100 yd out",
+     "60 yd out"
+    ]
+   }
+  },
+  "SIMULATE expands and shows every simulation button": {
+   "pass": true,
+   "detail": {
+    "btn": true,
+    "txt": "SIMULATE ▾",
+    "exp": "true",
+    "box": true,
+    "chips": [
+     "Green tee · candidate",
+     "Blue tee (sim)",
+     "Gold tee (sim)",
+     "Bronze tee (sim)",
+     "250 yd out",
+     "200 yd out",
+     "150 yd out",
+     "100 yd out",
+     "60 yd out"
+    ]
+   }
+  },
+  "simulated position still works from the expanded panel": {
+   "pass": true,
+   "detail": {
+    "tag": "SIMULATED",
+    "me": true
+   }
+  },
+  "SIMULATE collapses again": {
+   "pass": true,
+   "detail": {
+    "btn": true,
+    "txt": "SIMULATE ▸",
+    "exp": "false",
+    "box": false,
+    "chips": [
+     "Green tee · candidate",
+     "Blue tee (sim)",
+     "Gold tee (sim)",
+     "Bronze tee (sim)",
+     "250 yd out",
+     "200 yd out",
+     "150 yd out",
+     "100 yd out",
+     "60 yd out"
+    ]
+   }
+  },
+  "other holes unchanged: no SIMULATE button, controls shown as before (Hole 1)": {
+   "pass": true,
+   "detail": {
+    "btn": false,
+    "txt": "SIMULATE ▸",
+    "exp": "true",
+    "box": true,
+    "chips": [
+     "Green tee",
+     "Gold tee (sim)",
+     "Bronze tee (sim)",
+     "250 yd out",
+     "200 yd out",
+     "150 yd out",
+     "100 yd out",
+     "60 yd out"
+    ]
+   }
+  },
+  "Holes 1, 3, 9, 14: overlay, header, hazard table and zoom identical to previous release": {
+   "pass": true,
+   "detail": [
+    [
+     1,
+     300,
+     true
+    ],
+    [
+     1,
+     200,
+     true
+    ],
+    [
+     1,
+     100,
+     true
+    ],
+    [
+     3,
+     100,
+     true
+    ],
+    [
+     9,
+     200,
+     true
+    ],
+    [
+     9,
+     100,
+     true
+    ],
+    [
+     14,
+     300,
+     true
+    ],
+    [
+     14,
+     200,
+     true
+    ],
+    [
+     14,
+     100,
+     true
+    ]
+   ]
+  },
+  "navigation: Next/Prev move between holes": {
+   "pass": true,
+   "detail": {
+    "nx": 3,
+    "pv": 2
+   }
+  },
+  "scorekeeping on Hole 2: strokes/putts counted and saved": {
+   "pass": true,
+   "detail": {
+    "s": "5",
+    "p": "2",
+    "saved": {
+     "strokes": 5,
+     "putts": 2,
+     "fairway": "",
+     "notes": "",
+     "pin": ""
+    }
+   }
+  },
+  "GREEN tab still shows the approved green": {
+   "pass": true
+  },
+  "no page errors": {
+   "pass": true,
+   "detail": []
+  }
+ },
+ "rows": [
+  {
+   "mode": "sim",
+   "d": 300,
+   "view": "tee",
+   "dot": true,
+   "header": "center only",
+   "hzLabels": [],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": null
+  },
+  {
+   "mode": "sim",
+   "d": 251,
+   "view": "tee",
+   "dot": true,
+   "header": "center only",
+   "hzLabels": [],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": null
+  },
+  {
+   "mode": "sim",
+   "d": 250,
+   "view": "tee",
+   "dot": true,
+   "header": "front/center/back",
+   "hzLabels": [
+    "178 · 205",
+    "213 · 231",
+    "268 · 276"
+   ],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": null
+  },
+  {
+   "mode": "sim",
+   "d": 200,
+   "view": "approach",
+   "dot": false,
+   "header": "front/center/back",
+   "hzLabels": [
+    "127 · 154",
+    "162 · 180",
+    "219 · 226"
+   ],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": null
+  },
+  {
+   "mode": "sim",
+   "d": 100,
+   "view": "approach",
+   "dot": true,
+   "header": "front/center/back",
+   "hzLabels": [
+    "25 · 52",
+    "61 · 79",
+    "119 · 126"
+   ],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": null
+  },
+  {
+   "mode": "sim",
+   "d": 60,
+   "view": "approach",
+   "dot": true,
+   "header": "front/center/back",
+   "hzLabels": [
+    "12 · 12",
+    "23 · 37",
+    "79 · 86"
+   ],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": [
+    157.442,
+    0,
+    753.235,
+    901.307
+   ]
+  },
+  {
+   "mode": "live",
+   "d": 300,
+   "view": "tee",
+   "dot": true,
+   "header": "center only",
+   "hzLabels": [],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": null
+  },
+  {
+   "mode": "live",
+   "d": 251,
+   "view": "tee",
+   "dot": true,
+   "header": "center only",
+   "hzLabels": [],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": null
+  },
+  {
+   "mode": "live",
+   "d": 250,
+   "view": "tee",
+   "dot": true,
+   "header": "front/center/back",
+   "hzLabels": [
+    "178 · 205",
+    "213 · 231",
+    "268 · 276"
+   ],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": null
+  },
+  {
+   "mode": "live",
+   "d": 200,
+   "view": "approach",
+   "dot": false,
+   "header": "front/center/back",
+   "hzLabels": [
+    "127 · 154",
+    "162 · 180",
+    "219 · 226"
+   ],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": null
+  },
+  {
+   "mode": "live",
+   "d": 100,
+   "view": "approach",
+   "dot": true,
+   "header": "front/center/back",
+   "hzLabels": [
+    "25 · 52",
+    "61 · 79",
+    "119 · 126"
+   ],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": null
+  },
+  {
+   "mode": "live",
+   "d": 60,
+   "view": "approach",
+   "dot": true,
+   "header": "front/center/back",
+   "hzLabels": [
+    "12 · 12",
+    "23 · 37",
+    "79 · 86"
+   ],
+   "hazardsAhead": 3,
+   "table": 3,
+   "zoomBox": [
+    79.989,
+    0,
+    908.141,
+    1086.664
+   ]
+  }
+ ],
+ "errors": [],
+ "pass": true
+}
