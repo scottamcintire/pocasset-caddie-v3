@@ -1,0 +1,246 @@
+{
+ "checks": {
+  "test PDFs present (owner sheet + variants, outside the repo)": {
+   "pass": true,
+   "detail": "/home/claude/pinsheet_work/variants"
+  },
+  "pdf.js is not loaded until a file is chosen": {
+   "pass": true
+  },
+  "Holes menu: hole-list link kept (../), Upload Pins PDF, nothing loaded yet": {
+   "pass": true,
+   "detail": {
+    "state": "No pin sheet loaded.",
+    "up": "Upload Pins PDF",
+    "clear": true,
+    "link": "../"
+   }
+  },
+  "extraction: all 18 holes = the sheet (independent pdftotext read), each placed ✓": {
+   "pass": true,
+   "detail": []
+  },
+  "Hole 2 reads 9 yd on, 8 yd left, depth 29": {
+   "pass": true,
+   "detail": [
+    9,
+    8,
+    "L",
+    29,
+    "✓"
+   ]
+  },
+  "review: date Tuesday, November 3, 2026, CURRENT, Apply offered, no errors": {
+   "pass": true,
+   "detail": "ezlocator_2026-11-03.pdf · Tuesday, November 3, 2026 CURRENTCheck the 18 holes, then apply."
+  },
+  "nothing saved before Apply": {
+   "pass": true
+  },
+  "Apply saves the sheet locally (pocasset_v3:pinsheet)": {
+   "pass": true,
+   "detail": "2026-11-03"
+  },
+  "orange flags on all 18 greens at the V2.3.1 placePin position (< 0.01 px)": {
+   "pass": true,
+   "detail": []
+  },
+  "GREEN tab shows CURRENT on every hole": {
+   "pass": true,
+   "detail": "CURRENT Pin sheet Tuesday, November 3, 2026"
+  },
+  "header flag yardage from the sheet = the same pin typed in (V2.3.1 method)": {
+   "pass": true,
+   "detail": {
+    "sheetTxt": "FLAG 145 yd",
+    "typedTxt": "FLAG 145 yd",
+    "same": true,
+    "flagOnFly": false
+   }
+  },
+  "after reopening on 19 Nov: EXPIRED + original date + warning": {
+   "pass": true,
+   "detail": {
+    "line": "EXPIRED Pin sheet Tuesday, November 3, 2026Pin positions may have changed.",
+    "badge": "psb expired"
+   }
+  },
+  "expired pins still drawn at the same positions on all 18 greens": {
+   "pass": true
+  },
+  "expiry changes nothing in storage": {
+   "pass": true
+  },
+  "still EXPIRED and visible after refresh; storage unchanged": {
+   "pass": true,
+   "detail": {
+    "line": "EXPIRED Pin sheet Tuesday, November 3, 2026Pin positions may have changed.",
+    "badge": "psb expired"
+   }
+  },
+  "pin measurement kept when expired (header FLAG … · EXPIRED)": {
+   "pass": true,
+   "detail": {
+    "txt": "FLAG 145 yd · EXPIRED",
+    "cls": "flag expired"
+   }
+  },
+  "Holes menu shows the loaded date, EXPIRED, \"Upload newer\", Clear": {
+   "pass": true,
+   "detail": {
+    "state": "EXPIRED Loaded: Tuesday, November 3, 2026 — pin positions may have changed.From ezlocator_2026-11-03.pdf, applied 11/3/2026, 10:00:00 AM.",
+    "up": "Upload newer Pins PDF",
+    "clear": true
+   }
+  },
+  "3 Nov 22:30 New York (4 Nov in UTC): still CURRENT": {
+   "pass": true,
+   "detail": {
+    "line": "CURRENT Pin sheet Tuesday, November 3, 2026",
+    "badge": "psb current"
+   }
+  },
+  "4 Nov 00:30 New York (under 24 h after upload): EXPIRED": {
+   "pass": true,
+   "detail": {
+    "line": "EXPIRED Pin sheet Tuesday, November 3, 2026Pin positions may have changed.",
+    "badge": "psb expired"
+   }
+  },
+  "2 Nov (before the sheet date): FUTURE DATE, never CURRENT": {
+   "pass": true,
+   "detail": {
+    "line": "FUTURE DATE Pin sheet Tuesday, November 3, 2026This sheet is dated after today — not today’s pins.",
+    "badge": "psb future"
+   }
+  },
+  "open across midnight: CURRENT → EXPIRED without reload": {
+   "pass": true,
+   "detail": {
+    "s1": {
+     "line": "CURRENT Pin sheet Tuesday, November 3, 2026",
+     "badge": "psb current"
+    },
+    "s2": {
+     "line": "EXPIRED Pin sheet Tuesday, November 3, 2026Pin positions may have changed.",
+     "badge": "psb expired"
+    }
+   }
+  },
+  "app resumed next morning: re-evaluated to EXPIRED": {
+   "pass": true,
+   "detail": {
+    "r1": {
+     "line": "CURRENT Pin sheet Tuesday, November 3, 2026",
+     "badge": "psb current"
+    },
+    "r2": {
+     "line": "EXPIRED Pin sheet Tuesday, November 3, 2026Pin positions may have changed.",
+     "badge": "psb expired"
+    }
+   }
+  },
+  "saved sheet unchanged by every date test": {
+   "pass": true
+  },
+  "rejected: copies_disagree.pdf — error shown, no Apply, saved pins unchanged": {
+   "pass": true,
+   "detail": {
+    "err": [
+     "Hole 2: the copies on the sheet disagree (11, 8L D29 vs 9, 8L D29)."
+    ]
+   }
+  },
+  "rejected: wrong_weekday.pdf — error shown, no Apply, saved pins unchanged": {
+   "pass": true,
+   "detail": {
+    "err": [
+     "Pin-sheet date \"Monday, November 3, 2026\": weekday does not match the date.",
+     "Pin-sheet date \"Monday, November 3, 2026\": weekday does not match the date."
+    ]
+   }
+  },
+  "rejected: missing_hole5.pdf — error shown, no Apply, saved pins unchanged": {
+   "pass": true,
+   "detail": {
+    "err": [
+     "Unmatched pin entry \"13 9L\" (not next to a hole number).",
+     "Unmatched pin entry \"13 9L\" (not next to a hole number)."
+    ]
+   }
+  },
+  "rejected: pin_off_green.pdf — error shown, no Apply, saved pins unchanged": {
+   "pass": true,
+   "detail": {
+    "err": [
+     "Hole 2: That pin would be outside the mapped green.."
+    ]
+   }
+  },
+  "rejected: not_a_pinsheet.pdf — error shown, no Apply, saved pins unchanged": {
+   "pass": true,
+   "detail": {
+    "err": [
+     "Hole 1: not found on the sheet.",
+     "Hole 2: not found on the sheet."
+    ]
+   }
+  },
+  "rejected: corrupt.pdf — error shown, no Apply, saved pins unchanged": {
+   "pass": true,
+   "detail": {
+    "err": [
+     "Could not read this file as a PDF (Invalid PDF structure.)."
+    ]
+   }
+  },
+  "after the rejected files the 3 Nov flags are still in place": {
+   "pass": true
+  },
+  "Cancel on a valid sheet: nothing changed": {
+   "pass": true
+  },
+  "review of the newer sheet: CURRENT, says it replaces the 3 Nov sheet": {
+   "pass": true,
+   "detail": {
+    "sub": "today_valid.pdf · Thursday, November 19, 2026 CURRENTCheck the 18 holes, then apply.",
+    "note": "Replaces the saved sheet dated Tuesday, November 3, 2026.Front and side are yards from the front and from the left/right edge, placed on the approved greens with the V2.3.1 pin rules."
+   }
+  },
+  "new sheet saved: date 19 Nov, Hole 2 now 20 yd on, 6 R": {
+   "pass": true
+  },
+  "flags moved to the new positions (Hole 2 moved, others as on the sheet); CURRENT": {
+   "pass": true,
+   "detail": []
+  },
+  "a pin typed today on the GREEN tab still takes precedence on that hole": {
+   "pass": true,
+   "detail": {
+    "m": "Orange flag = today’s pin: 5 yd from front, 5 yd from left. Estimated position (course-map pin model), not surveyed.",
+    "l": true
+   }
+  },
+  "Clear saved pins needs two taps, then removes the sheet; greens show the dashed sample again": {
+   "pass": true,
+   "detail": {
+    "one": true,
+    "two": null
+   }
+  },
+  "only pocasset_v3: keys written": {
+   "pass": true,
+   "detail": [
+    "pocasset_v3:round",
+    "pocasset_v3:pins",
+    "pocasset_v3:prefs"
+   ]
+  },
+  "no page errors": {
+   "pass": true,
+   "detail": []
+  }
+ },
+ "errors": [],
+ "pass": true
+}

@@ -5,6 +5,7 @@ course.js : 18-hole GPS data (green centres/outlines + playing lines) and pin mo
             V2.3.1 data (data/sources/production/v231_greens_data.json; checksum verified), plus the central scorecard.
 holes/    : per-hole flyover data for the holes listed (same data as the published /holeNN/ pages).
 img/      : rendered flyover views + the 18 approved greens, each verified byte-identical to the master checksum.
+vendor/pdfjs/ : pdf.js 6.2.108 legacy build for the pin-sheet PDF upload (checksums verified).
 Changes nothing outside prototype/play/."""
 import argparse, hashlib, json, os, shutil, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -14,7 +15,13 @@ ap = argparse.ArgumentParser(); ap.add_argument('--flyover-holes', type=int, nar
 out = P('prototype', 'play')
 if os.path.exists(out): shutil.rmtree(out)
 os.makedirs(os.path.join(out, 'img')); os.makedirs(os.path.join(out, 'holes'))
-for f in ('geo.js', 'green.js', 'flyover.js', 'caddie.js'): shutil.copy2(P('app', f), os.path.join(out, f))
+for f in ('geo.js', 'green.js', 'flyover.js', 'caddie.js', 'pinsheet.js'): shutil.copy2(P('app', f), os.path.join(out, f))
+# pdf.js for the pin-sheet upload (vendored, unmodified; checksums verified)
+VEN = P('vendor', 'pdfjs-6.2.108'); os.makedirs(os.path.join(out, 'vendor', 'pdfjs'))
+for line in open(os.path.join(VEN, 'SHA256SUMS')):
+    h, f = line.split()
+    if sha(os.path.join(VEN, f)) != h: sys.exit('STOP: vendored pdf.js file %s does not match SHA256SUMS' % f)
+    shutil.copy2(os.path.join(VEN, f), os.path.join(out, 'vendor', 'pdfjs', f.replace('.mjs', '.js')))   # .js: served as JavaScript everywhere
 shutil.copy2(P('prototype', 'play_src', 'index.html'), os.path.join(out, 'index.html'))
 
 lock = {s['role']: s for s in json.load(open(P('data', 'sources', 'SOURCES.lock.json')))['sources']}

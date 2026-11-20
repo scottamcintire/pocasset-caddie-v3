@@ -97,6 +97,16 @@ main{min-height:calc(100svh - 260px)}
 .dot{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:8px;vertical-align:-1px;border:1px solid rgba(255,255,255,.5)}
 #sheetBody input,#sheetBody select{width:100%;background:#0a1a30;border:1px solid #2c5591;border-radius:8px;padding:7px 4px;font-size:16px;color:#fff;text-align:center}
 .st.ok{color:#7be08f}.st.bad{color:#ff9a8a}
+/* pin sheet (PDF upload) */
+.psb{display:inline-block;padding:2px 8px;border-radius:7px;font-weight:800;font-size:11.5px;letter-spacing:.8px;vertical-align:1px}
+.psb.current{background:#1f7a3d;color:#fff}.psb.expired{background:#e0a100;color:#1a1200}.psb.future{background:#b8432f;color:#fff}
+.psline{font-size:13px;line-height:1.5;color:#d9eadc;text-align:center;margin:0 auto 8px;max-width:560px}
+.psline small{display:block;color:var(--amber);font-size:12px}
+.meta .flag.expired{color:var(--amber)}.meta .flag.future{color:#ff8f7a}
+.menuitem{display:block;width:100%;text-align:left;margin-top:8px;color:#fff;text-decoration:none;box-sizing:border-box}
+.vh{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+.psbar{position:sticky;bottom:calc(-18px - env(safe-area-inset-bottom));background:#0d2140;padding:10px 0 calc(18px + env(safe-area-inset-bottom));margin-bottom:calc(-18px - env(safe-area-inset-bottom))}
+.pserr{color:#ff9a8a;font-size:13px;line-height:1.45;margin:8px 0 0;padding-left:18px}
 .toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#132a4a;border:1px solid #3d6bb0;color:#fff;padding:10px 14px;border-radius:12px;font-size:14px;font-weight:700;opacity:0;transition:opacity .25s;z-index:30;pointer-events:none;max-width:92vw;text-align:center}
 .toast.show{opacity:1}
 [hidden]{display:none!important}
@@ -105,7 +115,7 @@ main{min-height:calc(100svh - 260px)}
 <body>
 <div class="top">
   <div class="brand"><div><b>Pocasset <i>AI</i> Caddie</b><small>V3 test · play the round</small></div>
-    <span style="display:flex;gap:8px;align-items:center"><a class="pillbtn" href="../">Holes</a><span class="src" id="srcTag">GPS OFF</span></span></div>
+    <span style="display:flex;gap:8px;align-items:center"><button class="pillbtn" id="holesBtn" aria-haspopup="dialog">Holes</button><span class="src" id="srcTag">GPS OFF</span></span></div>
   <div class="yard" id="yard">
     <div class="hole"><span id="hn">–</span><small id="par">PAR</small></div>
     <div class="yc f"><strong id="yF">—</strong><span>FRONT</span></div>
@@ -140,7 +150,7 @@ main{min-height:calc(100svh - 260px)}
     </div>
   </section>
   <section id="pGreen" hidden>
-    <div class="greenwrap" id="greenCard"><div class="gedge">↑ BACK</div><div id="greenHost"></div><div class="gedge">FRONT · approach ↓</div>
+    <div class="greenwrap" id="greenCard"><p class="psline" id="psLine" hidden></p><div class="gedge">↑ BACK</div><div id="greenHost"></div><div class="gedge">FRONT · approach ↓</div>
       <p class="pinmsg" id="pinMsg"></p></div>
     <div class="panel">
       <h3>🚩 Today's pin · Hole <span id="pinHole">1</span></h3>
@@ -198,10 +208,30 @@ main{min-height:calc(100svh - 260px)}
   <table class="sc"><thead><tr><th>Hole</th><th>Front</th><th>Side</th><th>L/R</th><th>Depth</th><th></th></tr></thead><tbody id="sheetBody"></tbody></table>
   <div class="row"><button class="btn2" id="clearAll" style="flex:1">Clear all of today's pins</button><button class="big" id="closeSheet" style="flex:1">Done</button></div>
 </div></div>
+<div class="modal" id="holesMenu" role="dialog" aria-label="Holes menu"><div class="sheet">
+  <h2>Holes</h2>
+  <a class="btn2 menuitem" href="../">All holes · hole list ›</a>
+  <h3 style="margin-top:18px">Pin sheet</h3>
+  <p class="fine" style="margin-top:0" id="psState"></p>
+  <label class="big menuitem" style="text-align:center" for="psFile" id="psUpload">Upload Pins PDF</label>
+  <input type="file" id="psFile" class="vh" accept="application/pdf,.pdf">
+  <button class="btn2 menuitem" style="text-align:center" id="psClear">Clear saved pins</button>
+  <p class="fine">Upload the EZLocator pin sheet once; the orange flags move on all 18 greens. Saved on this phone only. A sheet is never deleted when it gets old — it is marked EXPIRED until you upload a newer one or clear it.</p>
+  <div class="row"><button class="btn2" id="menuClose" style="width:100%">Close</button></div>
+</div></div>
+<div class="modal" id="psReview" role="dialog" aria-label="Review pin sheet"><div class="sheet">
+  <h2 id="psrTitle">Review pin sheet</h2>
+  <p class="fine" style="margin-top:0" id="psrSub"></p>
+  <ul class="pserr" id="psrErr" hidden></ul>
+  <table class="sc" id="psrTable"><thead><tr><th>Hole</th><th>Front</th><th>Side</th><th>Depth</th><th></th></tr></thead><tbody id="psrBody"></tbody></table>
+  <p class="fine" id="psrNote"></p>
+  <div class="row psbar"><button class="btn2" id="psrCancel" style="flex:1">Cancel</button><button class="big" id="psrApply" style="flex:1">Apply to 18 greens</button></div>
+</div></div>
 <div class="toast" id="toast"></div>
 
 <script src="geo.js"></script>
 <script src="green.js"></script>
+<script src="pinsheet.js"></script>
 <script src="flyover.js"></script>
 <script src="caddie.js"></script>
 <script src="course.js"></script>
@@ -211,6 +241,17 @@ main{min-height:calc(100svh - 260px)}
 var C=window.COURSE, K=PCaddie, $=function(id){return document.getElementById(id)};
 var store=new K.Store(localStorage), course=new K.Course(C), auto=new K.AutoHole(course), card=new K.Card(C.scorecard);
 var pins=new K.Pins(store,C.greens,PGreen.placePin), PARS=card.par, YD=0.9144;
+/* Uploaded EZLocator pin sheet (v5.4.0). Saved as pocasset_v3:pinsheet; never removed or changed by date — only replaced
+   by a confirmed upload or the Clear button. Where a flag comes from: a pin typed today (V2.3.1 rules, unchanged) →
+   the uploaded sheet (src 'sheet', CURRENT / EXPIRED / FUTURE by the phone's calendar date) → the Oct 21 sample.
+   Flags are placed by the unchanged V2.3.1 placePin on the approved greens. */
+var SHEET=store.get('pinsheet');
+if(SHEET&&!(SHEET.pins&&/^\d{4}-\d{2}-\d{2}$/.test(SHEET.date||'')))SHEET=null;   // unreadable record: ignored, not deleted
+function sheetStatus(){return SHEET?PPinSheet.status(SHEET.date):null}
+(function(basePinFor){
+  pins.pinFor=function(n){var t=basePinFor(n);return t.src==='today'||!SHEET||!SHEET.pins[n]?t:{src:'sheet',p:SHEET.pins[n]}};
+  pins.todayPinLL=function(n){var x=this.placed(n);return x.src!=='sample'?x.ll:null};
+})(pins.pinFor.bind(pins));
 var TEE_COLORS={Gold:'#d4a017',Blue:'#2f6fd6',Green:'#2e9e4f',White:'#f2f2f2',Bronze:'#a0643a',Silver:'#b9c0c8'};
 var TEE_ORDER=['Green','Blue','Gold','White','Bronze','Silver'];
 var prefs=store.get('prefs')||{}; if(!card.yards(prefs.tee||''))prefs.tee='Green'; if(typeof prefs.autoHole!=='boolean')prefs.autoHole=true;
@@ -288,7 +329,9 @@ function renderReadout(){
   $('yard').classList.toggle('min',minFar(n,r));   // values below are still written; only front/back cells are hidden
   if(!r.onCourse){ids.forEach(function(i){$(i).textContent='—'});$('flagTxt').textContent='';return r}
   $('yF').textContent=r.front;$('yC').textContent=r.center;$('yB').textContent=r.back;
-  $('flagTxt').textContent=r.flag!=null?'FLAG '+r.flag+' yd':'flag: no pin today';
+  var fsrc=r.flag!=null?pins.placed(n).src:null,fst=fsrc==='sheet'?sheetStatus():null;
+  $('flagTxt').textContent=r.flag!=null?'FLAG '+r.flag+' yd'+(fst==='expired'?' · EXPIRED':fst==='future'?' · FUTURE DATE':''):'flag: no pin today';
+  $('flagTxt').className='flag'+(fst&&fst!=='current'?' '+fst:'');
   return r;
 }
 
@@ -313,7 +356,7 @@ function renderFly(){
     if(!S.me||S.offCourse){applyBox(v,null);$('ov').innerHTML='';$('haz').innerHTML=S.offCourse?'':'<table><tr><td>Start GPS or pick a simulated position to see hazard yardages.</td></tr></table>'}
     else{
       var mh=MIN_HOLES.indexOf(n)>=0,rule=mh?{corridor_m:RULE.corridor_m,max:MIN_HZ_LABELS}:RULE;
-      var pl=pins.placed(n),o=PFly.overlay(v,mh?labelHole(hd.hole):hd.hole,me,{name:S.view,target:S.target,pinUV:pl.src==='today'&&pl.res.uv?pl.res.uv:null,rule:rule,box:zb&&zb.z>1?zb:null}),rows='';
+      var pl=pins.placed(n),o=PFly.overlay(v,mh?labelHole(hd.hole):hd.hole,me,{name:S.view,target:S.target,pinUV:pl.src!=='sample'&&pl.res.uv?pl.res.uv:null,rule:rule,box:zb&&zb.z>1?zb:null}),rows='';
       (mh?hd.hole.hazards(me,RULE):o.hz).forEach(function(h){rows+='<tr><td>'+(h.cls==='water'?'Pond':'Bunker')+' · '+PFly.posText(h.position)+(h.status==='unverified'?'<span class="tag">UNVERIFIED</span>':'')+'</td><td class="n">'+PFly.yd(h.reach)+'</td><td class="n">'+PFly.yd(h.carry)+'</td></tr>'});
       $('haz').innerHTML='<table><tr><td style="color:#9fb3cf">Hazards ahead (±40 yd of your line), from your position</td><td class="n" style="color:#9fb3cf">front</td><td class="n" style="color:#9fb3cf">carry</td></tr>'+(rows||'<tr><td colspan="3">None ahead</td></tr>')+'</table>';
       $('ov').innerHTML=o.svg;applyBox(v,zb);
@@ -421,9 +464,13 @@ $('wakeBtn').onclick=function(){gps.setWake(!gps.wakeOn);updWake()};
 function fmtPin(p){return p.front+' yd from front, '+p.edge+' yd from '+(p.side==='L'?'left':'right')}
 function renderGreen(){
   var n=hole(),M=C.greens[n-1],pl=pins.placed(n),today=pl.src==='today';
-  PGreen.drawGreen($('greenHost'),M,C.green_images[n-1],pl.p,{sample:!today});
-  var msg=$('pinMsg');
-  if(today){msg.className='pinmsg';msg.textContent=pl.res.err?pl.res.err:'Orange flag = today’s pin: '+fmtPin(pl.p)+(String(pl.p.entered||'').indexOf('copied from V2.3.1')===0?' (copied from V2.3.1)':'')+'. Estimated position ('+(M.model==='course map'?'course-map':'ezLocator-outline')+' pin model), not surveyed.'}
+  PGreen.drawGreen($('greenHost'),M,C.green_images[n-1],pl.p,{sample:pl.src==='sample'});
+  var msg=$('pinMsg'),ps=$('psLine'),st=pl.src==='sheet'?sheetStatus():null;
+  ps.hidden=!st;
+  if(st)ps.innerHTML='<span class="psb '+st+'">'+{current:'CURRENT',expired:'EXPIRED',future:'FUTURE DATE'}[st]+'</span> Pin sheet '+esc(SHEET.dateText)+
+    (st==='expired'?'<small>Pin positions may have changed.</small>':st==='future'?'<small>This sheet is dated after today — not today’s pins.</small>':'');
+  if(pl.src==='sheet'){msg.className='pinmsg';msg.textContent=pl.res.err?pl.res.err:'Orange flag = uploaded pin sheet: '+fmtPin(pl.p)+' (green depth '+pl.p.depth+' yd). Estimated position ('+(M.model==='course map'?'course-map':'ezLocator-outline')+' pin model), not surveyed.'}
+  else if(today){msg.className='pinmsg';msg.textContent=pl.res.err?pl.res.err:'Orange flag = today’s pin: '+fmtPin(pl.p)+(String(pl.p.entered||'').indexOf('copied from V2.3.1')===0?' (copied from V2.3.1)':'')+'. Estimated position ('+(M.model==='course map'?'course-map':'ezLocator-outline')+' pin model), not surveyed.'}
   else{msg.className='pinmsg warn';msg.textContent='No pin entered for today on this hole. The dashed flag is the Oct 21 sample ('+fmtPin(pl.p)+') — NOT today’s pin. Enter today’s pin below.'}
   var p=pins.P.pins[n];$('pinHole').textContent=n;
   if(document.activeElement&&['inFront','inEdge','inDepth'].indexOf(document.activeElement.id)>=0){showOffset();return}
@@ -453,6 +500,65 @@ var clearArmed=0;$('clearAll').onclick=function(){var now=Date.now(),b=$('clearA
 var swX=null,swY=null,gc=$('greenCard');
 gc.addEventListener('touchstart',function(e){if(e.touches.length!==1){swX=null;return}swX=e.touches[0].clientX;swY=e.touches[0].clientY},{passive:true});
 gc.addEventListener('touchend',function(e){if(swX===null)return;var dx=e.changedTouches[0].clientX-swX,dy=e.changedTouches[0].clientY-swY;swX=null;if(Math.abs(dx)>60&&Math.abs(dx)>1.5*Math.abs(dy)){var b=$(dx<0?'next':'prev');if(!b.disabled)b.click()}},{passive:true});
+
+// ---------- PIN SHEET: Holes menu → Upload Pins PDF → review → apply (v5.4.0)
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+var ST_TXT={current:'CURRENT',expired:'EXPIRED',future:'FUTURE DATE'};
+function fmtDay(d){var p=d.split('-');return new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric',year:'numeric'})}
+function renderMenu(){var st=sheetStatus();
+  $('psState').innerHTML=SHEET?'<span class="psb '+st+'">'+ST_TXT[st]+'</span> Loaded: <b>'+esc(SHEET.dateText)+'</b>'+(st==='expired'?' — pin positions may have changed.':st==='future'?' — dated after today.':'')+'<br>From '+esc(SHEET.file||'PDF')+', applied '+esc(new Date(SHEET.loaded).toLocaleString())+'.':'No pin sheet loaded.';
+  $('psUpload').textContent=SHEET?'Upload newer Pins PDF':'Upload Pins PDF';$('psClear').hidden=!SHEET}
+$('holesBtn').onclick=function(){renderMenu();$('holesMenu').classList.add('open')};
+$('menuClose').onclick=function(){$('holesMenu').classList.remove('open')};
+var psClearArmed=0;$('psClear').onclick=function(){var now=Date.now(),b=$('psClear');
+  if(now-psClearArmed<3000){psClearArmed=0;store.remove('pinsheet');SHEET=null;b.textContent='Clear saved pins';renderMenu();render();toast('Saved pin sheet cleared.');return}
+  psClearArmed=now;b.textContent='Tap again to clear the saved pin sheet';setTimeout(function(){b.textContent='Clear saved pins'},3000)};
+var pdfjsP=null;
+function loadPdfjs(){return pdfjsP||(pdfjsP=import('./vendor/pdfjs/pdf.min.js').then(function(m){m.GlobalWorkerOptions.workerSrc=new URL('vendor/pdfjs/pdf.worker.min.js',location.href).href;return m},function(e){pdfjsP=null;throw e}))}
+function readPdfText(buf){return loadPdfjs().then(function(pdfjs){return pdfjs.getDocument({data:new Uint8Array(buf),isEvalSupported:false,verbosity:0}).promise}).then(function(doc){
+  if(doc.numPages>4)throw new Error('This PDF has '+doc.numPages+' pages; an EZLocator pin sheet has 1.');
+  var pages=[];var next=function(i){if(i>doc.numPages)return Promise.resolve(pages);return doc.getPage(i).then(function(pg){return pg.getTextContent()}).then(function(tc){
+    pages.push(tc.items.filter(function(it){return it.str!=null&&it.transform}).map(function(it){return{str:it.str,x:it.transform[4],y:it.transform[5],size:Math.hypot(it.transform[0],it.transform[1]),w:it.width||0}}));return next(i+1)})};
+  return next(1)})}
+var PENDING=null;
+function showReview(file,sheet,v,fail){
+  PENDING=v&&v.ok?{file:file,sheet:sheet}:null;
+  var st=sheet&&sheet.date?PPinSheet.status(sheet.date):null,errs=fail?[fail]:(v?v.errors:[]);
+  $('psrTitle').textContent=PENDING?'Review pin sheet':'Pin sheet not applied';
+  $('psrSub').innerHTML=esc(file.name)+(sheet&&sheet.dateText?' · <b>'+esc(sheet.dateText)+'</b> <span class="psb '+st+'">'+ST_TXT[st]+'</span>':'')+
+    (PENDING?'<br>Check the 18 holes, then apply.':'<br><b>Your saved pins were not changed.</b>');
+  $('psrErr').hidden=!errs.length;$('psrErr').innerHTML=errs.slice(0,12).map(function(e){return'<li>'+esc(e)+'</li>'}).join('')+(errs.length>12?'<li>… '+(errs.length-12)+' more</li>':'');
+  $('psrTable').hidden=!(v&&sheet&&Object.keys(sheet.pins).length);
+  $('psrBody').innerHTML=v?v.rows.map(function(r){var p=r.pin;return'<tr><td>'+r.hole+'</td><td>'+(p?p.front:'—')+'</td><td>'+(p?p.edge+' '+p.side:'—')+'</td><td>'+(p?p.depth:'—')+'</td><td class="st '+(r.ok?'ok':'bad')+'"'+(r.err||r.warn?' title="'+esc(r.err||r.warn)+'"':'')+'>'+(r.ok?(r.warn?'✓*':'✓'):'!')+'</td></tr>'}).join(''):'';
+  var notes=[];
+  if(PENDING){
+    if(v.warnings.length)notes.push('* '+v.warnings.join(' '));
+    if(st==='expired')notes.push('This sheet is dated before today: it will show as EXPIRED.');
+    if(st==='future')notes.push('This sheet is dated after today: it will show as FUTURE DATE, not CURRENT.');
+    if(SHEET)notes.push('Replaces the saved sheet dated '+esc(SHEET.dateText)+(sheet.date<SHEET.date?' (which is newer than this one).':'.'));
+    var typed=Object.keys(pins.P.pins);if(typed.length)notes.push('Pins you typed today stay in use on hole'+(typed.length>1?'s ':' ')+typed.join(', ')+' (clear them on the GREEN tab to use the sheet there).');
+    notes.push('Front and side are yards from the front and from the left/right edge, placed on the approved greens with the V2.3.1 pin rules.');
+  }
+  $('psrNote').innerHTML=notes.join('<br>');$('psrApply').hidden=!PENDING;$('psrCancel').textContent=PENDING?'Cancel':'Close';
+  clearTimeout(toastT);$('toast').classList.remove('show');
+  $('holesMenu').classList.remove('open');$('psReview').classList.add('open');$('psReview').querySelector('.sheet').scrollTop=0}
+$('psFile').onchange=function(){var input=this,file=input.files&&input.files[0];if(!file)return;
+  if(file.size>25e6){showReview(file,null,null,'File is too large for a pin sheet ('+Math.round(file.size/1e6)+' MB).');input.value='';return}
+  toast('Reading '+file.name+'…');
+  file.arrayBuffer().then(readPdfText).then(function(pages){var sheet=PPinSheet.parse(pages),v=PPinSheet.validate(sheet,C.greens,PGreen.placePin);showReview(file,sheet,v,null)},
+    function(e){showReview(file,null,null,'Could not read this file as a PDF ('+(e&&e.message?e.message:'unknown error')+').')})
+   .then(function(){input.value=''},function(){input.value=''})};
+$('psrCancel').onclick=function(){PENDING=null;$('psReview').classList.remove('open')};
+$('psrApply').onclick=function(){if(!PENDING)return;var s=PENDING.sheet,prev=SHEET;
+  var rec={date:s.date,dateText:s.dateText,pins:s.pins,copies:s.copies,file:PENDING.file.name,loaded:new Date().toISOString()};
+  if(!store.set('pinsheet',rec)){SHEET=prev;toast('Could not save on this phone — previous pins kept.');return}
+  SHEET=rec;PENDING=null;$('psReview').classList.remove('open');render();toast('Pin sheet '+fmtDay(s.date)+' applied to 18 greens.')};
+// CURRENT / EXPIRED / FUTURE follow the phone's calendar date: re-check on open, resume and at midnight (display only)
+var psDay=PPinSheet.localDate();
+function psDayCheck(){var t=PPinSheet.localDate();if(t!==psDay){psDay=t;render();if($('holesMenu').classList.contains('open'))renderMenu()}}
+document.addEventListener('visibilitychange',function(){if(!document.hidden){psDay=null;psDayCheck()}});
+window.addEventListener('pageshow',function(e){if(e.persisted){psDay=null;psDayCheck()}});
+setInterval(psDayCheck,30000);
 
 // ---------- SCORE tab (V2.3.1 rules)
 function renderScore(){
