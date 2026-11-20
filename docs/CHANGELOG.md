@@ -2,6 +2,11 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.4.1-pinsheet-safari: fix pin-sheet upload on iPhone Safari (test release, 19 Nov 2026)
+- Owner's iPhone: "Could not read this file as a PDF (undefined is not a function (near '...t of e...'))". Cause: pdf.js reads page text with `for await` over a ReadableStream (page and worker); Safari has no async iteration on ReadableStream and the pdf.js legacy build does not patch it.
+- Fix: app/pdfjs_safari.js (standard polyfill, only where missing) loaded before pdf.js on the page and, via app/pdf.worker.safari.js, in the worker. pdf.js files unchanged (checksums).
+- Tests: tests/test_pinsheet_safari.js 3/3 — with the stream feature removed (as in Safari) the old build fails exactly like the iPhone and the fixed build reads all 18 holes; test_pinsheet 38/38; test_play 38/38. Real-iPhone confirmation still needed.
+
 ## v5.4.0-pinsheet-upload: daily EZLocator pin-sheet PDF upload in /play/ (test release, 19 Nov 2026)
 - Holes button now opens a small Holes menu: "All holes · hole list" (same link as before) + Pin sheet: status, loaded date, **Upload Pins PDF** (iPhone Files picker, PDF only), **Clear saved pins** (two taps).
 - Reading: pdf.js 6.2.108 legacy build (Mozilla, Apache-2.0, vendored unmodified in vendor/, checksums verified by the build; loaded only when a file is chosen). app/pinsheet.js matches values to holes by position on the page (hole number → "D: depth" beside it → "front, side L/R" below), requires every printed copy of the sheet to agree, reads and checks the date (weekday must match), and validates all 18 holes (ranges + V2.3.1 placePin on the approved green). Any problem → "Pin sheet not applied", saved pins unchanged.

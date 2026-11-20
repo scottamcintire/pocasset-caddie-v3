@@ -514,7 +514,7 @@ var psClearArmed=0;$('psClear').onclick=function(){var now=Date.now(),b=$('psCle
   if(now-psClearArmed<3000){psClearArmed=0;store.remove('pinsheet');SHEET=null;b.textContent='Clear saved pins';renderMenu();render();toast('Saved pin sheet cleared.');return}
   psClearArmed=now;b.textContent='Tap again to clear the saved pin sheet';setTimeout(function(){b.textContent='Clear saved pins'},3000)};
 var pdfjsP=null;
-function loadPdfjs(){return pdfjsP||(pdfjsP=import('./vendor/pdfjs/pdf.min.js').then(function(m){m.GlobalWorkerOptions.workerSrc=new URL('vendor/pdfjs/pdf.worker.min.js',location.href).href;return m},function(e){pdfjsP=null;throw e}))}
+function loadPdfjs(){return pdfjsP||(pdfjsP=import('./vendor/pdfjs/pdfjs_safari.js').then(function(){return import('./vendor/pdfjs/pdf.min.js')}).then(function(m){m.GlobalWorkerOptions.workerSrc=new URL('vendor/pdfjs/pdf.worker.safari.js',location.href).href;return m},function(e){pdfjsP=null;throw e}))}   // Safari fix loaded first (page + worker)
 function readPdfText(buf){return loadPdfjs().then(function(pdfjs){return pdfjs.getDocument({data:new Uint8Array(buf),isEvalSupported:false,verbosity:0}).promise}).then(function(doc){
   if(doc.numPages>4)throw new Error('This PDF has '+doc.numPages+' pages; an EZLocator pin sheet has 1.');
   var pages=[];var next=function(i){if(i>doc.numPages)return Promise.resolve(pages);return doc.getPage(i).then(function(pg){return pg.getTextContent()}).then(function(tc){

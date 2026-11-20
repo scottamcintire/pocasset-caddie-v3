@@ -1,0 +1,40 @@
+{
+ "checks": {
+  "without the fix (Safari-like): upload fails as on the iPhone, nothing saved": {
+   "pass": true,
+   "detail": {
+    "before": "undefined",
+    "v": {
+     "title": "Pin sheet not applied",
+     "err": [
+      "Could not read this file as a PDF (e is not async iterable)."
+     ],
+     "rows": 0,
+     "ok": 0
+    },
+    "saved": false,
+    "worker": true
+   }
+  },
+  "with the fix (Safari-like): all 18 holes read and placed, Hole 2 9 / 8 L / 29, applied": {
+   "pass": true,
+   "detail": {
+    "before": "undefined",
+    "v": {
+     "title": "Review pin sheet",
+     "err": [],
+     "rows": 18,
+     "ok": 18,
+     "h2": "298 L29✓"
+    },
+    "saved": true,
+    "worker": true
+   }
+  },
+  "pdf.js ran in its own worker (module worker with the fix), not on the page": {
+   "pass": true,
+   "detail": true
+  }
+ },
+ "pass": true
+}

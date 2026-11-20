@@ -22,6 +22,7 @@ for line in open(os.path.join(VEN, 'SHA256SUMS')):
     h, f = line.split()
     if sha(os.path.join(VEN, f)) != h: sys.exit('STOP: vendored pdf.js file %s does not match SHA256SUMS' % f)
     shutil.copy2(os.path.join(VEN, f), os.path.join(out, 'vendor', 'pdfjs', f.replace('.mjs', '.js')))   # .js: served as JavaScript everywhere
+for f in ('pdfjs_safari.js', 'pdf.worker.safari.js'): shutil.copy2(P('app', f), os.path.join(out, 'vendor', 'pdfjs', f))   # Safari fix (our code)
 shutil.copy2(P('prototype', 'play_src', 'index.html'), os.path.join(out, 'index.html'))
 
 lock = {s['role']: s for s in json.load(open(P('data', 'sources', 'SOURCES.lock.json')))['sources']}
