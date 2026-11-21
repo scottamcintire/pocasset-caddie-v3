@@ -21,24 +21,28 @@ const moveMe=(pg,uv)=>pg.evaluate(p=>{const P=__play,S=P.S,hd=P.HD[2];document.g
  const b=await chromium.launch();
  const pg=await open(b);
  const g=await readAdv(pg);ok('shown on Hole 2 before a position, with a prompt',g.shown&&/Start GPS/.test(g.msg),g.msg);
- const U=await pg.evaluate(()=>{const h=__play.HD[2].hole,c=h.centerUV,a=h.alongFromGreen(45);return {w45:a,beyond:[c[0]+(c[0]-h.alongFromGreen(30)[0]),c[1]+(c[1]-h.alongFromGreen(30)[1])]}});
- const CASES=[
-  ['Tee box (Green tee preset)',()=>preset(pg,'Green tee'),{a:'DRIVER · FULL',s:'5-HYBRID · FULL',star:'smart'}],
-  ['Long fairway shot (250 yd preset)',()=>preset(pg,'250 yd out'),{a:'7-HYBRID · FULL',s:'8-IRON · FULL',star:'smart',aWarn:/pond/}],
-  ['150-yard approach (preset)',()=>preset(pg,'150 yd out'),{a:'6-IRON · FULL',s:'8-IRON · FULL',star:'attack',sNote:/less dispersion than 6-iron/}],
-  ['100-yard approach (preset)',()=>preset(pg,'100 yd out'),{a:'48° WEDGE · FULL',s:'48° WEDGE · FULL',star:'attack',same:true}],
-  ['Partial wedge (Move Me ~45 yd)',()=>moveMe(pg,U.w45),{a:/WEDGE · (½|¾|¼) SWING/,star:'attack'}],
-  ['Beyond the green (Move Me ~30 yd past centre)',()=>moveMe(pg,U.beyond),{a:/WEDGE · (½|¼) SWING/,star:'attack'}]];
+ const U=await pg.evaluate(()=>{const h=__play.HD[2].hole,c=h.centerUV,a=h.alongFromGreen(45);return {w140:h.alongFromGreen(140),w124:h.alongFromGreen(124),w45:a,beyond:[c[0]+(c[0]-h.alongFromGreen(30)[0]),c[1]+(c[1]-h.alongFromGreen(30)[1])]}});
+ const RULE=[];const CASES=[
+  ['Tee box (Green tee preset)',()=>preset(pg,'Green tee'),{a:'DRIVER · FULL',s:'5-HYBRID · FULL',star:'smart',sNote:/in range for shot 2/}],
+  ['Long fairway shot (250 yd preset)',()=>preset(pg,'250 yd out'),{a:'7-HYBRID · FULL',s:'8-IRON · FULL',star:'smart',aWarn:/pond/,sNote:/Your rule: lay up beyond 130/}],
+  ['150-yard approach (preset)',()=>preset(pg,'150 yd out'),{a:'6-IRON · FULL',s:/WEDGE · (½|¾)$/,star:'smart',sNote:/Your rule: lay up beyond 130.*short of pond/}],
+  ['100-yard approach (preset)',()=>preset(pg,'100 yd out'),{a:'48° WEDGE · FULL',s:'48° WEDGE · FULL',star:'attack',same:true,aNote:/Your rule: go for it from 130/}],
+  ['Owner rule boundary (Move Me ~140 yd: lay up)',()=>moveMe(pg,U.w140),{a:/IRON · FULL/,s:/WEDGE/,star:'smart',sNote:/Your rule: lay up beyond 130/}],
+  ['Owner rule boundary (Move Me ~124 yd: go for it)',()=>moveMe(pg,U.w124),{a:/IRON · FULL/,star:'attack',aNote:/Your rule: go for it from 130/}],
+  ['Partial wedge (Move Me ~45 yd)',()=>moveMe(pg,U.w45),{a:/WEDGE · (½|¾|¼)$/,star:'attack'}],
+  ['Beyond the green (Move Me ~30 yd past centre)',()=>moveMe(pg,U.beyond),{a:/WEDGE · (½|¼)$/,star:'attack'}]];
  let prev=null;
  for(const [name,go,exp] of CASES){const mv=await go();await pg.waitForTimeout(300);const r=await readAdv(pg);
   await pg.evaluate(()=>window.scrollTo(0,0));await pg.waitForTimeout(100);await pg.screenshot({path:path.join(SHOTS,name.replace(/[^a-z0-9]+/gi,'_').toLowerCase()+'.png')});
   const m=(x,e)=>e instanceof RegExp?e.test(x):x===e;
+  RULE.push({name,c:+r.center,star:r.attack&&r.attack.star?'attack':'smart'});
   ok(name+': two cards shown',r.shown&&r.attack&&r.smart,{mv,center:r.center});
   ok(name+': Attack '+exp.a,r.attack&&m(r.attack.club,exp.a),r.attack);
   if(exp.s)ok(name+': Play Smart '+exp.s,r.smart&&m(r.smart.club,exp.s),r.smart);
   ok(name+': ⭐ on '+exp.star,r.attack&&(exp.star==='attack'?r.attack.star&&!r.smart.star:r.smart.star&&!r.attack.star));
   if(exp.aWarn)ok(name+': Attack risk names the pond',exp.aWarn.test(r.attack.note),r.attack.note);
   if(exp.sNote)ok(name+': Play Smart cites your stated preference',exp.sNote.test(r.smart.note),r.smart.note);
+  if(exp.aNote)ok(name+': Attack cites your rule',exp.aNote.test(r.attack.note),r.attack.note);
   if(exp.same)ok(name+': same club labelled, not forced',/Same as Attack/.test(r.smart.note),r.smart.note);
   ok(name+': labelled distance-based / unverified',/DISTANCE-BASED/.test(r.fine)&&/carry vs total not confirmed/.test(r.fine),r.fine);
   ok(name+': target = centre (no pin today), matches header',new RegExp('To centre '+r.center+' yd').test(r.fine),r.fine);
@@ -46,7 +50,7 @@ const moveMe=(pg,uv)=>pg.evaluate(p=>{const P=__play,S=P.S,hd=P.HD[2];document.g
   if(prev)ok(name+': recommendation updated from previous position',JSON.stringify([r.attack,r.smart,r.center])!==prev);prev=JSON.stringify([r.attack,r.smart,r.center]);
  }
  // dogleg-free sanity: remaining after a full shot = header centre − expected distance (±6 yd) at 250 yd out
- await preset(pg,'250 yd out');let r=await readAdv(pg);const rem=+r.attack.n.match(/~(\d+) left/)[1];ok('remaining ≈ centre − mid distance',Math.abs((+r.center-165)-rem)<=6,{center:r.center,rem});
+ await preset(pg,'250 yd out');let r=await readAdv(pg);ok('rule follows the header centre: ⭐ Play Smart beyond 130, Attack at 130 or closer (all positions)',RULE.every(x=>x.c>130?x.star==='smart':x.star==='attack'),RULE);const rem=+r.attack.n.match(/~(\d+) left/)[1];ok('remaining ≈ centre − mid distance',Math.abs((+r.center-165)-rem)<=6,{center:r.center,rem});
  // collapse / expand, and summary line
  await pg.click('#advToggle');r=await readAdv(pg);const sum=await pg.textContent('#advSum');ok('collapses to one line with the ⭐ pick',await pg.locator('#advBody').isHidden()&&/⭐ PLAY SMART · 8-IRON/.test(sum),sum);
  await pg.click('#advToggle');ok('expands again',await pg.locator('#advBody').isVisible());

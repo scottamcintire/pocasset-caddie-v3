@@ -33,6 +33,14 @@ window.ADVISOR_CONFIG = {
     auto_closest_club: false        // Play Smart is never simply the club closest to the pin
   },
 
+  /* The owner's per-hole strategy (20 Nov 2026). Applies to approach / second shots (and the tee on par 3s).
+     go_for_green_within_yd: go for the green from this far (to the green CENTRE) or closer; farther back, lay up short
+     of the trouble in front of the green (water crossing the line, or front bunkers). always_lay_up: always lay up. */
+  hole_strategy: {
+    2: { go_for_green_within_yd: 130, note: 'Your rule: lay up beyond 130' },
+    6: { always_lay_up: true, note: 'Your rule: always lay up on Hole 6' }   // recorded only: Hole 6 not enabled yet
+  },
+
   /* Advisor rules (Claude's working thresholds, not owner data — adjust freely). */
   rules: {
     reach_tolerance_yd: 5,          // a club "reaches" if its high end is within this of the target

@@ -25,11 +25,15 @@
     "star": true,
     "club": "5-HYBRID · FULL",
     "n": "190–200 yd · ~172 left",
-    "note": "Your note: more reliable than driver"
+    "note": "Driver doesn't bring the green in range for shot 2 either · Your note: more reliable than driver"
    }
   },
   "Tee box (Green tee preset): ⭐ on smart": {
    "pass": true
+  },
+  "Tee box (Green tee preset): Play Smart cites your stated preference": {
+   "pass": true,
+   "detail": "Driver doesn't bring the green in range for shot 2 either · Your note: more reliable than driver"
   },
   "Tee box (Green tee preset): labelled distance-based / unverified": {
    "pass": true,
@@ -63,7 +67,7 @@
     "star": true,
     "club": "8-IRON · FULL",
     "n": "130 yd · ~120 left",
-    "note": "Ends 44+ yd short of pond · Your note: less dispersion than 6-iron"
+    "note": "Your rule: lay up beyond 130 · ends 44+ yd short of pond"
    }
   },
   "Long fairway shot (250 yd preset): ⭐ on smart": {
@@ -72,6 +76,10 @@
   "Long fairway shot (250 yd preset): Attack risk names the pond": {
    "pass": true,
    "detail": "⚠ Ends ≤5 yd short of pond"
+  },
+  "Long fairway shot (250 yd preset): Play Smart cites your stated preference": {
+   "pass": true,
+   "detail": "Your rule: lay up beyond 130 · ends 44+ yd short of pond"
   },
   "Long fairway shot (250 yd preset): labelled distance-based / unverified": {
    "pass": true,
@@ -96,27 +104,27 @@
   "150-yard approach (preset): Attack 6-IRON · FULL": {
    "pass": true,
    "detail": {
-    "star": true,
+    "star": false,
     "club": "6-IRON · FULL",
     "n": "150 yd · at target",
     "note": "No mapped hazard in range"
    }
   },
-  "150-yard approach (preset): Play Smart 8-IRON · FULL": {
+  "150-yard approach (preset): Play Smart /WEDGE · (½|¾)$/": {
    "pass": true,
    "detail": {
-    "star": false,
-    "club": "8-IRON · FULL",
-    "n": "130 yd · ~20 left",
-    "note": "Your note: less dispersion than 6-iron"
+    "star": true,
+    "club": "48° WEDGE · ½",
+    "n": "40–50 yd · ~105 left",
+    "note": "Your rule: lay up beyond 130 · ends 24+ yd short of pond"
    }
   },
-  "150-yard approach (preset): ⭐ on attack": {
+  "150-yard approach (preset): ⭐ on smart": {
    "pass": true
   },
   "150-yard approach (preset): Play Smart cites your stated preference": {
    "pass": true,
-   "detail": "Your note: less dispersion than 6-iron"
+   "detail": "Your rule: lay up beyond 130 · ends 24+ yd short of pond"
   },
   "150-yard approach (preset): labelled distance-based / unverified": {
    "pass": true,
@@ -144,7 +152,7 @@
     "star": true,
     "club": "48° WEDGE · FULL",
     "n": "100 yd · at target",
-    "note": "No mapped hazard in range"
+    "note": "Your rule: go for it from 130 or closer"
    }
   },
   "100-yard approach (preset): Play Smart 48° WEDGE · FULL": {
@@ -158,6 +166,10 @@
   },
   "100-yard approach (preset): ⭐ on attack": {
    "pass": true
+  },
+  "100-yard approach (preset): Attack cites your rule": {
+   "pass": true,
+   "detail": "Your rule: go for it from 130 or closer"
   },
   "100-yard approach (preset): same club labelled, not forced": {
    "pass": true,
@@ -177,23 +189,112 @@
   "100-yard approach (preset): recommendation updated from previous position": {
    "pass": true
   },
+  "Owner rule boundary (Move Me ~140 yd: lay up): two cards shown": {
+   "pass": true,
+   "detail": {
+    "mv": {
+     "errYd": 0.8,
+     "mode": "sim"
+    },
+    "center": "141"
+   }
+  },
+  "Owner rule boundary (Move Me ~140 yd: lay up): Attack /IRON · FULL/": {
+   "pass": true,
+   "detail": {
+    "star": false,
+    "club": "7-IRON · FULL",
+    "n": "140 yd · at target",
+    "note": "No mapped hazard in range"
+   }
+  },
+  "Owner rule boundary (Move Me ~140 yd: lay up): Play Smart /WEDGE/": {
+   "pass": true,
+   "detail": {
+    "star": true,
+    "club": "48° WEDGE · ½",
+    "n": "40–50 yd · ~96 left",
+    "note": "Your rule: lay up beyond 130 · ends 15+ yd short of pond"
+   }
+  },
+  "Owner rule boundary (Move Me ~140 yd: lay up): ⭐ on smart": {
+   "pass": true
+  },
+  "Owner rule boundary (Move Me ~140 yd: lay up): Play Smart cites your stated preference": {
+   "pass": true,
+   "detail": "Your rule: lay up beyond 130 · ends 15+ yd short of pond"
+  },
+  "Owner rule boundary (Move Me ~140 yd: lay up): labelled distance-based / unverified": {
+   "pass": true,
+   "detail": "To centre 141 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Owner rule boundary (Move Me ~140 yd: lay up): target = centre (no pin today), matches header": {
+   "pass": true,
+   "detail": "To centre 141 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Owner rule boundary (Move Me ~140 yd: lay up): no \"carry\"/\"safe\" claims": {
+   "pass": true
+  },
+  "Owner rule boundary (Move Me ~140 yd: lay up): recommendation updated from previous position": {
+   "pass": true
+  },
+  "Owner rule boundary (Move Me ~124 yd: go for it): two cards shown": {
+   "pass": true,
+   "detail": {
+    "mv": {
+     "errYd": 0.3,
+     "mode": "sim"
+    },
+    "center": "126"
+   }
+  },
+  "Owner rule boundary (Move Me ~124 yd: go for it): Attack /IRON · FULL/": {
+   "pass": true,
+   "detail": {
+    "star": true,
+    "club": "8-IRON · FULL",
+    "n": "130 yd · ~4 past",
+    "note": "Your rule: go for it from 130 or closer"
+   }
+  },
+  "Owner rule boundary (Move Me ~124 yd: go for it): ⭐ on attack": {
+   "pass": true
+  },
+  "Owner rule boundary (Move Me ~124 yd: go for it): Attack cites your rule": {
+   "pass": true,
+   "detail": "Your rule: go for it from 130 or closer"
+  },
+  "Owner rule boundary (Move Me ~124 yd: go for it): labelled distance-based / unverified": {
+   "pass": true,
+   "detail": "To centre 126 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Owner rule boundary (Move Me ~124 yd: go for it): target = centre (no pin today), matches header": {
+   "pass": true,
+   "detail": "To centre 126 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Owner rule boundary (Move Me ~124 yd: go for it): no \"carry\"/\"safe\" claims": {
+   "pass": true
+  },
+  "Owner rule boundary (Move Me ~124 yd: go for it): recommendation updated from previous position": {
+   "pass": true
+  },
   "Partial wedge (Move Me ~45 yd): two cards shown": {
    "pass": true,
    "detail": {
     "mv": {
-     "errYd": 0.2,
+     "errYd": 0.7,
      "mode": "sim"
     },
     "center": "46"
    }
   },
-  "Partial wedge (Move Me ~45 yd): Attack /WEDGE · (½|¾|¼) SWING/": {
+  "Partial wedge (Move Me ~45 yd): Attack /WEDGE · (½|¾|¼)$/": {
    "pass": true,
    "detail": {
     "star": true,
-    "club": "48° WEDGE · ½ SWING",
+    "club": "48° WEDGE · ½",
     "n": "40–50 yd · at target",
-    "note": "No mapped hazard in range"
+    "note": "Your rule: go for it from 130 or closer"
    }
   },
   "Partial wedge (Move Me ~45 yd): ⭐ on attack": {
@@ -217,19 +318,19 @@
    "pass": true,
    "detail": {
     "mv": {
-     "errYd": 1.5,
+     "errYd": 1.3,
      "mode": "sim"
     },
     "center": "33"
    }
   },
-  "Beyond the green (Move Me ~30 yd past centre): Attack /WEDGE · (½|¼) SWING/": {
+  "Beyond the green (Move Me ~30 yd past centre): Attack /WEDGE · (½|¼)$/": {
    "pass": true,
    "detail": {
     "star": true,
-    "club": "52° WEDGE · ½ SWING",
+    "club": "52° WEDGE · ½",
     "n": "30–40 yd · ~2 past",
-    "note": "No mapped hazard in range"
+    "note": "Your rule: go for it from 130 or closer"
    }
   },
   "Beyond the green (Move Me ~30 yd past centre): ⭐ on attack": {
@@ -248,6 +349,51 @@
   },
   "Beyond the green (Move Me ~30 yd past centre): recommendation updated from previous position": {
    "pass": true
+  },
+  "rule follows the header centre: ⭐ Play Smart beyond 130, Attack at 130 or closer (all positions)": {
+   "pass": true,
+   "detail": [
+    {
+     "name": "Tee box (Green tee preset)",
+     "c": 366,
+     "star": "smart"
+    },
+    {
+     "name": "Long fairway shot (250 yd preset)",
+     "c": 247,
+     "star": "smart"
+    },
+    {
+     "name": "150-yard approach (preset)",
+     "c": 150,
+     "star": "smart"
+    },
+    {
+     "name": "100-yard approach (preset)",
+     "c": 100,
+     "star": "attack"
+    },
+    {
+     "name": "Owner rule boundary (Move Me ~140 yd: lay up)",
+     "c": 141,
+     "star": "smart"
+    },
+    {
+     "name": "Owner rule boundary (Move Me ~124 yd: go for it)",
+     "c": 126,
+     "star": "attack"
+    },
+    {
+     "name": "Partial wedge (Move Me ~45 yd)",
+     "c": 46,
+     "star": "attack"
+    },
+    {
+     "name": "Beyond the green (Move Me ~30 yd past centre)",
+     "c": 33,
+     "star": "attack"
+    }
+   ]
   },
   "remaining ≈ centre − mid distance": {
    "pass": true,
@@ -303,10 +449,10 @@
   "typed pin → Play Smart offers the centre or another option": {
    "pass": true,
    "detail": {
-    "star": false,
-    "club": "6-IRON · FULL",
-    "n": "150 yd · ~6 past",
-    "note": "Plays to green centre (150)"
+    "star": true,
+    "club": "48° WEDGE · ½",
+    "n": "40–50 yd · ~99 left",
+    "note": "Your rule: lay up beyond 130 · ends 24+ yd short of pond"
    }
   },
   "CURRENT sheet → target flag": {

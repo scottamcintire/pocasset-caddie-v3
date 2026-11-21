@@ -8,7 +8,7 @@
 (function (root) {
   'use strict';
   var YD = 0.9144, SWINGS = ['quarter', 'half', 'three_quarter', 'full'],
-      SWING_TXT = { quarter: '¼ SWING', half: '½ SWING', three_quarter: '¾ SWING', full: 'FULL' };
+      SWING_TXT = { quarter: '¼ SWING', half: '½ SWING', three_quarter: '¾ SWING', full: 'FULL' }, SWING_SHORT = { quarter: '¼', half: '½', three_quarter: '¾', full: 'FULL' };
   function dist(a, b) { return Math.hypot(a[0] - b[0], a[1] - b[1]); }
   function inRing(q, ring) { var c = false; for (var i = 0, j = ring.length - 1; i < ring.length; j = i++) { var a = ring[i], b = ring[j]; if ((a[1] > q[1]) !== (b[1] > q[1]) && q[0] < (b[0] - a[0]) * (q[1] - a[1]) / (b[1] - a[1]) + a[0]) c = !c; } return c; }
   // point m metres along polyline L; past the end it continues in the last segment's direction
@@ -22,7 +22,7 @@
       SWINGS.forEach(function (s, si) {
         var d = c[s]; if (d == null) return;
         var lo = Array.isArray(d) ? d[0] : d, hi = Array.isArray(d) ? d[1] : d;
-        out.push({ club: c.name, swing: s, swingText: SWING_TXT[s], full: s === 'full', lo: lo, hi: hi, mid: (lo + hi) / 2, teeOnly: !!c.tee_only, order: si });
+        out.push({ club: c.name, swing: s, swingText: SWING_SHORT[s], full: s === 'full', lo: lo, hi: hi, mid: (lo + hi) / 2, teeOnly: !!c.tee_only, order: si });
       });
     });
     return out;
@@ -70,10 +70,36 @@
       var p = prefs.filter(function (q) { return q.instead_of === pick.club; })[0], alt = p && find(p.use, p.swing);
       return alt && pool.indexOf(alt) >= 0 ? { e: alt, note: p.note } : { e: pick, note: null };
     }
-    var smart = null, why = '', kind = '';
+    var smart = null, why = '', kind = '', stratGo = false, st = a.strategy;
+    // 0. the owner's rule for this hole (not off the tee on a par 4/5)
+    if (st && !(onTee && a.par > 3)) {
+      var cy = a.centreYd != null ? a.centreYd : D;
+      if (!st.always_lay_up && st.go_for_green_within_yd != null && cy <= st.go_for_green_within_yd) stratGo = true;
+      else {
+        var front = haz.filter(function (h) { return h.reach < D && ((h.cls === 'water' && h.position === 'across') || /^green-front/.test(h.position || '')); })
+                       .sort(function (x, y) { return x.reach - y.reach; })[0];
+        if (front) {
+          var ly = ev.filter(function (e) { return e !== attack && e.hi <= front.reach - R.layup_buffer_yd && !e.risks.length; });
+          if (ly.length) { var s0 = preferSwap(longest(ly), ly); smart = s0.e; kind = 'strategy';
+            why = st.note + ' · ends ' + Math.floor(front.reach - smart.hi) + '+ yd short of ' + (front.cls === 'water' ? 'pond' : 'front bunker'); }
+        }
+      }
+    }
     // 1. stated reliability preference over the Attack club
     var pf = prefs.filter(function (q) { return q.instead_of === attack.club; })[0], sw = pf && find(pf.use, pf.swing);
-    if (sw && sw !== attack && noNew(sw)) { smart = sw; why = pf.note; kind = pf.off_tee_favoured && onTee ? 'pref-tee' : 'pref'; }
+    var teeNote = null;
+    if (!smart && sw && sw !== attack && noNew(sw)) {
+      smart = sw; why = pf.note; kind = pf.off_tee_favoured && onTee ? 'pref-tee' : 'pref';
+      // Par 4/5 tee: Driver earns the star only if it is what brings the green into range for the next shot
+      // (in range = within your longest fairway club, and inside your go-for-it distance if this hole has one).
+      if (onTee && a.par > 3 && kind === 'pref-tee') {
+        var fw = ev.filter(function (e) { return !e.teeOnly; }), goYd = Math.max.apply(null, fw.map(function (e) { return e.hi; })) + R.reach_tolerance_yd;
+        if (st && st.go_for_green_within_yd != null) goYd = Math.min(goYd, st.go_for_green_within_yd);
+        if (sw.remaining <= goYd) why = 'Leaves ~' + sw.remaining + ': green in range for shot 2 without driver · ' + pf.note;
+        else if (attack.remaining <= goYd) { kind = 'pref'; teeNote = 'Only driver leaves the green in range for shot 2 (~' + attack.remaining + ')'; }
+        else why = 'Driver doesn\'t bring the green in range for shot 2 either · ' + pf.note;
+      }
+    }
     // 2. Attack has a water risk: lay up short of the water's near edge
     var wr = attack.risks.filter(function (r) { return r.cls === 'water'; })[0];
     if (!smart && wr) {
@@ -102,10 +128,10 @@
     }
     var same = !smart;
     if (same) { smart = attack; kind = 'same'; why = 'Same as Attack: no better option in the data'; }
-    var star = same ? 'attack' : (kind === 'pref-tee' || (attack.risks.length && !smart.risks.length)) ? 'smart' : 'attack';
+    var star = same || stratGo ? 'attack' : (kind === 'pref-tee' || kind === 'strategy' || (attack.risks.length && !smart.risks.length)) ? 'smart' : 'attack';
     function card(e, note) { return { club: e.club, swing: e.swing, swingText: e.swingText, range: e.range, lo: e.lo, hi: e.hi, remaining: e.remaining, past: e.past, risks: e.risks.map(function (r) { return r.text; }), note: note }; }
-    return Object.assign(base, { mode: reach ? 'reach' : 'advance', same: same, kind: kind, star: star,
-      attack: card(attack, attack.risks.length ? attack.risks[0].text : 'No mapped hazard in range'),
+    return Object.assign(base, { mode: reach ? 'reach' : 'advance', same: same, kind: kind, star: star, strategy: st ? (stratGo ? 'go' : kind === 'strategy' ? 'lay up' : 'n/a') : null,
+      attack: card(attack, teeNote || (stratGo ? 'Your rule: go for it from ' + st.go_for_green_within_yd + ' or closer' + (attack.risks.length ? ' · ' : '') : '') + (attack.risks.length ? attack.risks[0].text : stratGo ? '' : 'No mapped hazard in range')),
       smart: card(smart, why) });
   }
   var api = { recommend: recommend, options: options, SWING_TXT: SWING_TXT };

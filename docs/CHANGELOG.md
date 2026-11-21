@@ -2,6 +2,11 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.5.1-advisor-owner-rules: Shot Advisor follows the owner's par-4 and Hole 2 rules (test release, 20 Nov 2026)
+- Per-hole strategy in app/advisor_config.js `hole_strategy`. Hole 2 (owner): go for the green from 130 yd or closer to the centre (⭐ Attack); farther back, ⭐ Play Smart = lay up short of the trouble in front (pond / front bunkers). Hole 6 "always lay up" recorded, not active (Hole 6 not enabled).
+- Par 4/5 tee (owner): Driver earns the ⭐ only if it is what brings the green into range for shot 2 (within the longest fairway club, and inside the hole's go-for-it distance if set); otherwise ⭐ 5-hybrid. Hole 2: Green/Blue/Gold → 5-hybrid; Bronze (candidate tee) → Driver (leaves ~120).
+- Shorter swing labels (½, ¾, ¼). Tests: test_advisor 89/89 (adds 124/140 yd boundary, rule follows header centre); test_play 38/38, test_minimal 82/82, test_zoom 202/202.
+
 ## v5.5.0-shot-advisor-hole02: AI Caddie Shot Advisor, Hole 2 only (test release, 20 Nov 2026)
 - New compact, collapsible **AI CADDIE · SHOT ADVISOR** strip under the GPS header (FLYOVER tab, Hole 2 only): 🎯 ATTACK and 🛡️ PLAY SMART side by side (club · swing, expected distance, distance remaining, risk / advantage), ⭐ on the better one. On/off in the Holes menu (saved as `pocasset_v3:advisor`).
 - Engine app/advisor.js (hole-independent; reuses the header's V2.3.1 yardage, PGeo route and hazard reach/carry); owner's clubs and preferences in app/advisor_config.js (editable; no invented distances, dispersion or percentages). Target = today's pin if typed today or from a CURRENT sheet and placed cleanly, else green centre.
