@@ -393,7 +393,7 @@ var ADV=store.get('advisor')||{};if(typeof ADV.on!=='boolean')ADV.on=true;if(ADV
 function saveAdv(){store.set('advisor',ADV)}
 function advCard(c,k,star){var lbl=k==='attack'?'🎯 ATTACK':'🛡️ PLAY SMART',rem=c.past?'~'+c.remaining+' past':c.remaining<3?'at target':'~'+c.remaining+' left';
   return '<div class="advc'+(star?' star':'')+'" data-k="'+k+'"><div class="advk">'+(star?'⭐ ':'')+lbl+'</div><div class="advclub">'+esc(c.club.toUpperCase())+' · '+c.swingText+'</div>'+
-    '<div class="advn"><b>'+c.range.replace(' yd','')+'</b> yd · <b>'+rem+'</b></div><div class="advnote'+(k==='attack'&&c.risks.length?' warn':'')+'">'+(k==='attack'&&c.risks.length?'⚠ ':'')+esc(c.note)+'</div></div>'}
+    '<div class="advn"><b>'+c.range.replace(' yd','')+'</b> yd · <b>'+rem+'</b></div><div class="advnote'+(k==='attack'&&c.warn?' warn':'')+'">'+(k==='attack'&&c.warn?'⚠ ':'')+esc(c.note)+'</div></div>'}
 function renderAdvisor(n,hd,r){
   var el=$('adv'),cfg=window.ADVISOR_CONFIG,show=ADV.on&&S.tab==='fly'&&!!cfg&&cfg.holes.indexOf(n)>=0;
   el.hidden=!show;S.adv=null;if(!show)return;

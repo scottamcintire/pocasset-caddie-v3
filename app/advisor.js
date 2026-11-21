@@ -48,11 +48,13 @@
       var land = along(route, o.mid * YD), rem = dist(land, a.targetUV) / YD, risks = [];
       haz.forEach(function (h) {
         var r = Math.round(h.reach), c = Math.round(h.carry), nm = hzName(h, posText);
-        if (o.lo <= h.carry && o.hi >= h.reach) risks.push({ id: h.id, cls: h.cls, kind: 'in', text: 'In range of mapped ' + nm + ' ' + r + '–' + c });
-        else if (h.cls === 'water' && o.lo > h.carry && o.lo - h.carry < R.water_carry_margin_yd) risks.push({ id: h.id, cls: h.cls, kind: 'fly', text: 'Must fly pond (far edge ' + c + '); carry unconfirmed' });
-        else if (h.cls === 'water' && o.hi < h.reach && h.reach - o.hi < R.water_short_margin_yd) risks.push({ id: h.id, cls: h.cls, kind: 'short', text: 'Ends ≤' + Math.ceil(h.reach - o.hi) + ' yd short of pond' });
+        var line = h.cls === 'water' || h.position === 'across' || /^green-front/.test(h.position || '');
+        if (o.lo <= h.carry && o.hi >= h.reach) risks.push({ id: h.id, cls: h.cls, kind: 'in', line: line, text: (line ? 'In range of mapped ' : 'Side bunker in range: ') + nm + ' ' + r + '–' + c });
+        else if (h.cls === 'water' && o.lo > h.carry && o.lo - h.carry < R.water_carry_margin_yd) risks.push({ id: h.id, cls: h.cls, kind: 'fly', line: true, text: 'Must fly pond (far edge ' + c + '); carry unconfirmed' });
+        else if (h.cls === 'water' && o.hi < h.reach && h.reach - o.hi < R.water_short_margin_yd) risks.push({ id: h.id, cls: h.cls, kind: 'short', line: true, text: 'Ends ≤' + Math.ceil(h.reach - o.hi) + ' yd short of pond' });
       });
-      return Object.assign({}, o, { remaining: Math.round(rem), past: o.mid > D + 0.5, risks: risks, range: rangeTxt(o) });
+      risks.sort(function (x, y) { return (y.line ? 1 : 0) - (x.line ? 1 : 0); });
+      return Object.assign({}, o, { remaining: Math.round(rem), past: o.mid > D + 0.5, risks: risks, lr: risks.filter(function (r) { return r.line; }), range: rangeTxt(o) });
     }
     var ev = all.filter(function (o) { return !o.teeOnly || onTee; }).map(evalShot);
     var maxHi = Math.max.apply(null, ev.map(function (e) { return e.hi; })), reach = D <= maxHi + R.reach_tolerance_yd;
@@ -64,7 +66,7 @@
     else { var dry = ev.filter(function (e) { return !waterIn(e); }); attack = longest(dry.length ? dry : ev); }
 
     var prefs = cfg.preferences.more_reliable;
-    function noNew(e) { return e.risks.every(function (r) { return attack.risks.some(function (x) { return x.id === r.id; }); }); }
+    function noNew(e) { return e.lr.every(function (r) { return attack.lr.some(function (x) { return x.id === r.id; }); }); }
     function find(club, swing) { return ev.filter(function (e) { return e.club === club && e.swing === swing; })[0]; }
     function preferSwap(pick, pool) {   // a stated "more reliable" alternative in the same pool replaces the pick
       var p = prefs.filter(function (q) { return q.instead_of === pick.club; })[0], alt = p && find(p.use, p.swing);
@@ -79,7 +81,7 @@
         var front = haz.filter(function (h) { return h.reach < D && ((h.cls === 'water' && h.position === 'across') || /^green-front/.test(h.position || '')); })
                        .sort(function (x, y) { return x.reach - y.reach; })[0];
         if (front) {
-          var ly = ev.filter(function (e) { return e !== attack && e.hi <= front.reach - R.layup_buffer_yd && !e.risks.length; });
+          var ly = ev.filter(function (e) { return e !== attack && e.hi <= front.reach - R.layup_buffer_yd && !e.lr.length; });
           if (ly.length) { var s0 = preferSwap(longest(ly), ly); smart = s0.e; kind = 'strategy';
             why = st.note + ' · ends ' + Math.floor(front.reach - smart.hi) + '+ yd short of ' + (front.cls === 'water' ? 'pond' : 'front bunker'); }
         }
@@ -101,16 +103,16 @@
       }
     }
     // 2. Attack has a water risk: lay up short of the water's near edge
-    var wr = attack.risks.filter(function (r) { return r.cls === 'water'; })[0];
+    var wr = attack.lr.filter(function (r) { return r.cls === 'water'; })[0];
     if (!smart && wr) {
       var W = haz.filter(function (h) { return h.id === wr.id; })[0];
-      var lay = ev.filter(function (e) { return e !== attack && e.hi <= W.reach - R.layup_buffer_yd && !e.risks.length; });
+      var lay = ev.filter(function (e) { return e !== attack && e.hi <= W.reach - R.layup_buffer_yd && !e.lr.length; });
       if (lay.length) { var s = preferSwap(longest(lay), lay); smart = s.e; kind = 'layup';
         why = 'Ends ' + Math.floor(W.reach - smart.hi) + '+ yd short of pond' + (s.note ? ' · ' + s.note : ''); }
     }
     // 3. Attack has a bunker risk on a reachable shot: nearest alternative with no mapped hazard in range
-    if (!smart && reach && attack.risks.length) {
-      var clean = ev.filter(function (e) { return e !== attack && !e.risks.length && D - e.mid <= R.alt_max_shorter_yd && e.mid <= D + R.reach_tolerance_yd; });
+    if (!smart && reach && attack.lr.length) {
+      var clean = ev.filter(function (e) { return e !== attack && !e.lr.length && D - e.mid <= R.alt_max_shorter_yd && e.mid <= D + R.reach_tolerance_yd; });
       if (clean.length) { smart = closest(clean, D); kind = 'avoid'; why = 'No mapped hazard in range'; }
     }
     // 4. Attack goes at today's pin: play to the centre of the green instead
@@ -128,8 +130,8 @@
     }
     var same = !smart;
     if (same) { smart = attack; kind = 'same'; why = 'Same as Attack: no better option in the data'; }
-    var star = same || stratGo ? 'attack' : (kind === 'pref-tee' || kind === 'strategy' || (attack.risks.length && !smart.risks.length)) ? 'smart' : 'attack';
-    function card(e, note) { return { club: e.club, swing: e.swing, swingText: e.swingText, range: e.range, lo: e.lo, hi: e.hi, remaining: e.remaining, past: e.past, risks: e.risks.map(function (r) { return r.text; }), note: note }; }
+    var star = same || stratGo ? 'attack' : (kind === 'pref-tee' || kind === 'strategy' || (attack.lr.length && !smart.lr.length)) ? 'smart' : 'attack';
+    function card(e, note) { return { club: e.club, swing: e.swing, swingText: e.swingText, range: e.range, lo: e.lo, hi: e.hi, remaining: e.remaining, past: e.past, warn: e.lr.length > 0, risks: e.risks.map(function (r) { return r.text; }), note: note }; }
     return Object.assign(base, { mode: reach ? 'reach' : 'advance', same: same, kind: kind, star: star, strategy: st ? (stratGo ? 'go' : kind === 'strategy' ? 'lay up' : 'n/a') : null,
       attack: card(attack, teeNote || (stratGo ? 'Your rule: go for it from ' + st.go_for_green_within_yd + ' or closer' + (attack.risks.length ? ' · ' : '') : '') + (attack.risks.length ? attack.risks[0].text : stratGo ? '' : 'No mapped hazard in range')),
       smart: card(smart, why) });

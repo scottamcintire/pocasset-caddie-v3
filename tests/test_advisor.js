@@ -61,7 +61,13 @@ const moveMe=(pg,uv)=>pg.evaluate(p=>{const P=__play,S=P.S,hd=P.HD[2];document.g
  await pg.evaluate(()=>__play.setTab('green'));ok('hidden on GREEN tab',(await readAdv(pg)).shown===false);
  await pg.evaluate(()=>__play.setTab('score'));ok('hidden on SCORE tab',(await readAdv(pg)).shown===false);
  await pg.evaluate(()=>__play.setTab('fly'));
- for(const n of [1,3,9,18]){await pg.evaluate(n=>__play.goHole(n,true),n);await pg.waitForTimeout(400);ok('not shown on Hole '+n,(await readAdv(pg)).shown===false)}
+ // all 18 holes (owner approved 20 Nov): once SHOW is on, it stays on from hole to hole; two cards from a simulated position
+ for(let n=1;n<=18;n++){await pg.evaluate(n=>__play.goHole(n,true),n);await pg.waitForTimeout(450);
+  const L=await pg.evaluate(()=>{const b=[...document.querySelectorAll('#presets button')];return b.map(x=>x.textContent)});
+  const pick=L.find(t=>/150 yd out/.test(t))||L.find(t=>/100 yd out/.test(t))||L[0];await preset(pg,pick);const q=await readAdv(pg);
+  const vis=await pg.locator('#advBody').isVisible();
+  ok('Hole '+n+' ('+pick+'): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐',q.shown&&vis&&q.attack&&q.smart&&(q.attack.star!==q.smart.star),{a:q.attack&&q.attack.club,s:q.smart&&q.smart.club,center:q.center});
+  const tee=L.find(t=>/ tee/.test(t)&&!/sim/.test(t));if(tee){await preset(pg,tee);const t=await readAdv(pg);ok('Hole '+n+' ('+tee+'): tee recommendation',t.attack&&t.smart,{a:t.attack&&t.attack.club,s:t.smart&&t.smart.club,star:t.attack&&t.attack.star?'attack':'smart'})}}
  await pg.evaluate(()=>__play.goHole(2,true));await pg.waitForTimeout(400);
  // on / off from the Holes menu (persisted)
  await pg.click('#holesBtn');await pg.click('#advOnOff');await pg.click('#menuClose');ok('switched off',(await readAdv(pg)).shown===false);

@@ -2,6 +2,11 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.6.0-advisor-all-holes: Shot Advisor on all 18 holes (test release, 20 Nov 2026)
+- Owner approved all 18. Starts hidden behind SHOW; once shown it stays on from hole to hole (remembered on the phone).
+- Fixes found in the 18-hole check: side bunkers (L/R of the fairway, left/right of the green) are shown as information only and no longer change the picks or the ⭐ (no left/right dispersion data); water and bunkers across the line or in front of the green still do. "On the tee" = inside a mapped tee box or within 8 yd of its centre (was 15). Hole 6 rule: lay up off the tee (every tee is beyond 130), go for the green inside 130.
+- Tests: test_advisor 122/122 (all 18 holes from a preset and from each mapped tee); test_play 38/38 vs V2.3.1, test_minimal 82/82, test_zoom 202/202.
+
 ## v5.5.2-advisor-show-button: club suggestion hidden until SHOW is tapped (test release, 20 Nov 2026)
 - Owner: the AI Caddie strip starts as one line with a SHOW button; no club is on screen until it is tapped. HIDE folds it away; the choice is remembered on the phone. Phones that used v5.5.0/v5.5.1 start hidden once.
 - Still Hole 2 only (all-hole rollout on hold). Tests: test_advisor 92/92, test_play 38/38, test_minimal 82/82, test_zoom 202/202.

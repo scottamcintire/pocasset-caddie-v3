@@ -423,17 +423,277 @@
   "hidden on SCORE tab": {
    "pass": true
   },
-  "not shown on Hole 1": {
-   "pass": true
+  "Hole 1 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "7-IRON · FULL",
+    "s": "7-IRON · FULL",
+    "center": "144"
+   }
   },
-  "not shown on Hole 3": {
-   "pass": true
+  "Hole 1 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
   },
-  "not shown on Hole 9": {
-   "pass": true
+  "Hole 2 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "6-IRON · FULL",
+    "s": "48° WEDGE · ½",
+    "center": "150"
+   }
   },
-  "not shown on Hole 18": {
-   "pass": true
+  "Hole 2 (Green tee · candidate): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
+  },
+  "Hole 3 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "6-IRON · FULL",
+    "s": "8-IRON · FULL",
+    "center": "150"
+   }
+  },
+  "Hole 3 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "7-IRON · FULL",
+    "s": "7-IRON · FULL",
+    "star": "attack"
+   }
+  },
+  "Hole 4 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "6-IRON · FULL",
+    "s": "8-IRON · FULL",
+    "center": "147"
+   }
+  },
+  "Hole 4 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
+  },
+  "Hole 5 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "6-IRON · FULL",
+    "s": "6-IRON · FULL",
+    "center": "149"
+   }
+  },
+  "Hole 5 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
+  },
+  "Hole 6 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "6-IRON · FULL",
+    "s": "48° WEDGE · FULL",
+    "center": "148"
+   }
+  },
+  "Hole 7 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "7-IRON · FULL",
+    "s": "8-IRON · FULL",
+    "center": "142"
+   }
+  },
+  "Hole 7 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
+  },
+  "Hole 8 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "7-IRON · FULL",
+    "s": "7-IRON · FULL",
+    "center": "140"
+   }
+  },
+  "Hole 8 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
+  },
+  "Hole 9 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "7-IRON · FULL",
+    "s": "7-IRON · FULL",
+    "center": "141"
+   }
+  },
+  "Hole 9 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
+  },
+  "Hole 10 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "7-IRON · FULL",
+    "s": "7-IRON · FULL",
+    "center": "141"
+   }
+  },
+  "Hole 11 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "6-IRON · FULL",
+    "s": "8-IRON · FULL",
+    "center": "146"
+   }
+  },
+  "Hole 11 (Green tee · owner-reported): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
+  },
+  "Hole 12 (100 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "48° WEDGE · FULL",
+    "s": "48° WEDGE · FULL",
+    "center": "96"
+   }
+  },
+  "Hole 12 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "9-IRON · FULL",
+    "s": "9-IRON · FULL",
+    "star": "attack"
+   }
+  },
+  "Hole 13 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "6-IRON · FULL",
+    "s": "6-IRON · FULL",
+    "center": "146"
+   }
+  },
+  "Hole 13 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
+  },
+  "Hole 14 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "6-IRON · FULL",
+    "s": "6-IRON · FULL",
+    "center": "145"
+   }
+  },
+  "Hole 14 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
+  },
+  "Hole 15 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "7-IRON · FULL",
+    "s": "7-IRON · FULL",
+    "center": "135"
+   }
+  },
+  "Hole 15 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "8-IRON · FULL",
+    "s": "8-IRON · FULL",
+    "star": "attack"
+   }
+  },
+  "Hole 16 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "6-IRON · FULL",
+    "s": "8-IRON · FULL",
+    "center": "150"
+   }
+  },
+  "Hole 16 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
+  },
+  "Hole 17 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "7-IRON · FULL",
+    "s": "7-IRON · FULL",
+    "center": "144"
+   }
+  },
+  "Hole 17 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
+  },
+  "Hole 18 (150 yd out): advisor on without tapping SHOW again, Attack + Play Smart, one ⭐": {
+   "pass": true,
+   "detail": {
+    "a": "6-IRON · FULL",
+    "s": "6-IRON · FULL",
+    "center": "148"
+   }
+  },
+  "Hole 18 (Green tee): tee recommendation": {
+   "pass": true,
+   "detail": {
+    "a": "DRIVER · FULL",
+    "s": "5-HYBRID · FULL",
+    "star": "smart"
+   }
   },
   "switched off": {
    "pass": true

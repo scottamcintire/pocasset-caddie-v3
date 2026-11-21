@@ -4,7 +4,7 @@
    Swings: quarter, half, three_quarter, full. */
 window.ADVISOR_CONFIG = {
   version: 1,
-  holes: [2],                       // Shot Advisor is shown on these holes only (Hole 2 test; others wait for approval)
+  holes: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],   // owner approved all 18 (20 Nov 2026)
   distances_confirmed_as: 'estimated playing distance (carry vs total not confirmed)',
 
   clubs: [
@@ -38,13 +38,13 @@ window.ADVISOR_CONFIG = {
      of the trouble in front of the green (water crossing the line, or front bunkers). always_lay_up: always lay up. */
   hole_strategy: {
     2: { go_for_green_within_yd: 130, note: 'Your rule: lay up beyond 130' },
-    6: { always_lay_up: true, note: 'Your rule: always lay up on Hole 6' }   // recorded only: Hole 6 not enabled yet
+    6: { go_for_green_within_yd: 130, note: 'Your rule: lay up off the tee on Hole 6' }   // tee shot (all tees > 130): lay up; inside 130: go
   },
 
   /* Advisor rules (Claude's working thresholds, not owner data — adjust freely). */
   rules: {
     reach_tolerance_yd: 5,          // a club "reaches" if its high end is within this of the target
-    tee_radius_yd: 15,              // within this of a mapped tee box counts as "on the tee"
+    tee_radius_yd: 8,               // inside a mapped tee box, or within this of its centre, counts as "on the tee"
     corridor_yd: 40,                // hazards considered: ahead, within ±40 yd of the line (same rule as the hazard table)
     hazard_lookahead_yd: 30,        // ignore hazards more than this beyond the target
     water_short_margin_yd: 10,      // a range ending closer than this short of water is flagged
