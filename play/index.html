@@ -403,7 +403,7 @@ function renderAdvisor(n,hd,r){
   var why=pinOK?'':pl.src==='sheet'&&st!=='current'?' (pin sheet '+(st==='expired'?'expired':'future-dated')+')':' (no pin today)';
   var me=meUV(hd),tuv=pinOK?hd.hole.frame.toUV(pl.ll[0],pl.ll[1]):hd.hole.centerUV;
   var a=PAdvisor.recommend({hole:hd.hole,me:me,targetUV:tuv,targetYd:pinOK?r.flag:r.center,targetKind:pinOK?'flag':'centre',centreYd:r.center,par:PARS[n-1],
-    teeUVs:hd.tees.map(function(t){return t.uv}),cfg:cfg,posText:PFly.posText});
+    teeUVs:hd.tees.map(function(t){return t.uv}),cfg:cfg,posText:PFly.posText,strategy:(cfg.hole_strategy||{})[n]||null});
   S.adv=a;var tgt=pinOK?'To flag '+r.flag+' yd':'To centre '+r.center+' yd'+why;
   if(a.mode==='green'){$('advSum').textContent='';$('advBody').innerHTML='<p class="advmsg">'+esc(a.message)+' '+esc(tgt)+'.</p>';return}
   var sp=a.star==='smart'?a.smart:a.attack;
