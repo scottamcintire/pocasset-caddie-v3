@@ -15,7 +15,7 @@ ap = argparse.ArgumentParser(); ap.add_argument('--flyover-holes', type=int, nar
 out = P('prototype', 'play')
 if os.path.exists(out): shutil.rmtree(out)
 os.makedirs(os.path.join(out, 'img')); os.makedirs(os.path.join(out, 'holes'))
-for f in ('geo.js', 'green.js', 'flyover.js', 'caddie.js', 'pinsheet.js'): shutil.copy2(P('app', f), os.path.join(out, f))
+for f in ('geo.js', 'green.js', 'flyover.js', 'caddie.js', 'pinsheet.js', 'advisor.js', 'advisor_config.js'): shutil.copy2(P('app', f), os.path.join(out, f))
 # pdf.js for the pin-sheet upload (vendored, unmodified; checksums verified)
 VEN = P('vendor', 'pdfjs-6.2.108'); os.makedirs(os.path.join(out, 'vendor', 'pdfjs'))
 for line in open(os.path.join(VEN, 'SHA256SUMS')):

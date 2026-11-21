@@ -2,6 +2,12 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.5.0-shot-advisor-hole02: AI Caddie Shot Advisor, Hole 2 only (test release, 20 Nov 2026)
+- New compact, collapsible **AI CADDIE · SHOT ADVISOR** strip under the GPS header (FLYOVER tab, Hole 2 only): 🎯 ATTACK and 🛡️ PLAY SMART side by side (club · swing, expected distance, distance remaining, risk / advantage), ⭐ on the better one. On/off in the Holes menu (saved as `pocasset_v3:advisor`).
+- Engine app/advisor.js (hole-independent; reuses the header's V2.3.1 yardage, PGeo route and hazard reach/carry); owner's clubs and preferences in app/advisor_config.js (editable; no invented distances, dispersion or percentages). Target = today's pin if typed today or from a CURRENT sheet and placed cleanly, else green centre.
+- Honesty rules: all Hole 2 hazards are unverified → every recommendation is labelled DISTANCE-BASED; no carry claims (carry vs total unconfirmed); a shorter shot is never called safe; Play Smart = Attack when the data give no meaningfully different option. Driver only from a tee (assumption, config `tee_only`).
+- Tests: tests/test_advisor.js 68/68 (tee, 250 / 150 / 100 presets, Move Me partial wedge and beyond the green, flag/centre rule incl. expired and future sheets, tabs, other holes, on/off persistence, storage prefix). Regression: test_play 38/38 vs V2.3.1 (e8b22e4), test_minimal 82/82, test_zoom 202/202; every other /play/ file byte-identical to v5.4.1.
+
 ## v5.4.1-pinsheet-safari: fix pin-sheet upload on iPhone Safari (test release, 19 Nov 2026)
 - Owner's iPhone: "Could not read this file as a PDF (undefined is not a function (near '...t of e...'))". Cause: pdf.js reads page text with `for await` over a ReadableStream (page and worker); Safari has no async iteration on ReadableStream and the pdf.js legacy build does not patch it.
 - Fix: app/pdfjs_safari.js (standard polyfill, only where missing) loaded before pdf.js on the page and, via app/pdf.worker.safari.js, in the worker. pdf.js files unchanged (checksums).

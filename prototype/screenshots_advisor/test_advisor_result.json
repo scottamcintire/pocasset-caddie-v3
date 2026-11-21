@@ -1,0 +1,330 @@
+{
+ "checks": {
+  "shown on Hole 2 before a position, with a prompt": {
+   "pass": true,
+   "detail": "Start GPS, or use SIMULATE / move me, for a recommendation."
+  },
+  "Tee box (Green tee preset): two cards shown": {
+   "pass": true,
+   "detail": {
+    "center": "366"
+   }
+  },
+  "Tee box (Green tee preset): Attack DRIVER · FULL": {
+   "pass": true,
+   "detail": {
+    "star": false,
+    "club": "DRIVER · FULL",
+    "n": "220–230 yd · ~143 left",
+    "note": "No mapped hazard in range"
+   }
+  },
+  "Tee box (Green tee preset): Play Smart 5-HYBRID · FULL": {
+   "pass": true,
+   "detail": {
+    "star": true,
+    "club": "5-HYBRID · FULL",
+    "n": "190–200 yd · ~172 left",
+    "note": "Your note: more reliable than driver"
+   }
+  },
+  "Tee box (Green tee preset): ⭐ on smart": {
+   "pass": true
+  },
+  "Tee box (Green tee preset): labelled distance-based / unverified": {
+   "pass": true,
+   "detail": "To centre 366 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Tee box (Green tee preset): target = centre (no pin today), matches header": {
+   "pass": true,
+   "detail": "To centre 366 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Tee box (Green tee preset): no \"carry\"/\"safe\" claims": {
+   "pass": true
+  },
+  "Long fairway shot (250 yd preset): two cards shown": {
+   "pass": true,
+   "detail": {
+    "center": "247"
+   }
+  },
+  "Long fairway shot (250 yd preset): Attack 7-HYBRID · FULL": {
+   "pass": true,
+   "detail": {
+    "star": false,
+    "club": "7-HYBRID · FULL",
+    "n": "160–170 yd · ~85 left",
+    "note": "⚠ Ends ≤5 yd short of pond"
+   }
+  },
+  "Long fairway shot (250 yd preset): Play Smart 8-IRON · FULL": {
+   "pass": true,
+   "detail": {
+    "star": true,
+    "club": "8-IRON · FULL",
+    "n": "130 yd · ~120 left",
+    "note": "Ends 44+ yd short of pond · Your note: less dispersion than 6-iron"
+   }
+  },
+  "Long fairway shot (250 yd preset): ⭐ on smart": {
+   "pass": true
+  },
+  "Long fairway shot (250 yd preset): Attack risk names the pond": {
+   "pass": true,
+   "detail": "⚠ Ends ≤5 yd short of pond"
+  },
+  "Long fairway shot (250 yd preset): labelled distance-based / unverified": {
+   "pass": true,
+   "detail": "To centre 247 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Long fairway shot (250 yd preset): target = centre (no pin today), matches header": {
+   "pass": true,
+   "detail": "To centre 247 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Long fairway shot (250 yd preset): no \"carry\"/\"safe\" claims": {
+   "pass": true
+  },
+  "Long fairway shot (250 yd preset): recommendation updated from previous position": {
+   "pass": true
+  },
+  "150-yard approach (preset): two cards shown": {
+   "pass": true,
+   "detail": {
+    "center": "150"
+   }
+  },
+  "150-yard approach (preset): Attack 6-IRON · FULL": {
+   "pass": true,
+   "detail": {
+    "star": true,
+    "club": "6-IRON · FULL",
+    "n": "150 yd · at target",
+    "note": "No mapped hazard in range"
+   }
+  },
+  "150-yard approach (preset): Play Smart 8-IRON · FULL": {
+   "pass": true,
+   "detail": {
+    "star": false,
+    "club": "8-IRON · FULL",
+    "n": "130 yd · ~20 left",
+    "note": "Your note: less dispersion than 6-iron"
+   }
+  },
+  "150-yard approach (preset): ⭐ on attack": {
+   "pass": true
+  },
+  "150-yard approach (preset): Play Smart cites your stated preference": {
+   "pass": true,
+   "detail": "Your note: less dispersion than 6-iron"
+  },
+  "150-yard approach (preset): labelled distance-based / unverified": {
+   "pass": true,
+   "detail": "To centre 150 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "150-yard approach (preset): target = centre (no pin today), matches header": {
+   "pass": true,
+   "detail": "To centre 150 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "150-yard approach (preset): no \"carry\"/\"safe\" claims": {
+   "pass": true
+  },
+  "150-yard approach (preset): recommendation updated from previous position": {
+   "pass": true
+  },
+  "100-yard approach (preset): two cards shown": {
+   "pass": true,
+   "detail": {
+    "center": "100"
+   }
+  },
+  "100-yard approach (preset): Attack 48° WEDGE · FULL": {
+   "pass": true,
+   "detail": {
+    "star": true,
+    "club": "48° WEDGE · FULL",
+    "n": "100 yd · at target",
+    "note": "No mapped hazard in range"
+   }
+  },
+  "100-yard approach (preset): Play Smart 48° WEDGE · FULL": {
+   "pass": true,
+   "detail": {
+    "star": false,
+    "club": "48° WEDGE · FULL",
+    "n": "100 yd · at target",
+    "note": "Same as Attack: no better option in the data"
+   }
+  },
+  "100-yard approach (preset): ⭐ on attack": {
+   "pass": true
+  },
+  "100-yard approach (preset): same club labelled, not forced": {
+   "pass": true,
+   "detail": "Same as Attack: no better option in the data"
+  },
+  "100-yard approach (preset): labelled distance-based / unverified": {
+   "pass": true,
+   "detail": "To centre 100 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "100-yard approach (preset): target = centre (no pin today), matches header": {
+   "pass": true,
+   "detail": "To centre 100 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "100-yard approach (preset): no \"carry\"/\"safe\" claims": {
+   "pass": true
+  },
+  "100-yard approach (preset): recommendation updated from previous position": {
+   "pass": true
+  },
+  "Partial wedge (Move Me ~45 yd): two cards shown": {
+   "pass": true,
+   "detail": {
+    "mv": {
+     "errYd": 0.2,
+     "mode": "sim"
+    },
+    "center": "46"
+   }
+  },
+  "Partial wedge (Move Me ~45 yd): Attack /WEDGE · (½|¾|¼) SWING/": {
+   "pass": true,
+   "detail": {
+    "star": true,
+    "club": "48° WEDGE · ½ SWING",
+    "n": "40–50 yd · at target",
+    "note": "No mapped hazard in range"
+   }
+  },
+  "Partial wedge (Move Me ~45 yd): ⭐ on attack": {
+   "pass": true
+  },
+  "Partial wedge (Move Me ~45 yd): labelled distance-based / unverified": {
+   "pass": true,
+   "detail": "To centre 46 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Partial wedge (Move Me ~45 yd): target = centre (no pin today), matches header": {
+   "pass": true,
+   "detail": "To centre 46 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Partial wedge (Move Me ~45 yd): no \"carry\"/\"safe\" claims": {
+   "pass": true
+  },
+  "Partial wedge (Move Me ~45 yd): recommendation updated from previous position": {
+   "pass": true
+  },
+  "Beyond the green (Move Me ~30 yd past centre): two cards shown": {
+   "pass": true,
+   "detail": {
+    "mv": {
+     "errYd": 1.5,
+     "mode": "sim"
+    },
+    "center": "33"
+   }
+  },
+  "Beyond the green (Move Me ~30 yd past centre): Attack /WEDGE · (½|¼) SWING/": {
+   "pass": true,
+   "detail": {
+    "star": true,
+    "club": "52° WEDGE · ½ SWING",
+    "n": "30–40 yd · ~2 past",
+    "note": "No mapped hazard in range"
+   }
+  },
+  "Beyond the green (Move Me ~30 yd past centre): ⭐ on attack": {
+   "pass": true
+  },
+  "Beyond the green (Move Me ~30 yd past centre): labelled distance-based / unverified": {
+   "pass": true,
+   "detail": "To centre 33 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Beyond the green (Move Me ~30 yd past centre): target = centre (no pin today), matches header": {
+   "pass": true,
+   "detail": "To centre 33 yd (no pin today) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "Beyond the green (Move Me ~30 yd past centre): no \"carry\"/\"safe\" claims": {
+   "pass": true
+  },
+  "Beyond the green (Move Me ~30 yd past centre): recommendation updated from previous position": {
+   "pass": true
+  },
+  "remaining ≈ centre − mid distance": {
+   "pass": true,
+   "detail": {
+    "center": "247",
+    "rem": 85
+   }
+  },
+  "collapses to one line with the ⭐ pick": {
+   "pass": true,
+   "detail": "⭐ PLAY SMART · 8-IRON FULL"
+  },
+  "expands again": {
+   "pass": true
+  },
+  "hidden on GREEN tab": {
+   "pass": true
+  },
+  "hidden on SCORE tab": {
+   "pass": true
+  },
+  "not shown on Hole 1": {
+   "pass": true
+  },
+  "not shown on Hole 3": {
+   "pass": true
+  },
+  "not shown on Hole 9": {
+   "pass": true
+  },
+  "not shown on Hole 18": {
+   "pass": true
+  },
+  "switched off": {
+   "pass": true
+  },
+  "stays off after reload": {
+   "pass": true
+  },
+  "switched on again": {
+   "pass": true
+  },
+  "advisor setting stored under pocasset_v3: only": {
+   "pass": true
+  },
+  "typed pin → target is the flag (header FLAG yardage)": {
+   "pass": true,
+   "detail": {
+    "fine": "To flag 143 yd · DISTANCE-BASED · hazards unverified · carry vs total not confirmed",
+    "flag": "FLAG 143 yd"
+   }
+  },
+  "typed pin → Play Smart offers the centre or another option": {
+   "pass": true,
+   "detail": {
+    "star": false,
+    "club": "6-IRON · FULL",
+    "n": "150 yd · ~6 past",
+    "note": "Plays to green centre (150)"
+   }
+  },
+  "CURRENT sheet → target flag": {
+   "pass": true,
+   "detail": "To flag 143 yd · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "EXPIRED sheet → target centre": {
+   "pass": true,
+   "detail": "To centre 150 yd (pin sheet expired) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "FUTURE-dated sheet → target centre": {
+   "pass": true,
+   "detail": "To centre 150 yd (pin sheet future-dated) · DISTANCE-BASED · hazards unverified · carry vs total not confirmed"
+  },
+  "no page errors": {
+   "pass": true,
+   "detail": []
+  }
+ },
+ "errors": []
+}
