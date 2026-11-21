@@ -109,6 +109,19 @@ main{min-height:calc(100svh - 260px)}
 .pserr{color:#ff9a8a;font-size:13px;line-height:1.45;margin:8px 0 0;padding-left:18px}
 .toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#132a4a;border:1px solid #3d6bb0;color:#fff;padding:10px 14px;border-radius:12px;font-size:14px;font-weight:700;opacity:0;transition:opacity .25s;z-index:30;pointer-events:none;max-width:92vw;text-align:center}
 .toast.show{opacity:1}
+/* AI Caddie Shot Advisor (v5.5.0, Hole 2 test) */
+.adv{background:#0d2140;border-bottom:1px solid var(--line);padding:0 10px 7px}
+.advh{display:flex;align-items:center;gap:8px;width:100%;background:none;border:0;padding:7px 2px 5px;text-align:left;font-size:12px;font-weight:800;letter-spacing:1.2px;color:#cfe0ff}
+.advh small{font-size:9.5px;color:#9fb3cf;letter-spacing:1.4px}.advh .sum{flex:1;text-align:right;font-size:12px;letter-spacing:.4px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.advh .chev{color:#9fb3cf}
+.advgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.advc{background:#132a4a;border:1px solid #2c5591;border-radius:12px;padding:7px 9px;min-width:0}
+.advc.star{border-color:var(--amber);box-shadow:inset 0 0 0 1px var(--amber)}
+.advk{font-size:10.5px;font-weight:800;letter-spacing:1.2px;color:#9fb3cf}.advc.star .advk{color:var(--amber)}
+.advclub{font-size:15px;font-weight:800;margin-top:3px;line-height:1.15}
+.advn{font-size:13px;margin-top:3px;font-variant-numeric:tabular-nums;color:#d8e4f6}.advn b{color:#fff}
+.advnote{font-size:11.5px;line-height:1.3;margin-top:4px;color:#a9c3e6}.advnote.warn{color:var(--amber)}
+.advfine{font-size:10.5px;color:#94a9c8;line-height:1.4;margin:6px 2px 0}
+.advmsg{font-size:13px;color:#d8e4f6;padding:2px 2px 4px}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -127,6 +140,10 @@ main{min-height:calc(100svh - 260px)}
     <span style="text-align:right"><span class="kind" id="liveKind">LIVE GPS</span><br><span class="flag" id="flagTxt"></span></span>
   </div>
 </div>
+<section class="adv" id="adv" hidden aria-label="AI Caddie shot advisor">
+  <button class="advh" id="advToggle" aria-expanded="true" aria-controls="advBody"><span>🏌️ AI CADDIE <small>SHOT ADVISOR</small></span><span class="sum" id="advSum"></span><span class="chev" id="advChev">▾</span></button>
+  <div id="advBody"></div>
+</section>
 <div class="nav"><button id="prev">‹ Prev</button><button id="autoBtn" class="auto">Auto hole</button><button id="next">Next ›</button></div>
 <main>
   <section id="pFly">
@@ -211,6 +228,7 @@ main{min-height:calc(100svh - 260px)}
 <div class="modal" id="holesMenu" role="dialog" aria-label="Holes menu"><div class="sheet">
   <h2>Holes</h2>
   <a class="btn2 menuitem" href="../">All holes · hole list ›</a>
+  <button class="btn2 menuitem" style="text-align:center;margin-top:10px" id="advOnOff">AI Caddie Shot Advisor · ON</button>
   <h3 style="margin-top:18px">Pin sheet</h3>
   <p class="fine" style="margin-top:0" id="psState"></p>
   <label class="big menuitem" style="text-align:center" for="psFile" id="psUpload">Upload Pins PDF</label>
@@ -234,6 +252,8 @@ main{min-height:calc(100svh - 260px)}
 <script src="pinsheet.js"></script>
 <script src="flyover.js"></script>
 <script src="caddie.js"></script>
+<script src="advisor_config.js"></script>
+<script src="advisor.js"></script>
 <script src="course.js"></script>
 <script>
 (function(){
@@ -364,7 +384,35 @@ function renderFly(){
   }
   if(S.offCourse&&S.mode==='live')setStatus('You appear to be away from Pocasset (more than 180 m from every hole). No on-course yardages are shown. Use a simulated position to preview.','warn');
   renderPresets(hd);
+  renderAdvisor(n,hd,r);
 }
+/* ---------- AI Caddie Shot Advisor (v5.5.0; holes in ADVISOR_CONFIG.holes only). Display only: reads the header's
+   V2.3.1 yardage and the existing hazard calculation; changes nothing they compute. Target = today's pin when it is
+   typed today or from a CURRENT pin sheet and placed without error; otherwise the green centre. */
+var ADV=store.get('advisor')||{};if(typeof ADV.on!=='boolean')ADV.on=true;if(typeof ADV.open!=='boolean')ADV.open=true;
+function saveAdv(){store.set('advisor',ADV)}
+function advCard(c,k,star){var lbl=k==='attack'?'🎯 ATTACK':'🛡️ PLAY SMART',rem=c.past?'~'+c.remaining+' past':c.remaining<3?'at target':'~'+c.remaining+' left';
+  return '<div class="advc'+(star?' star':'')+'" data-k="'+k+'"><div class="advk">'+(star?'⭐ ':'')+lbl+'</div><div class="advclub">'+esc(c.club.toUpperCase())+' · '+c.swingText+'</div>'+
+    '<div class="advn"><b>'+c.range.replace(' yd','')+'</b> yd · <b>'+rem+'</b></div><div class="advnote'+(k==='attack'&&c.risks.length?' warn':'')+'">'+(k==='attack'&&c.risks.length?'⚠ ':'')+esc(c.note)+'</div></div>'}
+function renderAdvisor(n,hd,r){
+  var el=$('adv'),cfg=window.ADVISOR_CONFIG,show=ADV.on&&S.tab==='fly'&&!!cfg&&cfg.holes.indexOf(n)>=0;
+  el.hidden=!show;S.adv=null;if(!show)return;
+  $('advToggle').setAttribute('aria-expanded',String(ADV.open));$('advChev').textContent=ADV.open?'▾':'▸';$('advBody').hidden=!ADV.open;
+  if(!hd||!S.me||!r||!r.onCourse){$('advSum').textContent='';$('advBody').innerHTML='<p class="advmsg">'+(S.offCourse?'Away from the course: no recommendation.':'Start GPS, or use SIMULATE / move me, for a recommendation.')+'</p>';return}
+  var pl=pins.placed(n),st=pl.src==='sheet'?sheetStatus():null,pinOK=(pl.src==='today'||(pl.src==='sheet'&&st==='current'))&&!!pl.ll&&!(pl.res&&pl.res.err)&&r.flag!=null;
+  var why=pinOK?'':pl.src==='sheet'&&st!=='current'?' (pin sheet '+(st==='expired'?'expired':'future-dated')+')':' (no pin today)';
+  var me=meUV(hd),tuv=pinOK?hd.hole.frame.toUV(pl.ll[0],pl.ll[1]):hd.hole.centerUV;
+  var a=PAdvisor.recommend({hole:hd.hole,me:me,targetUV:tuv,targetYd:pinOK?r.flag:r.center,targetKind:pinOK?'flag':'centre',centreYd:r.center,par:PARS[n-1],
+    teeUVs:hd.tees.map(function(t){return t.uv}),cfg:cfg,posText:PFly.posText});
+  S.adv=a;var tgt=pinOK?'To flag '+r.flag+' yd':'To centre '+r.center+' yd'+why;
+  if(a.mode==='green'){$('advSum').textContent='';$('advBody').innerHTML='<p class="advmsg">'+esc(a.message)+' '+esc(tgt)+'.</p>';return}
+  var sp=a.star==='smart'?a.smart:a.attack;
+  $('advSum').textContent=ADV.open?'':'⭐ '+(a.star==='smart'?'PLAY SMART':'ATTACK')+' · '+sp.club.toUpperCase()+' '+sp.swingText;
+  $('advBody').innerHTML='<div class="advgrid">'+advCard(a.attack,'attack',a.star==='attack')+advCard(a.smart,'smart',a.star==='smart')+'</div>'+
+    '<p class="advfine">'+esc(tgt)+' · <b>'+(a.basis==='hazard-checked'?'HAZARD-CHECKED':'DISTANCE-BASED')+'</b>'+(a.hazardCount&&!a.hazardsVerified?' · hazards unverified':'')+' · carry vs total not confirmed</p>';
+}
+$('advToggle').onclick=function(){ADV.open=!ADV.open;saveAdv();render()};
+$('advOnOff').onclick=function(){ADV.on=!ADV.on;saveAdv();this.textContent='AI Caddie Shot Advisor · '+(ADV.on?'ON':'OFF');render()};
 /* ---------- GPS zoom (all flyover holes). The image and its overlay move together: the overlay is redrawn
    in image pixels for the visible box (PFly.overlay box) and the SVG viewBox and the image transform show the same box,
    so every mark stays on its ground point. Distance = the header's centre yardage (V2.3.1 engine, unchanged), smoothed;
@@ -508,7 +556,7 @@ function fmtDay(d){var p=d.split('-');return new Date(+p[0],+p[1]-1,+p[2]).toLoc
 function renderMenu(){var st=sheetStatus();
   $('psState').innerHTML=SHEET?'<span class="psb '+st+'">'+ST_TXT[st]+'</span> Loaded: <b>'+esc(SHEET.dateText)+'</b>'+(st==='expired'?' — pin positions may have changed.':st==='future'?' — dated after today.':'')+'<br>From '+esc(SHEET.file||'PDF')+', applied '+esc(new Date(SHEET.loaded).toLocaleString())+'.':'No pin sheet loaded.';
   $('psUpload').textContent=SHEET?'Upload newer Pins PDF':'Upload Pins PDF';$('psClear').hidden=!SHEET}
-$('holesBtn').onclick=function(){renderMenu();$('holesMenu').classList.add('open')};
+$('holesBtn').onclick=function(){renderMenu();$('advOnOff').textContent='AI Caddie Shot Advisor · '+(ADV.on?'ON':'OFF');$('holesMenu').classList.add('open')};
 $('menuClose').onclick=function(){$('holesMenu').classList.remove('open')};
 var psClearArmed=0;$('psClear').onclick=function(){var now=Date.now(),b=$('psClear');
   if(now-psClearArmed<3000){psClearArmed=0;store.remove('pinsheet');SHEET=null;b.textContent='Clear saved pins';renderMenu();render();toast('Saved pin sheet cleared.');return}
@@ -626,7 +674,7 @@ function render(){
   var n=hole();
   if(!S.hd||S.hd.n!==n){S.hd={n:n,data:null};loadHole(n,function(d){if(S.hd&&S.hd.n===n){S.hd.data=d;render()}})}
   renderHeader();
-  if(S.tab==='fly')renderFly();else renderReadout();
+  if(S.tab==='fly')renderFly();else{renderReadout();$('adv').hidden=true}
   if(S.tab==='green')renderGreen();
   if(S.tab==='score')renderScore();
 }
