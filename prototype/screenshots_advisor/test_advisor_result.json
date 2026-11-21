@@ -1,8 +1,17 @@
 {
  "checks": {
-  "shown on Hole 2 before a position, with a prompt": {
+  "Hole 2 shows only the AI CADDIE · SHOW button at the start (suggestion hidden)": {
+   "pass": true
+  },
+  "still hidden after a position is set; no club on screen": {
    "pass": true,
-   "detail": "Start GPS, or use SIMULATE / move me, for a recommendation."
+   "detail": "🏌️ AI CADDIE SHOT ADVISOR\nSHOW ▸"
+  },
+  "SHOW reveals the two cards": {
+   "pass": true
+  },
+  "stays shown after reload once turned on": {
+   "pass": true
   },
   "Tee box (Green tee preset): two cards shown": {
    "pass": true,
@@ -402,9 +411,8 @@
     "rem": 85
    }
   },
-  "collapses to one line with the ⭐ pick": {
-   "pass": true,
-   "detail": "⭐ PLAY SMART · 8-IRON FULL"
+  "HIDE collapses it again, no club shown": {
+   "pass": true
   },
   "expands again": {
    "pass": true

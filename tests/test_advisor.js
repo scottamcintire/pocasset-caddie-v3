@@ -20,7 +20,10 @@ const moveMe=(pg,uv)=>pg.evaluate(p=>{const P=__play,S=P.S,hd=P.HD[2];document.g
 (async()=>{
  const b=await chromium.launch();
  const pg=await open(b);
- const g=await readAdv(pg);ok('shown on Hole 2 before a position, with a prompt',g.shown&&/Start GPS/.test(g.msg),g.msg);
+ const g=await readAdv(pg);ok('Hole 2 shows only the AI CADDIE · SHOW button at the start (suggestion hidden)',g.shown&&await pg.locator('#advBody').isHidden()&&(await pg.textContent('#advChev'))==='SHOW ▸');
+ await preset(pg,'Green tee');ok('still hidden after a position is set; no club on screen',await pg.locator('#advBody').isHidden()&&!/DRIVER|HYBRID|IRON|WEDGE/.test(await pg.locator('#adv').innerText()),await pg.locator('#adv').innerText());
+ await pg.click('#advToggle');ok('SHOW reveals the two cards',await pg.locator('.advc[data-k="attack"]').isVisible()&&(await pg.textContent('#advChev'))==='HIDE ▾');
+ await pg.reload();await pg.waitForTimeout(600);await pg.evaluate(()=>__play.goHole(2,true));await pg.waitForTimeout(500);ok('stays shown after reload once turned on',await pg.locator('#advBody').isVisible());
  const U=await pg.evaluate(()=>{const h=__play.HD[2].hole,c=h.centerUV,a=h.alongFromGreen(45);return {w140:h.alongFromGreen(140),w124:h.alongFromGreen(124),w45:a,beyond:[c[0]+(c[0]-h.alongFromGreen(30)[0]),c[1]+(c[1]-h.alongFromGreen(30)[1])]}});
  const RULE=[];const CASES=[
   ['Tee box (Green tee preset)',()=>preset(pg,'Green tee'),{a:'DRIVER · FULL',s:'5-HYBRID · FULL',star:'smart',sNote:/in range for shot 2/}],
@@ -52,7 +55,7 @@ const moveMe=(pg,uv)=>pg.evaluate(p=>{const P=__play,S=P.S,hd=P.HD[2];document.g
  // dogleg-free sanity: remaining after a full shot = header centre − expected distance (±6 yd) at 250 yd out
  await preset(pg,'250 yd out');let r=await readAdv(pg);ok('rule follows the header centre: ⭐ Play Smart beyond 130, Attack at 130 or closer (all positions)',RULE.every(x=>x.c>130?x.star==='smart':x.star==='attack'),RULE);const rem=+r.attack.n.match(/~(\d+) left/)[1];ok('remaining ≈ centre − mid distance',Math.abs((+r.center-165)-rem)<=6,{center:r.center,rem});
  // collapse / expand, and summary line
- await pg.click('#advToggle');r=await readAdv(pg);const sum=await pg.textContent('#advSum');ok('collapses to one line with the ⭐ pick',await pg.locator('#advBody').isHidden()&&/⭐ PLAY SMART · 8-IRON/.test(sum),sum);
+ await pg.click('#advToggle');r=await readAdv(pg);ok('HIDE collapses it again, no club shown',await pg.locator('#advBody').isHidden()&&!/IRON|HYBRID|WEDGE/.test(await pg.locator('#adv').innerText()));
  await pg.click('#advToggle');ok('expands again',await pg.locator('#advBody').isVisible());
  // tabs and other holes
  await pg.evaluate(()=>__play.setTab('green'));ok('hidden on GREEN tab',(await readAdv(pg)).shown===false);

@@ -2,6 +2,10 @@
 
 All changes to the V3 project, newest first. V3 is separate from production: nothing here changes the live app (V2.3.1 at scottamcintire.github.io/pocasset_caddie), its repository, the archived V2.2.1, or the approved greens. Git tags mark preserved versions.
 
+## v5.5.2-advisor-show-button: club suggestion hidden until SHOW is tapped (test release, 20 Nov 2026)
+- Owner: the AI Caddie strip starts as one line with a SHOW button; no club is on screen until it is tapped. HIDE folds it away; the choice is remembered on the phone. Phones that used v5.5.0/v5.5.1 start hidden once.
+- Still Hole 2 only (all-hole rollout on hold). Tests: test_advisor 92/92, test_play 38/38, test_minimal 82/82, test_zoom 202/202.
+
 ## v5.5.1-advisor-owner-rules: Shot Advisor follows the owner's par-4 and Hole 2 rules (test release, 20 Nov 2026)
 - Per-hole strategy in app/advisor_config.js `hole_strategy`. Hole 2 (owner): go for the green from 130 yd or closer to the centre (⭐ Attack); farther back, ⭐ Play Smart = lay up short of the trouble in front (pond / front bunkers). Hole 6 "always lay up" recorded, not active (Hole 6 not enabled).
 - Par 4/5 tee (owner): Driver earns the ⭐ only if it is what brings the green into range for shot 2 (within the longest fairway club, and inside the hole's go-for-it distance if set); otherwise ⭐ 5-hybrid. Hole 2: Green/Blue/Gold → 5-hybrid; Bronze (candidate tee) → Driver (leaves ~120).
